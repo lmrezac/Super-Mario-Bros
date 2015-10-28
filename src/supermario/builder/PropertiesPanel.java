@@ -227,7 +227,7 @@ public class PropertiesPanel extends JPanel
         final JLabel levelTypeLabel = new JLabel("Level Type:");
         levelTypeLabel.setFont(this.frame.bold);
         this.add(levelTypeLabel, getConstraints(0, row++, 6, 1, 0, 0, 10, 0, 0, 0, 5, 0));
-        final String[] levelTypeList = { " Above Ground Daytime ", " Underground ", " Castle ", " Underwater ", " Above Ground Nighttime ", " Coin Zone Daytime ", " Coin Zone Nighttime " };
+        final String[] levelTypeList = { " Above Ground Daytime ", " Underground ", " Castle ", " Underwater ", " Above Ground Nighttime ", " Coin Zone Daytime ", " Coin Zone Nighttime ", "Ghost House" };
         final JComboBox<String> levelTypeComboBox = new JComboBox<String>(levelTypeList);
         final JComboBox<String> levelEndComboBox = new JComboBox<String>();
         levelTypeComboBox.setToolTipText("Determines the visual style and music of the level...");
@@ -579,7 +579,7 @@ public class PropertiesPanel extends JPanel
         if (levelType == 0 || levelType == 4) {
             levelEndNames = new String[] { " Nothing ", " Flag w/Small Castle ", " Flag w/Large Castle " };
         }
-        else if (levelType == 1 || levelType == 3 || levelType == 5 || levelType == 6) {
+        else if (levelType == 1 || levelType == 3 || levelType == 5 || levelType == 6 || levelType == 7) {
             levelEndNames = new String[] { " Nothing " };
         }
         else if (levelType == 2) {

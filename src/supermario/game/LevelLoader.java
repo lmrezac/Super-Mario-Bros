@@ -364,7 +364,7 @@ public class LevelLoader
     
     private void getLevelType(final char[] chars) throws Exception {
         final char levelTypeChar = chars[(this.lineLength + 2) * Game.yTiles];
-        if (levelTypeChar == '0') {
+        /*if (levelTypeChar == '0') {
             this.levelType = 0;
         }
         else if (levelTypeChar == '1') {
@@ -388,7 +388,8 @@ public class LevelLoader
                 throw new RuntimeException("Level type character is invalid in file");
             }
             this.levelType = 6;
-        }
+        }*/
+        this.levelType = Integer.parseInt(Character.toString(levelTypeChar));
     }
     
     private void getPipeType(final char[] chars) {
@@ -836,11 +837,13 @@ public class LevelLoader
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile == 'm') {
+                	System.out.println("loading fake dark tile");
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*dark*/lightGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                     chars[i+j] = 'l';
                 }
                 else if (tile == 'n') {
+                	System.out.println("loading fake stone tile");
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*stone*/lightGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                     chars[i+j] = 'l';

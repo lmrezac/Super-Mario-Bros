@@ -128,8 +128,10 @@ public abstract class Sprite
         this.xTile = tile.xTile;
         this.yTile = tile.yTile;
     }
-    
-    public void draw(final Graphics2D g2D) {
+    public void draw(Graphics2D g){
+    	draw(g,-1);
+    }
+    public void draw(final Graphics2D g2D,int levelType) {
         if (!this.visible) {
             return;
         }
@@ -145,9 +147,15 @@ public abstract class Sprite
             this.transform.scale(1.0, -1.0);
         }
         try{
-        g2D.drawImage(this.images[this.imageIndex].getImage(), this.transform, null);
+        	if(levelType!= -1)
+        		g2D.drawImage(this.game.textures.getLevelTypeAlt(levelType, this.images[this.imageIndex]).getImage(),this.transform,null);
+        	else
+        		g2D.drawImage(this.images[this.imageIndex].getImage(), this.transform, null);
         }catch(ArrayIndexOutOfBoundsException e){
-        	g2D.drawImage(this.images[this.images.length-1].getImage(),this.transform,null);
+        	if(levelType != -1)
+        		g2D.drawImage(this.game.textures.getLevelTypeAlt(levelType, this.images[this.images.length-1]).getImage(),this.transform,null);
+        	else
+        		g2D.drawImage(this.images[this.images.length-1].getImage(),this.transform,null);
         }
     }	
     

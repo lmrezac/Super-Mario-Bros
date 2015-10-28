@@ -106,6 +106,7 @@ public final class Level
     public static final int LEVEL_TYPE_OUTSIDE_NIGHT = 4;
     public static final int LEVEL_TYPE_COIN_ZONE_DAY = 5;
     public static final int LEVEL_TYPE_COIN_ZONE_NIGHT = 6;
+    public static final int LEVEL_TYPE_GHOST_HOUSE = 7;
     public static final int TILES_OFF_SCREEN_TO_UPDATE_ON_LEFT = 19;
     public static final int TILES_OFF_SCREEN_TO_UPDATE_ON_RIGHT = 19;
     public static final int TILES_OFF_SCREEN_TO_UPDATE_ON_RIGHT_FOR_MOBILE_ENEMIES = 5;
@@ -1170,22 +1171,7 @@ public final class Level
                     	ImageIcon image;
                     	
                     	Textures textures = this.game.textures;
-                    	/*switch(levelType){
-                    	case TYPE_NORMAL:
-                    	case TYPE_NIGHT:
-                    		image = textures.lightGround;break;
-                    	case TYPE_UNDERGROUND:
-                    		image = textures.darkGround;break;
-                    	case TYPE_COIN_DAY:
-                    	case TYPE_COIN_NIGHT:
-                    		image = textures.cloudGround;break;
-                    	case TYPE_CASTLE:
-                    		image = textures.stoneGround;break;
-                    	case TYPE_WATER:
-                    		image = textures.seaGround;break;
-                    	default:
-                    		image = textures.lightGround;
-                    	}*/
+                    	
                     	image = textures.getLevelTypeAlt(levelType,textures.lightGround);
                     	//if there is nothing above this tile
                     	if(i != 0 && tiles[i-1][j].isPermeableTile()){
@@ -1226,6 +1212,7 @@ public final class Level
                     	}else{
                     		g2D.drawImage(image.getImage(), this.transform, null);
                     	}
+                   
                     //else draw it normally
                     }else{
                     	g2D.drawImage(this.game.textures.getLevelTypeAlt(this.levelType,this.tiles[i][j].image).getImage(), this.transform, null);
@@ -1247,7 +1234,7 @@ public final class Level
         for (int i = 0; i < Game.yTiles; ++i) {
             for (int j = firstDrawnTile; j <= lastDrawnTile; ++j) {
                 if (this.tiles[i][j].sprite != null && this.drawAsTile(this.tiles[i][j].sprite)) {
-                    this.tiles[i][j].sprite.draw(g2D);
+                	this.tiles[i][j].sprite.draw(g2D,this.levelType);
                 }
             }
         }

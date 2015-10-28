@@ -278,8 +278,8 @@ public class Textures
     public ImageIcon warpZonePipeOrange;
     public ImageIcon smallCastle;
     public ImageIcon largeCastle;
-    public ImageIcon bigHill;
-    public ImageIcon smallHill;
+    public ImageIcon bigHill, bigHillDark, bigHillCastle, bigHillSea;
+    public ImageIcon smallHill, smallHillDark, smallHillCastle, smallHillSea;
     public ImageIcon flag;
     public ImageIcon castleFlag;
     public ImageIcon flagpoleGreen;
@@ -1151,7 +1151,8 @@ public class Textures
         this.fakePrincess = image(prefix,"tiles/toad.png",24);
         this.lightBrick = image(prefix,"tiles/overworld/brick.png",16);
         this.darkBrick = image(prefix,"tiles/underground/brick.png",16);
-        this.stoneBrick = image(prefix,"tiles/castle/brick.png");
+        this.stoneBrick = image(prefix,"tiles/castle/brick.png",16);
+        System.out.println("stoneBrick is bric? "+isBrick(stoneBrick));
         TextureMap ground = new TextureMap(prefix+"tiles/overworld/ground.png");
         this.lightGround = ground.getTile(1, 1);
         this.lightGroundTopLeft = ground.getTile(0, 0);
@@ -1299,11 +1300,24 @@ public class Textures
     	catch(MessageException ex){this.seaBrick = this.lightBrick;}
     	try{this.seaCoin = image(prefix,"tiles/underwater/coin.png",16);}
     	catch(MessageException ex){this.seaCoin = this.lightCoin;}
+    	
     	//dark
+    	try{this.bigHillDark = image(prefix,"tiles/underground/hill_lg.png",16);}
+    	catch(MessageException ex){this.bigHillDark = this.bigHill;}
+    	try{this.smallHillDark = image(prefix,"tiles/underground/hill_sm.png",16);}
+    	catch(MessageException ex){this.smallHillDark = this.smallHill;}
     	
     	//castle
+    	try{this.bigHillCastle = image(prefix,"tiles/castle/hill_lg.png",16);}
+    	catch(MessageException ex){this.bigHillCastle = this.bigHill;}
+    	try{this.smallHillCastle = image(prefix,"tiles/castle/hill_sm.png",16);}
+    	catch(MessageException ex){this.smallHillCastle = this.smallHill;}
     	
     	//sea
+    	try{this.bigHillSea = image(prefix,"tiles/underwater/hill_lg.png",16);}
+    	catch(MessageException ex){this.bigHillSea = this.bigHill;}
+    	try{this.smallHillSea = image(prefix,"tiles/underwater/hill_sm.png",16);}
+    	catch(MessageException ex){this.smallHillSea = this.smallHill;}
     }
     public void pipesInit(String prefix)  {
         this.greenPipes = this.getGreenPipeImages(prefix);
@@ -1318,7 +1332,6 @@ public class Textures
     	}
     	return pipeSet;
     }
-    //public ImageIcon[] getPipeImages(int pipeColor)  { return getPipeImages("images/",pipeColor); }
     public ImageIcon[] getGreenPipeImages(String prefix)  {
        
         final ImageIcon[] pipeSet = new ImageIcon[11];
@@ -1342,22 +1355,12 @@ public class Textures
        
         return pipeSet;
     }
-    //public void spritesInit()  { spritesInit("images/"); }
+   
     public void spritesInit(String prefix)  {
     	try{
         this.flag = image(prefix,"tiles/overworld/flag_green.png",16);//tiles.get16xSprite(112,16);//image(prefix,"tiles/flag.png");
         this.checkPtFlag = image(prefix,"sprites/flag.png");
         this.castleFlag = image(prefix,"tiles/overworld/flag_red.png",16);//tiles.get16xSprite(96,16);//image(prefix,"tiles/castleFlag.png");
-        /*this.darkCoin1 = tiles.get16xSprite(48,209);//image(prefix,"sprites/coin/darkCoin1.png");
-        this.darkCoin2 = tiles.get16xSprite(64,209);//image(prefix,"sprites/coin/darkCoin2.png");
-        this.darkCoin3 = tiles.get16xSprite(80,209);//image(prefix,"sprites/coin/darkCoin3.png");
-        this.lightCoin1 = tiles.get16xSprite(48, 193);//image(prefix,"sprites/coin/lightCoin1.png");
-        this.lightCoin2 = tiles.get16xSprite(64,193);//image(prefix,"sprites/coin/lightCoin2.png");
-        this.lightCoin3 = tiles.get16xSprite(80,193);//image(prefix,"sprites/coin/lightCoin3.png");
-        this.stoneCoin1 = tiles.get16xSprite(48,225);//image(prefix,"sprites/coin/stoneCoin1.png");
-        this.stoneCoin2 = tiles.get16xSprite(64,225);//image(prefix,"sprites/coin/stoneCoin2.png");
-        this.stoneCoin3 = tiles.get16xSprite(80,225);//image(prefix,"sprites/coin/stoneCoin3.png");
-       */
         this.darkCoin = image(prefix,"tiles/underground/coin.png",16);
         this.lightCoin = image(prefix,"tiles/overworld/coin.png",16);
         this.stoneCoin = image(prefix,"tiles/castle/coin.png",16);
@@ -1532,7 +1535,7 @@ public class Textures
 			System.exit(0);
     	}
     }
-    //public void effectsInit()  { effectsInit("images/"); }
+    
     public void effectsInit(String prefix)  {
     	try{
         this.lightBrickPiece1 = image(prefix,"effects/brickPieces/lightBrickPiece1.png");
@@ -1572,24 +1575,9 @@ public class Textures
 			System.exit(0);
     	}
     }
-    //private ImageIcon image(String imageName)  { return image("images/",imageName); }
+  
     private ImageIcon image(String prefix, String imageName)throws MessageException  {
-       /* ImageIcon image = null;
-        try {
-            final byte[] imageBytes = Utilities.getBytes("images/" + imageName.substring(0, imageName.length() - 4), Game.class);
-            Utilities.decrypt(imageBytes);
-            image = new ImageIcon(imageBytes);
-            if (image.getIconWidth() == -1) {
-                this.validTextures = false;
-                throw new RuntimeException("Invalid image: " + imageName);
-            }
-        }
-        catch (Exception ex) {
-            System.out.println("Problem with: " + imageName);
-            throw new RuntimeException();
-        }
-        save(imageName,image);
-        return image;*/
+      
     	BufferedImage img = null;
     	try{
     		img = ImageIO.read(new File(prefix+imageName));
@@ -1635,10 +1623,12 @@ public class Textures
     			}
     		}
     	}
-    	//
     	
-    	ImageIcon image = new AnimatedIcon(img,expectedHeight);
-    	
+    	ImageIcon image;
+    	if(img.getHeight()>expectedHeight)
+    		image = new AnimatedIcon(img,expectedHeight);
+    	else
+    		image = new ImageIcon(img);
     	if (image.getIconWidth() == -1) {
     		image = new ImageIcon("images/"+imageName);
     		if(image.getIconWidth() == -1){
@@ -1648,23 +1638,9 @@ public class Textures
         }
     	return image;
     }
-    //public static final String dir = System.getProperty("user.dir");
-    /*public static void save(String filename,ImageIcon image){
-    	Image img = image.getImage();
-
-    	BufferedImage bi = new BufferedImage(img.getWidth(null),img.getHeight(null),BufferedImage.TYPE_INT_ARGB);
-
-    	Graphics2D g2 = bi.createGraphics();
-    	g2.drawImage(img, 0, 0, null);
-    	g2.dispose();
-    	try{
-			ImageIO.write(bi, "png", new File("images/"+filename));
-			System.out.println("Wrote : "+"images/"+filename);
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-    }*/
+   
     public ImageIcon getLevelTypeAlt(int leveltype,ImageIcon icon){
+    	
     	switch(leveltype){
     	case Level.LEVEL_TYPE_CASTLE:
     		return getCastleVariant(icon);
@@ -1761,7 +1737,7 @@ public class Textures
     	}
     }
     public boolean isCoin(ImageIcon icon){
-    	return icon == lightCoin || icon == darkCoin || icon == stoneCoin;
+    	return icon == lightCoin || icon == darkCoin || icon == stoneCoin || icon == seaCoin;
     }
     public boolean isBrick(ImageIcon icon){
     	return icon == this.lightBrick || icon == this.darkBrick|| icon == this.stoneBrick || icon == this.seaBrick;
@@ -1847,6 +1823,7 @@ public class Textures
 }
 
 class MessageException extends Exception{
+	private static final long serialVersionUID = 3248878419786597659L;
 	private Exception ex;
 	private String message;
 	public MessageException(Exception e, String msg){
