@@ -1820,6 +1820,9 @@ public class Textures
     	if(isGroundTile(icon,"bottom"))return this.cloudGroundBottom;
     	return getLightVariant(icon);
     }
+    public ImageIcon getGhostHouseVariant(ImageIcon icon){
+    	
+    }
 }
 
 class MessageException extends Exception{
