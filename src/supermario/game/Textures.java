@@ -224,6 +224,7 @@ public class Textures
     public ImageIcon lightBrick;
     public ImageIcon darkBrick;
     public ImageIcon stoneBrick;
+    public ImageIcon ghostBrick;
     //MARK ground here
     public ImageIcon lightGround;
     public ImageIcon lightGroundTop, lightGroundTopLeft, lightGroundTopRight,
@@ -233,19 +234,31 @@ public class Textures
     public ImageIcon darkGroundTop, darkGroundTopLeft, darkGroundTopRight,
 					darkGroundLeft,darkGroundRight, darkGroundBottomLeft,
     				darkGroundBottom, darkGroundBottomRight;
+    public ImageIcon ghostGround;
+    public ImageIcon ghostGroundTop, ghostGroundTopLeft, ghostGroundTopRight,
+					ghostGroundLeft,ghostGroundRight, ghostGroundBottomLeft,
+    				ghostGroundBottom, ghostGroundBottomRight;
     public ImageIcon lightBlock;
     public ImageIcon darkBlock;
     public ImageIcon stoneBlock;
+    public ImageIcon ghostBlock;
     public ImageIcon cloudGround;
     public ImageIcon cloudGroundTop, cloudGroundTopLeft, cloudGroundTopRight,
     				cloudGroundLeft,cloudGroundRight, cloudGroundBottomLeft,
     				cloudGroundBottom, cloudGroundBottomRight;
+    public ImageIcon darkCloudGround;
+    public ImageIcon darkCloudGroundTop, darkCloudGroundTopLeft, darkCloudGroundTopRight,
+    				darkCloudGroundLeft,darkCloudGroundRight, darkCloudGroundBottomLeft,
+    				darkCloudGroundBottom, darkCloudGroundBottomRight;
     public ImageIcon singleCloud;
     public ImageIcon doubleCloud;
     public ImageIcon tripleCloud;
     public ImageIcon singleBush;
+    public ImageIcon singleBushDark, singleBushCastle, singleBushWater, singleBushGhost;
     public ImageIcon doubleBush;
+    public ImageIcon doubleBushDark, doubleBushCastle, doubleBushWater, doubleBushGhost;
     public ImageIcon tripleBush;
+    public ImageIcon tripleBushDark, tripleBushCastle, tripleBushWater, tripleBushGhost;
     public HashMap<Character, ImageIcon> symbols;
     public static final char LEFT_ARROW = '\uffff';
     public static final char RIGHT_ARROW = '\ufffe';
@@ -1188,8 +1201,21 @@ public class Textures
         this.cloudGroundBottom = ground.getTile(1,2);
         this.cloudGroundBottomRight = ground.getTile(2,2);
         
+        ground = new TextureMap(prefix+"tiles/ghost/ground.png");
+        this.ghostGround = ground.getTile(1, 1);
+        this.ghostGroundTopLeft = ground.getTile(0, 0);
+        this.ghostGroundTop = ground.getTile(1, 0);
+        this.ghostGroundTopRight = ground.getTile(2,0);
+        this.ghostGroundLeft = ground.getTile(0,1);
+        this.ghostGroundRight = ground.getTile(2,1);
+        this.ghostGroundBottomLeft = ground.getTile(0,2);
+        this.ghostGroundBottom = ground.getTile(1,2);
+        this.ghostGroundBottomRight = ground.getTile(2,2);
+        
         this.lightMetal = image(prefix,"tiles/overworld/metal.png",16);//tiles.get16xSprite(144,0);//image(prefix,"tiles/lightMetal.png");
         this.darkMetal = image(prefix,"tiles/underground/metal.png",16);//tiles.get16xSprite(160,0);//image(prefix,"tiles/darkMetal.png");
+       
+        
         this.bigHill = image(prefix,"tiles/overworld/hill_lg.png");//tiles.getSubImage(192,0,80,40);//image(prefix,"tiles/bigHill.png");
         this.smallHill = image(prefix,"tiles/overworld/hill_sm.png");//tiles.getSubImage(224,40,48,24);//image(prefix,"tiles/smallHill.png");
         this.singleBush = image(prefix,"tiles/overworld/bush_sm.png",16);//tiles.getSubImage(144,16,32,16);//image(prefix,"tiles/singleBush.png");
@@ -1306,18 +1332,34 @@ public class Textures
     	catch(MessageException ex){this.bigHillDark = this.bigHill;}
     	try{this.smallHillDark = image(prefix,"tiles/underground/hill_sm.png",16);}
     	catch(MessageException ex){this.smallHillDark = this.smallHill;}
+    	try{this.singleBushDark = image(prefix,"tiles/underground/bush_sm.png",16);}
+    	catch(MessageException ex){this.singleBushDark = this.singleBush;}
     	
     	//castle
     	try{this.bigHillCastle = image(prefix,"tiles/castle/hill_lg.png",16);}
     	catch(MessageException ex){this.bigHillCastle = this.bigHill;}
     	try{this.smallHillCastle = image(prefix,"tiles/castle/hill_sm.png",16);}
     	catch(MessageException ex){this.smallHillCastle = this.smallHill;}
+    	try{this.singleBushCastle = image(prefix,"tiles/castle/bush_sm.png",16);}
+    	catch(MessageException ex){this.singleBushCastle = this.singleBushDark;}
     	
     	//sea
     	try{this.bigHillSea = image(prefix,"tiles/underwater/hill_lg.png",16);}
     	catch(MessageException ex){this.bigHillSea = this.bigHill;}
     	try{this.smallHillSea = image(prefix,"tiles/underwater/hill_sm.png",16);}
     	catch(MessageException ex){this.smallHillSea = this.smallHill;}
+    	try{this.singleBushWater = image(prefix,"tiles/underwater/bush_sm.png",16);}
+    	catch(MessageException ex){this.singleBushWater = this.singleBush;}
+    	
+    	//ghost
+    	try{this.ghostBlock = image(prefix,"tiles/ghost/block.png",16);}
+    	catch(MessageException ex){this.ghostBlock = this.darkBlock;}
+    	try{this.ghostBrick = image(prefix,"tiles/ghost/brick.png",16);}
+    	catch(MessageException ex){this.ghostBrick = this.darkBrick;}
+    	try{this.singleBushGhost = image(prefix,"tiles/ghost/bush_sm.png",16);}
+    	catch(MessageException ex){this.singleBushGhost = this.singleBushDark;}
+    	try{this.doubleBushGhost = image(prefix,"tiles/ghost/bush_md.png",16);}
+    	catch(MessageException ex){this.doubleBushGhost = this.doubleBushDark;}
     }
     public void pipesInit(String prefix)  {
         this.greenPipes = this.getGreenPipeImages(prefix);
@@ -1745,7 +1787,11 @@ public class Textures
     public boolean isBlock(ImageIcon icon){
     	return icon == this.lightBlock || icon == this.darkBlock || icon == this.stoneBlock || icon == this.seaBlock;
     }
+    public boolean isQuestionBox(ImageIcon icon){
+    	return icon == this.lightQuestionBox||icon == this.darkQuestionBox||icon == this.stoneQuestionBox;
+    }
     public ImageIcon getLightVariant(ImageIcon icon){
+    	if(isQuestionBox(icon))return this.lightQuestionBox;
     	if(icon == this.entryVineDark)return this.entryVineLight;
     	if(isCoin(icon))return this.lightCoin;
     	if(isBrick(icon))return this.lightBrick;
@@ -1762,6 +1808,7 @@ public class Textures
     	return icon;
     }
     public ImageIcon getDarkVariant(ImageIcon icon){
+    	if(isQuestionBox(icon))return this.darkQuestionBox;
     	if(icon == this.entryVineLight)return this.entryVineDark;
     	if(isCoin(icon))return this.darkCoin;
     	if(isBrick(icon))return this.darkBrick;
@@ -1778,6 +1825,7 @@ public class Textures
     	return icon;
     }
     public ImageIcon getCastleVariant(ImageIcon icon){
+    	if(isQuestionBox(icon))return this.stoneQuestionBox;
     	if(icon == this.entryVineLight)return this.entryVineDark;
     	if(isCoin(icon))return this.stoneCoin;
     	if(isBrick(icon))return this.stoneBrick;
@@ -1819,6 +1867,9 @@ public class Textures
     	if(isGroundTile(icon,"bottomRight"))return this.cloudGroundBottomRight;
     	if(isGroundTile(icon,"bottom"))return this.cloudGroundBottom;
     	return getLightVariant(icon);
+    }
+    public ImageIcon getGhostHouseVariant(ImageIcon icon){
+    
     }
 }
 

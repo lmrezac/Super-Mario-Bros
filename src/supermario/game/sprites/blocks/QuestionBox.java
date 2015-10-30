@@ -74,12 +74,13 @@ public class QuestionBox extends Sprite implements Block, Warpable
         this.ticks += delta;
        // final int pulseIndex = Utilities.getPulsingImageIndex();
         if (!this.hit && !this.hidden) {
+        	this.imageIndex = 0;
             //this.imageIndex = pulseIndex;
             if (this.shadowColor == 1) {
-                this.imageIndex += 1;
+                this.imageIndex = 1;
             }
             else if (this.shadowColor == 2) {
-                this.imageIndex += 2;
+                this.imageIndex = 2;
             }
         }
         else if (!this.hit && this.hidden) {
