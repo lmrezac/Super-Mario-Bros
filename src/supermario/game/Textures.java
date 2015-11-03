@@ -291,8 +291,8 @@ public class Textures
     public ImageIcon warpZonePipeOrange;
     public ImageIcon smallCastle;
     public ImageIcon largeCastle;
-    public ImageIcon bigHill, bigHillDark, bigHillCastle, bigHillSea;
-    public ImageIcon smallHill, smallHillDark, smallHillCastle, smallHillSea;
+    public ImageIcon bigHill, bigHillDark, bigHillCastle, bigHillSea, bigHillGhost;
+    public ImageIcon smallHill, smallHillDark, smallHillCastle, smallHillSea, smallHillGhost;
     public ImageIcon flag;
     public ImageIcon castleFlag;
     public ImageIcon flagpoleGreen;
@@ -418,8 +418,8 @@ public class Textures
     public ImageIcon stoneMetal;
     public ImageIcon darkMetal;
     public ImageIcon lightMetal;
-    public ImageIcon tallTrimmedBush;
-    public ImageIcon shortTrimmedBush;
+    public ImageIcon tallTrimmedBush, tallTrimmedBushDark, tallTrimmedBushSea, tallTrimmedBushGhost;
+    public ImageIcon shortTrimmedBush, shortTrimmedBushDark, shortTrimmedBushSea, shortTrimmedBushGhost;
     public ImageIcon picketFence, picketFenceLeft, picketFenceRight;
     public ImageIcon bridge;
     public ImageIcon shortSnowyBush;
@@ -1162,10 +1162,10 @@ public class Textures
     	try{
         this.bubby = image(prefix,"tiles/princess.png",24);
         this.fakePrincess = image(prefix,"tiles/toad.png",24);
-        this.lightBrick = image(prefix,"tiles/overworld/brick.png",16);
-        this.darkBrick = image(prefix,"tiles/underground/brick.png",16);
-        this.stoneBrick = image(prefix,"tiles/castle/brick.png",16);
-        System.out.println("stoneBrick is bric? "+isBrick(stoneBrick));
+        this.lightBrick = tile(prefix,"brick.png",16);
+        this.darkBrick = lightBrick;//image(prefix,"tiles/underground/brick.png",16);
+        this.stoneBrick = stoneBrick;//image(prefix,"tiles/castle/brick.png",16);
+        //System.out.println("stoneBrick is bric? "+isBrick(stoneBrick));
         TextureMap ground = new TextureMap(prefix+"tiles/overworld/ground.png");
         this.lightGround = ground.getTile(1, 1);
         this.lightGroundTopLeft = ground.getTile(0, 0);
@@ -1186,9 +1186,9 @@ public class Textures
         this.darkGroundBottomLeft = ground.getTile(0,2);
         this.darkGroundBottom = ground.getTile(1,2);
         this.darkGroundBottomRight = ground.getTile(2,2);
-        this.lightBlock = image(prefix,"tiles/overworld/block.png",16);//tiles.get16xSprite(96,0);//image(prefix,"tiles/lightBlock.png");
-        this.darkBlock = image(prefix,"tiles/underground/block.png",16);//tiles.get16xSprite(112,0);//image(prefix,"tiles/darkBlock.png");
-        this.stoneBlock = image(prefix,"tiles/castle/block.png",16);//tiles.get16xSprite(128,0);//image(prefix,"tiles/stoneBlock.png");
+        this.lightBlock = tile(prefix,"block.png",16);//tiles.get16xSprite(96,0);//image(prefix,"tiles/lightBlock.png");
+        this.darkBlock = lightBlock;//image(prefix,"tiles/underground/block.png",16);//tiles.get16xSprite(112,0);//image(prefix,"tiles/darkBlock.png");
+        this.stoneBlock = lightBlock;//image(prefix,"tiles/castle/block.png",16);//tiles.get16xSprite(128,0);//image(prefix,"tiles/stoneBlock.png");
        
         ground = new TextureMap(prefix+"tiles/overworld/cloud.png");
         this.cloudGround = ground.getTile(1, 1);
@@ -1212,18 +1212,18 @@ public class Textures
         this.ghostGroundBottom = ground.getTile(1,2);
         this.ghostGroundBottomRight = ground.getTile(2,2);
         
-        this.lightMetal = image(prefix,"tiles/overworld/metal.png",16);//tiles.get16xSprite(144,0);//image(prefix,"tiles/lightMetal.png");
-        this.darkMetal = image(prefix,"tiles/underground/metal.png",16);//tiles.get16xSprite(160,0);//image(prefix,"tiles/darkMetal.png");
+        this.lightMetal = tile(prefix,"metal.png",16);//tiles.get16xSprite(144,0);//image(prefix,"tiles/lightMetal.png");
+        this.darkMetal = lightMetal;//image(prefix,"tiles/underground/metal.png",16);//tiles.get16xSprite(160,0);//image(prefix,"tiles/darkMetal.png");
        
         
-        this.bigHill = image(prefix,"tiles/overworld/hill_lg.png");//tiles.getSubImage(192,0,80,40);//image(prefix,"tiles/bigHill.png");
-        this.smallHill = image(prefix,"tiles/overworld/hill_sm.png");//tiles.getSubImage(224,40,48,24);//image(prefix,"tiles/smallHill.png");
-        this.singleBush = image(prefix,"tiles/overworld/bush_sm.png",16);//tiles.getSubImage(144,16,32,16);//image(prefix,"tiles/singleBush.png");
-        this.doubleBush = image(prefix,"tiles/overworld/bush_md.png",16);//tiles.getSubImage(273,0,48,16);//image(prefix,"tiles/doubleBush.png");
-        this.tripleBush = image(prefix,"tiles/overworld/bush_lg.png",16);//tiles.getSubImage(144,56,64,16);//image(prefix,"tiles/tripleBush.png");
-        this.singleCloud = image(prefix,"tiles/overworld/cloud_sm.png",24);//tiles.getSubImage(144,32,32,24);//image(prefix,"tiles/singleCloud.png");
-        this.doubleCloud = image(prefix,"tiles/overworld/cloud_md.png",24);//tiles.getSubImage(273,16,48,24);//image(prefix,"tiles/doubleCloud.png");
-        this.tripleCloud = image(prefix,"tiles/overworld/cloud_lg.png",24);//tiles.getSubImage(144,72,64,24);//image(prefix,"tiles/tripleCloud.png");
+        this.bigHill = tile(prefix,"hill_lg.png");//tiles.getSubImage(192,0,80,40);//image(prefix,"tiles/bigHill.png");
+        this.smallHill = tile(prefix,"hill_sm.png");//tiles.getSubImage(224,40,48,24);//image(prefix,"tiles/smallHill.png");
+        this.singleBush = tile(prefix,"bush_sm.png",16);//tiles.getSubImage(144,16,32,16);//image(prefix,"tiles/singleBush.png");
+        this.doubleBush = tile(prefix,"bush_md.png",16);//tiles.getSubImage(273,0,48,16);//tile(prefix,"tiles/doubleBush.png");
+        this.tripleBush = tile(prefix,"bush_lg.png",16);//tiles.getSubImage(144,56,64,16);//tile(prefix,"tiles/tripleBush.png");
+        this.singleCloud = tile(prefix,"cloud_sm.png",24);//tiles.getSubImage(144,32,32,24);//tile(prefix,"tiles/singleCloud.png");
+        this.doubleCloud = tile(prefix,"cloud_md.png",24);//tiles.getSubImage(273,16,48,24);//tile(prefix,"tiles/doubleCloud.png");
+        this.tripleCloud = tile(prefix,"cloud_lg.png",24);//tiles.getSubImage(144,72,64,24);//tile(prefix,"tiles/tripleCloud.png");
         this.smallCastle = image(prefix,"tiles/overworld/castle_sm.png");//tiles.getSubImage(0,112,80,80);//image(prefix,"tiles/smallCastle.png");
         this.largeCastle = image(prefix,"tiles/overworld/castle_lg.png");//tiles.getSubImage(208,96,152,176);//image(prefix,"tiles/largeCastle.png");
         this.castleWall = image(prefix,"tiles/overworld/castleWall.png");//tiles.getSubImage(128,16,16,96);//image(prefix,"tiles/castleWall.png");
@@ -1237,28 +1237,28 @@ public class Textures
         this.stoneQuestionBox2 = tiles.get16xSprite(16,225);//image(prefix,"tiles/questionBox/stoneQuestionBox2.png");
         this.stoneQuestionBox3 = tiles.get16xSprite(32,225);//image(prefix,"tiles/questionBox/stoneQuestionBox3.png");
        */
-        this.lightQuestionBox = image(prefix,"tiles/overworld/questionblock.png",16);
-        this.darkQuestionBox = image(prefix,"tiles/underground/questionblock.png",16);
-        this.stoneQuestionBox = image(prefix,"tiles/castle/questionblock.png",16);
+        this.lightQuestionBox = tile(prefix,"questionblock.png",16);
+        this.darkQuestionBox = lightQuestionBox;//image(prefix,"tiles/underground/questionblock.png",16);
+        this.stoneQuestionBox = lightQuestionBox;//image(prefix,"tiles/castle/questionblock.png",16);
         this.questionBoxHidden = image("images/","tiles/null.png");//tiles.get16xSprite(81,176);//image(prefix,"tiles/questionBox/questionBoxHidden.png");
-        this.treeTopLeftEnd = image(prefix,"tiles/overworld/tree_l.png",16);//tiles.get16xSprite(48,16);//image(prefix,"tiles/tree/treeTopLeftEnd.png");
-        this.treeTopMiddle = image(prefix,"tiles/overworld/tree_m.png",16);//tiles.getSubImage(64,16,8,16);//image(prefix,"tiles/tree/treeTopMiddle.png");
-        this.treeTopRightEnd = image(prefix,"tiles/overworld/tree_r.png",16);//tiles.get16xSprite(80,16);//image(prefix,"tiles/tree/treeTopRightEnd.png");
-        this.treeBark = image(prefix,"tiles/overworld/bark_m.png",8);//tiles.getSubImage(72,16,8,8);//image(prefix,"tiles/tree/treeBark.png");
-        this.treeBarkLeft = image(prefix,"tiles/overworld/bark_l.png",8);//
-        this.treeBarkRight = image(prefix,"tiles/overworld/bark_r.png",8);//
-        this.mushroomTreeLeftEnd = image(prefix,"tiles/overworld/mushroom_l.png",16);//tiles.get16xSprite(80,32);//image(prefix,"tiles/mushroomTree/mushroomTreeLeftEnd.png");
-        this.mushroomTreeMiddleSection = image(prefix,"tiles/overworld/mushroom_m.png",16);//tiles.get16xSprite(92,32);//image(prefix,"tiles/mushroomTree/mushroomTreeMiddleSection.png");
-        this.mushroomTreeRightEnd = image(prefix,"tiles/overworld/mushroom_r.png",16);//tiles.get16xSprite(112,32);//image(prefix,"tiles/mushroomTree/mushroomTreeRightEnd.png");
-        this.mushroomTreeBarkTop = image(prefix,"tiles/overworld/mushroomStem_t.png",8);//tiles.getSubImage(32,16,16,8);//image(prefix,"tiles/mushroomTree/mushroomBarkTop.png");
-        this.mushroomTreeBark = image(prefix,"tiles/overworld/mushroomStem_m.png",8);//tiles.getSubImage(32,24,16,8);
-        this.mushroomTreeBarkBottom = image(prefix,"tiles/overworld/mushroomStem_b.png",8);//
-        this.lavaClassic = image(prefix,"tiles/overworld/lava.png",40);//tiles.getSubImage(84,121,8,40);//image(prefix,"tiles/liquids/lava.png");
-        this.lavaTop = image(prefix,"tiles/overworld/lava_t.png",8);//tiles.getSubImage(0,48,8,8);//image(prefix,"tiles/liquids/lavaTop.png");
-        this.lavaBottom = image(prefix,"tiles/overworld/lava_b.png",8);//tiles.getSubImage(0,56,8,8);//image(prefix,"tiles/liquids/lavaBottom.png");
-        this.waterTop = image(prefix,"tiles/overworld/water_t.png",8);//tiles.getSubImage(8,48,8,8);//image(prefix,"tiles/liquids/waterTop.png");
-        this.waterBottom = image(prefix,"tiles/overworld/water_b.png",8);//tiles.getSubImage(8,56,8,8);//image(prefix,"tiles/liquids/waterBottom.png");
-        this.waves = image(prefix,"tiles/overworld/waves.png",8);//tiles.getSubImage(72,24,8,8);//image(prefix,"tiles/waves.png");
+        this.treeTopLeftEnd = tile(prefix,"tree_l.png",16);//tiles.get16xSprite(48,16);//image(prefix,"tiles/tree/treeTopLeftEnd.png");
+        this.treeTopMiddle = tile(prefix,"tree_m.png",16);//tiles.getSubImage(64,16,8,16);//image(prefix,"tiles/tree/treeTopMiddle.png");
+        this.treeTopRightEnd = tile(prefix,"tree_r.png",16);//tiles.get16xSprite(80,16);//image(prefix,"tiles/tree/treeTopRightEnd.png");
+        this.treeBark = tile(prefix,"bark_m.png",8);//tiles.getSubImage(72,16,8,8);//image(prefix,"tiles/tree/treeBark.png");
+        this.treeBarkLeft = tile(prefix,"bark_l.png",8);//
+        this.treeBarkRight = tile(prefix,"bark_r.png",8);//
+        this.mushroomTreeLeftEnd = tile(prefix,"mushroom_l.png",16);//tiles.get16xSprite(80,32);//tile(prefix,"tiles/mushroomTree/mushroomTreeLeftEnd.png");
+        this.mushroomTreeMiddleSection = tile(prefix,"mushroom_m.png",16);//tiles.get16xSprite(92,32);//tile(prefix,"tiles/mushroomTree/mushroomTreeMiddleSection.png");
+        this.mushroomTreeRightEnd = tile(prefix,"mushroom_r.png",16);//tiles.get16xSprite(112,32);//tile(prefix,"tiles/mushroomTree/mushroomTreeRightEnd.png");
+        this.mushroomTreeBarkTop = tile(prefix,"mushroomStem_t.png",8);//tiles.getSubImage(32,16,16,8);//tile(prefix,"tiles/mushroomTree/mushroomBarkTop.png");
+        this.mushroomTreeBark = tile(prefix,"mushroomStem_m.png",8);//tiles.getSubImage(32,24,16,8);
+        this.mushroomTreeBarkBottom = tile(prefix,"mushroomStem_b.png",8);//
+        this.lavaClassic = tile(prefix,"lava.png",40);//tiles.getSubImage(84,121,8,40);//tile(prefix,"tiles/liquids/lava.png");
+        this.lavaTop = tile(prefix,"lava_t.png",8);//tiles.getSubImage(0,48,8,8);//tile(prefix,"tiles/liquids/lavaTop.png");
+        this.lavaBottom = tile(prefix,"lava_b.png",8);//tiles.getSubImage(0,56,8,8);//tile(prefix,"tiles/liquids/lavaBottom.png");
+        this.waterTop = tile(prefix,"water_t.png",8);//tiles.getSubImage(8,48,8,8);//tile(prefix,"tiles/liquids/waterTop.png");
+        this.waterBottom = tile(prefix,"water_b.png",8);//tiles.getSubImage(8,56,8,8);//tile(prefix,"tiles/liquids/waterBottom.png");
+        this.waves = tile(prefix,"waves.png",8);//tiles.getSubImage(72,24,8,8);//tile(prefix,"tiles/waves.png");
         ground = new TextureMap(prefix+"tiles/castle/ground.png");
         this.stoneGround = ground.getTile(1, 1);
         this.stoneGroundTopLeft = ground.getTile(0, 0);
@@ -1286,16 +1286,16 @@ public class Textures
         this.seaGroundBottomRight = ground.getTile(2,2);
         
         //this.seaGround = tiles.get16xSprite(0,16);//image(prefix,"tiles/seaGround.png");
-        this.seaBlock = image(prefix,"tiles/underwater/block.png",16);
-        this.stoneMetal = image(prefix,"tiles/castle/metal.png",16);//tiles.get16xSprite(176,0);//image(prefix,"tiles/stoneMetal.png");
-        this.tallTrimmedBush = image(prefix,"tiles/overworld/shrub_lg.png",48);//tiles.getSubImage(96,80,16,48);//image(prefix,"tiles/tallTrimmedBush.png");
-        this.shortTrimmedBush = image(prefix,"tiles/overworld/shrub_sm.png",32);//tiles.getSubImage(96,48,16,32);//image(prefix,"tiles/shortTrimmedBush.png");
+        this.seaBlock = this.lightBlock;//image(prefix,"tiles/underwater/block.png",16);
+        this.stoneMetal = lightMetal;//image(prefix,"tiles/castle/metal.png",16);//tiles.get16xSprite(176,0);//image(prefix,"tiles/stoneMetal.png");
+        this.tallTrimmedBush = tile(prefix,"shrub_lg.png",48);//tiles.getSubImage(96,80,16,48);//image(prefix,"tiles/tallTrimmedBush.png");
+        this.shortTrimmedBush = tile(prefix,"shrub_sm.png",32);//tiles.getSubImage(96,48,16,32);//image(prefix,"tiles/shortTrimmedBush.png");
         this.shortSnowyBush = image(prefix,"tiles/castle/shrub_sm.png",32);//tiles.getSubImage(112,48,16,32);//image(prefix,"tiles/shortSnowyBush.png");
         this.tallSnowyBush = image(prefix,"tiles/castle/shrub_lg.png",48);//tiles.getSubImage(112,80,16,48);//image(prefix,"tiles/tallSnowyBush.png");
-        this.picketFence = image(prefix,"tiles/overworld/fence_m.png",16);//tiles.get16xSprite(32,48);//image(prefix,"tiles/picketFence.png");
-        this.picketFenceLeft = image(prefix,"tiles/overworld/fence_l.png",16);//
-        this.picketFenceRight = image(prefix,"tiles/overworld/fence_r.png",16);//
-        this.bridge = image(prefix,"tiles/overworld/bridge.png",16);// tiles.getSubImage(16,48,8,16);//image(prefix,"tiles/bridge.png");
+        this.picketFence = tile(prefix,"fence_m.png",16);//tiles.get16xSprite(32,48);//tile(prefix,"tiles/picketFence.png");
+        this.picketFenceLeft = tile(prefix,"fence_l.png",16);//
+        this.picketFenceRight = tile(prefix,"fence_r.png",16);//
+        this.bridge = tile(prefix,"bridge.png",16);// tiles.getSubImage(16,48,8,16);//tile(prefix,"tiles/bridge.png");
         this.bowserBridge = image(prefix,"tiles/castle/bowserBridge.png",16);//tiles.get16xSprite(48,32);//image(prefix,"tiles/bowserBattle/bowserBridge.png");
         this.bowserBridgeSection = Utilities.cropIcon(bowserBridge, 0, 0, 8, 16);
         //this.bowserBridgeSection = tiles.getSubImage(48,32,8,16);//image(prefix,"tiles/bowserBridge.png");
@@ -1317,15 +1317,11 @@ public class Textures
 			System.out.println(ex.getMessage());
 			System.exit(0);
     	}
-        altsInit(prefix);
+        //altsInit(prefix);
     }
     //inits alternate level types of tiles
     public void altsInit(String prefix){
     	//light
-    	try{this.seaBrick = image(prefix,"tiles/underwater/bricks.png",16);}
-    	catch(MessageException ex){this.seaBrick = this.lightBrick;}
-    	try{this.seaCoin = image(prefix,"tiles/underwater/coin.png",16);}
-    	catch(MessageException ex){this.seaCoin = this.lightCoin;}
     	
     	//dark
     	try{this.bigHillDark = image(prefix,"tiles/underground/hill_lg.png",16);}
@@ -1334,6 +1330,14 @@ public class Textures
     	catch(MessageException ex){this.smallHillDark = this.smallHill;}
     	try{this.singleBushDark = image(prefix,"tiles/underground/bush_sm.png",16);}
     	catch(MessageException ex){this.singleBushDark = this.singleBush;}
+    	try{this.doubleBushDark = image(prefix,"tiles/ghost/bush_md.png",16);}
+    	catch(MessageException ex){this.doubleBushDark = this.doubleBush;}
+    	try{this.tripleBushDark = image(prefix,"tiles/ghost/bush_lg.png",16);}
+    	catch(MessageException ex){this.tripleBushDark = this.tripleBush;}
+    	try{this.shortTrimmedBushDark = image(prefix,"tiles/underground/shrub_sm.png",16);}
+    	catch(MessageException ex){this.shortTrimmedBushDark = this.shortTrimmedBush;}
+    	try{this.tallTrimmedBushDark = image(prefix,"tiles/underground/shrub_lg.png",16);}
+    	catch(MessageException ex){this.tallTrimmedBushDark = this.tallTrimmedBush;}
     	
     	//castle
     	try{this.bigHillCastle = image(prefix,"tiles/castle/hill_lg.png",16);}
@@ -1342,14 +1346,30 @@ public class Textures
     	catch(MessageException ex){this.smallHillCastle = this.smallHill;}
     	try{this.singleBushCastle = image(prefix,"tiles/castle/bush_sm.png",16);}
     	catch(MessageException ex){this.singleBushCastle = this.singleBushDark;}
+    	try{this.doubleBushCastle = image(prefix,"tiles/ghost/bush_md.png",16);}
+    	catch(MessageException ex){this.doubleBushCastle = this.doubleBushDark;}
+    	try{this.tripleBushCastle = image(prefix,"tiles/ghost/bush_lg.png",16);}
+    	catch(MessageException ex){this.tripleBushCastle = this.tripleBush;}
     	
     	//sea
+    	try{this.seaBrick = image(prefix,"tiles/underwater/bricks.png",16);}
+    	catch(MessageException ex){this.seaBrick = this.lightBrick;}
+    	try{this.seaCoin = image(prefix,"tiles/underwater/coin.png",16);}
+    	catch(MessageException ex){this.seaCoin = this.lightCoin;}
     	try{this.bigHillSea = image(prefix,"tiles/underwater/hill_lg.png",16);}
     	catch(MessageException ex){this.bigHillSea = this.bigHill;}
     	try{this.smallHillSea = image(prefix,"tiles/underwater/hill_sm.png",16);}
     	catch(MessageException ex){this.smallHillSea = this.smallHill;}
     	try{this.singleBushWater = image(prefix,"tiles/underwater/bush_sm.png",16);}
     	catch(MessageException ex){this.singleBushWater = this.singleBush;}
+    	try{this.doubleBushWater = image(prefix,"tiles/ghost/bush_md.png",16);}
+    	catch(MessageException ex){this.doubleBushWater = this.doubleBushDark;}
+    	try{this.tripleBushWater = image(prefix,"tiles/ghost/bush_lg.png",16);}
+    	catch(MessageException ex){this.tripleBushWater = this.tripleBush;}
+    	try{this.shortTrimmedBushSea = image(prefix,"tiles/underground/shrub_sm.png",16);}
+    	catch(MessageException ex){this.shortTrimmedBushSea = this.shortTrimmedBush;}
+    	try{this.tallTrimmedBushSea = image(prefix,"tiles/underground/shrub_lg.png",16);}
+    	catch(MessageException ex){this.tallTrimmedBushSea = this.tallTrimmedBush;}
     	
     	//ghost
     	try{this.ghostBlock = image(prefix,"tiles/ghost/block.png",16);}
@@ -1360,6 +1380,12 @@ public class Textures
     	catch(MessageException ex){this.singleBushGhost = this.singleBushDark;}
     	try{this.doubleBushGhost = image(prefix,"tiles/ghost/bush_md.png",16);}
     	catch(MessageException ex){this.doubleBushGhost = this.doubleBushDark;}
+    	try{this.tripleBushGhost = image(prefix,"tiles/ghost/bush_lg.png",16);}
+    	catch(MessageException ex){this.tripleBushGhost = this.tripleBush;}
+    	try{this.shortTrimmedBushGhost = image(prefix,"tiles/underground/shrub_sm.png",16);}
+    	catch(MessageException ex){this.shortTrimmedBushGhost = this.shortTrimmedBush;}
+    	try{this.tallTrimmedBushGhost = image(prefix,"tiles/underground/shrub_lg.png",16);}
+    	catch(MessageException ex){this.tallTrimmedBushGhost = this.tallTrimmedBush;}
     }
     public void pipesInit(String prefix)  {
         this.greenPipes = this.getGreenPipeImages(prefix);
@@ -1680,23 +1706,72 @@ public class Textures
         }
     	return image;
     }
+    public ImageIcon tile(String prefix, String tilename, int expectedHeight){
+    	ImageIcon light,dark,castle,water,ghost;
+    	try{
+    		light = image(prefix,"tiles/overworld/"+tilename,expectedHeight);
+    	}catch(MessageException ex){
+    		System.out.println(ex.getMessage());
+    		ex.printStackTrace();
+    		System.exit(0);
+    		light = null;
+    		return null;
+    	}
+    	
+    	try{dark = image(prefix,"tiles/underground/"+tilename,expectedHeight);}
+    	catch(MessageException ex){dark = light;}
+    	try{castle = image(prefix,"tiles/castle/"+tilename,expectedHeight);}
+    	catch(MessageException ex){castle = dark;}
+    	try{water = image(prefix,"tiles/underwater/"+tilename,expectedHeight);}
+    	catch(MessageException ex){water = light;}
+    	try{ghost = image(prefix,"tiles/ghost/"+tilename,expectedHeight);}
+    	catch(MessageException ex){ghost = dark;}
+    	return new MultiIcon(light,dark,castle,water,ghost);
+    }
+    public ImageIcon tile(String prefix, String tilename){
+    	ImageIcon light,dark,castle,water,ghost;
+    	try{
+    		light = image(prefix,"tiles/overworld/"+tilename);
+    	}catch(MessageException ex){
+    		System.out.println(ex.getMessage());
+    		ex.printStackTrace();
+    		System.exit(0);
+    		light = null;
+    		return null;
+    	}
+    	
+    	try{dark = image(prefix,"tiles/underground/"+tilename);}
+    	catch(MessageException ex){dark = light;}
+    	try{castle = image(prefix,"tiles/castle/"+tilename);}
+    	catch(MessageException ex){castle = dark;}
+    	try{water = image(prefix,"tiles/underwater/"+tilename);}
+    	catch(MessageException ex){water = light;}
+    	try{ghost = image(prefix,"tiles/ghost/"+tilename);}
+    	catch(MessageException ex){ghost = dark;}
+    	return new MultiIcon(light,dark,castle,water,ghost);
+    }
    
     public ImageIcon getLevelTypeAlt(int leveltype,ImageIcon icon){
     	
-    	switch(leveltype){
-    	case Level.LEVEL_TYPE_CASTLE:
-    		return getCastleVariant(icon);
-    	case Level.LEVEL_TYPE_OUTSIDE:case Level.LEVEL_TYPE_OUTSIDE_NIGHT:
-    		return getLightVariant(icon);
-    	case Level.LEVEL_TYPE_COIN_ZONE_DAY:case Level.LEVEL_TYPE_COIN_ZONE_NIGHT:
-    		return getCoinZoneVariant(icon);
-    	case Level.LEVEL_TYPE_UNDERGROUND:
-    		return getDarkVariant(icon);
-    	case Level.LEVEL_TYPE_UNDER_WATER:
-    		return getUnderwaterVariant(icon);
-    	default:
-    		return icon;
+    	if(isGroundTile(icon)){
+	    	switch(leveltype){
+	    	case Level.LEVEL_TYPE_CASTLE:
+	    		return getCastleVariant(icon);
+	    	case Level.LEVEL_TYPE_OUTSIDE:case Level.LEVEL_TYPE_OUTSIDE_NIGHT:
+	    		return getLightVariant(icon);
+	    	case Level.LEVEL_TYPE_COIN_ZONE_DAY:case Level.LEVEL_TYPE_COIN_ZONE_NIGHT:
+	    		return getCoinZoneVariant(icon);
+	    	case Level.LEVEL_TYPE_UNDERGROUND:
+	    		return getDarkVariant(icon);
+	    	case Level.LEVEL_TYPE_UNDER_WATER:
+	    		return getUnderwaterVariant(icon);
+	    	default:
+	    		return icon;
+	    	}
     	}
+    	if(icon instanceof MultiIcon)
+    		return ((MultiIcon)icon).getType(leveltype);
+    	else return icon;
     }
     public ImageIcon getGroundSide(ImageIcon imgicon,String side){
     	if(imgicon == this.lightGround){
@@ -1766,15 +1841,15 @@ public class Textures
     }
     public boolean isGroundTile(ImageIcon icon,String side){
     	switch(side){
-    	case "middle":return icon == this.lightGround || icon == this.darkGround || icon == this.seaGround || icon == this.stoneGround || icon == this.cloudGround;
-    	case "topLeft": return icon == this.lightGroundTopLeft||icon == this.darkGroundTopLeft||icon == this.seaGroundTopLeft||icon == this.stoneGroundTopLeft||icon == this.cloudGroundTopLeft;
-    	case "topRight": return icon == this.lightGroundTopRight||icon == this.darkGroundTopRight||icon == this.seaGroundTopRight||icon == this.stoneGroundTopRight||icon == this.cloudGroundTopRight;
-    	case "top": return icon == this.lightGroundTop||icon == this.darkGroundTop||icon == this.seaGroundTop||icon == this.cloudGroundTop||icon == this.stoneGroundTop;
-    	case "left": return icon == this.lightGroundLeft||icon == this.darkGroundLeft||icon == this.seaGroundLeft||icon == this.cloudGroundLeft||icon == this.stoneGroundLeft;
-    	case "right": return icon == this.lightGroundRight||icon == this.darkGroundRight||icon == this.seaGroundRight||icon == this.cloudGroundRight||icon == this.stoneGroundRight;
-    	case "bottomLeft": return icon == this.lightGroundBottomLeft||icon == this.darkGroundBottomLeft||icon == this.seaGroundBottomLeft||icon == this.stoneGroundBottomLeft||icon == this.cloudGroundBottomLeft;
-    	case "bottomRight": return icon == this.lightGroundBottomRight||icon == this.darkGroundBottomRight||icon == this.seaGroundBottomRight||icon == this.stoneGroundBottomRight||icon == this.cloudGroundBottomRight;
-    	case "bottom": return icon == this.lightGroundBottom||icon == this.darkGroundBottom||icon == this.seaGroundBottom||icon == this.stoneGroundBottom||icon == this.cloudGroundBottom;
+    	case "middle":return icon == this.lightGround || icon == this.darkGround || icon == this.seaGround || icon == this.stoneGround || icon == this.cloudGround || icon == this.ghostGround;
+    	case "topLeft": return icon == this.lightGroundTopLeft||icon == this.darkGroundTopLeft||icon == this.seaGroundTopLeft||icon == this.stoneGroundTopLeft||icon == this.cloudGroundTopLeft || icon == this.ghostGroundTopLeft;
+    	case "topRight": return icon == this.lightGroundTopRight||icon == this.darkGroundTopRight||icon == this.seaGroundTopRight||icon == this.stoneGroundTopRight||icon == this.cloudGroundTopRight||icon == this.ghostGroundTopRight;
+    	case "top": return icon == this.lightGroundTop||icon == this.darkGroundTop||icon == this.seaGroundTop||icon == this.cloudGroundTop||icon == this.stoneGroundTop||icon == this.ghostGroundTop;
+    	case "left": return icon == this.lightGroundLeft||icon == this.darkGroundLeft||icon == this.seaGroundLeft||icon == this.cloudGroundLeft||icon == this.stoneGroundLeft||icon == this.ghostGroundLeft;
+    	case "right": return icon == this.lightGroundRight||icon == this.darkGroundRight||icon == this.seaGroundRight||icon == this.cloudGroundRight||icon == this.stoneGroundRight||icon == this.ghostGroundRight;
+    	case "bottomLeft": return icon == this.lightGroundBottomLeft||icon == this.darkGroundBottomLeft||icon == this.seaGroundBottomLeft||icon == this.stoneGroundBottomLeft||icon == this.cloudGroundBottomLeft||icon == this.ghostGroundBottomLeft;
+    	case "bottomRight": return icon == this.lightGroundBottomRight||icon == this.darkGroundBottomRight||icon == this.seaGroundBottomRight||icon == this.stoneGroundBottomRight||icon == this.cloudGroundBottomRight||icon == this.ghostGroundBottomRight;
+    	case "bottom": return icon == this.lightGroundBottom||icon == this.darkGroundBottom||icon == this.seaGroundBottom||icon == this.stoneGroundBottom||icon == this.cloudGroundBottom||icon == this.ghostGroundBottom;
     	default: return false;
     	}
     }
@@ -1782,14 +1857,21 @@ public class Textures
     	return icon == lightCoin || icon == darkCoin || icon == stoneCoin || icon == seaCoin;
     }
     public boolean isBrick(ImageIcon icon){
-    	return icon == this.lightBrick || icon == this.darkBrick|| icon == this.stoneBrick || icon == this.seaBrick;
+    	return icon == this.lightBrick || icon == this.darkBrick|| icon == this.stoneBrick || icon == this.seaBrick||icon == this.ghostBrick;
     }
     public boolean isBlock(ImageIcon icon){
-    	return icon == this.lightBlock || icon == this.darkBlock || icon == this.stoneBlock || icon == this.seaBlock;
+    	return icon == this.lightBlock || icon == this.darkBlock || icon == this.stoneBlock || icon == this.seaBlock||icon == this.ghostBlock;
     }
     public boolean isQuestionBox(ImageIcon icon){
     	return icon == this.lightQuestionBox||icon == this.darkQuestionBox||icon == this.stoneQuestionBox;
     }
+    public boolean isSmallHill(ImageIcon icon){
+    	return icon == this.smallHill || icon == this.smallHillCastle || icon == this.smallHillDark || icon == this.smallHillSea || icon == this.smallHillGhost;
+    }
+    public boolean isBigHill(ImageIcon icon){
+    	return icon == this.bigHill || icon == this.bigHillCastle || icon == this.bigHillDark || icon == this.bigHillSea || icon == this.bigHillGhost;
+    }
+    
     public ImageIcon getLightVariant(ImageIcon icon){
     	if(isQuestionBox(icon))return this.lightQuestionBox;
     	if(icon == this.entryVineDark)return this.entryVineLight;
@@ -1808,6 +1890,7 @@ public class Textures
     	return icon;
     }
     public ImageIcon getDarkVariant(ImageIcon icon){
+   
     	if(isQuestionBox(icon))return this.darkQuestionBox;
     	if(icon == this.entryVineLight)return this.entryVineDark;
     	if(isCoin(icon))return this.darkCoin;
@@ -1869,7 +1952,18 @@ public class Textures
     	return getLightVariant(icon);
     }
     public ImageIcon getGhostHouseVariant(ImageIcon icon){
-    
+    	if(isBrick(icon))return this.ghostBrick;
+    	if(isBlock(icon))return this.ghostBlock;
+    	if(isGroundTile(icon))return this.ghostGround;
+    	if(isGroundTile(icon,"topLeft"))return this.ghostGroundTopLeft;
+    	if(isGroundTile(icon,"topRight"))return this.ghostGroundTopRight;
+    	if(isGroundTile(icon,"top"))return this.ghostGroundTop;
+    	if(isGroundTile(icon,"left"))return this.ghostGroundLeft;
+    	if(isGroundTile(icon,"right"))return this.ghostGroundRight;
+    	if(isGroundTile(icon,"bottomLeft"))return this.ghostGroundBottomLeft;
+    	if(isGroundTile(icon,"bottomRight"))return this.ghostGroundBottomRight;
+    	if(isGroundTile(icon,"bottom"))return this.ghostGroundBottom;
+    	return getDarkVariant(icon);
     }
 }
 
