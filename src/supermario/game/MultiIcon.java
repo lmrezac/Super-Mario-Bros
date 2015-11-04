@@ -9,10 +9,12 @@ public class MultiIcon extends ImageIcon{
 	private ImageIcon light, dark, castle, water, ghost;
 	public MultiIcon(ImageIcon lt, ImageIcon dk, ImageIcon cstl, ImageIcon wtr, ImageIcon ghost){
 		this.light = lt;
-		if(dk!=null)
+		if(dk != null)
 			dark = dk;
-		else
+		else{
+			
 			dark = light;
+		}
 		if(wtr!=null)
 			water = wtr;
 		else
@@ -34,26 +36,27 @@ public class MultiIcon extends ImageIcon{
 		return icon.getImage();
 	}
 	public ImageIcon getType(int i){
-		ImageIcon icon;
+		//System.out.println("getType "+i);
+		if(this == Game.instance.textures.mushroomStemBark){
+			System.out.println("getting alt "+i+" for mushroom bark");
+		}
 		switch(i){
 		case Level.LEVEL_TYPE_OUTSIDE:
 		case Level.LEVEL_TYPE_OUTSIDE_NIGHT:
 		case Level.LEVEL_TYPE_COIN_ZONE_DAY:
 		case Level.LEVEL_TYPE_COIN_ZONE_NIGHT:
-			icon = light;
+			return light;
 		case Level.LEVEL_TYPE_CASTLE:
-			icon = castle;
+			return castle;
 		case Level.LEVEL_TYPE_UNDER_WATER:
-			icon = water;
+			return water;
 		case Level.LEVEL_TYPE_UNDERGROUND:
-			icon = dark;
+			return dark;
 		case Level.LEVEL_TYPE_GHOST_HOUSE:
-			icon = ghost;
+			return ghost;
 		default:
-			icon = light;
+			return light;
 		}
-		if(icon == null)return light;
-		return icon;
 	}
 	@Override
 	public int getIconWidth(){

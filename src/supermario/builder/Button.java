@@ -12,10 +12,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import supermario.game.AnimatedIcon;
+import supermario.game.MultiIcon;
 
 public final class Button extends JButton implements ActionListener
 {
-    private BuilderFrame frame;
+    private static final long serialVersionUID = -8952784926128741984L;
+	private BuilderFrame frame;
     public Item item;
     public String title;
     public String description;
@@ -53,12 +55,22 @@ public final class Button extends JButton implements ActionListener
         this.setText(this.title);
     }
     
+    public void setTitle(String newTitle){
+    	this.title = newTitle;
+    }
     public void setImages(ImageIcon icon,ImageIcon placed) {
+    	if(icon instanceof MultiIcon){
+    		icon = ((MultiIcon)icon).getType(0);
+    	}
         if(icon instanceof supermario.game.AnimatedIcon)
         	icon = ((AnimatedIcon)icon).getImages()[0];
-    	if(placed != null)
+    	if(placed != null){
+    		if(placed instanceof MultiIcon){
+        		placed = ((MultiIcon)placed).getType(0);
+        	}
     		if(placed instanceof AnimatedIcon)
     			placed = ((AnimatedIcon)placed).getImages()[0];
+    	}
     	this.setIcon(icon);
         this.iconImage = icon;
         if (placed != null) {

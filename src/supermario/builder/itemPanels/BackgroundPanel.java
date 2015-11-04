@@ -5,10 +5,15 @@
 package supermario.builder.itemPanels;
 
 import java.awt.Component;
+
+import supermario.Utilities;
 import supermario.builder.Item;
+
 import javax.swing.ImageIcon;
+
 import supermario.builder.Button;
 import supermario.builder.BuilderFrame;
+
 import javax.swing.JPanel;
 
 public final class BackgroundPanel extends JPanel implements ItemPanel
@@ -108,9 +113,11 @@ public final class BackgroundPanel extends JPanel implements ItemPanel
         this.smallHill.setImages(frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.smallHill),null);
         this.bigHill.setImages( frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.smallHill),frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.bigHill));
         this.picketFence.setImages( frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.picketFence),null);
-        this.castleWall.setImages(this.frame.textures.iconCastleWall, frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.castleWall));
-        this.smallCastle.setImages(this.frame.textures.iconSmallCastle, frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.smallCastle));
-        this.largeCastle.setImages(this.frame.textures.iconLargeCastle, frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.largeCastle));
+        this.castleWall.setImages(
+        		Utilities.cropIcon(frame.game.textures.getLevelTypeAlt(frame.levelPanel.level.levelType,frame.game.textures.castleWall), 0,0, 16, 48),
+        		frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.castleWall));
+        this.smallCastle.setImages(/*this.frame.textures.iconSmallCastle*/new ImageIcon(Utilities.resizeImage(frame.game.textures.getLevelTypeAlt(frame.levelPanel.level.levelType, frame.game.textures.smallCastle).getImage(),50,50)), frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.smallCastle));
+        this.largeCastle.setImages(new ImageIcon(Utilities.resizeImage(frame.game.textures.getLevelTypeAlt(frame.levelPanel.level.levelType, frame.game.textures.largeCastle).getImage(),50,50)), frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.largeCastle));
     }
     
     public boolean isBackgroundDecoration(final Item i) {

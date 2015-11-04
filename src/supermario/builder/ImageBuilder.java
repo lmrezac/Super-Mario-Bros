@@ -90,25 +90,25 @@ public class ImageBuilder {
     }
 
     private static Image getSolidPart(int container, int shadowColor) {
-        if (container == 0) {
+        if (container == 0||container == 1||container == 2) {
             return ImageBuilder.textures.lightBrick.getImage();
         }
-        if (container == 1) {
+        /*if (container == 1) {
             return ImageBuilder.textures.darkBrick.getImage();
         }
         if (container == 2) {
             return ImageBuilder.textures.stoneBrick.getImage();
-        }
+        }*/
         if (container == 3) {
-            if (shadowColor == 0) {
+           // if (shadowColor == 0) {
                 return ImageBuilder.textures.lightQuestionBox.getImage();
-            }
+            /*}
             if (shadowColor == 1) {
                 return ImageBuilder.textures.darkQuestionBox.getImage();
             }
             if (shadowColor == 2) {
                 return ImageBuilder.textures.stoneQuestionBox.getImage();
-            }
+            }*/
         } else if (container == 4) {
             return ImageBuilder.bTextures.questionBoxInvisible.getImage();
         }

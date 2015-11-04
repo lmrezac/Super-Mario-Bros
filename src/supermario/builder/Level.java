@@ -15,6 +15,16 @@ import java.util.LinkedList;
 
 public class Level
 {
+	public static final int LEVEL_TYPE_OUTSIDE = 0;
+    public static final int LEVEL_TYPE_UNDERGROUND = 1;
+    public static final int LEVEL_TYPE_CASTLE = 2;
+    public static final int LEVEL_TYPE_UNDER_WATER = 3;
+    public static final int LEVEL_TYPE_OUTSIDE_NIGHT = 4;
+    public static final int LEVEL_TYPE_COIN_ZONE_DAY = 5;
+    public static final int LEVEL_TYPE_COIN_ZONE_NIGHT = 6;
+    public static final int LEVEL_TYPE_GHOST_HOUSE = 7;
+	
+	
     private BuilderFrame frame;
     public LinkedList<Warp> incomingWarps;
     public LinkedList<Warp> outgoingWarps;
@@ -712,7 +722,7 @@ public class Level
         }
         */
         else if ((c == 'r' || c == '\u045e') && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.solidsPanel.lightBlock.item.copy();
+            newItem = this.frame.solidsPanel.block.item.copy();
         }
         /*
         else if ((c == 'q' || c == 'r') && this.levelType == castle) {
@@ -737,15 +747,20 @@ public class Level
         final int height = this.items.length * 8;
         final BufferedImage image = new BufferedImage(width, height, 5);
         final Graphics2D g2D = (Graphics2D)image.getGraphics();
-        if (this.levelType == 0 || this.levelType == 5) {
+        if (this.levelType == LEVEL_TYPE_OUTSIDE || 
+        		this.levelType == LEVEL_TYPE_COIN_ZONE_DAY) {
             g2D.setColor(this.frame.game.textures.skyBlue);
             g2D.fillRect(0, 0, width, height);
         }
-        else if (this.levelType == 1 || this.levelType == 4 || this.levelType == 2 || this.levelType == 6) {
+        else if (this.levelType == LEVEL_TYPE_UNDERGROUND || 
+        		this.levelType == LEVEL_TYPE_OUTSIDE_NIGHT || 
+        		this.levelType == LEVEL_TYPE_CASTLE || 
+        		this.levelType == LEVEL_TYPE_COIN_ZONE_NIGHT || 
+        		this.levelType == LEVEL_TYPE_GHOST_HOUSE) {
             g2D.setColor(this.frame.game.textures.black);
             g2D.fillRect(0, 0, width, height);
         }
-        else if (this.levelType == 3) {
+        else if (this.levelType == LEVEL_TYPE_UNDER_WATER) {
             g2D.setColor(this.frame.game.textures.skyBlue);
             g2D.fillRect(0, 0, width, (int)Math.ceil(32.0));
             g2D.setColor(this.frame.game.textures.waterBlue);
@@ -1421,7 +1436,7 @@ public class Level
             return this.frame.solidsPanel.treeBark.item.copy();
         }
         if (c == '\u2660') {
-            return this.frame.solidsPanel.mushroomBark.item.copy();
+            return this.frame.solidsPanel.mushroomStem.item.copy();
         }
         if (c == 'g') {
             return this.frame.backgroundPanel.lavaTop.item.copy();
@@ -1469,66 +1484,66 @@ public class Level
             return this.marioStartItem = item;
         }
         if (c == 'l') {
-            return this.frame.solidsPanel.lightGround.item.copy();
+            return this.frame.solidsPanel.ground.item.copy();
         }
         
         if (c == 'm') {
-            return this.frame.solidsPanel.lightGround.item.copy();
+            return this.frame.solidsPanel.ground.item.copy();
         }
         if (c == 'n') {
-            return this.frame.solidsPanel.lightGround.item.copy();
+            return this.frame.solidsPanel.ground.item.copy();
         }
         if (c == 'o') {
-            return this.frame.solidsPanel.lightGround.item.copy();
+            return this.frame.solidsPanel.ground.item.copy();
         }
         if (c == '§') {
-            return this.frame.solidsPanel.lightBlock.item.copy();
+            return this.frame.solidsPanel.block.item.copy();
         }
         if (c == 'p') {
-            return this.frame.solidsPanel.lightGround.item.copy();
+            return this.frame.solidsPanel.ground.item.copy();
         }
        
         if (c == 'q') {
-            return this.frame.solidsPanel.lightBlock.item.copy();
+            return this.frame.solidsPanel.block.item.copy();
         }
         
         if (c == 'r') {
-            return this.frame.solidsPanel.lightBlock.item.copy();
+            return this.frame.solidsPanel.block.item.copy();
         }
         if (c == '\u045e') {
-            return this.frame.solidsPanel.lightBlock.item.copy();
+            return this.frame.solidsPanel.block.item.copy();
         }
         if (c == 's') {
-            return this.frame.solidsPanel.lightMetal.item.copy();
+            return this.frame.solidsPanel.metal.item.copy();
         }
         
         if (c == 't') {
-            return this.frame.solidsPanel.lightMetal.item.copy();
+            return this.frame.solidsPanel.metal.item.copy();
         }
         if (c == 'u') {
-            return this.frame.solidsPanel.lightMetal.item.copy();
+            return this.frame.solidsPanel.metal.item.copy();
         }
         //end comment
         if (c == 'v') {
-            return this.frame.solidsPanel.treeTopLeft.item.copy();
+            return this.frame.solidsPanel.treeLeft.item.copy();
         }
         if (c == 'w') {
-            return this.frame.solidsPanel.treeTopRight.item.copy();
+            return this.frame.solidsPanel.treeRight.item.copy();
         }
         if (c == 'y') {
-            return this.frame.solidsPanel.treeTopMiddle.item.copy();
+            return this.frame.solidsPanel.treeMiddle.item.copy();
         }
         if (c == '\u25cb') {
-            return this.frame.solidsPanel.mushroomTopLeft.item.copy();
+            return this.frame.solidsPanel.mushroomLeft.item.copy();
         }
         if (c == '\u25d9') {
-            return this.frame.solidsPanel.mushroomTopRight.item.copy();
+            return this.frame.solidsPanel.mushroomRight.item.copy();
         }
         if (c == '\u2642') {
-            return this.frame.solidsPanel.mushroomTopMiddle.item.copy();
+            return this.frame.solidsPanel.mushroomMiddle.item.copy();
         }
         if (c == '\u2193') {
-            return this.frame.solidsPanel.mushroomBarkTop.item.copy();
+            return this.frame.solidsPanel.mushroomStemTop.item.copy();
         }
         if (c == 'z') {
             return this.frame.solidsPanel.coral.item.copy();

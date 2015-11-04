@@ -148,7 +148,10 @@ public abstract class Sprite
         }
         try{
         	if(levelType!= -1){
-        		g2D.drawImage(((MultiIcon)(this.images[imageIndex])).getImage(levelType)/*this.game.textures.getLevelTypeAlt(levelType, this.images[this.imageIndex]).getImage()*/,this.transform,null);
+        		if(this.images[imageIndex] instanceof MultiIcon)
+        			g2D.drawImage(((MultiIcon)(this.images[imageIndex])).getImage(levelType)/*this.game.textures.getLevelTypeAlt(levelType, this.images[this.imageIndex]).getImage()*/,this.transform,null);
+        		else
+        			g2D.drawImage(this.images[imageIndex].getImage(), this.transform,null);
         	}else
         		g2D.drawImage(this.images[this.imageIndex].getImage(), this.transform, null);
         }catch(ArrayIndexOutOfBoundsException e){

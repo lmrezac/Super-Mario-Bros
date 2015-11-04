@@ -55,16 +55,16 @@ public class Firebar extends Sprite implements EnemyHolder
     
     private void setMetalType(final Tile tile) {
         final int levelType = this.game.level.levelType;
-        if (levelType == 2) {
+        /*if (levelType == 2) {
             this.metal = this.game.textures.stoneMetal;
         }
         else if (levelType == 0 || levelType == 4 || levelType == 5 || levelType == 6) {
-            this.metal = this.game.textures.lightMetal;
-        }
+         */   this.metal = this.game.textures.lightMetal;
+        /*}
         else if (levelType == 1) {
             this.metal = this.game.textures.darkMetal;
-        }
-        else if (levelType == 3) {
+        }*/
+        /*else*/ if (levelType == 3) {
             this.metal = null;
             tile.solid = false;
             this.game.level.tiles[tile.yTile][tile.xTile + 1].solid = false;

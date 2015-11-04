@@ -784,7 +784,18 @@ ChangeListener {
 
     private void drawGrid(Graphics2D g2D) {
         g2D.setStroke(this.stroke);
-        g2D.setColor(this.getBackground());
+       /* switch(this.level.levelType){
+        case supermario.game.Level.LEVEL_TYPE_CASTLE:
+        case supermario.game.Level.LEVEL_TYPE_COIN_ZONE_NIGHT:
+        case supermario.game.Level.LEVEL_TYPE_GHOST_HOUSE:
+        case supermario.game.Level.LEVEL_TYPE_OUTSIDE_NIGHT:
+        case supermario.game.Level.LEVEL_TYPE_UNDERGROUND:
+        	g2D.setColor(Color.GRAY);
+        default:
+        	g2D.setColor(this.getBackground());
+        }*/
+        g2D.setColor(Color.GRAY);
+        //g2D.setColor(this.getBackground());
         g2D.setComposite(AlphaComposite.getInstance(3, 0.3f));
         this.drawXLines(g2D);
         this.drawYLines(g2D);

@@ -229,6 +229,9 @@ public class Textures
         this.iconLargeCastle = this.image("icons/largeCastle.png");
         this.iconSmallCastle = this.image("icons/smallCastle.png");
         this.iconCastleWall = this.image("icons/castleWall.png");
+        
+       
+        
         this.iconPlatformLongRepUp = this.image("icons/platforms/platformLongRepUp.png");
         this.iconPlatformLongRepDown = this.image("icons/platforms/platformLongRepDown.png");
         this.iconPlatformLongPulley = this.image("icons/platforms/platformLongPulley.png");

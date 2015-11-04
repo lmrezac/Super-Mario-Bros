@@ -4,12 +4,18 @@
 
 package supermario.game.sprites.friends;
 
+import supermario.game.MultiIcon;
 import supermario.game.Tile;
 import supermario.game.sprites.effects.BumpCoin;
 import supermario.game.sprites.Mario;
+
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
+
 import supermario.Utilities;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.interfaces.Friend;
 import supermario.game.Sprite;
@@ -23,7 +29,7 @@ public class Coin extends Sprite implements Friend
         super(game, images);
         this.shadowColor = shadowColor;
         this.absorbed = false;
-        if (shadowColor == 0) {
+        /*if (shadowColor == 0) {
             this.imageIndex = 1;
         }
         else if (shadowColor == 1) {
@@ -31,7 +37,8 @@ public class Coin extends Sprite implements Friend
         }
         else if (shadowColor == 2) {
             this.imageIndex = 2;
-        }
+        }*/
+        this.imageIndex = 0;
     }
     
     @Override
@@ -112,4 +119,30 @@ public class Coin extends Sprite implements Friend
             }
         }
     }
+    @Override
+    public void draw(final Graphics2D g2D) {
+        if (!this.visible) {
+            return;
+        }
+        this.transform.setToIdentity();
+        this.transform.translate(this.x, this.y);
+        if (this.flip) {
+        
+            this.transform.translate(this.width, 0.0);
+            this.transform.scale(-1.0, 1.0);
+        }
+        if (this.vFlip) {
+            this.transform.translate(0.0, this.height + this.avoidedUpsideDownCollisionRowsOnBottom);
+            this.transform.scale(1.0, -1.0);
+        }
+        try{
+        	
+        		if(this.images[imageIndex] instanceof MultiIcon)
+        			g2D.drawImage(((MultiIcon)(this.images[imageIndex])).getImage(this.game.level.levelType)/*this.game.textures.getLevelTypeAlt(levelType, this.images[this.imageIndex]).getImage()*/,this.transform,null);
+        		else
+        			g2D.drawImage(this.images[imageIndex].getImage(), this.transform,null);
+        }catch(ArrayIndexOutOfBoundsException e){
+        		g2D.drawImage(this.images[0].getImage(),this.transform,null);
+        }
+    }	
 }

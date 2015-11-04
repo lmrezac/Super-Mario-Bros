@@ -50,17 +50,9 @@ public class QuestionBox extends Sprite implements Block, Warpable
         this.hidden = hidden;
         this.exposed = false;
         if (hidden) {
-            this.imageIndex = images.length - 1;
+            this.imageIndex = 2;
         }
-        else if (shadowColor == 0) {
-            this.imageIndex = 0;
-        }
-        else if (shadowColor == 1) {
-            this.imageIndex = 3;
-        }
-        else if (shadowColor == 2) {
-            this.imageIndex = 6;
-        }
+        else this.imageIndex = 0;
         this.settled = true;
     }
     
@@ -76,27 +68,27 @@ public class QuestionBox extends Sprite implements Block, Warpable
         if (!this.hit && !this.hidden) {
         	this.imageIndex = 0;
             //this.imageIndex = pulseIndex;
-            if (this.shadowColor == 1) {
+            /*if (this.shadowColor == 1) {
                 this.imageIndex = 1;
             }
             else if (this.shadowColor == 2) {
                 this.imageIndex = 2;
-            }
+            }*/
         }
         else if (!this.hit && this.hidden) {
-            this.imageIndex = this.images.length - 1;
+            this.imageIndex = 2;
         }
         else if (this.metal) {
             if (!this.hidden) {
-                this.imageIndex = 3;
-                if (this.shadowColor == 1) {
+                this.imageIndex = 1;
+                /*if (this.shadowColor == 1) {
                     this.imageIndex = 4;
                 }
                 else if (this.shadowColor == 2) {
                     this.imageIndex = 5;
-                }
+                }*/
             }
-            else if (this.game.level.levelType == 0 || this.game.level.levelType == 4 || this.game.level.levelType == 3) {
+            /*else if (this.game.level.levelType == 0 || this.game.level.levelType == 4 || this.game.level.levelType == 3) {
                 this.imageIndex = 3;
             }
             else if (this.game.level.levelType == 1) {
@@ -104,7 +96,7 @@ public class QuestionBox extends Sprite implements Block, Warpable
             }
             else if (this.game.level.levelType == 2) {
                 this.imageIndex = 5;
-            }
+            }*/
         }
         if (this.hit && !this.settled) {
             this.applyGravity(delta, 80.0);

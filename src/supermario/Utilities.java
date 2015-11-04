@@ -404,7 +404,7 @@ public class Utilities
 	    // Return the buffered image
 	    return bimage;
 	}
-	public static BufferedImage resizeImage(BufferedImage bimg, int width, int height){
+	public static Image resizeImage(Image bimg, int width, int height){
 		//scales image
 		Image img = bimg.getScaledInstance(width, height, 0);
 		//output image
@@ -417,6 +417,7 @@ public class Utilities
 		
 		return bimage;
 	}
+	
 	public static BufferedImage cropImage(BufferedImage original,int x, int y,int width, int height){
 		BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = resizedImage.createGraphics();

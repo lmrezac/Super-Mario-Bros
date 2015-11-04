@@ -90,20 +90,21 @@ public final class MiscPanel extends JPanel implements ItemPanel
         this.spring.setEnabled(true);
         this.infiniteCorridor.setEnabled(true);
         this.mario.setImages(this.frame.game.textures.marioWalk1, null);
+        this.coin.setImages(this.frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.lightCoin), null);
         if (this.frame.levelPanel.level != null && this.frame.levelPanel.level.levelType == 1) {
-            this.coin.setImages(this.frame.game.textures.darkCoin, null);
+            
             this.spring.setImages(this.frame.game.textures.springDark, null);
             this.currentGreenSpring = this.frame.game.textures.springGreenDark;
             this.beanstalkArrival.setImages(this.frame.game.textures.beanstalkTopDark, this.frame.game.textures.entryVineDark);
         }
         else if (this.frame.levelPanel.level != null && this.frame.levelPanel.level.levelType == 2) {
-            this.coin.setImages(this.frame.game.textures.stoneCoin, null);
+            //this.coin.setImages(this.frame.game.textures.stoneCoin, null);
             this.spring.setImages(this.frame.game.textures.springGray, null);
             this.currentGreenSpring = this.frame.game.textures.springGreenGray;
             this.beanstalkArrival.setImages(this.frame.game.textures.beanstalkTopLight, this.frame.game.textures.entryVineDark);
         }
         else {
-            this.coin.setImages(this.frame.game.textures.lightCoin, null);
+            //this.coin.setImages(this.frame.game.textures.lightCoin, null);
             this.spring.setImages(this.frame.game.textures.springLight, null);
             this.currentGreenSpring = this.frame.game.textures.springGreenLight;
             this.beanstalkArrival.setImages(this.frame.game.textures.beanstalkTopLight, this.frame.game.textures.entryVineLight);

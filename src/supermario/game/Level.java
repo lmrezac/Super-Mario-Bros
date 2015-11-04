@@ -1096,7 +1096,7 @@ public final class Level
                     this.transform.translate(j * 8, i * 8);
                     if (this.tiles[i][j].shiftOver && this.tiles[i][j].image != this.game.textures.bowserChain) {
                         this.transform.translate(-this.tiles[i][j].image.getIconWidth() + 8, 0.0);
-                        g2D.drawImage(this.tiles[i][j].image.getImage(), this.transform, null);
+                        g2D.drawImage(this.game.textures.getLevelTypeAlt(this.game.level.levelType,this.tiles[i][j].image).getImage(), this.transform, null);
                     }
                     else {
                         this.backgroundItemsPending.add(this.tiles[i][j]);
@@ -1117,7 +1117,7 @@ public final class Level
             else if (backgroundTile.image == this.game.textures.lavaTop || backgroundTile.image == this.game.textures.waterTop) {
                 this.checkForColorFill(backgroundTile, g2D, true);
             }
-            g2D.drawImage(backgroundTile.image.getImage(), this.transform, null);
+            g2D.drawImage(this.game.textures.getLevelTypeAlt(this.game.level.levelType,backgroundTile.image).getImage(), this.transform, null);
         }
     }
     
@@ -1416,7 +1416,7 @@ public final class Level
         if (this.levelType == LEVEL_TYPE_OUTSIDE || this.levelType == LEVEL_TYPE_COIN_ZONE_DAY || this.levelType == LEVEL_TYPE_UNDER_WATER) {
             this.backgroundColor = this.game.textures.skyBlue;
         }
-        else if (this.levelType == LEVEL_TYPE_UNDERGROUND || this.levelType == LEVEL_TYPE_CASTLE || this.levelType == LEVEL_TYPE_OUTSIDE_NIGHT || this.levelType == LEVEL_TYPE_COIN_ZONE_NIGHT) {
+        else if (this.levelType == LEVEL_TYPE_UNDERGROUND || this.levelType == LEVEL_TYPE_CASTLE || this.levelType == LEVEL_TYPE_OUTSIDE_NIGHT || this.levelType == LEVEL_TYPE_COIN_ZONE_NIGHT || this.levelType == LEVEL_TYPE_GHOST_HOUSE) {
             this.backgroundColor = this.game.textures.black;
         }
     }

@@ -760,7 +760,7 @@ public class LevelLoader
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeBark, false, false);
                 }
                 else if (tile == '\u2660') {
-                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomTreeBark, false, false);
+                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomStemBark, false, false);
                 }
                 else if (tile == 'g') {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.lavaTop, false, false);
@@ -859,7 +859,7 @@ public class LevelLoader
                     chars[i+j] = 'l';
                 }
                 else if (tile == '§') {
-                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.seaBlock, false, true);
+                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*sea*/lightBlock, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile == 'q') {
@@ -879,40 +879,40 @@ public class LevelLoader
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile == 't') {
-                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.darkMetal, false, true);
+                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*dark*/lightMetal, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile == 'u') {
-                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.stoneMetal, false, true);
+                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*stone*/lightMetal, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile == 'v') {
-                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeTopLeftEnd, false, true);
+                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeLeft, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile == 'w') {
-                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeTopRightEnd, false, true);
+                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeRight, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile != 'x') {
                     if (tile == 'y') {
-                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeTopMiddle, false, true);
+                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeMiddle, false, true);
                         this.multiTileCollision(line, j, 2, 1);
                     }
                     else if (tile == '\u25cb') {
-                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomTreeLeftEnd, false, true);
+                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomLeft, false, true);
                         this.multiTileCollision(line, j, 2, 2);
                     }
                     else if (tile == '\u25d9') {
-                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomTreeRightEnd, false, true);
+                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomRight, false, true);
                         this.multiTileCollision(line, j, 2, 2);
                     }
                     else if (tile == '\u2642') {
-                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomTreeMiddleSection, false, true);
+                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomMiddle, false, true);
                         this.multiTileCollision(line, j, 2, 2);
                     }
                     else if (tile == '\u2193') {
-                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomTreeBarkTop, false, false);
+                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomStemTop, false, false);
                     }
                     else if (tile == 'z') {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.coral, false, true);

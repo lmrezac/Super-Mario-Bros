@@ -53,7 +53,8 @@ public class Brick extends Sprite implements Block, Warpable
         this.settled = true;
         this.broken = false;
         this.metal = false;
-        if (brickType == 0) {
+        this.imageIndex = 0;
+        /*if (brickType == 0) {
             this.imageIndex = 0;
         }
         else if (brickType == 1) {
@@ -61,7 +62,7 @@ public class Brick extends Sprite implements Block, Warpable
         }
         else if (brickType == 2) {
             this.imageIndex = 2;
-        }
+        }*/
     }
     
     @Override
@@ -109,7 +110,7 @@ public class Brick extends Sprite implements Block, Warpable
             }
         }
         this.finalizePosition();
-        if (this.brickType == 0) {
+        /*if (this.brickType == 0) {
             this.imageIndex = 0;
         }
         else if (this.brickType == 1) {
@@ -117,9 +118,10 @@ public class Brick extends Sprite implements Block, Warpable
         }
         else if (this.brickType == 2) {
             this.imageIndex = 2;
-        }
+        }*/
+        this.imageIndex = 0;
         if (this.metal) {
-            this.imageIndex += 3;
+            this.imageIndex = 1;
         }
     }
     
