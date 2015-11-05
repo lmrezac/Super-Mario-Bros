@@ -54,7 +54,7 @@ public class Beetle extends Sprite implements Enemy, Shelled, MarioFollower
             this.xVel = Constants.ENEMY_X_SPEED;
         }
         this.spriteState = 0;
-        if (colorIndex == 0) {
+        /*if (colorIndex == 0) {
             this.imageIndex = 0;
         }
         else if (colorIndex == 1) {
@@ -62,7 +62,7 @@ public class Beetle extends Sprite implements Enemy, Shelled, MarioFollower
         }
         else if (colorIndex == 2) {
             this.imageIndex = 8;
-        }
+        }*/
     }
     
     @Override
@@ -164,7 +164,7 @@ public class Beetle extends Sprite implements Enemy, Shelled, MarioFollower
             }
             this.ticks -= 150.0;
         }
-        if (this.colorIndex == 0) {
+        /*if (this.colorIndex == 0) {
             this.imageIndex = this.generalImageIndex + 0;
         }
         else if (this.colorIndex == 1) {
@@ -172,7 +172,7 @@ public class Beetle extends Sprite implements Enemy, Shelled, MarioFollower
         }
         else if (this.colorIndex == 2) {
             this.imageIndex = this.generalImageIndex + 8;
-        }
+        }*/
     }
     
     @Override

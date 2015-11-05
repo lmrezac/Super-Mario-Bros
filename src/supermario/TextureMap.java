@@ -12,21 +12,24 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+import supermario.game.Textures;
+
 public class TextureMap{
 	private Image map;
 	private static final String dir = System.getProperty("user.dir");
 	private String folderin;
 
-	public TextureMap(String filename){
+	public TextureMap(String filename) throws Textures.MessageException{
 		try {
 			map = ImageIO.read(new File(filename));
 			int i = filename.lastIndexOf('/');
 			folderin = filename.substring(0,i+1);
 		} catch (IOException e) {
 			if(filename.startsWith("images/")){
-				e.printStackTrace();
-				System.out.println("Error reading "+filename);
-				System.exit(0);
+				//e.printStackTrace();
+				//System.out.println("Error reading "+filename);
+				//System.exit(0);
+				throw new Textures.MessageException(e,"Error reading "+filename);
 			}else{
 				try {
 					int i = filename.indexOf('/');
@@ -36,9 +39,9 @@ public class TextureMap{
 					i = filename.lastIndexOf('/');
 					folderin = filename.substring(0,i+1);
 				} catch (IOException f) {
-					e.printStackTrace();
-					System.out.println("Error reading "+filename);
-					System.exit(0);
+					//e.printStackTrace();
+					//System.out.println("Error reading "+filename);
+					throw new Textures.MessageException(f,"Error reading "+filename);
 				}
 			}
 		}

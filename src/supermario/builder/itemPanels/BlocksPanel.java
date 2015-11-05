@@ -146,13 +146,13 @@ public final class BlocksPanel extends JPanel implements ItemPanel
     }
     
     public void setWaterMode() {
-        this.lightBrickNothing.setEnabled(false);
+        //this.lightBrickNothing.setEnabled(true);
        // this.darkBrickNothing.setEnabled(false);
       //  this.stoneBrickNothing.setEnabled(false);
     }
     
     public void setLandMode() {
-        this.lightBrickNothing.setEnabled(true);
+       // this.lightBrickNothing.setEnabled(true);
       //  this.darkBrickNothing.setEnabled(true);
       //  this.stoneBrickNothing.setEnabled(true);
     }
@@ -169,7 +169,7 @@ public final class BlocksPanel extends JPanel implements ItemPanel
             scheme = 2;
         }
         ImageIcon brick = this.frame.game.textures.getLevelTypeAlt(levelType,frame.game.textures.lightBrick);
-        this.lightBrickNothing.setImages(this.frame.game.textures.lightBrick,brick);
+        this.lightBrickNothing.setImages(brick,null);
         this.lightBrickCoin.setImages(ImageBuilder.createBlockImage(0, scheme, 3),brick);
         this.lightBrickCoins.setImages(ImageBuilder.createBlockImage(0, scheme, 4), brick);
         this.lightBrickGrow.setImages(ImageBuilder.createBlockImage(0, scheme, 0), brick);

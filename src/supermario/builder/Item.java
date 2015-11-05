@@ -96,7 +96,7 @@ public final class Item
     public Item(final BuilderFrame frame, final char character, final String name, final Button button, final int requiredRow, final int spaceRequirement, final int horizontalDrawOffset, final int verticalDrawOffset, final boolean draggable, final boolean immobile, final int propertiesType) {
         this.frame = frame;
         //old character exceptions. THIS IS TEMPORARY. REMOVE WHEN DONE.
-        if(character == 'm' || character == 'n' || character == 'o' || character == 'p')
+        if(character == 'm' || character == 'n' || character == 'o')
         	this.character = 'l';
         else 
         	this.character = character;
@@ -357,8 +357,8 @@ public final class Item
     
     public void drawInLevel(final Graphics2D g2D, final double leftMostX, final double scaleFactor, final double TILE_SIZE, final boolean includeHighlights) {
         char c = this.character;
-        if(c == '«'||c=='©'||c=='¦'||c=='¥'||c=='¤'||c=='£'||c=='\u00fd'||c=='¢'||c=='¡')
-        	System.out.println("DRAWING BACKGROUND");
+        //if(c == '«'||c=='©'||c=='¦'||c=='¥'||c=='¤'||c=='£'||c=='\u00fd'||c=='¢'||c=='¡')
+        	//System.out.println("DRAWING BACKGROUND");
     	this.xPixel = (int)Math.round(this.xTile * TILE_SIZE * scaleFactor - leftMostX * scaleFactor - this.horizontalDrawOffset * scaleFactor);
         this.yPixel = (int)Math.round(this.yTile * TILE_SIZE * scaleFactor - this.verticalDrawOffset * scaleFactor);
         if (!this.flip) {
@@ -465,7 +465,7 @@ public final class Item
             image = this.frame.game.textures.lightKoopa4;
         }
         else if (this.character == '±' || this.character == '-') {
-            image = this.frame.game.textures.darkKoopa4;
+            image = this.frame.game.textures./*dark*/lightKoopa4;
         }
         else {
             image = this.frame.game.textures.redKoopa4;

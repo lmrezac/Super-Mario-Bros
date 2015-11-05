@@ -246,10 +246,10 @@ public class Textures
     public ImageIcon cloudGroundTop, cloudGroundTopLeft, cloudGroundTopRight,
     				cloudGroundLeft,cloudGroundRight, cloudGroundBottomLeft,
     				cloudGroundBottom, cloudGroundBottomRight;
-    public ImageIcon darkCloudGround;
-    public ImageIcon darkCloudGroundTop, darkCloudGroundTopLeft, darkCloudGroundTopRight,
+    //public ImageIcon darkCloudGround;
+   /* public ImageIcon darkCloudGroundTop, darkCloudGroundTopLeft, darkCloudGroundTopRight,
     				darkCloudGroundLeft,darkCloudGroundRight, darkCloudGroundBottomLeft,
-    				darkCloudGroundBottom, darkCloudGroundBottomRight;
+    				darkCloudGroundBottom, darkCloudGroundBottomRight;*/
     public ImageIcon singleCloud;
     public ImageIcon doubleCloud;
     public ImageIcon tripleCloud;
@@ -302,25 +302,25 @@ public class Textures
     //public ImageIcon darkQuestionBox;
     //public ImageIcon stoneQuestionBox;
     public ImageIcon questionBoxHidden;
-    public ImageIcon darkGoomba1;
-    public ImageIcon darkGoomba2;
-    public ImageIcon darkGoomba3;
-    public ImageIcon darkGoomba4;
+    //public ImageIcon darkGoomba1;
+    //public ImageIcon darkGoomba2;
+    //public ImageIcon darkGoomba3;
+    //public ImageIcon darkGoomba4;
     public ImageIcon lightGoomba1;
     public ImageIcon lightGoomba2;
     public ImageIcon lightGoomba3;
     public ImageIcon lightGoomba4;
-    public ImageIcon grayGoomba1;
-    public ImageIcon grayGoomba2;
-    public ImageIcon grayGoomba3;
-    public ImageIcon grayGoomba4;
-    public ImageIcon darkKoopa1;
+    //public ImageIcon grayGoomba1;
+    //public ImageIcon grayGoomba2;
+    //public ImageIcon grayGoomba3;
+    //public ImageIcon grayGoomba4;
+    /*public ImageIcon darkKoopa1;
     public ImageIcon darkKoopa2;
     public ImageIcon darkKoopa3;
     public ImageIcon darkKoopa4;
     public ImageIcon darkKoopa5;
     public ImageIcon darkKoopa6;
-    public ImageIcon darkKoopa7;
+    public ImageIcon darkKoopa7;*/
     public ImageIcon lightKoopa1;
     public ImageIcon lightKoopa2;
     public ImageIcon lightKoopa3;
@@ -446,18 +446,18 @@ public class Textures
     public ImageIcon spiny2;
     public ImageIcon spiny3;
     public ImageIcon spiny4;
-    public ImageIcon grayBeetle1;
+    /*public ImageIcon grayBeetle1;
     public ImageIcon grayBeetle2;
     public ImageIcon grayBeetle3;
-    public ImageIcon grayBeetle4;
+    public ImageIcon grayBeetle4;*/
     public ImageIcon lightBeetle1;
     public ImageIcon lightBeetle2;
     public ImageIcon lightBeetle3;
     public ImageIcon lightBeetle4;
-    public ImageIcon darkBeetle1;
+    /*public ImageIcon darkBeetle1;
     public ImageIcon darkBeetle2;
     public ImageIcon darkBeetle3;
-    public ImageIcon darkBeetle4;
+    public ImageIcon darkBeetle4;*/
     public ImageIcon spinyThrower1;
     public ImageIcon spinyThrower2;
     public ImageIcon spinyThrower3;
@@ -474,10 +474,10 @@ public class Textures
     public ImageIcon lightChomper2;
     public ImageIcon lightChomper3;
     public ImageIcon lightChomper4;
-    public ImageIcon darkChomper1;
-    public ImageIcon darkChomper2;
-    public ImageIcon darkChomper3;
-    public ImageIcon darkChomper4;
+    //public ImageIcon darkChomper1;
+    //public ImageIcon darkChomper2;
+    //public ImageIcon darkChomper3;
+    //public ImageIcon darkChomper4;
     public ImageIcon redChomper1;
     public ImageIcon redChomper2;
     public ImageIcon redChomper3;
@@ -487,23 +487,23 @@ public class Textures
     public ImageIcon lightHammerBro3;
     public ImageIcon lightHammerBro4;
     public ImageIcon lightHammerBro5;
-    public ImageIcon darkHammerBro1;
-    public ImageIcon darkHammerBro2;
-    public ImageIcon darkHammerBro3;
-    public ImageIcon darkHammerBro4;
-    public ImageIcon darkHammerBro5;
+    //public ImageIcon darkHammerBro1;
+    //public ImageIcon darkHammerBro2;
+    //public ImageIcon darkHammerBro3;
+    //public ImageIcon darkHammerBro4;
+    //public ImageIcon darkHammerBro5;
     public ImageIcon lightTallCannon;
     public ImageIcon lightShortCannon;
     public ImageIcon lightCannonBase;
     public ImageIcon lightBullet;
-    public ImageIcon darkTallCannon;
+    /*public ImageIcon darkTallCannon;
     public ImageIcon darkShortCannon;
     public ImageIcon darkCannonBase;
     public ImageIcon darkBullet;
     public ImageIcon stoneTallCannon;
     public ImageIcon stoneShortCannon;
     public ImageIcon stoneCannonBase;
-    public ImageIcon stoneBullet;
+    public ImageIcon stoneBullet;*/
     public ImageIcon hammerBlack;
     public ImageIcon hammerGray;
     public ImageIcon pulley;
@@ -572,7 +572,7 @@ public class Textures
     }
     
     public ImageIcon[] getKoopaTextures() {
-        final ImageIcon[] koopaImages = { this.lightKoopa1, this.lightKoopa2, this.lightKoopa3, this.lightKoopa4, this.lightKoopa5, this.lightKoopa6, this.lightKoopa7, this.darkKoopa1, this.darkKoopa2, this.darkKoopa3, this.darkKoopa4, this.darkKoopa5, this.darkKoopa6, this.darkKoopa7, this.redKoopa1, this.redKoopa2, this.redKoopa3, this.redKoopa4, this.redKoopa5, this.redKoopa6, this.redKoopa7 };
+        final ImageIcon[] koopaImages = { this.lightKoopa1, this.lightKoopa2, this.lightKoopa3, this.lightKoopa4, this.lightKoopa5, this.lightKoopa6, this.lightKoopa7 ,/* this.darkKoopa1, this.darkKoopa2, this.darkKoopa3, this.darkKoopa4, this.darkKoopa5, this.darkKoopa6, this.darkKoopa7,*/ this.redKoopa1, this.redKoopa2, this.redKoopa3, this.redKoopa4, this.redKoopa5, this.redKoopa6, this.redKoopa7 };
         return koopaImages;
     }
     
@@ -599,22 +599,22 @@ public class Textures
     }
     
     public ImageIcon[] getShortCannonTextures() {
-        return new ImageIcon[] { this.lightShortCannon, this.darkShortCannon, this.stoneShortCannon };
+        return new ImageIcon[] { this.lightShortCannon /*, this.darkShortCannon, this.stoneShortCannon */};
     }
     
     public ImageIcon[] getTallCannonTextures() {
-        return new ImageIcon[] { this.lightTallCannon, this.darkTallCannon, this.stoneTallCannon };
+        return new ImageIcon[] { this.lightTallCannon /*, this.darkTallCannon, this.stoneTallCannon */};
     }
     
     public ImageIcon[] getBulletTextures() {
-        return new ImageIcon[] { this.lightBullet, this.darkBullet, this.stoneBullet };
+        return new ImageIcon[] { this.lightBullet /*, this.darkBullet, this.stoneBullet */};
     }
     
     public ImageIcon[] getChomperTextures(final boolean vertical) {
         if (vertical) {
-            return new ImageIcon[] { this.lightChomper1, this.lightChomper2, this.darkChomper1, this.darkChomper2, this.redChomper1, this.redChomper2 };
+            return new ImageIcon[] { this.lightChomper1, this.lightChomper2, /*this.darkChomper1, this.darkChomper2, */this.redChomper1, this.redChomper2 };
         }
-        return new ImageIcon[] { this.lightChomper3, this.lightChomper4, this.darkChomper3, this.darkChomper4, this.redChomper3, this.redChomper4 };
+        return new ImageIcon[] { this.lightChomper3, this.lightChomper4, /*this.darkChomper3, this.darkChomper4,*/ this.redChomper3, this.redChomper4 };
     }
     
     public ImageIcon[] getBowserTextures() {
@@ -626,7 +626,7 @@ public class Textures
     }
     
     public ImageIcon[] getGoombaTextures() {
-        return new ImageIcon[] { this.lightGoomba1, this.lightGoomba2, this.lightGoomba3, this.lightGoomba4, this.darkGoomba1, this.darkGoomba2, this.darkGoomba3, this.darkGoomba4, this.grayGoomba1, this.grayGoomba2, this.grayGoomba3, this.grayGoomba4 };
+        return new ImageIcon[] { this.lightGoomba1, this.lightGoomba2, this.lightGoomba3, this.lightGoomba4 /*, this.darkGoomba1, this.darkGoomba2, this.darkGoomba3, this.darkGoomba4, this.grayGoomba1, this.grayGoomba2, this.grayGoomba3, this.grayGoomba4*/ };
     }
     
     public ImageIcon[] getCoinTextures() {
@@ -634,7 +634,7 @@ public class Textures
     }
     
     public ImageIcon[] getBeetleTextures() {
-        return new ImageIcon[] { this.lightBeetle1, this.lightBeetle2, this.lightBeetle3, this.lightBeetle4, this.darkBeetle1, this.darkBeetle2, this.darkBeetle3, this.darkBeetle4, this.grayBeetle1, this.grayBeetle2, this.grayBeetle3, this.grayBeetle4 };
+        return new ImageIcon[] { this.lightBeetle1, this.lightBeetle2, this.lightBeetle3, this.lightBeetle4 /*, this.darkBeetle1, this.darkBeetle2, this.darkBeetle3, this.darkBeetle4, this.grayBeetle1, this.grayBeetle2, this.grayBeetle3, this.grayBeetle4*/ };
     }
     
     public ImageIcon[] getStarTextures() {
@@ -642,7 +642,7 @@ public class Textures
     }
     
     public ImageIcon[] getHammerBroTextures() {
-        return new ImageIcon[] { this.lightHammerBro1, this.lightHammerBro2, this.lightHammerBro3, this.lightHammerBro4, this.lightHammerBro5, this.darkHammerBro1, this.darkHammerBro2, this.darkHammerBro3, this.darkHammerBro4, this.darkHammerBro5 };
+        return new ImageIcon[] { this.lightHammerBro1, this.lightHammerBro2, this.lightHammerBro3, this.lightHammerBro4, this.lightHammerBro5 /*, this.darkHammerBro1, this.darkHammerBro2, this.darkHammerBro3, this.darkHammerBro4, this.darkHammerBro5 */};
     }
     
     public ImageIcon[] getSpringTextures() {
@@ -699,7 +699,11 @@ public class Textures
     	}
     	darkpalette = prefix+"sprites/darkpalette.png";
     	graypalette = prefix+"sprites/graypalette.png";
-    	mariomap = new TextureMap(prefix+"sprites/mario/mario.png");
+    	try{
+    		mariomap = new TextureMap(prefix+"sprites/mario/mario.png");
+    	}catch(MessageException e){
+    		e.printSelf();
+    	}
     	//tiles = new TextureMap(prefix+"tiles/tileset.png");
         this.symbolsInit(prefix);
         this.overlayInit(prefix);
@@ -1201,6 +1205,84 @@ public class Textures
         this.cloudGroundBottom = ground.getTile(1,2);
         this.cloudGroundBottomRight = ground.getTile(2,2);
         
+        ImageIcon darkCloudGround, darkCloudGroundTopLeft, darkCloudGroundTop, darkCloudGroundTopRight, darkCloudGroundBottom,
+        darkCloudGroundLeft, darkCloudGroundRight, darkCloudGroundBottomLeft, darkCloudGroundBottomRight;
+        try{
+        ground = new TextureMap(prefix+"tiles/underground/cloud.png");
+        darkCloudGround = ground.getTile(1, 1);
+        darkCloudGroundTopLeft = ground.getTile(0, 0);
+        darkCloudGroundTop = ground.getTile(1, 0);
+        darkCloudGroundTopRight = ground.getTile(2,0);
+        darkCloudGroundLeft = ground.getTile(0,1);
+        darkCloudGroundRight = ground.getTile(2,1);
+        darkCloudGroundBottomLeft = ground.getTile(0,2);
+        darkCloudGroundBottom = ground.getTile(1,2);
+        darkCloudGroundBottomRight = ground.getTile(2,2);
+        }catch(MessageException e){
+        	 darkCloudGround = cloudGround;darkCloudGroundTopLeft = cloudGroundTopLeft;darkCloudGroundTop = cloudGroundTop;darkCloudGroundTopRight = cloudGroundTopRight;darkCloudGroundLeft = cloudGroundLeft;darkCloudGroundRight = cloudGroundRight;darkCloudGroundBottomLeft = cloudGroundBottomLeft;darkCloudGroundBottom = cloudGroundBottom;darkCloudGroundBottomRight = cloudGroundBottomRight;
+        }
+        
+        ImageIcon castleCloudGround, castleCloudGroundTopLeft, castleCloudGroundTop, castleCloudGroundTopRight, castleCloudGroundBottom,
+        castleCloudGroundLeft, castleCloudGroundRight, castleCloudGroundBottomLeft, castleCloudGroundBottomRight;
+        try{
+        ground = new TextureMap(prefix+"tiles/castle/cloud.png");
+        castleCloudGround = ground.getTile(1, 1);
+        castleCloudGroundTopLeft = ground.getTile(0, 0);
+        castleCloudGroundTop = ground.getTile(1, 0);
+        castleCloudGroundTopRight = ground.getTile(2,0);
+        castleCloudGroundLeft = ground.getTile(0,1);
+        castleCloudGroundRight = ground.getTile(2,1);
+        castleCloudGroundBottomLeft = ground.getTile(0,2);
+        castleCloudGroundBottom = ground.getTile(1,2);
+        castleCloudGroundBottomRight = ground.getTile(2,2);
+        }catch(MessageException e){
+        	 castleCloudGround = darkCloudGround;castleCloudGroundTopLeft = darkCloudGroundTopLeft;castleCloudGroundTop = darkCloudGroundTop;castleCloudGroundTopRight = darkCloudGroundTopRight;castleCloudGroundLeft = darkCloudGroundLeft;castleCloudGroundRight = darkCloudGroundRight;castleCloudGroundBottomLeft = darkCloudGroundBottomLeft;castleCloudGroundBottom = darkCloudGroundBottom;castleCloudGroundBottomRight = darkCloudGroundBottomRight;
+        }
+        
+        ImageIcon seaCloudGround, seaCloudGroundTopLeft, seaCloudGroundTop, seaCloudGroundTopRight, seaCloudGroundBottom,
+        seaCloudGroundLeft, seaCloudGroundRight, seaCloudGroundBottomLeft, seaCloudGroundBottomRight;
+        try{
+        ground = new TextureMap(prefix+"tiles/underwater/cloud.png");
+        seaCloudGround = ground.getTile(1, 1);
+        seaCloudGroundTopLeft = ground.getTile(0, 0);
+        seaCloudGroundTop = ground.getTile(1, 0);
+        seaCloudGroundTopRight = ground.getTile(2,0);
+        seaCloudGroundLeft = ground.getTile(0,1);
+        seaCloudGroundRight = ground.getTile(2,1);
+        seaCloudGroundBottomLeft = ground.getTile(0,2);
+        seaCloudGroundBottom = ground.getTile(1,2);
+        seaCloudGroundBottomRight = ground.getTile(2,2);
+        }catch(MessageException e){
+        	 seaCloudGround = cloudGround;seaCloudGroundTopLeft = cloudGroundTopLeft;seaCloudGroundTop = cloudGroundTop;seaCloudGroundTopRight = cloudGroundTopRight;seaCloudGroundLeft = cloudGroundLeft;seaCloudGroundRight = cloudGroundRight;seaCloudGroundBottomLeft = cloudGroundBottomLeft;seaCloudGroundBottom = cloudGroundBottom;seaCloudGroundBottomRight = cloudGroundBottomRight;
+        }
+        
+        ImageIcon ghostCloudGround, ghostCloudGroundTopLeft, ghostCloudGroundTop, ghostCloudGroundTopRight, ghostCloudGroundBottom,
+        ghostCloudGroundLeft, ghostCloudGroundRight, ghostCloudGroundBottomLeft, ghostCloudGroundBottomRight;
+        try{
+        ground = new TextureMap(prefix+"tiles/ghost/cloud.png");
+        ghostCloudGround = ground.getTile(1, 1);
+        ghostCloudGroundTopLeft = ground.getTile(0, 0);
+        ghostCloudGroundTop = ground.getTile(1, 0);
+        ghostCloudGroundTopRight = ground.getTile(2,0);
+        ghostCloudGroundLeft = ground.getTile(0,1);
+        ghostCloudGroundRight = ground.getTile(2,1);
+        ghostCloudGroundBottomLeft = ground.getTile(0,2);
+        ghostCloudGroundBottom = ground.getTile(1,2);
+        ghostCloudGroundBottomRight = ground.getTile(2,2);
+        }catch(MessageException e){
+        	 ghostCloudGround = darkCloudGround;ghostCloudGroundTopLeft = darkCloudGroundTopLeft;ghostCloudGroundTop = darkCloudGroundTop;ghostCloudGroundTopRight = darkCloudGroundTopRight;ghostCloudGroundLeft = darkCloudGroundLeft;ghostCloudGroundRight = darkCloudGroundRight;ghostCloudGroundBottomLeft = darkCloudGroundBottomLeft;ghostCloudGroundBottom = darkCloudGroundBottom;ghostCloudGroundBottomRight = darkCloudGroundBottomRight;
+        }
+        
+        this.cloudGround = new MultiIcon(this.cloudGround,darkCloudGround,castleCloudGround,seaCloudGround,ghostCloudGround);
+        this.cloudGroundTopLeft = new MultiIcon(this.cloudGroundTopLeft,darkCloudGroundTopLeft,castleCloudGroundTopLeft,seaCloudGroundTopLeft,ghostCloudGroundTopLeft);
+        this.cloudGroundTop = new MultiIcon(this.cloudGroundTop,darkCloudGroundTop,castleCloudGroundTop,seaCloudGroundTop,ghostCloudGroundTop);
+        this.cloudGroundTopRight = new MultiIcon(this.cloudGroundTopRight,darkCloudGroundTopRight,castleCloudGroundTopRight,seaCloudGroundTopRight,ghostCloudGroundTopRight);
+        this.cloudGroundLeft = new MultiIcon(this.cloudGroundLeft,darkCloudGroundLeft,castleCloudGroundLeft,seaCloudGroundLeft,ghostCloudGroundLeft);
+        this.cloudGroundRight = new MultiIcon(this.cloudGroundRight,darkCloudGroundRight,castleCloudGroundRight,seaCloudGroundRight,ghostCloudGroundRight);
+        this.cloudGroundBottomLeft = new MultiIcon(this.cloudGroundBottomLeft,darkCloudGroundBottomLeft,castleCloudGroundBottomLeft,seaCloudGroundBottomLeft,ghostCloudGroundBottomLeft);
+        this.cloudGroundBottom = new MultiIcon(this.cloudGroundBottom,darkCloudGroundBottom,castleCloudGroundBottom,seaCloudGroundBottom,ghostCloudGroundBottom);
+        this.cloudGroundBottomRight = new MultiIcon(this.cloudGroundBottomRight,darkCloudGroundBottomRight,castleCloudGroundBottomRight,seaCloudGroundBottomRight,ghostCloudGroundBottomRight);
+        
         ground = new TextureMap(prefix+"tiles/ghost/ground.png");
         this.ghostGround = ground.getTile(1, 1);
         this.ghostGroundTopLeft = ground.getTile(0, 0);
@@ -1313,9 +1395,7 @@ public class Textures
         this.infiniteCorridorSizer = new ImageIcon(new BufferedImage(64, 32, 2));
         this.solidTestTile = image(prefix,"tiles/solidTestTile.png");
     	}catch(MessageException ex){
-    		ex.printStackTrace();
-			System.out.println(ex.getMessage());
-			System.exit(0);
+    		ex.printSelf();
     	}
         //altsInit(prefix);
     }
@@ -1434,6 +1514,8 @@ public class Textures
        // this.stoneCoin = image(prefix,"tiles/castle/coin.png",16);
         TextureMap mushrooms = new TextureMap(prefix+"sprites/mushroom.png");
         this.growMushroom = mushrooms.getTile(0, 0);//image(prefix,"sprites/growMushroom.png");
+        ImageIcon darkGrowMushroom = TextureMap.applyPalette(growMushroom, darkpalette);
+        this.growMushroom = new MultiIcon(this.growMushroom,darkGrowMushroom,this.growMushroom,null,null);
         this.poisonMushroom = mushrooms.getTile(2,0);//image(prefix,"sprites/poisonMushroom.png");
         TextureMap starmap = new TextureMap(prefix+"sprites/star.png");
         this.star1 = starmap.getTile(0, 0);//image(prefix,"sprites/star/star1.png");
@@ -1458,14 +1540,18 @@ public class Textures
         this.lightGoomba2 = goombas.getTile(1, 0);//image(prefix,"sprites/goomba/lightMushroom2.png");
         this.lightGoomba3 = goombas.getTile(2, 0);//image(prefix,"sprites/goomba/lightMushroom3.png");
         this.lightGoomba4 = goombas.getTile(3, 0);//image(prefix,"sprites/goomba/lightMushroom4.png");
-        this.darkGoomba1 = TextureMap.applyPalette(lightGoomba1, darkpalette);//image(prefix,"sprites/goomba/darkMushroom1.png");
-        this.darkGoomba2 = TextureMap.applyPalette(lightGoomba2, darkpalette);//image(prefix,"sprites/goomba/darkMushroom2.png");
-        this.darkGoomba3 = TextureMap.applyPalette(lightGoomba3, darkpalette);//image(prefix,"sprites/goomba/darkMushroom3.png");
-        this.darkGoomba4 = TextureMap.applyPalette(lightGoomba4, darkpalette);//image(prefix,"sprites/goomba/darkMushroom4.png");
-        this.grayGoomba1 = TextureMap.applyPalette(lightGoomba1, graypalette);//image(prefix,"sprites/goomba/grayMushroom1.png");
-        this.grayGoomba2 = TextureMap.applyPalette(lightGoomba2, graypalette);//image(prefix,"sprites/goomba/grayMushroom2.png");
-        this.grayGoomba3 = TextureMap.applyPalette(lightGoomba3, graypalette);//image(prefix,"sprites/goomba/grayMushroom3.png");
-        this.grayGoomba4 = TextureMap.applyPalette(lightGoomba4, graypalette);//image(prefix,"sprites/goomba/grayMushroom4.png");
+        ImageIcon darkGoomba1 = TextureMap.applyPalette(lightGoomba1, darkpalette);//image(prefix,"sprites/goomba/darkMushroom1.png");
+        ImageIcon darkGoomba2 = TextureMap.applyPalette(lightGoomba2, darkpalette);//image(prefix,"sprites/goomba/darkMushroom2.png");
+        ImageIcon darkGoomba3 = TextureMap.applyPalette(lightGoomba3, darkpalette);//image(prefix,"sprites/goomba/darkMushroom3.png");
+        ImageIcon darkGoomba4 = TextureMap.applyPalette(lightGoomba4, darkpalette);//image(prefix,"sprites/goomba/darkMushroom4.png");
+        ImageIcon grayGoomba1 = TextureMap.applyPalette(lightGoomba1, graypalette);//image(prefix,"sprites/goomba/grayMushroom1.png");
+        ImageIcon grayGoomba2 = TextureMap.applyPalette(lightGoomba2, graypalette);//image(prefix,"sprites/goomba/grayMushroom2.png");
+        ImageIcon grayGoomba3 = TextureMap.applyPalette(lightGoomba3, graypalette);//image(prefix,"sprites/goomba/grayMushroom3.png");
+        ImageIcon grayGoomba4 = TextureMap.applyPalette(lightGoomba4, graypalette);//image(prefix,"sprites/goomba/grayMushroom4.png");
+        this.lightGoomba1 = new MultiIcon(this.lightGoomba1,darkGoomba1,grayGoomba1,null,null);
+        this.lightGoomba2 = new MultiIcon(this.lightGoomba2,darkGoomba2,grayGoomba2,null,null);
+        this.lightGoomba3 = new MultiIcon(this.lightGoomba3,darkGoomba3,grayGoomba3,null,null);
+        this.lightGoomba4 = new MultiIcon(this.lightGoomba4,darkGoomba4,grayGoomba4,null,null);
         TextureMap koopas = new TextureMap(prefix+"sprites/koopa.png");
         this.lightKoopa1 = koopas.getSubImage(0, 0, 16, 24);//image(prefix,"sprites/koopa/lightTurtle1.png");
         this.lightKoopa2 = koopas.getSubImage(1*16, 0, 16, 24);//image(prefix,"sprites/koopa/lightTurtle2.png");
@@ -1474,13 +1560,20 @@ public class Textures
         this.lightKoopa5 = koopas.getSubImage(4*16, 0, 16, 24);//image(prefix,"sprites/koopa/lightTurtle5.png");
         this.lightKoopa6 = koopas.getSubImage(5*16, 0, 16, 24);//image(prefix,"sprites/koopa/lightTurtle6.png");
         this.lightKoopa7 = koopas.getSubImage(6*16, 0, 16, 24);//image(prefix,"sprites/koopa/lightTurtle7.png");
-        this.darkKoopa1 = TextureMap.applyPalette(lightKoopa1, darkpalette);//image(prefix,"sprites/koopa/darkTurtle1.png");
-        this.darkKoopa2 = TextureMap.applyPalette(lightKoopa2, darkpalette);//image(prefix,"sprites/koopa/darkTurtle2.png");
-        this.darkKoopa3 = TextureMap.applyPalette(lightKoopa3, darkpalette);//image(prefix,"sprites/koopa/darkTurtle3.png");
-        this.darkKoopa4 = TextureMap.applyPalette(lightKoopa4, darkpalette);//image(prefix,"sprites/koopa/darkTurtle4.png");
-        this.darkKoopa5 = TextureMap.applyPalette(lightKoopa5, darkpalette);//image(prefix,"sprites/koopa/darkTurtle5.png");
-        this.darkKoopa6 = TextureMap.applyPalette(lightKoopa6, darkpalette);//image(prefix,"sprites/koopa/darkTurtle6.png");
-        this.darkKoopa7 = TextureMap.applyPalette(lightKoopa7, darkpalette);//image(prefix,"sprites/koopa/darkTurtle7.png");
+        ImageIcon darkKoopa1 = TextureMap.applyPalette(lightKoopa1, darkpalette);//image(prefix,"sprites/koopa/darkTurtle1.png");
+        ImageIcon darkKoopa2 = TextureMap.applyPalette(lightKoopa2, darkpalette);//image(prefix,"sprites/koopa/darkTurtle2.png");
+        ImageIcon darkKoopa3 = TextureMap.applyPalette(lightKoopa3, darkpalette);//image(prefix,"sprites/koopa/darkTurtle3.png");
+        ImageIcon darkKoopa4 = TextureMap.applyPalette(lightKoopa4, darkpalette);//image(prefix,"sprites/koopa/darkTurtle4.png");
+        ImageIcon darkKoopa5 = TextureMap.applyPalette(lightKoopa5, darkpalette);//image(prefix,"sprites/koopa/darkTurtle5.png");
+        ImageIcon darkKoopa6 = TextureMap.applyPalette(lightKoopa6, darkpalette);//image(prefix,"sprites/koopa/darkTurtle6.png");
+        ImageIcon darkKoopa7 = TextureMap.applyPalette(lightKoopa7, darkpalette);//image(prefix,"sprites/koopa/darkTurtle7.png");
+        this.lightKoopa1 = new MultiIcon(this.lightKoopa1,darkKoopa1,this.lightKoopa1,null,null);
+        this.lightKoopa2 = new MultiIcon(this.lightKoopa2,darkKoopa2,this.lightKoopa2,null,null);
+        this.lightKoopa3 = new MultiIcon(this.lightKoopa3,darkKoopa3,this.lightKoopa3,null,null);
+        this.lightKoopa4 = new MultiIcon(this.lightKoopa4,darkKoopa4,this.lightKoopa4,null,null);
+        this.lightKoopa5 = new MultiIcon(this.lightKoopa5,darkKoopa5,this.lightKoopa5,null,null);
+        this.lightKoopa6 = new MultiIcon(this.lightKoopa6,darkKoopa6,this.lightKoopa6,null,null);
+        this.lightKoopa7 = new MultiIcon(this.lightKoopa7,darkKoopa7,this.lightKoopa7,null,null);
         this.redKoopa1 = TextureMap.applyPalette(lightKoopa1, prefix+"sprites/redkoopapalette.png");//image(prefix,"sprites/koopa/redTurtle1.png");
         this.redKoopa2 = TextureMap.applyPalette(lightKoopa2, prefix+"sprites/redkoopapalette.png");//image(prefix,"sprites/koopa/redTurtle2.png");
         this.redKoopa3 = TextureMap.applyPalette(lightKoopa3, prefix+"sprites/redkoopapalette.png");//image(prefix,"sprites/koopa/redTurtle3.png");
@@ -1522,22 +1615,30 @@ public class Textures
         this.lightBeetle2 = beetles.getTile(1,0);//image(prefix,"sprites/beetle/lightBeetle2.png");
         this.lightBeetle3 = beetles.getTile(2,0);//image(prefix,"sprites/beetle/lightBeetle3.png");
         this.lightBeetle4 = beetles.getTile(3,0);//image(prefix,"sprites/beetle/lightBeetle4.png");
-        this.darkBeetle1 = TextureMap.applyPalette(lightBeetle1, darkpalette);//image(prefix,"sprites/beetle/darkBeetle1.png");
-        this.darkBeetle2 = TextureMap.applyPalette(lightBeetle2, darkpalette);//image(prefix,"sprites/beetle/darkBeetle2.png");
-        this.darkBeetle3 = TextureMap.applyPalette(lightBeetle3, darkpalette);//image(prefix,"sprites/beetle/darkBeetle3.png");
-        this.darkBeetle4 = TextureMap.applyPalette(lightBeetle4, darkpalette);//image(prefix,"sprites/beetle/darkBeetle4.png");
-        this.grayBeetle1 = TextureMap.applyPalette(lightBeetle1, graypalette);//image(prefix,"sprites/beetle/grayBeetle1.png");
-        this.grayBeetle2 = TextureMap.applyPalette(lightBeetle2, graypalette);//image(prefix,"sprites/beetle/grayBeetle2.png");
-        this.grayBeetle3 = TextureMap.applyPalette(lightBeetle3, graypalette);//image(prefix,"sprites/beetle/grayBeetle3.png");
-        this.grayBeetle4 = TextureMap.applyPalette(lightBeetle4, graypalette);//image(prefix,"sprites/beetle/grayBeetle4.png");
+        ImageIcon darkBeetle1 = TextureMap.applyPalette(lightBeetle1, darkpalette);//image(prefix,"sprites/beetle/darkBeetle1.png");
+        ImageIcon darkBeetle2 = TextureMap.applyPalette(lightBeetle2, darkpalette);//image(prefix,"sprites/beetle/darkBeetle2.png");
+        ImageIcon darkBeetle3 = TextureMap.applyPalette(lightBeetle3, darkpalette);//image(prefix,"sprites/beetle/darkBeetle3.png");
+        ImageIcon darkBeetle4 = TextureMap.applyPalette(lightBeetle4, darkpalette);//image(prefix,"sprites/beetle/darkBeetle4.png");
+        ImageIcon grayBeetle1 = TextureMap.applyPalette(lightBeetle1, graypalette);//image(prefix,"sprites/beetle/grayBeetle1.png");
+        ImageIcon grayBeetle2 = TextureMap.applyPalette(lightBeetle2, graypalette);//image(prefix,"sprites/beetle/grayBeetle2.png");
+        ImageIcon grayBeetle3 = TextureMap.applyPalette(lightBeetle3, graypalette);//image(prefix,"sprites/beetle/grayBeetle3.png");
+        ImageIcon grayBeetle4 = TextureMap.applyPalette(lightBeetle4, graypalette);//image(prefix,"sprites/beetle/grayBeetle4.png");
+        this.lightBeetle1 = new MultiIcon(this.lightBeetle1,darkBeetle1,grayBeetle1,null,null);
+        this.lightBeetle2 = new MultiIcon(this.lightBeetle2,darkBeetle2,grayBeetle2,null,null);
+        this.lightBeetle3 = new MultiIcon(this.lightBeetle3,darkBeetle3,grayBeetle3,null,null);
+        this.lightBeetle4 = new MultiIcon(this.lightBeetle4,darkBeetle4,grayBeetle4,null,null);
         this.lightChomper1 = image(prefix,"sprites/chomper1.png");
         this.lightChomper2 = image(prefix,"sprites/chomper2.png");
         this.lightChomper3 = image(prefix,"sprites/chomper3.png");
         this.lightChomper4 = image(prefix,"sprites/chomper4.png");
-        this.darkChomper1 = TextureMap.applyPalette(lightChomper1, darkpalette);//image(prefix,"sprites/chomper/darkChomper1.png");
-        this.darkChomper2 = TextureMap.applyPalette(lightChomper2, darkpalette);//image(prefix,"sprites/chomper/darkChomper2.png");
-        this.darkChomper3 = TextureMap.applyPalette(lightChomper3, darkpalette);//image(prefix,"sprites/chomper/darkChomper3.png");
-        this.darkChomper4 = TextureMap.applyPalette(lightChomper4, darkpalette);//image(prefix,"sprites/chomper/darkChomper4.png");
+        ImageIcon darkChomper1 = TextureMap.applyPalette(lightChomper1, darkpalette);//image(prefix,"sprites/chomper/darkChomper1.png");
+        ImageIcon darkChomper2 = TextureMap.applyPalette(lightChomper2, darkpalette);//image(prefix,"sprites/chomper/darkChomper2.png");
+        ImageIcon darkChomper3 = TextureMap.applyPalette(lightChomper3, darkpalette);//image(prefix,"sprites/chomper/darkChomper3.png");
+        ImageIcon darkChomper4 = TextureMap.applyPalette(lightChomper4, darkpalette);//image(prefix,"sprites/chomper/darkChomper4.png");
+        this.lightChomper1 = new MultiIcon(this.lightChomper1,darkChomper1,this.lightChomper1,null,null);
+        this.lightChomper2 = new MultiIcon(this.lightChomper2,darkChomper2,this.lightChomper2,null,null);
+        this.lightChomper3 = new MultiIcon(this.lightChomper3,darkChomper3,this.lightChomper3,null,null);
+        this.lightChomper4 = new MultiIcon(this.lightChomper4,darkChomper4,this.lightChomper4,null,null);
         this.redChomper1 = TextureMap.applyPalette(lightChomper1, graypalette);//image(prefix,"sprites/chomper/redChomper1.png");
         this.redChomper2 = TextureMap.applyPalette(lightChomper2, graypalette);//image(prefix,"sprites/chomper/redChomper2.png");
         this.redChomper3 = TextureMap.applyPalette(lightChomper3, graypalette);//image(prefix,"sprites/chomper/redChomper3.png");
@@ -1547,11 +1648,16 @@ public class Textures
         this.lightHammerBro3 = image(prefix,"sprites/hammerBro/hammerBro3.png");
         this.lightHammerBro4 = image(prefix,"sprites/hammerBro/hammerBro4.png");
         this.lightHammerBro5 = image(prefix,"sprites/hammerBro/hammerBro5.png");
-        this.darkHammerBro1 = TextureMap.applyPalette(lightHammerBro1, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro1.png");
-        this.darkHammerBro2 = TextureMap.applyPalette(lightHammerBro2, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro2.png");
-        this.darkHammerBro3 = TextureMap.applyPalette(lightHammerBro3, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro3.png");
-        this.darkHammerBro4 = TextureMap.applyPalette(lightHammerBro4, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro4.png");
-        this.darkHammerBro5 = TextureMap.applyPalette(lightHammerBro5, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro5.png");
+        ImageIcon darkHammerBro1 = TextureMap.applyPalette(lightHammerBro1, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro1.png");
+        ImageIcon darkHammerBro2 = TextureMap.applyPalette(lightHammerBro2, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro2.png");
+        ImageIcon darkHammerBro3 = TextureMap.applyPalette(lightHammerBro3, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro3.png");
+        ImageIcon darkHammerBro4 = TextureMap.applyPalette(lightHammerBro4, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro4.png");
+        ImageIcon darkHammerBro5 = TextureMap.applyPalette(lightHammerBro5, darkpalette);//image(prefix,"sprites/hammerBro/darkHammerBro5.png");
+        this.lightHammerBro1 = new MultiIcon(this.lightHammerBro1,darkHammerBro1,this.lightHammerBro1,null,null);
+        this.lightHammerBro2 = new MultiIcon(this.lightHammerBro2,darkHammerBro2,this.lightHammerBro2,null,null);
+        this.lightHammerBro3 = new MultiIcon(this.lightHammerBro3,darkHammerBro3,this.lightHammerBro3,null,null);
+        this.lightHammerBro4 = new MultiIcon(this.lightHammerBro4,darkHammerBro4,this.lightHammerBro4,null,null);
+        this.lightHammerBro5 = new MultiIcon(this.lightHammerBro5,darkHammerBro5,this.lightHammerBro5,null,null);
         TextureMap squid = new TextureMap(prefix+"sprites/squid.png");
         this.squid1 = squid.getSubImage(0,0,16,24);//image(prefix,"sprites/squid/squid1.png");
         this.squid2 = squid.getSubImage(16,0,16,24);//image(prefix,"sprites/squid/squid2.png");
@@ -1567,14 +1673,18 @@ public class Textures
         this.lightCannonBase = image(prefix,"sprites/cannonBase.png");
         this.lightShortCannon = image(prefix,"sprites/shortCannon.png");
         this.lightBullet = image(prefix,"sprites/bullet.png");
-        this.darkTallCannon = TextureMap.applyPalette(lightTallCannon,darkpalette);//image(prefix,"sprites/cannon/darkTallCannon.png");
-        this.darkCannonBase = TextureMap.applyPalette(lightCannonBase,darkpalette);//image(prefix,"sprites/cannon/darkCannonBase.png");
-        this.darkShortCannon = TextureMap.applyPalette(lightShortCannon,darkpalette);//image(prefix,"sprites/cannon/darkShortCannon.png");
-        this.darkBullet = TextureMap.applyPalette(lightBullet,darkpalette);//image(prefix,"sprites/cannon/darkBullet.png");
-        this.stoneTallCannon = TextureMap.applyPalette(lightTallCannon,graypalette);//image(prefix,"sprites/cannon/stoneTallCannon.png");
-        this.stoneCannonBase = TextureMap.applyPalette(lightCannonBase,graypalette);//image(prefix,"sprites/cannon/stoneCannonBase.png");
-        this.stoneShortCannon = TextureMap.applyPalette(lightShortCannon,graypalette);//image(prefix,"sprites/cannon/stoneShortCannon.png");
-        this.stoneBullet = TextureMap.applyPalette(lightBullet,graypalette);//image(prefix,"sprites/cannon/stoneBullet.png");
+        ImageIcon darkTallCannon = TextureMap.applyPalette(lightTallCannon,darkpalette);//image(prefix,"sprites/cannon/darkTallCannon.png");
+        ImageIcon darkCannonBase = TextureMap.applyPalette(lightCannonBase,darkpalette);//image(prefix,"sprites/cannon/darkCannonBase.png");
+        ImageIcon darkShortCannon = TextureMap.applyPalette(lightShortCannon,darkpalette);//image(prefix,"sprites/cannon/darkShortCannon.png");
+        ImageIcon darkBullet = TextureMap.applyPalette(lightBullet,darkpalette);//image(prefix,"sprites/cannon/darkBullet.png");
+        ImageIcon stoneTallCannon = TextureMap.applyPalette(lightTallCannon,graypalette);//image(prefix,"sprites/cannon/stoneTallCannon.png");
+        ImageIcon stoneCannonBase = TextureMap.applyPalette(lightCannonBase,graypalette);//image(prefix,"sprites/cannon/stoneCannonBase.png");
+        ImageIcon stoneShortCannon = TextureMap.applyPalette(lightShortCannon,graypalette);//image(prefix,"sprites/cannon/stoneShortCannon.png");
+        ImageIcon stoneBullet = TextureMap.applyPalette(lightBullet,graypalette);//image(prefix,"sprites/cannon/stoneBullet.png");
+        this.lightTallCannon = new MultiIcon(this.lightTallCannon,darkTallCannon,stoneTallCannon,null,null);
+        this.lightShortCannon = new MultiIcon(this.lightShortCannon,darkShortCannon,stoneShortCannon,null,null);
+        this.lightCannonBase = new MultiIcon(this.lightCannonBase,darkCannonBase,stoneCannonBase,null,null);
+        this.lightBullet = new MultiIcon(this.lightBullet,darkBullet,stoneBullet,null,null);
         this.hammerBlack = image(prefix,"sprites/hammer.png");
         this.hammerGray = TextureMap.applyPalette(hammerBlack,graypalette);//;//image(prefix,"sprites/hammerGray.png");
         this.platformLong = image(prefix,"sprites/platforms/long.png");
@@ -1759,7 +1869,7 @@ public class Textures
     	if(icon == this.mushroomStemBark||icon == this.mushroomStemTop){
     		System.out.println("getting alt for mushroom bark");
     	}
-    	if(isGroundTile(icon)){
+    	if(isGroundTile(icon)&& !isCloudTile(icon)){
 	    	switch(leveltype){
 	    	case Level.LEVEL_TYPE_CASTLE:
 	    		return getCastleVariant(icon);
@@ -1877,6 +1987,24 @@ public class Textures
     	default: return false;
     	}
     }
+    
+    public boolean isCloudTile(ImageIcon icon){
+    	return isCloudTile(icon,"middle");
+    }
+    public boolean isCloudTile(ImageIcon icon,String side){
+    	switch(side){
+    	case "middle":return icon == this.cloudGround ;//|| icon == this.darkCloudGround || icon == this.seaCloudGround || icon == this.stoneCloudGround || icon == this.cloudGround || icon == this.ghostCloudGround;
+    	case "topLeft": return icon == this.cloudGroundTopLeft; //||icon == this.darkCloudGroundTopLeft||icon == this.seaCloudGroundTopLeft||icon == this.stoneCloudGroundTopLeft||icon == this.cloudGroundTopLeft || icon == this.ghostCloudGroundTopLeft;
+    	case "topRight": return icon == this.cloudGroundTopRight; //||icon == this.darkCloudGroundTopRight||icon == this.seaCloudGroundTopRight||icon == this.stoneCloudGroundTopRight||icon == this.cloudGroundTopRight||icon == this.ghostCloudGroundTopRight;
+    	case "top": return icon == this.cloudGroundTop; //||icon == this.darkCloudGroundTop||icon == this.seaCloudGroundTop||icon == this.cloudGroundTop||icon == this.stoneCloudGroundTop||icon == this.ghostCloudGroundTop;
+    	case "left": return icon == this.cloudGroundLeft; //||icon == this.darkCloudGroundLeft||icon == this.seaCloudGroundLeft||icon == this.cloudGroundLeft||icon == this.stoneCloudGroundLeft||icon == this.ghostCloudGroundLeft;
+    	case "right": return icon == this.cloudGroundRight; //||icon == this.darkCloudGroundRight||icon == this.seaCloudGroundRight||icon == this.cloudGroundRight||icon == this.stoneCloudGroundRight||icon == this.ghostCloudGroundRight;
+    	case "bottomLeft": return icon == this.cloudGroundBottomLeft; //||icon == this.darkCloudGroundBottomLeft||icon == this.seaCloudGroundBottomLeft||icon == this.stoneCloudGroundBottomLeft||icon == this.cloudGroundBottomLeft||icon == this.ghostCloudGroundBottomLeft;
+    	case "bottomRight": return icon == this.cloudGroundBottomRight;//||icon == this.darkCloudGroundBottomRight||icon == this.seaCloudGroundBottomRight||icon == this.stoneCloudGroundBottomRight||icon == this.cloudGroundBottomRight||icon == this.ghostCloudGroundBottomRight;
+    	case "bottom": return icon == this.cloudGroundBottom;//||icon == this.darkCloudGroundBottom||icon == this.seaCloudGroundBottom||icon == this.stoneCloudGroundBottom||icon == this.cloudGroundBottom||icon == this.ghostCloudGroundBottom;
+    	default: return false;
+    	}
+    }
    /*public boolean isCoin(ImageIcon icon){
     	return icon == lightCoin || icon == darkCoin || icon == stoneCoin || icon == seaCoin;
     }
@@ -1989,50 +2117,54 @@ public class Textures
     	if(isGroundTile(icon,"bottom"))return this.ghostGroundBottom;
     	return getDarkVariant(icon);
     }
+    public static class MessageException extends Exception{
+    	private static final long serialVersionUID = 3248878419786597659L;
+    	private Exception ex;
+    	private String message;
+    	public MessageException(Exception e, String msg){
+    		this.ex = e;
+    		this.message = msg;
+    	}
+    	/*public Throwable fillInStackTrace(){
+    		return ex.fillInStackTrace();
+    	}*/
+    	public Throwable getCause(){
+    		return ex.getCause();
+    	}
+    	public String getLocalizedMessage(){
+    		return ex.getLocalizedMessage();
+    	}
+    	public String getMessage(){
+    		return message;
+    	}
+    	public Exception getException(){
+    		return ex;
+    	}
+    	public StackTraceElement[] getStackTrace(){
+    		return ex.getStackTrace();
+    	}
+    	public Throwable initCause(Throwable cause){
+    		return ex.initCause(cause);
+    	}
+    	public void printStackTrace(){
+    		ex.printStackTrace();
+    	}
+    	public void printStackTrace(PrintStream s){
+    		ex.printStackTrace(s);
+    	}
+    	public void printStackTrace(PrintWriter s){
+    		ex.printStackTrace(s);
+    	}
+    	public void setStackTrace(StackTraceElement[] trace){
+    		ex.setStackTrace(trace);
+    	}
+    	public String toString(){
+    		return message+" :: "+ex.toString();
+    	}
+    	public void printSelf(){
+    		System.out.println(toString());
+    		System.exit(0);
+    	}
+    }
 }
 
-class MessageException extends Exception{
-	private static final long serialVersionUID = 3248878419786597659L;
-	private Exception ex;
-	private String message;
-	public MessageException(Exception e, String msg){
-		this.ex = e;
-		this.message = msg;
-	}
-	/*public Throwable fillInStackTrace(){
-		return ex.fillInStackTrace();
-	}*/
-	public Throwable getCause(){
-		return ex.getCause();
-	}
-	public String getLocalizedMessage(){
-		return ex.getLocalizedMessage();
-	}
-	public String getMessage(){
-		return message;
-	}
-	public Exception getException(){
-		return ex;
-	}
-	public StackTraceElement[] getStackTrace(){
-		return ex.getStackTrace();
-	}
-	public Throwable initCause(Throwable cause){
-		return ex.initCause(cause);
-	}
-	public void printStackTrace(){
-		ex.printStackTrace();
-	}
-	public void printStackTrace(PrintStream s){
-		ex.printStackTrace(s);
-	}
-	public void printStackTrace(PrintWriter s){
-		ex.printStackTrace(s);
-	}
-	public void setStackTrace(StackTraceElement[] trace){
-		ex.setStackTrace(trace);
-	}
-	public String toString(){
-		return message+" :: "+ex.toString();
-	}
-}

@@ -1,0 +1,40 @@
++Added new texture packs: Custom, SMB3, SMB Special
++Changed sprite & image mechanics:
+	+There is now only one ImageIcon for every different theme
+		-this is achieved through use of MultiIcon object.
+	+Most tiles can be animated by just putting frames below each other 
+	   in the image file
+	+There are separate folders for different level themes (dark, light, castle,etc.)
+	+Most non-tile sprites use sprite maps instead of separate files for animation.
+	+Most non-tile sprites use universal "theme palettes" for different level themes.
+		-these palettes are stored in a named palette .png file
+			-a palette is a ? width x 2 height png file where the 
+			  top row contains light variants of colors and the
+			  bottom row contains the changed versions 
+	+Pipes also now use the palette system
++Texture Pack system now uses SMB1 images if none can be found for new texture pack
++Texture Pack system now is easier for me to add new texture packs. 
+	-you will never need to modify the TexturePack.class file again
+-Removed a bunch of now-unnecessary image files
+-Removed different theme variants of the same block and/or sprite
+	-they now automatically change, both in the game and in the editor
++Ground now has different textures based on adjoining blocks
+	-this allows for custom texture packs to add stuff like the grass from SMW.
+	-same goes for cloud ground
+	-this cannot be seen in default SMB1 texture pack
++Added Ghost House SMB1 theme from Super Mario Maker
++Added a bunch of new textures for alternate themes.
++Added some cheatcodes:
+	-one that turns the whole game into Super Luigi Bros, which mirrors the screen 
+	  horizontally.
+	-one that switches between mario and luigi
++Added a water background override for water levels
+	-it's optional, just either include the image file or don't
++Sky colors and water colors can be changed by texture packs
+	-this is decided by a 1x1 pixel .png file for that color
+-Broke all new texturepacks due to the new image & sprite mechanics :(
++When changing themes in the editor, the actual button images change to their
+   alternate versions corresponding to that theme
+-Removed the game loading splash screen unintentionally when decompiling original jar
+
+Play around with the game to find any other changes I might have missed

@@ -518,28 +518,28 @@ public class Level
         final int castle = 2;
         final int under = 1;
         if ((c == '$' || c == '\u02e6') && this.levelType == under) {
-            newItem = this.frame.enemiesPanel.darkGoomba.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/lightGoomba.item.copy();
         }
         else if ((c == '%' || c == '\u02e6') && (this.levelType == day || this.levelType == night)) {
             newItem = this.frame.enemiesPanel.lightGoomba.item.copy();
         }
         else if ((c == '$' || c == '%') && this.levelType == castle) {
-            newItem = this.frame.enemiesPanel.grayGoomba.item.copy();
+            newItem = this.frame.enemiesPanel./*gray*/lightGoomba.item.copy();
         }
         else if (c == '^' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel.darkKoopaNormal.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/lightKoopaNormal.item.copy();
         }
         else if (c == '&' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel.darkKoopaBouncing.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/lightKoopaBouncing.item.copy();
         }
         else if (c == '*' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel.darkKoopaFlyingV.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/lightKoopaFlyingV.item.copy();
         }
         else if (c == '¬' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel.darkKoopaFlyingH.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/lightKoopaFlyingH.item.copy();
         }
         else if (c == '(' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.enemiesPanel.darkKoopaNormal.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/lightKoopaNormal.item.copy();
         }
         else if (c == ')' && (this.levelType == day || this.levelType == night)) {
             newItem = this.frame.enemiesPanel.lightKoopaBouncing.item.copy();
@@ -551,16 +551,16 @@ public class Level
             newItem = this.frame.enemiesPanel.lightKoopaFlyingH.item.copy();
         }
         else if ((c == ':' || c == '\u02e7') && this.levelType == under) {
-            newItem = this.frame.enemiesPanel.darkBeetle.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/lightBeetle.item.copy();
         }
         else if ((c == '\u00f4' || c == '\u02e7') && (this.levelType == day || this.levelType == night)) {
             newItem = this.frame.enemiesPanel.lightBeetle.item.copy();
         }
         else if ((c == ':' || c == '\u00f4') && this.levelType == castle) {
-            newItem = this.frame.enemiesPanel.grayBeetle.item.copy();
+            newItem = this.frame.enemiesPanel./*gray*/lightBeetle.item.copy();
         }
         else if (c == '}' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel.darkHammerBro.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/lightHammerBro.item.copy();
         }
         else if (c == '\u00f6' && (this.levelType == day || this.levelType == night || this.levelType == castle)) {
             newItem = this.frame.enemiesPanel.lightHammerBro.item.copy();
@@ -752,14 +752,7 @@ public class Level
             g2D.setColor(this.frame.game.textures.skyBlue);
             g2D.fillRect(0, 0, width, height);
         }
-        else if (this.levelType == LEVEL_TYPE_UNDERGROUND || 
-        		this.levelType == LEVEL_TYPE_OUTSIDE_NIGHT || 
-        		this.levelType == LEVEL_TYPE_CASTLE || 
-        		this.levelType == LEVEL_TYPE_COIN_ZONE_NIGHT || 
-        		this.levelType == LEVEL_TYPE_GHOST_HOUSE) {
-            g2D.setColor(this.frame.game.textures.black);
-            g2D.fillRect(0, 0, width, height);
-        }
+        
         else if (this.levelType == LEVEL_TYPE_UNDER_WATER) {
             g2D.setColor(this.frame.game.textures.skyBlue);
             g2D.fillRect(0, 0, width, (int)Math.ceil(32.0));
@@ -769,6 +762,10 @@ public class Level
             for (double i = -offset; i < (width / 8 + 1) * 8; i += 8.0) {
                 g2D.drawImage(this.frame.game.textures.waves.getImage(), (int)Math.round(i), Math.round(24.0f), (int)Math.ceil(this.frame.game.textures.waves.getIconWidth()), (int)Math.ceil(this.frame.game.textures.waves.getIconHeight()), null);
             }
+        }
+        else{
+        	g2D.setColor(this.frame.game.textures.black);
+            g2D.fillRect(0, 0, width, height);
         }
         for (int j = 0; j < this.items.length; ++j) {
             for (int k = 0; k < this.items[0].length; ++k) {
@@ -1500,7 +1497,7 @@ public class Level
             return this.frame.solidsPanel.block.item.copy();
         }
         if (c == 'p') {
-            return this.frame.solidsPanel.ground.item.copy();
+            return this.frame.solidsPanel.cloudGround.item.copy();
         }
        
         if (c == 'q') {
@@ -1748,12 +1745,12 @@ public class Level
             return i;
         }
         if (c == '%') {
-            final Item i = this.frame.enemiesPanel.darkGoomba.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/lightGoomba.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '\u02e6') {
-            final Item i = this.frame.enemiesPanel.grayGoomba.item.copy();
+            final Item i = this.frame.enemiesPanel./*gray*/lightGoomba.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
@@ -1778,22 +1775,22 @@ public class Level
             return i;
         }
         if (c == '(') {
-            final Item i = this.frame.enemiesPanel.darkKoopaNormal.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/lightKoopaNormal.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == ')') {
-            final Item i = this.frame.enemiesPanel.darkKoopaBouncing.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/lightKoopaBouncing.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '-') {
-            final Item i = this.frame.enemiesPanel.darkKoopaFlyingV.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/lightKoopaFlyingV.item.copy();
             i.oscOffset = this.getOscOffset(fc);
             return i;
         }
         if (c == '±') {
-            final Item i = this.frame.enemiesPanel.darkKoopaFlyingH.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/lightKoopaFlyingH.item.copy();
             i.oscOffset = this.getOscOffset(fc);
             return i;
         }
@@ -1839,7 +1836,7 @@ public class Level
             return this.frame.enemiesPanel.lightHammerBro.item.copy();
         }
         if (c == '\u00f6') {
-            return this.frame.enemiesPanel.darkHammerBro.item.copy();
+            return this.frame.enemiesPanel./*dark*/lightHammerBro.item.copy();
         }
         if (c == '\\') {
             final Item i = this.frame.enemiesPanel.spiny.item.copy();
@@ -1852,12 +1849,12 @@ public class Level
             return i;
         }
         if (c == '\u00f4') {
-            final Item i = this.frame.enemiesPanel.darkBeetle.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/lightBeetle.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '\u02e7') {
-            final Item i = this.frame.enemiesPanel.grayBeetle.item.copy();
+            final Item i = this.frame.enemiesPanel./*gray*/lightBeetle.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
@@ -2088,7 +2085,7 @@ public class Level
     
     private void setLevelType(final char[] levelChars, final int lineLength) throws Exception {
         final char levelTypeChar = levelChars[(lineLength + 2) * Game.yTiles];
-        if (levelTypeChar == '0') {
+       /* if (levelTypeChar == '0') {
             this.levelType = 0;
         }
         else if (levelTypeChar == '1') {
@@ -2111,7 +2108,8 @@ public class Level
                 throw new RuntimeException("Level type character is invalid in file");
             }
             this.levelType = 6;
-        }
+        }*/
+        this.levelType = Integer.parseInt(String.valueOf(levelTypeChar));
     }
     
     private void setLevelNames(final char[] chars, final int lineLength) throws Exception {

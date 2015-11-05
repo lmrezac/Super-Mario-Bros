@@ -73,6 +73,7 @@ public final class MiscPanel extends JPanel implements ItemPanel
         this.levelEndingSmFlag.setImages(this.frame.textures.displayFlagEndingGreen, null);
         this.levelEndingLgFlag.setImages(this.frame.textures.displayFlagEndingGreen, null);
         this.levelEndingBowserBattle.setImages(this.frame.textures.displayBowserEnding, null);
+        this.coin.setImages(this.frame.game.textures.getLevelTypeAlt(frame.levelPanel.level.levelType,this.frame.game.textures.lightCoin), null);
     }
     
     public boolean isLandItemOnly(final Item i) {

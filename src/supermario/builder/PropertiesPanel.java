@@ -524,7 +524,7 @@ public class PropertiesPanel extends JPanel
                 PropertiesPanel.this.frame.levelPanel.level.autoScrolling = autoScrollingCheckBox.isSelected();
                 PropertiesPanel.this.frame.levelPanel.level.texturePack = textureTypeComboBox.getSelectedIndex();
                 PropertiesPanel.this.frame.levelPanel.level.levelType = levelTypeComboBox.getSelectedIndex();
-                updateButtonImages(PropertiesPanel.this.frame.levelPanel.level.levelType);
+                PropertiesPanel.this.updateButtonImages();
                 PropertiesPanel.this.frame.levelPanel.level.changeLevelEndType(levelEndComboBox.getSelectedIndex(), true);
                 if (PropertiesPanel.this.warpsToLevelComboBox.isEnabled()) {
                     if (PropertiesPanel.this.warpsToLevelComboBox.getSelectedIndex() == PropertiesPanel.this.warpsToLevelComboBox.getItemCount() - 1) {
@@ -565,13 +565,15 @@ public class PropertiesPanel extends JPanel
         this.addBlank(row++);
     }
     
-    protected void updateButtonImages(int leveltype){
-    	supermario.game.Textures textures = this.frame.game.textures;
+    public void updateButtonImages(){
+    	//supermario.game.Textures textures = this.frame.game.textures;
     	//frame.backgroundPanel.bigHill.placedImage = textures.getLevelTypeAlt(leveltype,frame.backgroundPanel.bigHill.placedImage);
     	
     	frame.backgroundPanel.refreshIcons();
     	frame.solidsPanel.refreshIcons();
-    	frame.blocksPanel.setBlocksScheme(leveltype);
+    	frame.blocksPanel.refreshIcons();//setBlocksScheme(leveltype);
+    	frame.enemiesPanel.refreshIcons();
+    	frame.miscPanel.refreshIcons();
 	}
 
 	private void populateEndingsComboBox(final int levelType, final JComboBox<String> levelEndComboBox) {

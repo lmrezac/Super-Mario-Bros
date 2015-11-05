@@ -363,6 +363,7 @@ public final class Level
         this.checkCollisionsAmongEnemies();
         this.updateEffects(delta);
         this.updateTiles();
+        this.setBackgroundColor();
     }
     
     public boolean isFlyingKoopa(final Sprite sprite) {
@@ -977,8 +978,11 @@ public final class Level
     }
     
     private void drawBackground(final Graphics2D g2D) {
+    	setBackgroundColor();
         if (this.levelType != LEVEL_TYPE_UNDER_WATER) {
-            g2D.setColor(this.backgroundColor);
+           
+        	g2D.setColor(this.backgroundColor);
+            
             g2D.fillRect(0, 0, Game.renderWidth, Game.renderHeight);
         }
         else {
@@ -1416,9 +1420,11 @@ public final class Level
         if (this.levelType == LEVEL_TYPE_OUTSIDE || this.levelType == LEVEL_TYPE_COIN_ZONE_DAY || this.levelType == LEVEL_TYPE_UNDER_WATER) {
             this.backgroundColor = this.game.textures.skyBlue;
         }
-        else if (this.levelType == LEVEL_TYPE_UNDERGROUND || this.levelType == LEVEL_TYPE_CASTLE || this.levelType == LEVEL_TYPE_OUTSIDE_NIGHT || this.levelType == LEVEL_TYPE_COIN_ZONE_NIGHT || this.levelType == LEVEL_TYPE_GHOST_HOUSE) {
+        else{// if (this.levelType == LEVEL_TYPE_UNDERGROUND || this.levelType == LEVEL_TYPE_CASTLE || this.levelType == LEVEL_TYPE_OUTSIDE_NIGHT || this.levelType == LEVEL_TYPE_COIN_ZONE_NIGHT || this.levelType == LEVEL_TYPE_GHOST_HOUSE) {
             this.backgroundColor = this.game.textures.black;
         }
+    	System.out.println("background color "+backgroundColor.toString());
+
     }
    
     public Color getBackgroundColor() {

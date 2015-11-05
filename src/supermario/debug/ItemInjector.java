@@ -41,13 +41,13 @@ import javax.swing.JButton;
 public class ItemInjector extends DebugTool
 {
     private ItemButton lightGoomba;
-    private ItemButton darkGoomba;
-    private ItemButton grayGoomba;
+    //private ItemButton darkGoomba;
+    //private ItemButton grayGoomba;
     private ItemButton lightBeetle;
-    private ItemButton darkBeetle;
-    private ItemButton grayBeetle;
+    //private ItemButton darkBeetle;
+    //private ItemButton grayBeetle;
     private ItemButton lightKoopa;
-    private ItemButton darkKoopa;
+    //private ItemButton darkKoopa;
     private ItemButton redKoopa;
     private ItemButton lightKoopaBouncing;
     private ItemButton darkKoopaBouncing;
@@ -60,7 +60,7 @@ public class ItemInjector extends DebugTool
     private ItemButton redKoopaFlyingH;
     private ItemButton spiny;
     private ItemButton lightHammerBro;
-    private ItemButton darkHammerBro;
+    //private ItemButton darkHammerBro;
     private ItemButton lavaball;
     private ItemButton redFish;
     private ItemButton grayFishStraight;
@@ -96,10 +96,10 @@ public class ItemInjector extends DebugTool
         this.add(misc, this.constraintsWithInsets(7, row++, 1, 1, 10, 2, 2, 2, 2));
         (this.lightGoomba = new ItemButton(this.game.textures.lightGoomba1, '$')).addActionListener(this.lightGoomba);
         this.add(this.lightGoomba, this.constraints(0, row, 1, 1, 10));
-        (this.darkGoomba = new ItemButton(this.game.textures.darkGoomba1, '%')).addActionListener(this.darkGoomba);
-        this.add(this.darkGoomba, this.constraints(1, row, 1, 1, 10));
-        (this.grayGoomba = new ItemButton(this.game.textures.grayGoomba1, '\u02e6')).addActionListener(this.grayGoomba);
-        this.add(this.grayGoomba, this.constraints(2, row, 1, 1, 10));
+        //(this.darkGoomba = new ItemButton(this.game.textures.darkGoomba1, '%')).addActionListener(this.darkGoomba);
+        //this.add(this.darkGoomba, this.constraints(1, row, 1, 1, 10));
+        //(this.grayGoomba = new ItemButton(this.game.textures.grayGoomba1, '\u02e6')).addActionListener(this.grayGoomba);
+        //this.add(this.grayGoomba, this.constraints(2, row, 1, 1, 10));
         (this.spiny = new ItemButton(this.game.textures.spiny2, '\\')).addActionListener(this.spiny);
         this.add(this.spiny, this.constraints(3, row, 1, 1, 10));
         (this.redFish = new ItemButton(this.game.textures.redFish1, '{')).addActionListener(this.redFish);
@@ -108,10 +108,10 @@ public class ItemInjector extends DebugTool
         this.add(this.coin, this.constraints(7, row++, 1, 1, 10));
         (this.lightBeetle = new ItemButton(this.game.textures.lightBeetle1, ':')).addActionListener(this.lightBeetle);
         this.add(this.lightBeetle, this.constraints(0, row, 1, 1, 10));
-        (this.darkBeetle = new ItemButton(this.game.textures.darkBeetle1, '\u00f4')).addActionListener(this.darkBeetle);
-        this.add(this.darkBeetle, this.constraints(1, row, 1, 1, 10));
-        (this.grayBeetle = new ItemButton(this.game.textures.grayBeetle1, '\u02e7')).addActionListener(this.grayBeetle);
-        this.add(this.grayBeetle, this.constraints(2, row, 1, 1, 10));
+       // (this.darkBeetle = new ItemButton(this.game.textures.darkBeetle1, '\u00f4')).addActionListener(this.darkBeetle);
+        //this.add(this.darkBeetle, this.constraints(1, row, 1, 1, 10));
+        //(this.grayBeetle = new ItemButton(this.game.textures.grayBeetle1, '\u02e7')).addActionListener(this.grayBeetle);
+       // this.add(this.grayBeetle, this.constraints(2, row, 1, 1, 10));
         (this.lavaball = new ItemButton(this.game.textures.lavaball1, '.')).addActionListener(this.lavaball);
         this.add(this.lavaball, this.constraints(3, row, 1, 1, 10));
         (this.grayFishStraight = new ItemButton(this.game.textures.grayFish1, ']')).addActionListener(this.grayFishStraight);
@@ -120,8 +120,8 @@ public class ItemInjector extends DebugTool
         this.add(this.shortCarrier, this.constraints(7, row++, 1, 1, 10));
         (this.lightKoopa = new ItemButton(this.game.textures.lightKoopa1, '^')).addActionListener(this.lightKoopa);
         this.add(this.lightKoopa, this.constraints(0, row, 1, 1, 10));
-        (this.darkKoopa = new ItemButton(this.game.textures.darkKoopa1, '(')).addActionListener(this.darkKoopa);
-        this.add(this.darkKoopa, this.constraints(1, row, 1, 1, 10));
+        //(this.darkKoopa = new ItemButton(this.game.textures.darkKoopa1, '(')).addActionListener(this.darkKoopa);
+        //this.add(this.darkKoopa, this.constraints(1, row, 1, 1, 10));
         (this.redKoopa = new ItemButton(this.game.textures.redKoopa1, '_')).addActionListener(this.redKoopa);
         this.add(this.redKoopa, this.constraints(2, row, 1, 1, 10));
         (this.lightHammerBro = new ItemButton(this.game.textures.lightHammerBro1, '}')).addActionListener(this.lightHammerBro);
@@ -131,12 +131,12 @@ public class ItemInjector extends DebugTool
         this.add(this.solid, this.constraints(7, row++, 1, 1, 10));
         (this.lightKoopaBouncing = new ItemButton(this.game.textures.lightKoopa4, '&')).addActionListener(this.lightKoopaBouncing);
         this.add(this.lightKoopaBouncing, this.constraints(0, row, 1, 1, 10));
-        (this.darkKoopaBouncing = new ItemButton(this.game.textures.darkKoopa4, ')')).addActionListener(this.darkKoopaBouncing);
-        this.add(this.darkKoopaBouncing, this.constraints(1, row, 1, 1, 10));
+        //(this.darkKoopaBouncing = new ItemButton(this.game.textures.darkKoopa4, ')')).addActionListener(this.darkKoopaBouncing);
+        //this.add(this.darkKoopaBouncing, this.constraints(1, row, 1, 1, 10));
         (this.redKoopaBouncing = new ItemButton(this.game.textures.redKoopa4, '=')).addActionListener(this.redKoopaBouncing);
         this.add(this.redKoopaBouncing, this.constraints(2, row, 1, 1, 10));
-        (this.darkHammerBro = new ItemButton(this.game.textures.darkHammerBro1, '\u00f6')).addActionListener(this.darkHammerBro);
-        this.add(this.darkHammerBro, this.constraints(3, row, 1, 1, 10));
+        //(this.darkHammerBro = new ItemButton(this.game.textures.darkHammerBro1, '\u00f6')).addActionListener(this.darkHammerBro);
+        //this.add(this.darkHammerBro, this.constraints(3, row, 1, 1, 10));
         (this.clearAll = new JButton("<html><center><b>Clear<br>Solids</b></center></html>")).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {

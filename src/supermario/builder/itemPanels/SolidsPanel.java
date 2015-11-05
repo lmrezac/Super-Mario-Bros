@@ -16,6 +16,7 @@ public final class SolidsPanel extends JPanel implements ItemPanel
     private BuilderFrame frame;
     
     public Button ground;
+    public Button cloudGround;
     public Button block;
     public Button metal;
     public Button treeLeft;
@@ -44,7 +45,7 @@ public final class SolidsPanel extends JPanel implements ItemPanel
         //(this.stoneGround = new Button(this.frame, this.frame.game.textures.stoneGround, null, null, "Solid platform found in castles.")).setItem(new Item(this.frame, 'n', "Stone Ground", this.stoneGround, -1, 2, 0, 0, true, true, 1));
         //(this.seaGround = new Button(this.frame, this.frame.game.textures.seaGround, null, null, "Solid platform found underwater.")).setItem(new Item(this.frame, 'o', "Sea Ground", this.seaGround, -1, 2, 0, 0, true, true, 1));
        // (this.seaStone = new Button(this.frame, this.frame.game.textures.seaBlock, null, null, "Solid platform found as walls in water.")).setItem(new Item(this.frame, '§', "Sea Stone", this.seaStone, -1, 2, 0, 0, true, true, 1));
-       // (this.cloudGround = new Button(this.frame, this.frame.game.textures.cloudGround, null, null, "Solid platform found in the sky.")).setItem(new Item(this.frame, 'p', "Cloud Ground", this.cloudGround, -1, 2, 0, 0, true, true, 1));
+        (this.cloudGround = new Button(this.frame, this.frame.game.textures.cloudGround, null, null, "Solid platform found in the sky.")).setItem(new Item(this.frame, 'p', "Cloud Ground", this.cloudGround, -1, 2, 0, 0, true, true, 1));
         (this.block = new Button(this.frame, this.frame.game.textures.lightBlock, null, null, "Solid platform found as walls above ground.")).setItem(new Item(this.frame, 'q', "Light Block", this.block, -1, 2, 0, 0, true, true, 1));
        // (this.darkBlock = new Button(this.frame, this.frame.game.textures.darkBlock, null, null, "Solid platform found as walls below ground.")).setItem(new Item(this.frame, 'r', "Dark Block", this.darkBlock, -1, 2, 0, 0, true, true, 1));
        // (this.stoneBlock = new Button(this.frame, this.frame.game.textures.stoneBlock, null, null, "Solid platform found as walls in castles.")).setItem(new Item(this.frame, '\u045e', "Stone Block", this.stoneBlock, -1, 2, 0, 0, true, true, 1));
@@ -72,7 +73,7 @@ public final class SolidsPanel extends JPanel implements ItemPanel
         //this.add(this.stoneGround);
         //this.add(this.seaGround);
         //this.add(this.seaStone);
-       // this.add(this.cloudGround);
+        this.add(this.cloudGround);
         this.add(this.block);
        // this.add(this.darkBlock);
        // this.add(this.stoneBlock);
@@ -111,6 +112,6 @@ public final class SolidsPanel extends JPanel implements ItemPanel
         this.mushroomMiddle.setImages(textures.getLevelTypeAlt(levelType,textures.mushroomMiddle),null);
         this.mushroomRight.setImages(textures.getLevelTypeAlt(levelType,textures.mushroomRight),null);
         this.metal.setImages(textures.getLevelTypeAlt(levelType,textures.lightMetal), null);
-        
+        this.cloudGround.setImages(textures.getLevelTypeAlt(levelType,textures.cloudGround),null);
     }
 }

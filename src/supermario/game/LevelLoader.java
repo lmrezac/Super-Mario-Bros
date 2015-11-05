@@ -854,9 +854,9 @@ public class LevelLoader
                     chars[i+j] = 'l';
                 }
                 else if (tile == 'p') {
-                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*cloud*/lightGround, false, true);
+                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.cloudGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
-                    chars[i+j] = 'l';
+                    //chars[i+j] = 'l';
                 }
                 else if (tile == '§') {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*sea*/lightBlock, false, true);
@@ -1368,12 +1368,12 @@ public class LevelLoader
                     }
                     else if (tile == '\u260e') {
                         ImageIcon image2 = this.textures.lightCannonBase;
-                        if (shadowColor == 1) {
+                        /*if (shadowColor == 1) {
                             image2 = this.textures.darkCannonBase;
                         }
                         else if (shadowColor == 2) {
                             image2 = this.textures.stoneCannonBase;
-                        }
+                        }*/
                         this.levelTiles[line][j] = new Tile(this.game, line, j, image2, false, true);
                         this.multiTileCollision(line, j, 1, 2);
                     }

@@ -129,7 +129,11 @@ public abstract class Sprite
         this.yTile = tile.yTile;
     }
     public void draw(Graphics2D g){
-    	draw(g,-1);
+    	try{
+    	draw(g,this.game.level.levelType);
+    	}catch(NullPointerException e){
+    		draw(g,-1);
+    	}
     }
     public void draw(final Graphics2D g2D,int levelType) {
         if (!this.visible) {

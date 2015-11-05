@@ -618,6 +618,7 @@ public class BuilderFrame extends JFrame implements WindowListener, DropTargetLi
             this.io.loadGame(file);
         }
         this.setTitle("Super Mario Bros. Game Builder" + (this.io.lastAccessedFileName.isEmpty() ? "" : (" - " + this.io.lastAccessedFileName)));
+        this.propertiesPanel.updateButtonImages();
     }
     
     private void toggleScreenMarker() {

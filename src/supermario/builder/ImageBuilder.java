@@ -91,7 +91,7 @@ public class ImageBuilder {
 
     private static Image getSolidPart(int container, int shadowColor) {
         if (container == 0||container == 1||container == 2) {
-            return ImageBuilder.textures.lightBrick.getImage();
+            return ((supermario.game.MultiIcon)ImageBuilder.textures.lightBrick).getImage(shadowColor);
         }
         /*if (container == 1) {
             return ImageBuilder.textures.darkBrick.getImage();
@@ -101,7 +101,7 @@ public class ImageBuilder {
         }*/
         if (container == 3) {
            // if (shadowColor == 0) {
-                return ImageBuilder.textures.lightQuestionBox.getImage();
+                return ((supermario.game.MultiIcon)ImageBuilder.textures.lightQuestionBox).getImage(shadowColor);
             /*}
             if (shadowColor == 1) {
                 return ImageBuilder.textures.darkQuestionBox.getImage();

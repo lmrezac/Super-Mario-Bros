@@ -28,7 +28,8 @@ public class Bullet extends Sprite implements Enemy
         this.x = x;
         this.yPos = y;
         this.y = y;
-        if (shadowColor == 0) {
+        this.imageIndex = 0;
+        /*if (shadowColor == 0) {
             this.imageIndex = 0;
         }
         else if (shadowColor == 1) {
@@ -36,7 +37,7 @@ public class Bullet extends Sprite implements Enemy
         }
         else if (shadowColor == 2) {
             this.imageIndex = 2;
-        }
+        }*/
         if (headingLeft) {
             this.flip = false;
             this.xVel = -Bullet.BULLET_SPEED;

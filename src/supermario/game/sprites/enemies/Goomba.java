@@ -33,7 +33,7 @@ public class Goomba extends Sprite implements Enemy
         this.avoidedCollisionRowsOnTop = 0;
         this.avoidedCollisionCols = 0;
         this.avoidedCollisionRowsOnBottom = 1;
-        if (colorIndex == 0) {
+       /* if (colorIndex == 0) {
             this.imageIndex = 0;
         }
         else if (colorIndex == 1) {
@@ -41,7 +41,7 @@ public class Goomba extends Sprite implements Enemy
         }
         else if (colorIndex == 3) {
             this.imageIndex = 8;
-        }
+        }*/
     }
     
     @Override
@@ -82,7 +82,7 @@ public class Goomba extends Sprite implements Enemy
         if (this.collidable) {
             this.grounded = this.isGrounded();
         }
-        if (this.colorIndex == 0) {
+        /*if (this.colorIndex == 0) {
             this.imageIndex = this.generalImageIndex + 0;
         }
         else if (this.colorIndex == 1) {
@@ -90,7 +90,8 @@ public class Goomba extends Sprite implements Enemy
         }
         else if (this.colorIndex == 3) {
             this.imageIndex = this.generalImageIndex + 8;
-        }
+        }*/
+        this.imageIndex = this.generalImageIndex;
         if (this.smushed && this.ticks > 700.0) {
             this.visible = false;
         }

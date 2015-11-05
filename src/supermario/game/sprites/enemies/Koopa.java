@@ -103,11 +103,11 @@ public class Koopa extends Sprite implements Enemy, Shelled, MarioFollower
         if (color == 0) {
             this.imageIndex = 0;
         }
-        else if (color == 1) {
+        /*else if (color == 1) {
             this.imageIndex = 7;
-        }
+        }*/
         else if (color == 2) {
-            this.imageIndex = 14;
+            this.imageIndex = 7;
         }
     }
     
@@ -265,12 +265,12 @@ public class Koopa extends Sprite implements Enemy, Shelled, MarioFollower
     }
     
     private void setIndexBasedOnColor() {
-        if (this.color == 1) {
+        if (this.color == 2) {
             this.imageIndex += 7;
         }
-        else if (this.color == 2) {
-            this.imageIndex += 14;
-        }
+//        else if (this.color == 2) {
+//            this.imageIndex += 14;
+//        }
     }
     
     private void setVerticalFlyingPosition(final double delta) {

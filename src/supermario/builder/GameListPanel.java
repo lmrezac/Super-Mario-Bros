@@ -264,6 +264,7 @@ public class GameListPanel extends JPanel
                         if (GameListPanel.this.frame.levelPanel.level == null || GameListPanel.this.frame.levelPanel.level.levelNumber != selectedIndex) {
                             GameListPanel.this.frame.levelPanel.switchToLevel(selectedIndex);
                             GameListPanel.this.frame.clearStacks();
+                            GameListPanel.this.frame.propertiesPanel.updateButtonImages();
                         }
                         GameListPanel.this.frame.changePropertiesPanel(new PropertiesPanel(GameListPanel.this.frame, 2, null));
                     }

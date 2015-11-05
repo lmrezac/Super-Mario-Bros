@@ -811,9 +811,7 @@ ChangeListener {
         if (this.level.levelType == 0 || this.level.levelType == 5) {
             g2D.setColor(this.frame.game.textures.skyBlue);
             g2D.fillRect(0, 0, this.getWidth(), this.getHeight());
-        } else if (this.level.levelType == 1 || this.level.levelType == 4 || this.level.levelType == 2 || this.level.levelType == 6) {
-            g2D.setColor(this.frame.game.textures.black);
-            g2D.fillRect(0, 0, this.getWidth(), this.getHeight());
+        
         } else if (this.level.levelType == 3) {
             g2D.setColor(this.frame.game.textures.skyBlue);
             g2D.fillRect(0, 0, this.getWidth(), (int)Math.ceil(32.0 * this.scaleFactor));
@@ -823,6 +821,9 @@ ChangeListener {
             for (double i3 = - offset; i3 < ((double)this.getWidth() / this.scaleFactor / 8.0 + 1.0) * this.scaleFactor * 8.0; i3+=8.0 * this.scaleFactor) {
                 g2D.drawImage(this.frame.game.textures.waves.getImage(), (int)Math.round(i3), (int)Math.round(24.0 * this.scaleFactor), (int)Math.ceil((double)this.frame.game.textures.waves.getIconWidth() * this.scaleFactor), (int)Math.ceil((double)this.frame.game.textures.waves.getIconHeight() * this.scaleFactor), null);
             }
+        } else{// if (this.level.levelType == 1 || this.level.levelType == 4 || this.level.levelType == 2 || this.level.levelType == 6) {
+            g2D.setColor(this.frame.game.textures.black);
+            g2D.fillRect(0, 0, this.getWidth(), this.getHeight());
         }
         this.warpItems.clear();
         this.warpZoneItems.clear();

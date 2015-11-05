@@ -203,11 +203,11 @@ public class Chomper extends Sprite implements Enemy
             }
             this.imageIndex = this.generalImageIndex;
             if (this.redPiranha) {
-                this.imageIndex += 4;
-            }
-            else if (!this.lightLevel) {
                 this.imageIndex += 2;
             }
+           /* else if (!this.lightLevel) {
+                this.imageIndex += 2;
+            }*/
             this.ticks = 0.0;
         }
         this.finalizePosition();

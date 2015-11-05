@@ -175,12 +175,12 @@ public class HammerBro extends Sprite implements Enemy
             }
         }
         this.finalizePosition();
-        if (this.lightBro) {
+        //if (this.lightBro) {
             this.imageIndex = this.generalImageIndex;
-        }
-        else {
-            this.imageIndex = this.generalImageIndex + 5;
-        }
+        //}
+        //else {
+        //    this.imageIndex = this.generalImageIndex + 5;
+        //}
     }
     
     private void jump() {
