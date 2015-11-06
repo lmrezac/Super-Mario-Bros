@@ -4,16 +4,18 @@
 
 package org.tritonus.share.sampled.mixer;
 
-import javax.sound.sampled.LineEvent;
-import org.tritonus.share.TDebug;
-import javax.sound.sampled.Control;
 import java.util.Collection;
-import javax.sound.sampled.Line;
+
 import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.Control;
 import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineEvent;
+
+import org.tritonus.share.TDebug;
 
 public abstract class TDataLine extends TLine implements DataLine
 {
+	@SuppressWarnings("unused")
     private static final int DEFAULT_BUFFER_SIZE = 128000;
     private AudioFormat m_format;
     private int m_nBufferSize;

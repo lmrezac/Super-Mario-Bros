@@ -4,14 +4,14 @@
 
 package supermario.game.sprites.enemies;
 
-import java.awt.Rectangle;
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
+
 import supermario.Utilities;
-import supermario.game.sprites.misc.Firebar;
 import supermario.game.Game;
-import supermario.game.interfaces.Enemy;
 import supermario.game.Sprite;
+import supermario.game.interfaces.Enemy;
+import supermario.game.sprites.misc.Firebar;
 
 public final class FireballEnemy extends Sprite implements Enemy
 {

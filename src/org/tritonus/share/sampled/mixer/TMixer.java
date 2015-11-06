@@ -4,22 +4,23 @@
 
 package org.tritonus.share.sampled.mixer;
 
-import org.tritonus.share.sampled.AudioFormats;
-import javax.sound.sampled.LineUnavailableException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
+
+import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
-import java.util.Iterator;
+import javax.sound.sampled.Line;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.Mixer;
 import javax.sound.sampled.Port;
+import javax.sound.sampled.SourceDataLine;
+import javax.sound.sampled.TargetDataLine;
+
 import org.tritonus.share.ArraySet;
 import org.tritonus.share.TDebug;
-import java.util.ArrayList;
-import javax.sound.sampled.TargetDataLine;
-import javax.sound.sampled.SourceDataLine;
-import java.util.Set;
-import javax.sound.sampled.AudioFormat;
-import java.util.Collection;
-import javax.sound.sampled.Line;
-import javax.sound.sampled.Mixer;
+import org.tritonus.share.sampled.AudioFormats;
 
 public abstract class TMixer extends TLine implements Mixer
 {
@@ -114,7 +115,7 @@ public abstract class TMixer extends TLine implements Mixer
         if (TDebug.TraceMixer) {
             TDebug.out("TMixer.isLineSupported(): info to test: " + info);
         }
-        final Class lineClass = info.getLineClass();
+        final Class<?> lineClass = info.getLineClass();
         if (lineClass.equals(SourceDataLine.class)) {
             return isLineSupportedImpl(info, this.m_supportedSourceLineInfos);
         }
@@ -137,7 +138,7 @@ public abstract class TMixer extends TLine implements Mixer
         if (TDebug.TraceMixer) {
             TDebug.out("TMixer.getLine(): begin");
         }
-        final Class lineClass = info.getLineClass();
+        final Class<?> lineClass = info.getLineClass();
         DataLine.Info dataLineInfo = null;
         Port.Info portInfo = null;
         AudioFormat[] aFormats = null;

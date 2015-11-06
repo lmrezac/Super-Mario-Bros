@@ -11,7 +11,7 @@ import javax.sound.sampled.AudioFileFormat.Type;
 
 public class AudioFileTypes extends AudioFileFormat.Type
 {
-    private static StringHashedSet types;
+   	private static StringHashedSet<Object> types;
     
     AudioFileTypes(final String name, final String ext) {
         super(name, ext);
@@ -38,7 +38,7 @@ public class AudioFileTypes extends AudioFileFormat.Type
     }
     
     static {
-        (AudioFileTypes.types = new StringHashedSet()).add(AudioFileFormat.Type.AIFF);
+        (AudioFileTypes.types = new StringHashedSet<Object>()).add(AudioFileFormat.Type.AIFF);
         AudioFileTypes.types.add(AudioFileFormat.Type.AIFC);
         AudioFileTypes.types.add(AudioFileFormat.Type.AU);
         AudioFileTypes.types.add(AudioFileFormat.Type.SND);

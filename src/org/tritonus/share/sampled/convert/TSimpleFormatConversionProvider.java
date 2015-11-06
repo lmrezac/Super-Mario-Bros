@@ -4,12 +4,13 @@
 
 package org.tritonus.share.sampled.convert;
 
-import org.tritonus.share.sampled.AudioFormats;
-import java.util.Iterator;
-import org.tritonus.share.TDebug;
-import org.tritonus.share.ArraySet;
-import javax.sound.sampled.AudioFormat;
 import java.util.Collection;
+
+import javax.sound.sampled.AudioFormat;
+
+import org.tritonus.share.ArraySet;
+import org.tritonus.share.TDebug;
+import org.tritonus.share.sampled.AudioFormats;
 
 public abstract class TSimpleFormatConversionProvider extends TFormatConversionProvider
 {

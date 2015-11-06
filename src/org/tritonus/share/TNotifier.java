@@ -4,13 +4,13 @@
 
 package org.tritonus.share;
 
-import java.util.Iterator;
-import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineListener;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EventObject;
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineListener;
 
 public class TNotifier extends Thread
 {

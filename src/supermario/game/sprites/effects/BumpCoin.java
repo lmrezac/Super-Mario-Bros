@@ -4,15 +4,16 @@
 
 package supermario.game.sprites.effects;
 
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
+
+import javax.swing.ImageIcon;
+
+import supermario.game.Game;
 import supermario.game.Sprite;
 import supermario.game.interfaces.Block;
-import supermario.game.sprites.friends.Coin;
-import javax.swing.ImageIcon;
-import supermario.game.Game;
 import supermario.game.interfaces.Effect;
-
+import supermario.game.sprites.friends.Coin;
+@SuppressWarnings("unused")
 public class BumpCoin implements Effect
 {
     private Game game;

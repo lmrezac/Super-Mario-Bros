@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.ByteArrayInputStream;
 import javax.sound.sampled.AudioFormat;
 import org.tritonus.share.TCircularBuffer;
-
+@SuppressWarnings("unused")
 public abstract class TAsynchronousFilteredAudioInputStream extends TAudioInputStream implements TCircularBuffer.Trigger
 {
     private static final int DEFAULT_BUFFER_SIZE = 327670;

@@ -6,7 +6,9 @@ package org.tritonus.share.sampled.mixer;
 
 import java.io.IOException;
 import java.io.ByteArrayOutputStream;
+
 import org.tritonus.share.TDebug;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Line;
@@ -15,10 +17,11 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.Mixer;
-
+@SuppressWarnings("unused")
 public class TSoftClip extends TClip implements Runnable
 {
-    private static final Class[] CONTROL_CLASSES;
+    @SuppressWarnings("rawtypes")
+	private static final Class[] CONTROL_CLASSES;
     private static final int BUFFER_SIZE = 16384;
     private Mixer m_mixer;
     private SourceDataLine m_line;

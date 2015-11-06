@@ -4,19 +4,16 @@
 
 package supermario.builder;
 
-import java.awt.Image;
-import java.awt.Stroke;
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Composite;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 
 import javax.swing.ImageIcon;
-
-import java.awt.RenderingHints;
-import java.awt.image.ImageObserver;
-import java.awt.Composite;
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Graphics2D;
 
 import supermario.game.Game;
 import supermario.game.LevelLoader;
@@ -356,7 +353,7 @@ public final class Item
     }
     
     public void drawInLevel(final Graphics2D g2D, final double leftMostX, final double scaleFactor, final double TILE_SIZE, final boolean includeHighlights) {
-        char c = this.character;
+        //char c = this.character;
         //if(c == '«'||c=='©'||c=='¦'||c=='¥'||c=='¤'||c=='£'||c=='\u00fd'||c=='¢'||c=='¡')
         	//System.out.println("DRAWING BACKGROUND");
     	this.xPixel = (int)Math.round(this.xTile * TILE_SIZE * scaleFactor - leftMostX * scaleFactor - this.horizontalDrawOffset * scaleFactor);

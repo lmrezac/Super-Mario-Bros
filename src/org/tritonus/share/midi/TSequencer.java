@@ -4,28 +4,31 @@
 
 package org.tritonus.share.midi;
 
-import javax.sound.midi.MidiMessage;
-import javax.sound.midi.ShortMessage;
-import javax.sound.midi.MetaMessage;
-import java.util.Iterator;
-import org.tritonus.share.TDebug;
 import java.io.IOException;
-import javax.sound.midi.MidiSystem;
 import java.io.InputStream;
-import javax.sound.midi.InvalidMidiDataException;
-import org.tritonus.share.ArraySet;
-import javax.sound.midi.MidiDevice;
 import java.util.BitSet;
 import java.util.Collection;
-import javax.sound.midi.ControllerEventListener;
-import javax.sound.midi.MetaEventListener;
+import java.util.Iterator;
 import java.util.Set;
+
+import javax.sound.midi.ControllerEventListener;
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MetaEventListener;
+import javax.sound.midi.MetaMessage;
+import javax.sound.midi.MidiDevice;
+import javax.sound.midi.MidiMessage;
+import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
+import javax.sound.midi.ShortMessage;
+
+import org.tritonus.share.ArraySet;
+import org.tritonus.share.TDebug;
 
 public abstract class TSequencer extends TMidiDevice implements Sequencer
 {
-    private static final float MPQ_BPM_FACTOR = 6.0E7f;
+    @SuppressWarnings("unused")
+	private static final float MPQ_BPM_FACTOR = 6.0E7f;
     private static final SyncMode[] EMPTY_SYNCMODE_ARRAY;
     private boolean m_bRunning;
     private Sequence m_sequence;
@@ -44,7 +47,8 @@ public abstract class TSequencer extends TMidiDevice implements Sequencer
     private long m_lLoopEndPoint;
     private int m_nLoopCount;
     
-    protected TSequencer(final MidiDevice.Info info, final Collection<SyncMode> masterSyncModes, final Collection<SyncMode> slaveSyncModes) {
+    @SuppressWarnings("unchecked")
+	protected TSequencer(final MidiDevice.Info info, final Collection<SyncMode> masterSyncModes, final Collection<SyncMode> slaveSyncModes) {
         super(info);
         this.m_bRunning = false;
         this.m_sequence = null;

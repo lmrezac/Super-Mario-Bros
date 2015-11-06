@@ -14,7 +14,6 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
-import sun.awt.image.ToolkitImage;
 import supermario.Utilities;
 
 public final class Menu

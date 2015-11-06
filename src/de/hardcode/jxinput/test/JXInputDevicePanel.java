@@ -4,36 +4,36 @@
 
 package de.hardcode.jxinput.test;
 
-import java.util.Enumeration;
-import de.hardcode.jxinput.Axis;
-import javax.swing.JSlider;
-import de.hardcode.jxinput.Button;
-import javax.swing.JCheckBox;
-import de.hardcode.jxinput.Directional;
-import javax.swing.BorderFactory;
-import java.awt.event.ComponentListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentAdapter;
-import java.util.Iterator;
-import java.awt.Component;
-import java.awt.LayoutManager;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import javax.swing.JLabel;
-import java.awt.GridLayout;
-import javax.swing.JScrollPane;
-import java.util.ArrayList;
-import de.hardcode.jxinput.JXInputDevice;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Iterator;
+
+import javax.swing.BorderFactory;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSlider;
+
+import de.hardcode.jxinput.Axis;
+import de.hardcode.jxinput.Button;
+import de.hardcode.jxinput.Directional;
+import de.hardcode.jxinput.JXInputDevice;
 
 public class JXInputDevicePanel extends JPanel
 {
-    private static final Font AXIS_SLIDER_FONT;
+    private static final long serialVersionUID = -5381621299298577826L;
+	private static final Font AXIS_SLIDER_FONT;
     private final JXInputDevice mDev;
-    private final ArrayList mAxisSliders;
-    private final ArrayList mButtonCheckboxes;
-    private final ArrayList mDirectionalLabels;
+    private final ArrayList<AxisSlider> mAxisSliders;
+    private final ArrayList<ButtonCheckbox> mButtonCheckboxes;
+    private final ArrayList<DirectionalLabel> mDirectionalLabels;
     private JPanel mAxesPanel;
     private JPanel mAxesPanelContainer;
     private JScrollPane mButtonScrollPane;
@@ -41,9 +41,9 @@ public class JXInputDevicePanel extends JPanel
     private JPanel mDirectionalPanel;
     
     public JXInputDevicePanel(final JXInputDevice mDev) {
-        this.mAxisSliders = new ArrayList();
-        this.mButtonCheckboxes = new ArrayList();
-        this.mDirectionalLabels = new ArrayList();
+        this.mAxisSliders = new ArrayList<AxisSlider>();
+        this.mButtonCheckboxes = new ArrayList<ButtonCheckbox>();
+        this.mDirectionalLabels = new ArrayList<DirectionalLabel>();
         this.mDev = mDev;
         this.initComponents();
         this.initFromDevice();
@@ -140,7 +140,8 @@ public class JXInputDevicePanel extends JPanel
     
     private class DirectionalLabel extends JLabel
     {
-        Directional mDirectional;
+        private static final long serialVersionUID = 891341523810167228L;
+		Directional mDirectional;
         int mCurrent;
         
         DirectionalLabel(final Directional mDirectional) {
@@ -160,7 +161,8 @@ public class JXInputDevicePanel extends JPanel
     
     private class ButtonCheckbox extends JCheckBox
     {
-        Button mButton;
+        private static final long serialVersionUID = 4868211334057475404L;
+		Button mButton;
         
         ButtonCheckbox(final Button mButton) {
             super(mButton.getName());
@@ -178,7 +180,8 @@ public class JXInputDevicePanel extends JPanel
     
     private class AxisSlider extends JSlider
     {
-        Axis mAxis;
+        private static final long serialVersionUID = 3155547918806530342L;
+		Axis mAxis;
         
         AxisSlider(final Axis mAxis) {
             super((2 == mAxis.getType()) ? 0 : -100, 100);
@@ -187,7 +190,8 @@ public class JXInputDevicePanel extends JPanel
             this.setPaintTicks(true);
             this.setPaintLabels(true);
             this.setEnabled(false);
-            final Enumeration<JLabel> elements = this.getLabelTable().elements();
+            @SuppressWarnings("unchecked")
+			final Enumeration<JLabel> elements = this.getLabelTable().elements();
             while (elements.hasMoreElements()) {
                 final JLabel label = elements.nextElement();
                 label.setFont(JXInputDevicePanel.AXIS_SLIDER_FONT);

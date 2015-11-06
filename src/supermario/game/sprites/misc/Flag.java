@@ -4,16 +4,17 @@
 
 package supermario.game.sprites.misc;
 
-import java.awt.Rectangle;
-import java.awt.Point;
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
-import supermario.game.sprites.Mario;
-import supermario.game.Game;
+import java.awt.Point;
+import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
+
+import supermario.game.Game;
+import supermario.game.Sprite;
 import supermario.game.Warp;
 import supermario.game.interfaces.Warpable;
-import supermario.game.Sprite;
+import supermario.game.sprites.Mario;
 
 public class Flag extends Sprite implements Warpable
 {

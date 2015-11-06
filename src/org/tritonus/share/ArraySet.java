@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 public class ArraySet<E> extends ArrayList<E> implements Set<E>
 {
-    public ArraySet() {
+    private static final long serialVersionUID = -963188293605396357L;
+
+	public ArraySet() {
     }
     
     public ArraySet(final Collection<E> c) {

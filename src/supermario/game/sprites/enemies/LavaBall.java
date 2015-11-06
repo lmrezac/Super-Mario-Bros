@@ -5,12 +5,14 @@
 package supermario.game.sprites.enemies;
 
 import java.awt.Rectangle;
-import supermario.game.Level;
-import javax.swing.ImageIcon;
-import supermario.game.Game;
-import supermario.game.interfaces.Enemy;
-import supermario.game.Sprite;
 
+import javax.swing.ImageIcon;
+
+import supermario.game.Game;
+import supermario.game.Level;
+import supermario.game.Sprite;
+import supermario.game.interfaces.Enemy;
+@SuppressWarnings("unused")
 public class LavaBall extends Sprite implements Enemy
 {
     private final int MIN_FIRE_DELAY = 1000;

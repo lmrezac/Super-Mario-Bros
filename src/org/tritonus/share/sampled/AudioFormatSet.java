@@ -11,7 +11,8 @@ import org.tritonus.share.ArraySet;
 
 public class AudioFormatSet extends ArraySet<AudioFormat>
 {
-    protected static final AudioFormat[] EMPTY_FORMAT_ARRAY;
+    private static final long serialVersionUID = -5719082902387429921L;
+	protected static final AudioFormat[] EMPTY_FORMAT_ARRAY;
     
     public AudioFormatSet() {
     }
@@ -28,7 +29,7 @@ public class AudioFormatSet extends ArraySet<AudioFormat>
         if (elem == null || !(elem instanceof AudioFormat)) {
             return false;
         }
-        final Iterator it = this.iterator();
+        final Iterator<AudioFormat> it = this.iterator();
         while (it.hasNext()) {
             if (AudioFormats.equals(elem, (AudioFormat)it.next())) {
                 return true;

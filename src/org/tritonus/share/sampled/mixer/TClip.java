@@ -4,21 +4,23 @@
 
 package org.tritonus.share.sampled.mixer;
 
-import java.io.IOException;
-import javax.sound.sampled.LineUnavailableException;
-import org.tritonus.share.TDebug;
-import java.io.InputStream;
-import javax.sound.sampled.AudioInputStream;
 import java.io.ByteArrayInputStream;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.Control;
+import java.io.IOException;
 import java.util.Collection;
-import javax.sound.sampled.DataLine;
-import javax.sound.sampled.Clip;
 
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.Control;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+
+import org.tritonus.share.TDebug;
+@SuppressWarnings("unused")
 public class TClip extends TDataLine implements Clip
 {
-    private static final Class[] CONTROL_CLASSES;
+    @SuppressWarnings("rawtypes")
+	private static final Class[] CONTROL_CLASSES;
     private static final int BUFFER_FRAMES = 16384;
     
     public TClip(final DataLine.Info info) {

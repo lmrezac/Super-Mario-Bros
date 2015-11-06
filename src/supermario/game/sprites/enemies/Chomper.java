@@ -7,17 +7,19 @@ package supermario.game.sprites.enemies;
 import supermario.game.sprites.effects.Points;
 import supermario.game.sprites.Mario;
 import supermario.game.sprites.friends.FireballFriend;
+
 import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.sprites.misc.Pipe;
 import supermario.game.interfaces.Enemy;
 import supermario.game.Sprite;
-
+@SuppressWarnings("unused")
 public class Chomper extends Sprite implements Enemy
 {
     private Pipe pipe;
-    private boolean lightLevel;
     private boolean redPiranha;
     private int generalImageIndex;
     private int direction;
@@ -55,7 +57,6 @@ public class Chomper extends Sprite implements Enemy
         else if (pipe.type == 3) {
             this.direction = 3;
         }
-        this.lightLevel = lightLevel;
         if (redPiranha) {
             this.timeAtPeakThreshold = 1000.0;
         }

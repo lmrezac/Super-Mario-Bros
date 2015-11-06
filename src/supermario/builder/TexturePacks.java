@@ -4,17 +4,16 @@
 
 package supermario.builder;
 
+import static supermario.debug.Debugger.debug;
+
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import supermario.Utilities;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import static supermario.debug.Debugger.*;
 
 public class TexturePacks
 {

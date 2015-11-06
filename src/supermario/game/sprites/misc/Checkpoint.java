@@ -4,15 +4,16 @@
 
 package supermario.game.sprites.misc;
 
-import java.awt.Rectangle;
-import java.awt.image.ImageObserver;
-import java.awt.Composite;
 import java.awt.AlphaComposite;
+import java.awt.Composite;
 import java.awt.Graphics2D;
-import supermario.game.sprites.effects.Points;
+import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.Sprite;
+import supermario.game.sprites.effects.Points;
 
 public class Checkpoint extends Sprite
 {

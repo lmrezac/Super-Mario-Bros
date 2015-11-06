@@ -4,14 +4,15 @@
 
 package supermario.game.sprites.enemies;
 
-import java.awt.Rectangle;
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
-import supermario.game.Level;
+import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
-import supermario.game.interfaces.Enemy;
+import supermario.game.Level;
 import supermario.game.Sprite;
+import supermario.game.interfaces.Enemy;
 
 public class Hammer extends Sprite implements Enemy
 {

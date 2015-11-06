@@ -20,6 +20,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.ImageObserver;
 import java.util.LinkedList;
+
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -34,6 +35,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 import supermario.builder.Action;
 import supermario.builder.BuilderFrame;
 import supermario.builder.Button;
@@ -56,14 +58,10 @@ import supermario.builder.itemPanels.SolidsPanel;
 import supermario.game.Game;
 import supermario.game.Input;
 import supermario.game.LevelLoader;
-
-public final class LevelPanel
-extends JPanel
-implements MouseMotionListener,
-MouseListener,
-ComponentListener,
-ChangeListener {
-    private final BuilderFrame frame;
+@SuppressWarnings("unused")
+public final class LevelPanel extends JPanel implements MouseMotionListener,MouseListener,ComponentListener,ChangeListener {
+    private static final long serialVersionUID = -1177479660001717838L;
+	private final BuilderFrame frame;
     public Level level;
     public Level[] levels;
     public double mouseX;
@@ -74,6 +72,7 @@ ChangeListener {
     private boolean rightMouseDown;
     public double scaleFactor;
     private BasicStroke stroke;
+    
     private static final double SCROLL_THRESHOLD = 0.25;
     private static final double MAX_SCROLL_SPEED = Game.xTiles * 2;
     private ScrollerThread scroller;
@@ -107,10 +106,10 @@ ChangeListener {
         this.setBackground(Color.BLACK);
         this.draggedItemRow = -1;
         this.draggedItemCol = -1;
-        this.warpItems = new LinkedList();
-        this.warpZoneItems = new LinkedList();
-        this.itemsBlockingInsert = new LinkedList();
-        this.checkpointColumns = new LinkedList();
+        this.warpItems = new LinkedList<Item>();
+        this.warpZoneItems = new LinkedList<Item>();
+        this.itemsBlockingInsert = new LinkedList<Item>();
+        this.checkpointColumns = new LinkedList<Item>();
         this.levels = new Level[0];
         this.stroke = new BasicStroke(1.0f);
         this.startThreads();
@@ -405,7 +404,7 @@ ChangeListener {
         if (matchedWarps.isEmpty()) {
             JOptionPane.showMessageDialog(this.frame.propertiesScrollPane, "There are no unused warps in the game.", "Unused Warps", 1);
         } else {
-            final JList list = new JList(trace);
+            final JList<String> list = new JList<>(trace);
             list.addListSelectionListener(new ListSelectionListener(){
 
                 @Override
@@ -471,7 +470,7 @@ ChangeListener {
             String message = warp.sourceLevelNumber == 999 ? (this.frame.levelPanel.levels.length == 0 ? "There are no levels to trace..." : "No warps in the game currently lead to this game's ending...\r\n") : (warp.sourceWarpID == 0 || warp.sourceWarpID == 1000 ? "No warps in the game currently lead to this level's start...\r\n(Level " + (warp.sourceLevelNumber + 1) + ")" : "No warps in the game currently lead to this warp...\r\n(ID " + warp.sourceWarpID + ")");
             JOptionPane.showMessageDialog(this.frame.propertiesScrollPane, message, "Warp Trace", 1, warp.item.button.placedImage);
         } else {
-            final JList list = new JList(trace);
+            final JList<String> list = new JList<>(trace);
             list.addListSelectionListener(new ListSelectionListener(){
 
                 @Override

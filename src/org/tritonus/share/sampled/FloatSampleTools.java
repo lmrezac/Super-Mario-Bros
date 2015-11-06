@@ -5,9 +5,10 @@
 package org.tritonus.share.sampled;
 
 import java.util.List;
-import javax.sound.sampled.AudioFormat;
 import java.util.Random;
 
+import javax.sound.sampled.AudioFormat;
+@SuppressWarnings("unused")
 public class FloatSampleTools
 {
     public static final float DEFAULT_DITHER_BITS = 0.7f;
@@ -254,7 +255,7 @@ public class FloatSampleTools
         return (int)((sample < 0.0f) ? (sample - 0.5f) : (sample + 0.5f));
     }
     
-    public static void float2byte(final List input, final int inOffset, final byte[] output, int outByteOffset, final int frameCount, final AudioFormat format, final float ditherBits) {
+    public static void float2byte(final List<?> input, final int inOffset, final byte[] output, int outByteOffset, final int frameCount, final AudioFormat format, final float ditherBits) {
         for (int channel = 0; channel < format.getChannels(); ++channel) {
             final float[] data = (float[]) input.get(channel);
             float2byteGeneric(data, inOffset, output, outByteOffset, format.getFrameSize(), frameCount, format, ditherBits);

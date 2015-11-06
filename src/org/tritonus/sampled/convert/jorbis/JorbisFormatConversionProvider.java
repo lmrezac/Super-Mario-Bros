@@ -6,27 +6,28 @@ package org.tritonus.sampled.convert.jorbis;
 
 import java.io.EOFException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import com.jcraft.jorbis.Block;
-import com.jcraft.jorbis.DspState;
-import com.jcraft.jorbis.Comment;
-import com.jcraft.jorbis.Info;
+
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+
+import org.tritonus.share.TDebug;
+import org.tritonus.share.sampled.AudioFormats;
+import org.tritonus.share.sampled.convert.TAsynchronousFilteredAudioInputStream;
+import org.tritonus.share.sampled.convert.TEncodingFormatConversionProvider;
+
 import com.jcraft.jogg.Packet;
 import com.jcraft.jogg.Page;
 import com.jcraft.jogg.StreamState;
 import com.jcraft.jogg.SyncState;
-import java.io.InputStream;
-import org.tritonus.share.sampled.convert.TAsynchronousFilteredAudioInputStream;
-import java.util.Iterator;
-import org.tritonus.share.sampled.AudioFormats;
-import org.tritonus.share.TDebug;
-import javax.sound.sampled.AudioInputStream;
-import java.util.Collection;
-import java.util.Arrays;
-import javax.sound.sampled.AudioFormat;
-import org.tritonus.share.sampled.convert.TEncodingFormatConversionProvider;
-
+import com.jcraft.jorbis.Block;
+import com.jcraft.jorbis.Comment;
+import com.jcraft.jorbis.DspState;
+import com.jcraft.jorbis.Info;
+@SuppressWarnings("unused")
 public class JorbisFormatConversionProvider extends TEncodingFormatConversionProvider
 {
     private static final AudioFormat.Encoding VORBIS;

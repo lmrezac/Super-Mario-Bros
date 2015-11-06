@@ -4,16 +4,17 @@
 
 package supermario.game.sprites.misc;
 
-import java.awt.Rectangle;
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
-import supermario.game.sprites.enemies.FireballEnemy;
-import supermario.game.Tile;
-import supermario.game.Game;
-import javax.swing.ImageIcon;
-import supermario.game.interfaces.EnemyHolder;
-import supermario.game.Sprite;
+import java.awt.Rectangle;
 
+import javax.swing.ImageIcon;
+
+import supermario.game.Game;
+import supermario.game.Sprite;
+import supermario.game.Tile;
+import supermario.game.interfaces.EnemyHolder;
+import supermario.game.sprites.enemies.FireballEnemy;
+@SuppressWarnings("unused")
 public class Firebar extends Sprite implements EnemyHolder
 {
     public boolean clockwise;

@@ -4,14 +4,15 @@
 
 package supermario.game.sprites.effects;
 
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import supermario.game.sprites.friends.FireballFriend;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.interfaces.Effect;
-
+import supermario.game.sprites.friends.FireballFriend;
+@SuppressWarnings("unused")
 public class Firework implements Effect
 {
     private Game game;

@@ -3,7 +3,7 @@
 // 
 
 package org.tritonus.share.sampled;
-
+@SuppressWarnings("unused")
 public class TConversionTool
 {
     private static final boolean ZEROTRAP = true;

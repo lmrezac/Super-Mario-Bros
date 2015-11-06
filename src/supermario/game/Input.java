@@ -19,8 +19,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
-import static supermario.debug.Debugger.*;
 
+import static supermario.debug.Debugger.*;
+@SuppressWarnings("unused")
 public class Input implements KeyListener
 {
     private Game game;
@@ -142,6 +143,7 @@ public class Input implements KeyListener
                 this.sessionDirectory = loadedDirectory;
                 final File file = new File(this.sessionDirectory);
                 if (!file.exists()) {
+                	bReader.close();
                     throw new Exception();
                 }
             }

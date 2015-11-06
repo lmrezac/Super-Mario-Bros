@@ -7,14 +7,18 @@ package supermario.game.sprites.blocks;
 import supermario.game.sprites.effects.BrokenBrick;
 import supermario.game.sprites.effects.BumpCoin;
 import supermario.game.sprites.Mario;
+
 import java.awt.Rectangle;
+
 import supermario.game.sprites.enemies.PoisonMushroom;
 import supermario.game.sprites.misc.Beanstalk;
 import supermario.game.sprites.friends.Star;
 import supermario.game.sprites.friends.Life;
 import supermario.game.sprites.friends.Flower;
 import supermario.game.sprites.friends.Mushroom;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.Warp;
 import supermario.game.interfaces.Warpable;
@@ -30,7 +34,8 @@ public class Brick extends Sprite implements Block, Warpable
     private int normalY;
     private int contents;
     private int coinCount;
-    private int poison;
+    @SuppressWarnings("unused")
+	private int poison;
     public static final int DEFAULT_COIN_COUNT = 5;
     public static final int TYPE_LIGHT_BRICK = 0;
     public static final int TYPE_DARK_BRICK = 1;

@@ -6,11 +6,14 @@ package supermario.debug;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
+
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.event.DocumentListener;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import supermario.game.sprites.friends.Star;
 import supermario.game.sprites.misc.Spring;
 import supermario.game.sprites.misc.Platform;
@@ -19,16 +22,21 @@ import supermario.game.sprites.enemies.Bullet;
 import supermario.game.sprites.enemies.Koopa;
 import supermario.game.sprites.Mario;
 import supermario.game.Level;
+
 import javax.swing.JLabel;
+
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import javax.swing.JSeparator;
-import supermario.game.Game;
 
+import javax.swing.JSeparator;
+
+import supermario.game.Game;
+@SuppressWarnings("unused")
 public class PhysicsTestbox extends DebugTool
 {
-    private TextBox[] boxes;
+    private static final long serialVersionUID = -354117740412955076L;
+	private TextBox[] boxes;
     private double[] defaults;
     private double[] stored;
     private static final int WORLD_AIR_GRAVITY = 0;

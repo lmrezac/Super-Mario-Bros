@@ -17,6 +17,7 @@ import static supermario.debug.Debugger.*;
 
 public class TextureMap{
 	private Image map;
+	@SuppressWarnings("unused")
 	private static final String dir = System.getProperty("user.dir");
 	private String folderin;
 

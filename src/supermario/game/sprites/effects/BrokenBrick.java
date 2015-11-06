@@ -4,13 +4,14 @@
 
 package supermario.game.sprites.effects;
 
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
+
 import javax.swing.ImageIcon;
-import supermario.game.sprites.blocks.Brick;
+
 import supermario.game.Game;
 import supermario.game.interfaces.Effect;
-
+import supermario.game.sprites.blocks.Brick;
+@SuppressWarnings("unused")
 public class BrokenBrick implements Effect
 {
     private Game game;

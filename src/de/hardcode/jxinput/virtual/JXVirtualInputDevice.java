@@ -11,7 +11,8 @@ import de.hardcode.jxinput.JXInputDevice;
 
 public class JXVirtualInputDevice implements JXInputDevice
 {
-    private static final String DEVICENAME = "Virtual Device";
+    @SuppressWarnings("unused")
+	private static final String DEVICENAME = "Virtual Device";
     private final VirtualDriver mDriver;
     
     public JXVirtualInputDevice() {

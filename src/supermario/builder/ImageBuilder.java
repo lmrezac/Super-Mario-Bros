@@ -3,14 +3,12 @@
  */
 package supermario.builder;
 
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-import javax.swing.ImageIcon;
-import supermario.builder.Textures;
 
+import javax.swing.ImageIcon;
+@SuppressWarnings("unused")
 public class ImageBuilder {
     public static supermario.game.Textures textures;
     public static Textures bTextures;

@@ -7,7 +7,8 @@ package org.tritonus.share.sampled;
 public class TVolumeUtils
 {
     private static final double FACTOR1;
-    private static final double FACTOR2 = 0.05;
+    @SuppressWarnings("unused")
+	private static final double FACTOR2 = 0.05;
     
     public static double lin2log(final double dLinear) {
         return TVolumeUtils.FACTOR1 * Math.log(dLinear);

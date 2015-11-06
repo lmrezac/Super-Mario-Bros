@@ -19,11 +19,8 @@ public class Bullet extends Sprite implements Enemy
     public static double BULLET_SPEED;
     public static double SHELL_KILLED_Y_VEL;
     public static double BUMP_KILLED_GRAVITY;
-    private int shadowColor;
-    
     public Bullet(final Game game, final ImageIcon[] images, final int shadowColor, final int x, final int y, final boolean headingLeft) {
         super(game, images);
-        this.shadowColor = shadowColor;
         this.xPos = x;
         this.x = x;
         this.yPos = y;

@@ -5,11 +5,12 @@
 package org.tritonus.share.sampled.convert;
 
 import java.io.IOException;
-import org.tritonus.share.sampled.AudioUtils;
-import org.tritonus.share.TDebug;
-import java.io.InputStream;
+
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
+
+import org.tritonus.share.TDebug;
+import org.tritonus.share.sampled.AudioUtils;
 
 public abstract class TSynchronousFilteredAudioInputStream extends TAudioInputStream
 {
@@ -147,7 +148,8 @@ public abstract class TSynchronousFilteredAudioInputStream extends TAudioInputSt
         return this.originalStream.markSupported();
     }
     
-    private int getFrameSize() {
+    @SuppressWarnings("unused")
+	private int getFrameSize() {
         return this.getFormat().getFrameSize();
     }
 }

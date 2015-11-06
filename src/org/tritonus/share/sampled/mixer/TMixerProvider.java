@@ -5,20 +5,23 @@
 package org.tritonus.share.sampled.mixer;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
-import java.util.Set;
 import java.util.HashSet;
-import java.util.Iterator;
-import org.tritonus.share.TDebug;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.spi.MixerProvider;
 
+import org.tritonus.share.TDebug;
+
+@SuppressWarnings("rawtypes")
 public abstract class TMixerProvider extends MixerProvider
 {
     private static final Mixer.Info[] EMPTY_MIXER_INFO_ARRAY;
-    private static Map<Class, MixerProviderStruct> sm_mixerProviderStructs;
+   
+	private static Map<Class, MixerProviderStruct> sm_mixerProviderStructs;
     private boolean m_bDisabled;
     
     public TMixerProvider() {
@@ -38,7 +41,7 @@ public abstract class TMixerProvider extends MixerProvider
         if (TDebug.TraceMixerProvider) {
             TDebug.out("TMixerProvider.getMixerProviderStruct(): begin");
         }
-        final Class cls = this.getClass();
+        final Class<? extends TMixerProvider> cls = this.getClass();
         if (TDebug.TraceMixerProvider) {
             TDebug.out("TMixerProvider.getMixerProviderStruct(): called from " + cls);
         }

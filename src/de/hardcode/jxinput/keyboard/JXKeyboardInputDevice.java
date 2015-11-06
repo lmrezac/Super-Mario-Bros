@@ -4,16 +4,17 @@
 
 package de.hardcode.jxinput.keyboard;
 
-import de.hardcode.jxinput.Directional;
+import java.awt.Component;
+
 import de.hardcode.jxinput.Axis;
 import de.hardcode.jxinput.Button;
-import java.awt.event.KeyListener;
-import java.awt.Component;
+import de.hardcode.jxinput.Directional;
 import de.hardcode.jxinput.JXInputDevice;
 
 public class JXKeyboardInputDevice implements JXInputDevice
 {
-    private static final String DEVICENAME = "Swing Keyboard";
+    @SuppressWarnings("unused")
+	private static final String DEVICENAME = "Swing Keyboard";
     private final KeyboardDriver mDriver;
     private Component mComponent;
     private int mMaxIdxCreated;

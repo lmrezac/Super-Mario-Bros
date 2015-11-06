@@ -7,10 +7,14 @@ package supermario.game.sprites.enemies;
 import supermario.game.sprites.Mario;
 import supermario.game.sprites.effects.Points;
 import supermario.game.interfaces.Shelled;
+
 import java.awt.Rectangle;
+
 import supermario.game.Level;
 import supermario.game.interfaces.Constants;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.interfaces.MarioFollower;
 import supermario.game.interfaces.Enemy;
@@ -21,7 +25,8 @@ public class Spiny extends Sprite implements Enemy, MarioFollower
     private boolean egged;
     private boolean isLeftStarting;
     private boolean turnOnGrounded;
-    private static final int INITIAL_Y_VELOCITY = -320;
+    @SuppressWarnings("unused")
+	private static final int INITIAL_Y_VELOCITY = -320;
     
     public Spiny(final Game game, final ImageIcon[] images, final SpinyThrower spinyThrower) {
         super(game, images);

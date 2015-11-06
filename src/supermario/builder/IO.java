@@ -4,40 +4,36 @@
 
 package supermario.builder;
 
-import java.io.FileNotFoundException;
-import javax.swing.Icon;
-import java.awt.AWTEvent;
-import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
-import java.io.Reader;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.zip.ZipFile;
-import supermario.Utilities;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
-import javax.imageio.ImageIO;
-import java.io.BufferedOutputStream;
-import java.util.zip.ZipOutputStream;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.jar.JarEntry;
-import java.io.OutputStream;
-import java.util.jar.JarOutputStream;
-import java.io.FileOutputStream;
-import java.util.jar.JarFile;
-import java.io.InputStream;
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.awt.Component;
-import javax.swing.JOptionPane;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URLDecoder;
-import supermario.game.Game;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.jar.JarOutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
+import supermario.Utilities;
+import supermario.game.Game;
+@SuppressWarnings("unused")
 public class IO
 {
     private BuilderFrame frame;
@@ -86,7 +82,8 @@ public class IO
             inStream.close();
             final byte[] autostartBytes = bOut.toByteArray();
             tempGame.delete();
-            final JarFile sourceJar = new JarFile(this.frame.game.input.jarFile);
+            @SuppressWarnings("resource")
+			final JarFile sourceJar = new JarFile(this.frame.game.input.jarFile);
             final JarOutputStream jarOut = new JarOutputStream(new FileOutputStream(file));
             final Enumeration<JarEntry> jarEntries = sourceJar.entries();
             while (jarEntries.hasMoreElements()) {

@@ -4,24 +4,25 @@
 
 package supermario.debug;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import supermario.game.interfaces.Enemy;
-import java.awt.Component;
 import java.awt.Point;
-import supermario.game.sprites.Mario;
-import supermario.game.sprites.effects.Points;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Icon;
-import javax.swing.JButton;
-import supermario.game.Game;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+
+import javax.swing.JButton;
+
+import supermario.game.Game;
+import supermario.game.sprites.Mario;
+import supermario.game.sprites.effects.Points;
 
 public class StateModifier extends DebugTool implements WindowListener, KeyListener
 {
-    public StateModifier(final Game game) {
+    private static final long serialVersionUID = 8535144703236691231L;
+
+	public StateModifier(final Game game) {
         super(game, "State Modifier");
     }
     

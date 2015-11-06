@@ -4,38 +4,36 @@
 
 package de.hardcode.jxinput.test;
 
-import javax.swing.JFrame;
-import java.awt.event.FocusListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusAdapter;
-import javax.swing.border.Border;
-import javax.swing.border.SoftBevelBorder;
-import java.awt.LayoutManager;
 import java.awt.BorderLayout;
-import java.awt.event.WindowListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowAdapter;
-import de.hardcode.jxinput.JXInputDevice;
-import de.hardcode.jxinput.virtual.VirtualAxis;
-import java.awt.Component;
-import javax.swing.SwingUtilities;
-import de.hardcode.jxinput.JXInputManager;
-import java.awt.event.ActionEvent;
-import javax.swing.Timer;
 import java.awt.Frame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTabbedPane;
-import javax.swing.JButton;
-import de.hardcode.jxinput.Button;
-import de.hardcode.jxinput.virtual.JXVirtualInputDevice;
-import de.hardcode.jxinput.keyboard.JXKeyboardInputDevice;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+import javax.swing.border.SoftBevelBorder;
+
+import de.hardcode.jxinput.Button;
+import de.hardcode.jxinput.JXInputDevice;
+import de.hardcode.jxinput.JXInputManager;
+import de.hardcode.jxinput.keyboard.JXKeyboardInputDevice;
+import de.hardcode.jxinput.virtual.JXVirtualInputDevice;
+import de.hardcode.jxinput.virtual.VirtualAxis;
 
 public class JXInputTestDialog extends JDialog implements ActionListener
 {
-    private JXKeyboardInputDevice mKeyboardDevice;
+    private static final long serialVersionUID = -7674790318270722883L;
+	private JXKeyboardInputDevice mKeyboardDevice;
     private JXVirtualInputDevice mVirtualDevice;
     Button mButtonUp;
     Button mButtonDown;

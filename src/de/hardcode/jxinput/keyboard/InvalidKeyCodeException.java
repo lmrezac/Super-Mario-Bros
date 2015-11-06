@@ -6,7 +6,9 @@ package de.hardcode.jxinput.keyboard;
 
 public class InvalidKeyCodeException extends IllegalArgumentException
 {
-    public InvalidKeyCodeException() {
+    private static final long serialVersionUID = 358676722457386797L;
+
+	public InvalidKeyCodeException() {
     }
     
     public InvalidKeyCodeException(final String s) {

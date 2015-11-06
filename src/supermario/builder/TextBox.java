@@ -4,23 +4,20 @@
 
 package supermario.builder;
 
-import java.io.ObjectInputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.AttributeSet;
+import java.awt.Font;
+
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.text.AbstractDocument;
-import javax.swing.text.Document;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
-import java.awt.Font;
-import javax.swing.JTextField;
 
 public class TextBox extends JTextField
 {
-    private static Font textFont;
+    private static final long serialVersionUID = 3394857978703777746L;
+	private static Font textFont;
     
     public TextBox(final int charLimit, final boolean numbersOnly, final boolean upperCaseRequired, final boolean customTextField) {
         this.setHorizontalAlignment(0);

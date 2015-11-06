@@ -4,9 +4,10 @@
 
 package supermario.game.sprites.effects;
 
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.interfaces.Effect;
 

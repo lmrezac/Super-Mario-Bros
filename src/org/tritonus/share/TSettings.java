@@ -9,7 +9,8 @@ import java.security.AccessControlException;
 public class TSettings
 {
     public static boolean SHOW_ACCESS_CONTROL_EXCEPTIONS;
-    private static final String PROPERTY_PREFIX = "tritonus.";
+    @SuppressWarnings("unused")
+	private static final String PROPERTY_PREFIX = "tritonus.";
     public static boolean AlsaUsePlughw;
     
     private static boolean getBooleanProperty(final String strName) {

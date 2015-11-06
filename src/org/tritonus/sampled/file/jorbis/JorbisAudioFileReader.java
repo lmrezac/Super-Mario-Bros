@@ -17,7 +17,7 @@ import com.jcraft.jogg.SyncState;
 import javax.sound.sampled.AudioFileFormat;
 import java.io.InputStream;
 import org.tritonus.share.sampled.file.TAudioFileReader;
-
+@SuppressWarnings("unused")
 public class JorbisAudioFileReader extends TAudioFileReader
 {
     private static final int INITAL_READ_LENGTH = 4096;

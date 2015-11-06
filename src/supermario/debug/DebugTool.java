@@ -4,24 +4,25 @@
 
 package supermario.debug;
 
-import supermario.builder.BuilderFrame;
-import java.awt.Insets;
-import java.awt.GridBagConstraints;
-import java.awt.Component;
-import java.awt.LayoutManager;
-import java.awt.GridBagLayout;
-import java.awt.Frame;
-import supermario.Utilities;
-import javax.swing.JFrame;
-import supermario.game.Game;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowListener;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import supermario.Utilities;
+import supermario.builder.BuilderFrame;
+import supermario.game.Game;
 
 public abstract class DebugTool extends JPanel implements WindowListener, KeyListener
 {
-    final int LEFT = 17;
+    private static final long serialVersionUID = -2343310710233342607L;
+	final int LEFT = 17;
     final int CENTER = 10;
     final int RIGHT = 13;
     final Color backgroundColor;

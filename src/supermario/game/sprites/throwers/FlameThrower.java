@@ -4,11 +4,11 @@
 
 package supermario.game.sprites.throwers;
 
-import supermario.game.sprites.enemies.Bowser;
-import supermario.game.sprites.enemies.FlameBreath;
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.interfaces.EnemyThrower;
+import supermario.game.sprites.enemies.FlameBreath;
 
 public class FlameThrower implements EnemyThrower
 {

@@ -4,11 +4,12 @@
 
 package org.tritonus.share.sampled.convert;
 
-import java.util.Iterator;
+import java.util.Collection;
+
+import javax.sound.sampled.AudioFormat;
+
 import org.tritonus.share.ArraySet;
 import org.tritonus.share.TDebug;
-import javax.sound.sampled.AudioFormat;
-import java.util.Collection;
 
 public abstract class TEncodingFormatConversionProvider extends TSimpleFormatConversionProvider
 {

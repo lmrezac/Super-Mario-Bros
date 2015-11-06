@@ -5,13 +5,15 @@
 package de.hardcode.jxinput.virtual;
 
 import java.security.InvalidParameterException;
+
 import de.hardcode.jxinput.Button;
 import de.hardcode.jxinput.Axis;
 
 public class VirtualAxis implements Axis
 {
     private int mType;
-    private final int mID;
+    @SuppressWarnings("unused")
+	private final int mID;
     private String mName;
     private double mCurrentValue;
     private Button mButtonIncrease;
@@ -42,7 +44,7 @@ public class VirtualAxis implements Axis
         double min = this.mSpringSpeed * n;
         final boolean b = null != this.mButtonIncrease && this.mButtonIncrease.getState();
         final boolean b2 = null != this.mButtonDecrease && this.mButtonDecrease.getState();
-        final boolean b3 = b || b2;
+        //final boolean b3 = b || b2;
         double n3 = 0.0;
         if (b) {
             n3 += n2;

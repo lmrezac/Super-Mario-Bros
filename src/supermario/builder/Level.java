@@ -3,15 +3,16 @@
 
 package supermario.builder;
 
-import supermario.game.LevelLoader;
-import java.io.CharArrayWriter;
-import java.awt.image.ImageObserver;
+import static supermario.debug.Debugger.debug;
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.CharArrayWriter;
 import java.util.Iterator;
-import supermario.game.Game;
 import java.util.LinkedList;
-import static supermario.debug.Debugger.*;
+
+import supermario.game.Game;
+import supermario.game.LevelLoader;
 
 public class Level
 {

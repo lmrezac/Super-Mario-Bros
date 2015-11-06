@@ -3,7 +3,7 @@
 // 
 
 package org.tritonus.share;
-
+@SuppressWarnings("unused")
 public class GlobalInfo
 {
     private static final String VENDOR = "Tritonus is free software. See http://www.tritonus.org/";

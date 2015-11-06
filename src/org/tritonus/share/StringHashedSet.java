@@ -9,7 +9,9 @@ import java.util.Collection;
 
 public class StringHashedSet<E> extends ArraySet<E>
 {
-    public StringHashedSet() {
+    private static final long serialVersionUID = -3116589678919789699L;
+
+	public StringHashedSet() {
     }
     
     public StringHashedSet(final Collection<E> c) {

@@ -6,19 +6,27 @@ package org.tritonus.share.sampled.file;
 
 import org.tritonus.share.sampled.AudioFormats;
 import org.tritonus.share.sampled.TConversionTool;
+
 import java.io.OutputStream;
 import java.io.IOException;
+
 import org.tritonus.share.sampled.AudioUtils;
+
 import java.io.File;
 import java.util.Iterator;
+
 import org.tritonus.share.ArraySet;
+
 import javax.sound.sampled.AudioInputStream;
+
 import org.tritonus.share.TDebug;
+
 import java.util.Collection;
+
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.spi.AudioFileWriter;
-
+@SuppressWarnings("unused")
 public abstract class TAudioFileWriter extends AudioFileWriter
 {
     protected static final int ALL = -1;
@@ -204,7 +212,7 @@ public abstract class TAudioFileWriter extends AudioFileWriter
             TDebug.out("> TAudioFileWriter.isAudioFormatSupportedImpl(): format to test: " + audioFormat);
             TDebug.out("class: " + this.getClass().getName());
         }
-        final Iterator audioFormats = this.getSupportedAudioFormats(fileType);
+        final Iterator<?> audioFormats = this.getSupportedAudioFormats(fileType);
         while (audioFormats.hasNext()) {
             final AudioFormat handledFormat = (AudioFormat) audioFormats.next();
             if (TDebug.TraceAudioFileWriter) {

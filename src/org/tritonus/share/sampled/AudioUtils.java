@@ -22,7 +22,7 @@ public class AudioUtils
         return -1L;
     }
     
-    public static boolean containsFormat(final AudioFormat sourceFormat, final Iterator possibleFormats) {
+    public static boolean containsFormat(final AudioFormat sourceFormat, final Iterator<?> possibleFormats) {
         while (possibleFormats.hasNext()) {
             final AudioFormat format = (AudioFormat) possibleFormats.next();
             if (AudioFormats.matches(format, sourceFormat)) {

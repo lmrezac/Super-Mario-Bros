@@ -20,7 +20,7 @@ import supermario.game.interfaces.Warpable;
 import supermario.game.sprites.blocks.Brick;
 import supermario.game.sprites.enemies.Bowser;
 import supermario.game.sprites.enemies.LavaBall;
-
+@SuppressWarnings("unused")
 public class BowserBattle extends Sprite implements Warpable
 {
     public Warp warp;

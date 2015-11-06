@@ -5,13 +5,15 @@
 package de.hardcode.jxinput.keyboard;
 
 import java.awt.event.KeyEvent;
+
 import de.hardcode.jxinput.Button;
 
 class KeyButton implements Button
 {
     private final int mKeyCode;
     private boolean mIsPressed;
-    private boolean mHasChanged;
+    @SuppressWarnings("unused")
+	private boolean mHasChanged;
     
     public KeyButton(final int mKeyCode) {
         this.mKeyCode = mKeyCode;

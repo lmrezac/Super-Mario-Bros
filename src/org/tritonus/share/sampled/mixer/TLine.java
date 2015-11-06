@@ -4,20 +4,20 @@
 
 package org.tritonus.share.sampled.mixer;
 
-import java.util.EventObject;
-import org.tritonus.share.TNotifier;
-import java.util.Iterator;
-import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineUnavailableException;
-import org.tritonus.share.TDebug;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.ArrayList;
-import javax.sound.sampled.LineListener;
-import java.util.Set;
 import java.util.List;
+import java.util.Set;
+
 import javax.sound.sampled.Control;
 import javax.sound.sampled.Line;
+import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineListener;
+import javax.sound.sampled.LineUnavailableException;
+
+import org.tritonus.share.TDebug;
+import org.tritonus.share.TNotifier;
 
 public abstract class TLine implements Line
 {

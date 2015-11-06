@@ -4,13 +4,14 @@
 
 package org.tritonus.share.sampled;
 
-import java.util.List;
-import javax.sound.sampled.AudioFormat;
 import java.util.ArrayList;
+
+import javax.sound.sampled.AudioFormat;
 
 public class FloatSampleBuffer
 {
-    private static final boolean LAZY_DEFAULT = true;
+    @SuppressWarnings("unused")
+	private static final boolean LAZY_DEFAULT = true;
     private ArrayList<float[]> channels;
     private int sampleCount;
     private int channelCount;

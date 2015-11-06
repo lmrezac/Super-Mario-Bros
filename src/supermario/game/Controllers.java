@@ -4,25 +4,25 @@
 
 package supermario.game;
 
-import de.hardcode.jxinput.event.JXInputAxisEvent;
-import de.hardcode.jxinput.event.JXInputDirectionalEvent;
-import de.hardcode.jxinput.event.JXInputButtonEvent;
-import de.hardcode.jxinput.event.JXInputEventManager;
-import de.hardcode.jxinput.JXInputDevice;
-import de.hardcode.jxinput.event.JXInputAxisEventListener;
-import de.hardcode.jxinput.event.JXInputDirectionalEventListener;
-import de.hardcode.jxinput.event.JXInputButtonEventListener;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.File;
-import java.net.URLDecoder;
 import java.io.BufferedInputStream;
-import de.hardcode.jxinput.JXInputManager;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URLDecoder;
+
 import de.hardcode.jxinput.Axis;
-import de.hardcode.jxinput.Directional;
 import de.hardcode.jxinput.Button;
+import de.hardcode.jxinput.Directional;
+import de.hardcode.jxinput.JXInputDevice;
+import de.hardcode.jxinput.JXInputManager;
+import de.hardcode.jxinput.event.JXInputAxisEvent;
+import de.hardcode.jxinput.event.JXInputAxisEventListener;
+import de.hardcode.jxinput.event.JXInputButtonEvent;
+import de.hardcode.jxinput.event.JXInputButtonEventListener;
+import de.hardcode.jxinput.event.JXInputDirectionalEvent;
+import de.hardcode.jxinput.event.JXInputDirectionalEventListener;
+import de.hardcode.jxinput.event.JXInputEventManager;
 
 public class Controllers
 {
@@ -355,7 +355,6 @@ public class Controllers
     private class Device implements JXInputButtonEventListener, JXInputDirectionalEventListener, JXInputAxisEventListener
     {
         private JXInputDevice device;
-        private int number;
         private String name;
         private int buttonsCount;
         private int directionalsCount;
@@ -363,7 +362,6 @@ public class Controllers
         private boolean axisAdded;
         
         public Device(final int number, final JXInputDevice device) {
-            this.number = number;
             this.device = device;
             this.name = device.getName();
             this.buttonsCount = device.getNumberOfButtons();

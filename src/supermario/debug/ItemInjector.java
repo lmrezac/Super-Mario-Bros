@@ -4,43 +4,44 @@
 
 package supermario.debug;
 
-import javax.swing.Icon;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
 import java.awt.Dimension;
-import supermario.game.Sprite;
-import supermario.game.sprites.misc.Platform;
-import javax.swing.ImageIcon;
-import supermario.game.sprites.enemies.LavaBall;
-import supermario.game.sprites.enemies.RedFish;
-import supermario.game.sprites.enemies.Squid;
-import supermario.game.sprites.enemies.GrayFish;
-import supermario.game.sprites.enemies.HammerBro;
-import supermario.game.sprites.enemies.Spiny;
-import supermario.game.sprites.friends.Coin;
-import supermario.game.sprites.enemies.Koopa;
-import supermario.game.sprites.enemies.Beetle;
-import supermario.game.sprites.enemies.Goomba;
-import supermario.game.LevelLoader;
-import java.awt.Point;
 import java.awt.GridBagConstraints;
-import javax.swing.JOptionPane;
-import javax.swing.JSeparator;
-import supermario.game.Tile;
-import supermario.game.sprites.blocks.SolidTestTile;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Component;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JSeparator;
+
 import supermario.builder.BuilderFrame;
 import supermario.game.Game;
-import javax.swing.JComboBox;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
+import supermario.game.LevelLoader;
+import supermario.game.Sprite;
+import supermario.game.Tile;
+import supermario.game.sprites.blocks.SolidTestTile;
+import supermario.game.sprites.enemies.Beetle;
+import supermario.game.sprites.enemies.Goomba;
+import supermario.game.sprites.enemies.GrayFish;
+import supermario.game.sprites.enemies.HammerBro;
+import supermario.game.sprites.enemies.Koopa;
+import supermario.game.sprites.enemies.LavaBall;
+import supermario.game.sprites.enemies.RedFish;
+import supermario.game.sprites.enemies.Spiny;
+import supermario.game.sprites.enemies.Squid;
+import supermario.game.sprites.friends.Coin;
+import supermario.game.sprites.misc.Platform;
 
 public class ItemInjector extends DebugTool
 {
-    private ItemButton lightGoomba;
+    private static final long serialVersionUID = -2616280862060347995L;
+	private ItemButton lightGoomba;
     //private ItemButton darkGoomba;
     //private ItemButton grayGoomba;
     private ItemButton lightBeetle;
@@ -50,7 +51,6 @@ public class ItemInjector extends DebugTool
     //private ItemButton darkKoopa;
     private ItemButton redKoopa;
     private ItemButton lightKoopaBouncing;
-    private ItemButton darkKoopaBouncing;
     private ItemButton redKoopaBouncing;
     private ItemButton lightKoopaFlyingV;
     private ItemButton darkKoopaFlyingV;
@@ -209,7 +209,7 @@ public class ItemInjector extends DebugTool
         (this.oscOffsetComboBox = new JComboBox<String>(new String[] { "0%", "25%", "50%", "75%" })).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                final int index = ((JComboBox)e.getSource()).getSelectedIndex();
+                final int index = ((JComboBox<?>)e.getSource()).getSelectedIndex();
                 if (index == 0) {
                     ItemInjector.this.oscOffset = 0.0f;
                 }
@@ -483,7 +483,8 @@ public class ItemInjector extends DebugTool
     
     private class ItemButton extends JButton implements ActionListener
     {
-        private char c;
+        private static final long serialVersionUID = -8377765973124095459L;
+		private char c;
         
         public ItemButton(final ImageIcon i, final char c) {
             this.setIcon(i);

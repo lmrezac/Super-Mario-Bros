@@ -9,8 +9,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import supermario.Utilities;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 

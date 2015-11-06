@@ -4,16 +4,16 @@
 
 package supermario.builder.itemPanels;
 
-import java.awt.Component;
-import javax.swing.ImageIcon;
-import supermario.builder.Item;
-import supermario.builder.Button;
-import supermario.builder.BuilderFrame;
 import javax.swing.JPanel;
+
+import supermario.builder.BuilderFrame;
+import supermario.builder.Button;
+import supermario.builder.Item;
 
 public class PlatformsPanel extends JPanel implements ItemPanel
 {
-    private BuilderFrame frame;
+    private static final long serialVersionUID = -5169748855456330644L;
+	private BuilderFrame frame;
     public Button longRepUp;
     public Button longRepDown;
     public Button longOscV;

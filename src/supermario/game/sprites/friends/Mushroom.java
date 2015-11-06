@@ -4,17 +4,18 @@
 
 package supermario.game.sprites.friends;
 
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
+
+import supermario.game.Game;
+import supermario.game.Level;
+import supermario.game.Sprite;
+import supermario.game.interfaces.Block;
+import supermario.game.interfaces.Constants;
+import supermario.game.interfaces.Friend;
 import supermario.game.sprites.Mario;
 import supermario.game.sprites.effects.Points;
-import supermario.game.interfaces.Enemy;
-import java.awt.Rectangle;
-import supermario.game.Level;
-import supermario.game.interfaces.Constants;
-import javax.swing.ImageIcon;
-import supermario.game.Game;
-import supermario.game.interfaces.Block;
-import supermario.game.interfaces.Friend;
-import supermario.game.Sprite;
 
 public class Mushroom extends Sprite implements Friend
 {

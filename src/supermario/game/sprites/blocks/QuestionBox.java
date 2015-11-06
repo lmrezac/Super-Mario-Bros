@@ -4,27 +4,24 @@
 
 package supermario.game.sprites.blocks;
 
-import supermario.game.sprites.Mario;
-import supermario.game.sprites.effects.BumpCoin;
-
 import java.awt.Rectangle;
-
-import supermario.game.sprites.enemies.PoisonMushroom;
-import supermario.game.sprites.misc.Beanstalk;
-import supermario.game.sprites.friends.Star;
-import supermario.game.sprites.friends.Life;
-import supermario.game.sprites.friends.Flower;
-import supermario.game.sprites.friends.Mushroom;
-import supermario.Utilities;
 
 import javax.swing.ImageIcon;
 
 import supermario.game.AnimatedIcon;
 import supermario.game.Game;
-import supermario.game.Warp;
-import supermario.game.interfaces.Warpable;
-import supermario.game.interfaces.Block;
 import supermario.game.Sprite;
+import supermario.game.Warp;
+import supermario.game.interfaces.Block;
+import supermario.game.interfaces.Warpable;
+import supermario.game.sprites.Mario;
+import supermario.game.sprites.effects.BumpCoin;
+import supermario.game.sprites.enemies.PoisonMushroom;
+import supermario.game.sprites.friends.Flower;
+import supermario.game.sprites.friends.Life;
+import supermario.game.sprites.friends.Mushroom;
+import supermario.game.sprites.friends.Star;
+import supermario.game.sprites.misc.Beanstalk;
 
 public class QuestionBox extends Sprite implements Block, Warpable
 {
@@ -35,7 +32,6 @@ public class QuestionBox extends Sprite implements Block, Warpable
     public boolean exposed;
     private int normalY;
     private int contents;
-    private int shadowColor;
     public static int CONTENTS_COIN;
     public static int CONTENTS_GROWTH;
     public static int CONTENTS_EXTRA_LIFE;
@@ -45,7 +41,6 @@ public class QuestionBox extends Sprite implements Block, Warpable
     
     public QuestionBox(final Game game, final ImageIcon[] images, final int shadowColor, final int contents, final boolean hidden) {
         super(game, images);
-        this.shadowColor = shadowColor;
         this.contents = contents;
         this.hidden = hidden;
         this.exposed = false;

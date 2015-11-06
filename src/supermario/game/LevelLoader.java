@@ -4,36 +4,38 @@
 
 package supermario.game;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import supermario.game.interfaces.Warpable;
-import supermario.game.sprites.misc.BowserBattle;
-import supermario.game.sprites.misc.Flag;
-import supermario.game.sprites.misc.Platform;
-import supermario.game.sprites.enemies.LavaBall;
-import supermario.game.sprites.misc.Firebar;
-import supermario.game.sprites.misc.Cannon;
-import supermario.game.sprites.enemies.Beetle;
-import supermario.game.sprites.enemies.Spiny;
-import supermario.game.sprites.enemies.HammerBro;
-import supermario.game.sprites.enemies.GrayFish;
-import supermario.game.sprites.enemies.RedFish;
-import supermario.game.sprites.enemies.Squid;
-import supermario.game.sprites.enemies.Koopa;
-import supermario.game.sprites.enemies.Goomba;
-import supermario.game.sprites.misc.Pipe;
-import supermario.game.sprites.blocks.QuestionBox;
-import supermario.game.sprites.blocks.Brick;
-import supermario.game.sprites.misc.InfiniteCorridor;
-import supermario.game.sprites.misc.ThinAirWarp;
-import supermario.game.sprites.misc.Spring;
-import supermario.game.sprites.misc.ArrivalVine;
-import supermario.game.sprites.misc.Checkpoint;
-import javax.swing.ImageIcon;
-import supermario.game.sprites.friends.Coin;
-import java.awt.Point;
-import static supermario.debug.Debugger.*;
+import static supermario.debug.Debugger.debug;
 
+import java.awt.Point;
+import java.util.LinkedList;
+
+import javax.swing.ImageIcon;
+
+import supermario.game.interfaces.Warpable;
+import supermario.game.sprites.blocks.Brick;
+import supermario.game.sprites.blocks.QuestionBox;
+import supermario.game.sprites.enemies.Beetle;
+import supermario.game.sprites.enemies.Goomba;
+import supermario.game.sprites.enemies.GrayFish;
+import supermario.game.sprites.enemies.HammerBro;
+import supermario.game.sprites.enemies.Koopa;
+import supermario.game.sprites.enemies.LavaBall;
+import supermario.game.sprites.enemies.RedFish;
+import supermario.game.sprites.enemies.Spiny;
+import supermario.game.sprites.enemies.Squid;
+import supermario.game.sprites.friends.Coin;
+import supermario.game.sprites.misc.ArrivalVine;
+import supermario.game.sprites.misc.BowserBattle;
+import supermario.game.sprites.misc.Cannon;
+import supermario.game.sprites.misc.Checkpoint;
+import supermario.game.sprites.misc.Firebar;
+import supermario.game.sprites.misc.Flag;
+import supermario.game.sprites.misc.InfiniteCorridor;
+import supermario.game.sprites.misc.Pipe;
+import supermario.game.sprites.misc.Platform;
+import supermario.game.sprites.misc.Spring;
+import supermario.game.sprites.misc.ThinAirWarp;
+@SuppressWarnings("unused")
 public class LevelLoader
 {
     private Game game;

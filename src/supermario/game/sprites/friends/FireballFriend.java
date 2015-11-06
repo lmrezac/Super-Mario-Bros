@@ -4,15 +4,16 @@
 
 package supermario.game.sprites.friends;
 
-import java.awt.Rectangle;
-import supermario.game.sprites.effects.Firework;
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
-import supermario.game.Level;
+import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
-import supermario.game.interfaces.Friend;
+import supermario.game.Level;
 import supermario.game.Sprite;
+import supermario.game.interfaces.Friend;
+import supermario.game.sprites.effects.Firework;
 
 public class FireballFriend extends Sprite implements Friend
 {

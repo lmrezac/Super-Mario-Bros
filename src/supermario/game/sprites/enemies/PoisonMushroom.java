@@ -18,13 +18,11 @@ import supermario.game.Sprite;
 
 public class PoisonMushroom extends Sprite implements Enemy
 {
-    private Block block;
     private boolean growing;
     private int startingY;
     
     public PoisonMushroom(final Game game, final ImageIcon[] images, final Block block) {
         super(game, images);
-        this.block = block;
         final Sprite tempSprite = (Sprite)block;
         this.xPos = tempSprite.x;
         this.yPos = tempSprite.y;

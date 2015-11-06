@@ -4,13 +4,14 @@
 
 package supermario.game.sprites.misc;
 
-import java.awt.Rectangle;
-import java.awt.image.ImageObserver;
 import java.awt.Graphics2D;
-import supermario.game.interfaces.Block;
+import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.Sprite;
+import supermario.game.interfaces.Block;
 
 public class Beanstalk extends Sprite
 {

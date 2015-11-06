@@ -4,17 +4,18 @@
 
 package supermario.builder.itemPanels;
 
-import java.awt.Component;
-import supermario.game.Game;
-import supermario.builder.Item;
 import javax.swing.ImageIcon;
-import supermario.builder.Button;
-import supermario.builder.BuilderFrame;
 import javax.swing.JPanel;
+
+import supermario.builder.BuilderFrame;
+import supermario.builder.Button;
+import supermario.builder.Item;
+import supermario.game.Game;
 
 public final class MiscPanel extends JPanel implements ItemPanel
 {
-    private BuilderFrame frame;
+    private static final long serialVersionUID = 2665117765795226493L;
+	private BuilderFrame frame;
     public Button mario;
     public Button thinAirWarp;
     public Button infiniteCorridor;

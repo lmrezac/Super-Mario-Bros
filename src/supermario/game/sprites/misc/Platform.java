@@ -4,14 +4,14 @@
 
 package supermario.game.sprites.misc;
 
-import supermario.Utilities;
-import java.awt.Stroke;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.util.Iterator;
+
 import javax.swing.ImageIcon;
+
+import supermario.Utilities;
 import supermario.game.Game;
 import supermario.game.Sprite;
 

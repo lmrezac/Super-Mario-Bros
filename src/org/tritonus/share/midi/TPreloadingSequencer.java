@@ -5,16 +5,22 @@
 package org.tritonus.share.midi;
 
 import javax.sound.midi.MidiMessage;
+
 import org.tritonus.share.TDebug;
+
 import javax.sound.midi.Sequencer;
+
 import java.util.Collection;
+
 import javax.sound.midi.MidiDevice;
 
 public abstract class TPreloadingSequencer extends TSequencer
 {
-    private static final int DEFAULT_LATENCY = 100;
+    @SuppressWarnings("unused")
+	private static final int DEFAULT_LATENCY = 100;
     private int m_nLatency;
-    private Thread m_loaderThread;
+    @SuppressWarnings("unused")
+	private Thread m_loaderThread;
     
     protected TPreloadingSequencer(final MidiDevice.Info info, final Collection<Sequencer.SyncMode> masterSyncModes, final Collection<Sequencer.SyncMode> slaveSyncModes) {
         super(info, masterSyncModes, slaveSyncModes);

@@ -5,12 +5,15 @@
 package supermario.game.sprites.misc;
 
 import java.awt.Rectangle;
+
 import supermario.game.sprites.enemies.Bullet;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.interfaces.EnemyHolder;
 import supermario.game.Sprite;
-
+@SuppressWarnings("unused")
 public class Cannon extends Sprite implements EnemyHolder
 {
     private boolean tallCannon;

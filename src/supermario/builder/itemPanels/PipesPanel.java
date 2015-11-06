@@ -4,33 +4,23 @@
 
 package supermario.builder.itemPanels;
 
-import supermario.builder.ImageBuilder;
-
-import java.awt.Component;
-import java.util.Iterator;
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.Icon;
-
-import java.awt.Image;
-
 import javax.swing.ImageIcon;
-
-import java.awt.image.BufferedImage;
-
-import supermario.builder.Item;
-
-import java.util.HashMap;
-
-import supermario.builder.Button;
-import supermario.builder.BuilderFrame;
-import supermario.builder.Level;
-
 import javax.swing.JPanel;
+
+import supermario.builder.BuilderFrame;
+import supermario.builder.Button;
+import supermario.builder.ImageBuilder;
+import supermario.builder.Item;
+import supermario.builder.Level;
 
 public final class PipesPanel extends JPanel implements ItemPanel
 {
-    private BuilderFrame frame;
+    private static final long serialVersionUID = -9030918068660956668L;
+	private BuilderFrame frame;
     public Button topWChomp;
     public Button topWOChomp;
     public Button bottomWChomp;

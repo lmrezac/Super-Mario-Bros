@@ -4,42 +4,39 @@
 
 package supermario.builder;
 
-import java.awt.GridBagConstraints;
-import supermario.game.LevelLoader;
-import javax.swing.ImageIcon;
-import javax.swing.SwingUtilities;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.AbstractButton;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.JSlider;
-import javax.swing.JOptionPane;
-import java.awt.Container;
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JCheckBox;
-import javax.swing.JSeparator;
-import java.awt.Component;
-import javax.swing.JLabel;
-import java.awt.LayoutManager;
-import java.awt.GridBagLayout;
-import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
 
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.JSlider;
+import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+import supermario.game.LevelLoader;
+@SuppressWarnings("unused")
 public class PropertiesPanel extends JPanel
 {
-    private BuilderFrame frame;
+    private static final long serialVersionUID = -7653049856778244386L;
+	private BuilderFrame frame;
     public int type;
     public final Item item;
     public static final int TYPE_BLANK = 1;
@@ -853,13 +850,13 @@ public class PropertiesPanel extends JPanel
         lavaballColorLabel.setVerticalTextPosition(3);
         this.add(lavaballColorLabel, getConstraints(0, 1, 1, 1, 0, 0, 10, 0, 0, 0, 5, 0));
         final String[] colorList = { " Red (Lava)", " Blue (Water)", " Blank" };
-        final JComboBox lavaballColorComboBox = new JComboBox(colorList);
+        final JComboBox<?> lavaballColorComboBox = new JComboBox<Object>(colorList);
         lavaballColorComboBox.setToolTipText("The background color behind this fireball...");
         lavaballColorComboBox.setFont(this.frame.plain);
         lavaballColorComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                final int index = ((JComboBox)e.getSource()).getSelectedIndex();
+                final int index = ((JComboBox<?>)e.getSource()).getSelectedIndex();
                 if (PropertiesPanel.this.item.fireballColor != index && PropertiesPanel.this.item.inserted) {
                     PropertiesPanel.this.frame.undoableActionMade(Action.lavaballPropChange(PropertiesPanel.this.item, PropertiesPanel.this.item.fireballColor, index));
                 }
@@ -881,19 +878,19 @@ public class PropertiesPanel extends JPanel
         coinCountLabel.setVerticalTextPosition(3);
         this.add(coinCountLabel, getConstraints(0, 1, 1, 1, 0, 0, 10, 0, 0, 0, 5, 0));
         final String[] countList = { " Random ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " };
-        final JComboBox coinCountComboBox = new JComboBox(countList);
+        final JComboBox<?> coinCountComboBox = new JComboBox<Object>(countList);
         coinCountComboBox.setToolTipText("The number of coins stored inside this brick (between 2 and 9)...");
         coinCountComboBox.setFont(this.frame.plain);
         coinCountComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                final int index = ((JComboBox)e.getSource()).getSelectedIndex();
+                final int index = ((JComboBox<?>)e.getSource()).getSelectedIndex();
                 final int oldCount = PropertiesPanel.this.item.coinCount;
                 if (index == 0) {
                     PropertiesPanel.this.item.coinCount = 0;
                 }
                 else {
-                    PropertiesPanel.this.item.coinCount = ((JComboBox)e.getSource()).getSelectedIndex() + 1;
+                    PropertiesPanel.this.item.coinCount = ((JComboBox<?>)e.getSource()).getSelectedIndex() + 1;
                 }
                 if (PropertiesPanel.this.item.inserted && oldCount != PropertiesPanel.this.item.coinCount) {
                     PropertiesPanel.this.frame.undoableActionMade(Action.coinCount(PropertiesPanel.this.item, oldCount, PropertiesPanel.this.item.coinCount));

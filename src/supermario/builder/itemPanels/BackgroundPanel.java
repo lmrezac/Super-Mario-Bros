@@ -4,21 +4,18 @@
 
 package supermario.builder.itemPanels;
 
-import java.awt.Component;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 import supermario.Utilities;
-import supermario.builder.Item;
-
-import javax.swing.ImageIcon;
-
-import supermario.builder.Button;
 import supermario.builder.BuilderFrame;
-
-import javax.swing.JPanel;
+import supermario.builder.Button;
+import supermario.builder.Item;
 
 public final class BackgroundPanel extends JPanel implements ItemPanel
 {
-    private BuilderFrame frame;
+    private static final long serialVersionUID = -8454316529412949628L;
+	private BuilderFrame frame;
     public Button singleCloud;
     public Button doubleCloud;
     public Button tripleCloud;

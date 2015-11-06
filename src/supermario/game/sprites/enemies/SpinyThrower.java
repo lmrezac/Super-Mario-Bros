@@ -6,13 +6,17 @@ package supermario.game.sprites.enemies;
 
 import supermario.game.sprites.Mario;
 import supermario.game.sprites.effects.Points;
+
 import java.awt.Rectangle;
+
 import supermario.game.Level;
+
 import javax.swing.ImageIcon;
+
 import supermario.game.Game;
 import supermario.game.interfaces.Enemy;
 import supermario.game.Sprite;
-
+@SuppressWarnings("unused")
 public class SpinyThrower extends Sprite implements Enemy
 {
     private static final int LEFT_MOST_X_BEFORE_APPEARANCE;

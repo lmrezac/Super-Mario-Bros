@@ -4,18 +4,15 @@
 
 package org.tritonus.share.sampled;
 
+import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioFormat.Encoding;
 import javax.sound.sampled.AudioSystem;
 
-import java.util.Iterator;
-
 import org.tritonus.share.StringHashedSet;
-
-import javax.sound.sampled.AudioFormat;
 
 public class Encodings extends AudioFormat.Encoding
 {
-    private static StringHashedSet encodings;
+    private static StringHashedSet<Object> encodings;
     
     Encodings(final String name) {
         super(name);
@@ -35,15 +32,15 @@ public class Encodings extends AudioFormat.Encoding
     }
     
     public static AudioFormat.Encoding[] getEncodings() {
-        final StringHashedSet iteratedSources = new StringHashedSet();
-        final StringHashedSet retrievedTargets = new StringHashedSet();
+        final StringHashedSet<Encoding> iteratedSources = new StringHashedSet<Encoding>();
+        final StringHashedSet<String> retrievedTargets = new StringHashedSet<String>();
         for (final Object source : Encodings.encodings) {
             iterateEncodings((Encoding)source, iteratedSources, retrievedTargets);
         }
         return (AudioFormat.Encoding[])retrievedTargets.toArray(new AudioFormat.Encoding[retrievedTargets.size()]);
     }
     
-    private static void iterateEncodings(final AudioFormat.Encoding source, final StringHashedSet iteratedSources, final StringHashedSet retrievedTargets) {
+    private static void iterateEncodings(final AudioFormat.Encoding source, final StringHashedSet<Encoding> iteratedSources, final StringHashedSet<String> retrievedTargets) {
         if (!iteratedSources.contains(source)) {
             iteratedSources.add(source);
             final AudioFormat.Encoding[] targets = AudioSystem.getTargetEncodings(source);
@@ -57,7 +54,7 @@ public class Encodings extends AudioFormat.Encoding
     }
     
     static {
-        (Encodings.encodings = new StringHashedSet()).add(AudioFormat.Encoding.PCM_SIGNED);
+        (Encodings.encodings = new StringHashedSet<Object>()).add(AudioFormat.Encoding.PCM_SIGNED);
         Encodings.encodings.add(AudioFormat.Encoding.PCM_UNSIGNED);
         Encodings.encodings.add(AudioFormat.Encoding.ULAW);
         Encodings.encodings.add(AudioFormat.Encoding.ALAW);

@@ -11,7 +11,8 @@ import java.io.PrintStream;
 public class TDebug
 {
     public static boolean SHOW_ACCESS_CONTROL_EXCEPTIONS;
-    private static final String PROPERTY_PREFIX = "tritonus.";
+    @SuppressWarnings("unused")
+	private static final String PROPERTY_PREFIX = "tritonus.";
     public static PrintStream m_printStream;
     private static String indent;
     public static boolean TraceAllExceptions;
@@ -162,7 +163,9 @@ public class TDebug
     
     public static class AssertException extends RuntimeException
     {
-        public AssertException() {
+        private static final long serialVersionUID = -7186878035089911887L;
+
+		public AssertException() {
         }
         
         public AssertException(final String sMessage) {

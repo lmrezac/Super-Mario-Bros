@@ -3,7 +3,6 @@ package supermario.game;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import static supermario.debug.Debugger.*;
 
 public class MultiIcon extends ImageIcon{
 	private static final long serialVersionUID = -3605428801079815466L;

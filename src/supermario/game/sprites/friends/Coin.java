@@ -4,30 +4,24 @@
 
 package supermario.game.sprites.friends;
 
-import supermario.game.MultiIcon;
-import supermario.game.Tile;
-import supermario.game.sprites.effects.BumpCoin;
-import supermario.game.sprites.Mario;
-
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-
-import supermario.Utilities;
 
 import javax.swing.ImageIcon;
 
 import supermario.game.Game;
-import supermario.game.interfaces.Friend;
+import supermario.game.MultiIcon;
 import supermario.game.Sprite;
+import supermario.game.Tile;
+import supermario.game.interfaces.Friend;
+import supermario.game.sprites.Mario;
+import supermario.game.sprites.effects.BumpCoin;
 
 public class Coin extends Sprite implements Friend
 {
     private boolean absorbed;
-    private int shadowColor;
-    
     public Coin(final Game game, final ImageIcon[] images, final int shadowColor) {
         super(game, images);
-        this.shadowColor = shadowColor;
         this.absorbed = false;
         /*if (shadowColor == 0) {
             this.imageIndex = 1;

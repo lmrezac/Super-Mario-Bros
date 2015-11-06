@@ -4,18 +4,19 @@
 
 package org.tritonus.share.midi;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MetaMessage;
-import javax.sound.midi.MidiMessage;
-import java.util.Collections;
-import javax.sound.midi.MidiUnavailableException;
-import org.tritonus.share.TDebug;
-import java.util.ArrayList;
-import javax.sound.midi.Transmitter;
-import javax.sound.midi.Receiver;
-import java.util.List;
 import javax.sound.midi.MidiDevice;
+import javax.sound.midi.MidiMessage;
+import javax.sound.midi.MidiUnavailableException;
+import javax.sound.midi.Receiver;
+import javax.sound.midi.Transmitter;
+
+import org.tritonus.share.TDebug;
 
 public abstract class TMidiDevice implements MidiDevice
 {

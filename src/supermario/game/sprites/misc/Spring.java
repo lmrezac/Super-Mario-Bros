@@ -4,16 +4,17 @@
 
 package supermario.game.sprites.misc;
 
-import supermario.game.sprites.Mario;
-import supermario.game.Level;
-import java.awt.Rectangle;
-import java.awt.image.ImageObserver;
-import java.awt.Graphics2D;
-import javax.swing.ImageIcon;
-import supermario.game.Game;
 import java.awt.Color;
-import supermario.game.Sprite;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
+import javax.swing.ImageIcon;
+
+import supermario.game.Game;
+import supermario.game.Level;
+import supermario.game.Sprite;
+import supermario.game.sprites.Mario;
+@SuppressWarnings("unused")
 public class Spring extends Sprite
 {
     private int baseY;

@@ -4,23 +4,19 @@
 
 package supermario.debug;
 
-import java.io.ObjectInputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.AttributeSet;
+import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.text.AbstractDocument;
-import javax.swing.text.Document;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
-import javax.swing.event.DocumentListener;
-import javax.swing.JTextField;
 
 public class TextBox extends JTextField implements DocumentListener
 {
-    private int type;
+    private static final long serialVersionUID = 1043922529956877955L;
+	private int type;
     private double[] stored;
     private int textColumns;
     
