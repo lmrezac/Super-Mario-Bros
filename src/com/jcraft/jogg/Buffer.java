@@ -6,7 +6,8 @@ package com.jcraft.jogg;
 
 public class Buffer
 {
-    private static final int BUFFER_INCREMENT = 256;
+    @SuppressWarnings("unused")
+	private static final int BUFFER_INCREMENT = 256;
     private static final int[] mask;
     int ptr;
     byte[] buffer;

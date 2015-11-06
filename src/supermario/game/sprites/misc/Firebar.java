@@ -59,7 +59,7 @@ public class Firebar extends Sprite implements EnemyHolder
             this.metal = this.game.textures.stoneMetal;
         }
         else if (levelType == 0 || levelType == 4 || levelType == 5 || levelType == 6) {
-         */   this.metal = this.game.textures.lightMetal;
+         */   this.metal = game.textures.getLevelTypeAlt(levelType,this.game.textures.lightMetal);
         /*}
         else if (levelType == 1) {
             this.metal = this.game.textures.darkMetal;

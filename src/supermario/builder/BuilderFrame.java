@@ -4,72 +4,70 @@
 
 package supermario.builder;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.Point;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
-import java.util.List;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
-import java.awt.dnd.DropTargetDragEvent;
-import java.awt.event.WindowEvent;
-import javax.swing.JCheckBox;
+import java.awt.dnd.DropTargetListener;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JMenu;
-import java.io.File;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.JButton;
-import javax.swing.event.ChangeEvent;
-import javax.swing.Icon;
-import java.awt.GridLayout;
-import javax.swing.event.ChangeListener;
-import javax.swing.JScrollBar;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
-import javax.swing.BorderFactory;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import javax.swing.AbstractAction;
-import javax.swing.KeyStroke;
-import java.awt.LayoutManager;
-import java.awt.GridBagLayout;
-import java.awt.Frame;
-import supermario.Utilities;
-import javax.swing.SwingUtilities;
-import java.awt.Component;
-import javax.swing.JOptionPane;
-import java.awt.Point;
-import java.awt.Color;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.File;
 import java.text.DecimalFormat;
-import supermario.debug.ItemInjector;
-import supermario.debug.StateModifier;
-import supermario.debug.PhysicsTestbox;
-import java.awt.dnd.DropTarget;
-import java.awt.Font;
-import javax.swing.JSlider;
-import javax.swing.JLabel;
+import java.util.List;
 import java.util.Stack;
+
+import javax.swing.AbstractAction;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JMenuItem;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import supermario.builder.itemPanels.SolidsPanel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JSlider;
+import javax.swing.JTabbedPane;
+import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import supermario.Utilities;
 import supermario.builder.itemPanels.BackgroundPanel;
 import supermario.builder.itemPanels.BlocksPanel;
-import supermario.builder.itemPanels.MiscPanel;
-import supermario.builder.itemPanels.PlatformsPanel;
-import supermario.builder.itemPanels.PipesPanel;
 import supermario.builder.itemPanels.EnemiesPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import supermario.builder.itemPanels.MiscPanel;
+import supermario.builder.itemPanels.PipesPanel;
+import supermario.builder.itemPanels.PlatformsPanel;
+import supermario.builder.itemPanels.SolidsPanel;
+import supermario.debug.ItemInjector;
+import supermario.debug.PhysicsTestbox;
+import supermario.debug.StateModifier;
 import supermario.game.Game;
-import java.awt.dnd.DropTargetListener;
-import java.awt.event.WindowListener;
-import javax.swing.JFrame;
 
 public class BuilderFrame extends JFrame implements WindowListener, DropTargetListener
 {
-    public Game game;
+    private static final long serialVersionUID = -986794806063147067L;
+	public Game game;
     public IO io;
     public Textures textures;
     public LevelPanel levelPanel;
@@ -179,7 +177,9 @@ public class BuilderFrame extends JFrame implements WindowListener, DropTargetLi
     private void addActionKeys() {
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(78, 128, false), "new");
         this.getRootPane().getActionMap().put("new", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = -1342044797650308914L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.newGame();
             }
@@ -187,14 +187,18 @@ public class BuilderFrame extends JFrame implements WindowListener, DropTargetLi
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(76, 128, false), "load");
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(79, 128, false), "load");
         this.getRootPane().getActionMap().put("load", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = 5229522602881259627L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.pickGame();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(83, 128, false), "save");
         this.getRootPane().getActionMap().put("save", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = -5399010710680331723L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.save();
             }
@@ -202,77 +206,99 @@ public class BuilderFrame extends JFrame implements WindowListener, DropTargetLi
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(69, 128, false), "exit");
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(81, 128, false), "exit");
         this.getRootPane().getActionMap().put("exit", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = 7614894844751623474L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.quitToMenu(false);
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(90, 128, false), "undo");
         this.getRootPane().getActionMap().put("undo", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = 6328825901917323740L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.undoAction();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(89, 128, false), "redo");
         this.getRootPane().getActionMap().put("redo", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = 4108594251796755125L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.redoAction();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(82, 128, false), "lockDragRow");
         this.getRootPane().getActionMap().put("lockDragRow", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = 2418700308485855959L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.enableLockDragRow();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(67, 128, false), "lockDragCol");
         this.getRootPane().getActionMap().put("lockDragCol", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = -8746293510250256969L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.enableLockDragColumn();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(68, 128, false), "disableLockDrag");
         this.getRootPane().getActionMap().put("disableLockDrag", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = 7522277662807687323L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.disableLockedDragging();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(84, 128, false), "test");
         this.getRootPane().getActionMap().put("test", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = 4580904106730887489L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.testLevel();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(71, 128, false), "grid");
         this.getRootPane().getActionMap().put("grid", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = -5386437290707906165L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.toggleGrid();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(65, 128, false), "autoScroll");
         this.getRootPane().getActionMap().put("autoScroll", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = -2949917635116731880L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.toggleAutoScroll();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(77, 128, false), "marker");
         this.getRootPane().getActionMap().put("marker", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = -3460483895499038542L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.toggleScreenMarker();
             }
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(70, 128, false), "find");
         this.getRootPane().getActionMap().put("find", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = -4022131626690269832L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 if (BuilderFrame.this.levelPanel.level != null) {
                     BuilderFrame.this.levelPanel.findItem(0);
@@ -281,7 +307,9 @@ public class BuilderFrame extends JFrame implements WindowListener, DropTargetLi
         });
         this.getRootPane().getInputMap(2).put(KeyStroke.getKeyStroke(66, 128, false), "showAll");
         this.getRootPane().getActionMap().put("showAll", new AbstractAction() {
-            @Override
+            private static final long serialVersionUID = -5351136985300753813L;
+
+			@Override
             public void actionPerformed(final ActionEvent e) {
                 BuilderFrame.this.showTestBoxes(true, true, true);
             }
@@ -1166,7 +1194,7 @@ public class BuilderFrame extends JFrame implements WindowListener, DropTargetLi
         tipsAndTricks.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                final String message = "<html>Click on Mario at the title screen to toggle Luigi on and off.<br><br>Double clicking an item in the level builder sets that item as the type to insert.<br><br>Clicking the middle mouse button in the level builder selects the pointer tool.<br><br>Use the keyboard shortcuts found in the menu options to quickly create levels.<br><br>Take advantage of the menu feature <b>Level > Find Unused Warps</b> to track dead end warps.<br><br>Use the <font color=\"blue\">+</font> button to easily copy levels (warps and endings not included).<br><br>Use the F1 key in a level to save a snapshot of the game.</html>";
+                final String message = "<html>Click on Mario at the title screen to toggle Luigi on and off.<br><br>Double clicking an item in the level builder sets that item as the type to insert.<br><br>Clicking the middle mouse button in the level builder selects the pointer tool.<br><br>Use the keyboard shortcuts found in the menu options to quickly create levels.<br><br>Take advantage of the menu feature <b>Level > Find Unused Warps</b> to track dead end warps.<br><br>Use the <font color=\"blue\">+</font> button to easily copy levels (warps and endings not included).<br><br>Use the F1 key in a level to save a snapshot of the game.<br><br>Name your game's file \"autostart.mario\" for the game to automatically load it at startup.</html>";
                 JOptionPane.showMessageDialog(BuilderFrame.this, message, "Tips & Tricks", 1, BuilderFrame.this.game.textures.marioWalk1);
             }
         });
@@ -1373,7 +1401,8 @@ public class BuilderFrame extends JFrame implements WindowListener, DropTargetLi
                 try {
                     final Object data = transferable.getTransferData(flavors[i]);
                     if (data instanceof List) {
-                        final List<File> files = (List<File>)data;
+                        @SuppressWarnings("unchecked")
+						final List<File> files = (List<File>)data;
                         if (files.size() == 1) {
                             final String path = files.get(0).toString();
                             final String ext = ".mario";

@@ -5,17 +5,27 @@
 package supermario.builder.itemPanels;
 
 import supermario.builder.ImageBuilder;
+
 import java.awt.Component;
 import java.util.Iterator;
 import java.util.Map;
+
 import javax.swing.Icon;
+
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
+
 import java.awt.image.BufferedImage;
+
 import supermario.builder.Item;
+
 import java.util.HashMap;
+
 import supermario.builder.Button;
 import supermario.builder.BuilderFrame;
+import supermario.builder.Level;
+
 import javax.swing.JPanel;
 
 public final class PipesPanel extends JPanel implements ItemPanel
@@ -115,13 +125,13 @@ public final class PipesPanel extends JPanel implements ItemPanel
     public void setPipeColor(final int type) {
         if (type == 0) {
             final int levelType = this.frame.levelPanel.level.levelType;
-            if (levelType == 0 || levelType == 5 || levelType == 6 || levelType == 1) {
+            if (levelType == Level.LEVEL_TYPE_OUTSIDE || levelType == Level.LEVEL_TYPE_COIN_ZONE_DAY || levelType == Level.LEVEL_TYPE_COIN_ZONE_NIGHT || levelType == Level.LEVEL_TYPE_UNDERGROUND) {
                 this.setPipeType(1);
             }
-            else if (levelType == 2 || levelType == 4) {
+            else if (levelType == Level.LEVEL_TYPE_CASTLE || levelType == Level.LEVEL_TYPE_OUTSIDE_NIGHT || levelType == Level.LEVEL_TYPE_GHOST_HOUSE) {
                 this.setPipeType(2);
             }
-            else if (levelType == 3) {
+            else if (levelType == Level.LEVEL_TYPE_UNDER_WATER) {
                 this.setPipeType(3);
             }
         }

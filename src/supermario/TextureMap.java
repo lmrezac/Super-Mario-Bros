@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import supermario.game.Textures;
+import static supermario.debug.Debugger.*;
 
 public class TextureMap{
 	private Image map;
@@ -78,9 +79,9 @@ public class TextureMap{
 				img = ImageIO.read(new File(name));
 			} catch (IOException e) {
 				if(name.startsWith("images/")){
-					e.printStackTrace();
-					System.out.println("Error reading "+name);
-					System.exit(0);
+					//e.printStackTrace();
+					error(new Exception(),"Error reading "+name);
+					//System.exit(0);
 					return imgicon;
 				}else{
 					try{

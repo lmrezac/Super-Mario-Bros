@@ -4,64 +4,64 @@
 
 package supermario.game;
 
-import java.awt.event.MouseEvent;
+import static supermario.debug.Debugger.debug;
+
+import java.awt.AlphaComposite;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Composite;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
-import java.util.List;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
-import java.awt.dnd.DropTargetDragEvent;
+import java.awt.dnd.DropTargetListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.BufferedInputStream;
-import javax.swing.ImageIcon;
-import javax.swing.SwingUtilities;
-import java.awt.RenderingHints;
+import java.awt.event.WindowListener;
 import java.awt.geom.AffineTransform;
-import java.awt.image.ImageObserver;
-import java.awt.Image;
-import java.awt.Composite;
-import java.awt.AlphaComposite;
-import java.awt.Graphics2D;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import supermario.builder.IO;
-import java.awt.Point;
-import javax.swing.filechooser.FileFilter;
+import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import javax.swing.JOptionPane;
-import java.awt.Color;
-import java.awt.event.KeyListener;
-import supermario.Utilities;
-import javax.swing.UIManager;
-import java.awt.Component;
+import java.util.List;
 import java.util.Random;
-import java.io.File;
-import supermario.builder.BuilderFrame;
-import java.awt.Insets;
-import java.awt.Dimension;
-import supermario.game.sprites.misc.OverlayCoin;
-import supermario.game.sprites.Mario;
-import javax.swing.filechooser.FileNameExtensionFilter;
+
 import javax.swing.JFileChooser;
-import java.awt.image.BufferedImage;
-import java.awt.dnd.DropTarget;
-import java.awt.Frame;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseListener;
-import java.awt.dnd.DropTargetListener;
-import java.awt.event.WindowListener;
-import java.awt.Canvas;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import supermario.Utilities;
+import supermario.builder.BuilderFrame;
+import supermario.builder.IO;
+import supermario.game.sprites.Mario;
+import supermario.game.sprites.misc.OverlayCoin;
 
 public final class Game extends Canvas implements WindowListener, DropTargetListener, MouseListener, MouseMotionListener
 {
+	private static final long serialVersionUID = 8174028778971010514L;
 	public static Game instance;
-    public static final String VERSION = "-1";
-    public static final String LATEST_DATE = "2/19/2015";
+    public static final String VERSION = "7.52";
+    public static final String MOD_VERSION = "3.0";
+    public static final String LATEST_DATE = "11/5/2015";
     public static int xTiles;
     public static int yTiles;
     public static int overlayXOffset;
@@ -207,7 +207,7 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
         	//System.out.println("luigibros == true");
         }
         this.frame.setVisible(true);
-       System.out.println("Size = "+Game.renderWidth+", "+Game.renderHeight);
+       debug(new Exception(),"Size = "+Game.renderWidth+", "+Game.renderHeight);
     }
     
     private void checkAutoStart() {
@@ -236,8 +236,8 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
     }
     
     public static void main(final String[] args) {
-    	System.out.println("Startup!");
-        final Game game = new Game(2);
+    	debug(new Exception(),"Startup!");
+       new Game(2);
     }
     
     private void initFileChooser() {
@@ -1182,7 +1182,7 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
                 try {
                     final Object data = transferable.getTransferData(flavors[i]);
                     if (data instanceof List) {
-                        final List files = (List)data;
+                        final List<?> files = (List<?>)data;
                         if (files.size() == 1) {
                             final String path = files.get(0).toString();
                             final String ext = ".mario";

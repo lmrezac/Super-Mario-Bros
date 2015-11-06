@@ -6,7 +6,7 @@ package com.jcraft.jorbis;
 
 import com.jcraft.jogg.Packet;
 import com.jcraft.jogg.Buffer;
-
+@SuppressWarnings("unused")
 public class Info
 {
     private static final int OV_EBADPACKET = -136;

@@ -4,12 +4,16 @@
 
 package supermario.game;
 
+import static supermario.debug.Debugger.debug;
+import static supermario.debug.Debugger.error;
+
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.lang.reflect.Member;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +22,7 @@ import javax.swing.ImageIcon;
 
 import supermario.TextureMap;
 import supermario.Utilities;
+import supermario.debug.Debugger;
 
 public class Textures
 {
@@ -395,7 +400,7 @@ public class Textures
     public ImageIcon mushroomMiddle;
     public ImageIcon mushroomRight;
     public ImageIcon mushroomStemTop;
-    public ImageIcon mushroomStemBark;
+    public ImageIcon mushroomStem;
     public ImageIcon mushroomStemBottom;
     public ImageIcon lavaClassic;
     public ImageIcon lavaTop;
@@ -684,16 +689,16 @@ public class Textures
     private String darkpalette, graypalette;
     public void init(String prefix) {
     	File f = new File(prefix+"tiles/waterBackgroundOverride.png");
-    	System.out.println(f.getAbsolutePath());
+    	//debug(new Exception(),f.getAbsolutePath());
     	if(f.exists()){
     		try{
     		waterBackground = image(prefix,"tiles/waterBackgroundOverride.png");
     		}catch(MessageException e){
         		e.printStackTrace();
-    			System.out.println(e.getMessage());
-    			System.exit(0);
+    			error(new Exception(),e.getMessage());
+    			//System.exit(0);
         	}
-    		System.out.println("waterBackground exists!");
+    		debug(new Exception(),"waterBackground exists!");
     	}else{
     		waterBackground = null;
     	}
@@ -832,8 +837,8 @@ public class Textures
         this.symbols.put('\ufffb', image(prefix,"symbols/unknown.png"));
 	    }catch(MessageException e){
 			e.printStackTrace();
-			System.out.println(e.getMessage());
-			System.exit(0);
+			error(new Exception(),e.getMessage());
+			
 		}
     }
     
@@ -927,8 +932,8 @@ public class Textures
         this.stoneOverlayCoin3 = image(prefix,"overlay/overlayCoin/stoneOverlayCoin3.png");
     	}catch(MessageException e){
     		e.printStackTrace();
-			System.out.println(e.getMessage());
-			System.exit(0);
+			error(new Exception(),e.getMessage());
+			//System.exit(0);
     	}
     }
     //public void marioInit() { marioInit("images/"); }
@@ -1122,8 +1127,8 @@ public class Textures
         this.marioStarRedSmClimb2 = TextureMap.applyPalette(marioSmClimb2,prefix+"sprites/mario/starredpalette.png");//image(prefix,"sprites/mario/star/red/smClimb2.png");
     	}catch(MessageException e){
     		e.printStackTrace();
-			System.out.println(e.getMessage());
-			System.exit(0);
+			error(new Exception(),e.getMessage());
+			//System.exit(0);
     	}
     }
     //public void luigiInit()  { luigiInit("images/"); }
@@ -1333,7 +1338,7 @@ public class Textures
         this.mushroomMiddle = tile(prefix,"mushroom_m.png",16);//tiles.get16xSprite(92,32);//tile(prefix,"tiles/mushroomTree/mushroomTreeMiddleSection.png");
         this.mushroomRight = tile(prefix,"mushroom_r.png",16);//tiles.get16xSprite(112,32);//tile(prefix,"tiles/mushroomTree/mushroomTreeRightEnd.png");
         this.mushroomStemTop = tile(prefix,"mushroomStem_t.png",8);//tiles.getSubImage(32,16,16,8);//tile(prefix,"tiles/mushroomTree/mushroomBarkTop.png");
-        this.mushroomStemBark = tile(prefix,"mushroomStem_m.png",8);//tiles.getSubImage(32,24,16,8);
+        this.mushroomStem = tile(prefix,"mushroomStem_m.png",8);//tiles.getSubImage(32,24,16,8);
         this.mushroomStemBottom = tile(prefix,"mushroomStem_b.png",8);//
         this.lavaClassic = tile(prefix,"lava.png",40);//tiles.getSubImage(84,121,8,40);//tile(prefix,"tiles/liquids/lava.png");
         this.lavaTop = tile(prefix,"lava_t.png",8);//tiles.getSubImage(0,48,8,8);//tile(prefix,"tiles/liquids/lavaTop.png");
@@ -1497,8 +1502,8 @@ public class Textures
         pipeSet[10] = image(prefix,"tiles/pipes/pipeSideConnectorDoubleGreen.png");
         }catch(MessageException e){
         	e.printStackTrace();
-			System.out.println(e.getMessage());
-			System.exit(0);
+			error(new Exception(),e.getMessage());
+			//System.exit(0);
         }
        
         return pipeSet;
@@ -1709,8 +1714,8 @@ public class Textures
         this.entryVineDark = TextureMap.applyPalette(entryVineLight, darkpalette);//image(prefix,"sprites/beanstalk/entryVineDark.png");
     	}catch(MessageException e){
     		e.printStackTrace();
-			System.out.println(e.getMessage());
-			System.exit(0);
+			error(new Exception(),e.getMessage());
+			//System.exit(0);
     	}
     }
     
@@ -1749,8 +1754,8 @@ public class Textures
         this.airBubble = image(prefix,"effects/airBubble.png");
     	}catch(MessageException e){
     		e.printStackTrace();
-			System.out.println(e.getMessage());
-			System.exit(0);
+			error(new Exception(),e.getMessage());
+		
     	}
     }
   
@@ -1821,16 +1826,17 @@ public class Textures
     	try{
     		light = image(prefix,"tiles/overworld/"+tilename,expectedHeight);
     	}catch(MessageException ex){
-    		System.out.println(ex.getMessage());
     		ex.printStackTrace();
-    		System.exit(0);
+    		error(new Exception(),ex.getMessage());
+    		
+    		//System.exit(0);
     		light = null;
     		return null;
     	}
     	
     	try{dark = image(prefix,"tiles/underground/"+tilename,expectedHeight);}
     	catch(MessageException ex){
-    		System.out.println(ex.getMessage());
+    		//debug(new Exception(),ex.getMessage());
     		dark = light;}
     	try{castle = image(prefix,"tiles/castle/"+tilename,expectedHeight);}
     	catch(MessageException ex){castle = dark;}
@@ -1845,16 +1851,17 @@ public class Textures
     	try{
     		light = image(prefix,"tiles/overworld/"+tilename);
     	}catch(MessageException ex){
-    		System.out.println(ex.getMessage());
     		ex.printStackTrace();
-    		System.exit(0);
+    		error(new Exception(),ex.getMessage());
+    	
+    		//System.exit(0);
     		light = null;
     		return null;
     	}
     	
     	try{dark = image(prefix,"tiles/underground/"+tilename);}
     	catch(MessageException ex){
-    		System.out.println(ex.getMessage());
+    		//System.out.println(ex.getMessage());
     		dark = light;}
     	try{castle = image(prefix,"tiles/castle/"+tilename);}
     	catch(MessageException ex){castle = dark;}
@@ -1866,10 +1873,13 @@ public class Textures
     }
    
     public ImageIcon getLevelTypeAlt(int leveltype,ImageIcon icon){
-    	if(icon == this.mushroomStemBark||icon == this.mushroomStemTop){
-    		System.out.println("getting alt for mushroom bark");
+    	if(icon == treeBark){
+    		debug(new Exception(),"Getting alt for treeBark!");
+    		Member m = Debugger.getMethodFromStack(3);
+    		
+    		debug(m.getDeclaringClass().getName()+"."+m.getName()+"()");
     	}
-    	if(isGroundTile(icon)&& !isCloudTile(icon)){
+    	if(isGroundTile(icon)){
 	    	switch(leveltype){
 	    	case Level.LEVEL_TYPE_CASTLE:
 	    		return getCastleVariant(icon);
@@ -1887,6 +1897,7 @@ public class Textures
 	    		return icon;
 	    	}
     	}
+    	
     	try{
 
     		return ((MultiIcon)icon).getType(leveltype);
@@ -1975,15 +1986,15 @@ public class Textures
     }
     public boolean isGroundTile(ImageIcon icon,String side){
     	switch(side){
-    	case "middle":return icon == this.lightGround || icon == this.darkGround || icon == this.seaGround || icon == this.stoneGround || icon == this.cloudGround || icon == this.ghostGround;
-    	case "topLeft": return icon == this.lightGroundTopLeft||icon == this.darkGroundTopLeft||icon == this.seaGroundTopLeft||icon == this.stoneGroundTopLeft||icon == this.cloudGroundTopLeft || icon == this.ghostGroundTopLeft;
-    	case "topRight": return icon == this.lightGroundTopRight||icon == this.darkGroundTopRight||icon == this.seaGroundTopRight||icon == this.stoneGroundTopRight||icon == this.cloudGroundTopRight||icon == this.ghostGroundTopRight;
-    	case "top": return icon == this.lightGroundTop||icon == this.darkGroundTop||icon == this.seaGroundTop||icon == this.cloudGroundTop||icon == this.stoneGroundTop||icon == this.ghostGroundTop;
-    	case "left": return icon == this.lightGroundLeft||icon == this.darkGroundLeft||icon == this.seaGroundLeft||icon == this.cloudGroundLeft||icon == this.stoneGroundLeft||icon == this.ghostGroundLeft;
-    	case "right": return icon == this.lightGroundRight||icon == this.darkGroundRight||icon == this.seaGroundRight||icon == this.cloudGroundRight||icon == this.stoneGroundRight||icon == this.ghostGroundRight;
-    	case "bottomLeft": return icon == this.lightGroundBottomLeft||icon == this.darkGroundBottomLeft||icon == this.seaGroundBottomLeft||icon == this.stoneGroundBottomLeft||icon == this.cloudGroundBottomLeft||icon == this.ghostGroundBottomLeft;
-    	case "bottomRight": return icon == this.lightGroundBottomRight||icon == this.darkGroundBottomRight||icon == this.seaGroundBottomRight||icon == this.stoneGroundBottomRight||icon == this.cloudGroundBottomRight||icon == this.ghostGroundBottomRight;
-    	case "bottom": return icon == this.lightGroundBottom||icon == this.darkGroundBottom||icon == this.seaGroundBottom||icon == this.stoneGroundBottom||icon == this.cloudGroundBottom||icon == this.ghostGroundBottom;
+    	case "middle":return icon == this.lightGround || icon == this.darkGround || icon == this.seaGround || icon == this.stoneGround /*  (cloudGround removed) */|| icon == this.ghostGround;
+    	case "topLeft": return icon == this.lightGroundTopLeft||icon == this.darkGroundTopLeft||icon == this.seaGroundTopLeft||icon == this.stoneGroundTopLeft/* (cloudGround removed) */|| icon == this.ghostGroundTopLeft;
+    	case "topRight": return icon == this.lightGroundTopRight||icon == this.darkGroundTopRight||icon == this.seaGroundTopRight||icon == this.stoneGroundTopRight/* (cloudGround removed) */||icon == this.ghostGroundTopRight;
+    	case "top": return icon == this.lightGroundTop||icon == this.darkGroundTop||icon == this.seaGroundTop/* (cloudGround removed) */||icon == this.stoneGroundTop||icon == this.ghostGroundTop;
+    	case "left": return icon == this.lightGroundLeft||icon == this.darkGroundLeft||icon == this.seaGroundLeft/* (cloudGround removed) */||icon == this.stoneGroundLeft||icon == this.ghostGroundLeft;
+    	case "right": return icon == this.lightGroundRight||icon == this.darkGroundRight||icon == this.seaGroundRight/* (cloudGround removed) */||icon == this.stoneGroundRight||icon == this.ghostGroundRight;
+    	case "bottomLeft": return icon == this.lightGroundBottomLeft||icon == this.darkGroundBottomLeft||icon == this.seaGroundBottomLeft||icon == this.stoneGroundBottomLeft/* (cloudGround removed) */||icon == this.ghostGroundBottomLeft;
+    	case "bottomRight": return icon == this.lightGroundBottomRight||icon == this.darkGroundBottomRight||icon == this.seaGroundBottomRight||icon == this.stoneGroundBottomRight/* (cloudGround removed) */||icon == this.ghostGroundBottomRight;
+    	case "bottom": return icon == this.lightGroundBottom||icon == this.darkGroundBottom||icon == this.seaGroundBottom||icon == this.stoneGroundBottom/* (cloudGround removed) */||icon == this.ghostGroundBottom;
     	default: return false;
     	}
     }
@@ -2162,7 +2173,7 @@ public class Textures
     		return message+" :: "+ex.toString();
     	}
     	public void printSelf(){
-    		System.out.println(toString());
+    		debug(toString());
     		System.exit(0);
     	}
     }

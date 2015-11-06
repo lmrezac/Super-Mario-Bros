@@ -3,6 +3,7 @@ package supermario.game;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import static supermario.debug.Debugger.*;
 
 public class MultiIcon extends ImageIcon{
 	private static final long serialVersionUID = -3605428801079815466L;
@@ -37,9 +38,7 @@ public class MultiIcon extends ImageIcon{
 	}
 	public ImageIcon getType(int i){
 		//System.out.println("getType "+i);
-		if(this == Game.instance.textures.mushroomStemBark){
-			System.out.println("getting alt "+i+" for mushroom bark");
-		}
+		
 		switch(i){
 		case Level.LEVEL_TYPE_OUTSIDE:
 		case Level.LEVEL_TYPE_OUTSIDE_NIGHT:

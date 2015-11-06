@@ -8,13 +8,14 @@ import de.hardcode.jxinput.JXInputManager;
 import de.hardcode.jxinput.Directional;
 import de.hardcode.jxinput.Button;
 import de.hardcode.jxinput.Axis;
+
 import java.util.ArrayList;
 
 public class JXInputEventManager
 {
-    private static final ArrayList mAxisEventListeners;
-    private static final ArrayList mButtonEventListeners;
-    private static final ArrayList mDirectionalEventListeners;
+    private static final ArrayList<axislistener> mAxisEventListeners;
+    private static final ArrayList<buttonlistener> mButtonEventListeners;
+    private static final ArrayList<directionallistener> mDirectionalEventListeners;
     private static autotrigger mAutoTrigger;
     
     public static void reset() {
@@ -25,13 +26,13 @@ public class JXInputEventManager
     
     public static void trigger() {
         for (int size = JXInputEventManager.mAxisEventListeners.size(), i = 0; i < size; ++i) {
-            ((axislistener)JXInputEventManager.mAxisEventListeners.get(i)).checkTrigger();
+            JXInputEventManager.mAxisEventListeners.get(i).checkTrigger();
         }
         for (int size2 = JXInputEventManager.mButtonEventListeners.size(), j = 0; j < size2; ++j) {
-            ((buttonlistener)JXInputEventManager.mButtonEventListeners.get(j)).checkTrigger();
+            JXInputEventManager.mButtonEventListeners.get(j).checkTrigger();
         }
         for (int size3 = JXInputEventManager.mDirectionalEventListeners.size(), k = 0; k < size3; ++k) {
-            ((directionallistener)JXInputEventManager.mDirectionalEventListeners.get(k)).checkTrigger();
+            JXInputEventManager.mDirectionalEventListeners.get(k).checkTrigger();
         }
     }
     
@@ -82,9 +83,9 @@ public class JXInputEventManager
     }
     
     static {
-        mAxisEventListeners = new ArrayList();
-        mButtonEventListeners = new ArrayList();
-        mDirectionalEventListeners = new ArrayList();
+        mAxisEventListeners = new ArrayList<axislistener>();
+        mButtonEventListeners = new ArrayList<buttonlistener>();
+        mDirectionalEventListeners = new ArrayList<directionallistener>();
         JXInputEventManager.mAutoTrigger = null;
     }
     

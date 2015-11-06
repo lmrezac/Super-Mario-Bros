@@ -558,7 +558,7 @@ ChangeListener {
             this.frame.miscPanel.setWaterMode();
             this.frame.blocksPanel.setWaterMode();
             this.frame.blocksPanel.setBlocksScheme(this.level.levelType);
-            this.frame.backgroundPanel.setEnabledState(false);
+            this.frame.backgroundPanel.setEnabledState(true);
         } else if (this.level.levelType == 4 || this.level.levelType == 6) {
             this.setBackground(Color.GRAY);
             this.frame.pipesPanel.setPipeColor(this.level.pipeColor);
@@ -577,7 +577,7 @@ ChangeListener {
     public void removeNonWaterItems() {
         for (int i = 0; i < this.level.items.length; ++i) {
             for (int j = 0; j < this.level.items[0].length; ++j) {
-                if (this.level.items[i][j] == null || !this.frame.enemiesPanel.isLandEnemyOnly(this.level.items[i][j]) && !this.frame.backgroundPanel.isBackgroundDecoration(this.level.items[i][j]) && !this.frame.blocksPanel.isLandBlockOnly(this.level.items[i][j]) && !this.frame.platformsPanel.isLandOnlyPlatform(this.level.items[i][j]) && !this.frame.miscPanel.isLandItemOnly(this.level.items[i][j])) continue;
+                if (this.level.items[i][j] == null || !this.frame.enemiesPanel.isLandEnemyOnly(this.level.items[i][j]) && /*!this.frame.backgroundPanel.isBackgroundDecoration(this.level.items[i][j]) && !this.frame.blocksPanel.isLandBlockOnly(this.level.items[i][j]) &&*/ !this.frame.platformsPanel.isLandOnlyPlatform(this.level.items[i][j]) && !this.frame.miscPanel.isLandItemOnly(this.level.items[i][j])) continue;
                 this.level.items[i][j].removeFromLevel();
             }
         }

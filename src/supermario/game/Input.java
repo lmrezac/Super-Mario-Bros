@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
+import static supermario.debug.Debugger.*;
 
 public class Input implements KeyListener
 {
@@ -467,14 +468,14 @@ public class Input implements KeyListener
         final int lf = defaultLeft;
 
         final int rt = defaultRight;
-        System.out.println("check for cheat");
+        debug(new Exception(),"check for cheat");
         Integer[] codes = new Integer[this.cheatCode.size()];
         codes = this.cheatCode.toArray(codes);
-        System.out.println("codes = "+Arrays.toString(codes)+" cheatCode = "+cheatCode.toString());
+        debug(new Exception(),"codes = "+Arrays.toString(codes)+" cheatCode = "+cheatCode.toString());
         if (this.cheatCode.size() == 4) {
         	boolean playAsLuigi = this.cheatMatch(codes, new int[] {lf, up, rt, dn});
         	if(playAsLuigi){
-        		System.out.println("toggle luigi");
+        		debug(new Exception(),"toggle luigi");
         		Game.instance.mario.asLuigi = !Game.instance.mario.asLuigi;
         		if(this.game.mario.asLuigi)
         			this.game.audio.play(Audio.FRIEND_GROW);
@@ -485,7 +486,7 @@ public class Input implements KeyListener
         else if (this.cheatCode.size() == 5) {
             final boolean godMode = this.cheatMatch(codes, new int[] { up, dn, lf, rt, lf });
             if (godMode) {
-            	System.out.println("godmode");
+            	debug(new Exception(),"godmode");
                 this.game.mario.godMode = !this.game.mario.godMode;
                 this.game.audio.play(this.game.mario.godMode ? 12 : 17);
             }
@@ -493,7 +494,7 @@ public class Input implements KeyListener
         else if (this.cheatCode.size() == 6) {
             final boolean fireballs = this.cheatMatch(codes, new int[] { up, dn, up, dn, rt, rt });
             if (fireballs) {
-            	System.out.println("unlimited fireballs");
+            	debug(new Exception(),"unlimited fireballs");
                 this.game.mario.unlimitedFireballs = !this.game.mario.unlimitedFireballs;
                 this.game.audio.play(this.game.mario.unlimitedFireballs ? 12 : 17);
             }
@@ -501,13 +502,13 @@ public class Input implements KeyListener
         else if (this.cheatCode.size() == 8) {
             final boolean extraLives = this.cheatMatch(codes, new int[] { up, up, dn, dn, up, up, dn, dn });
             if (extraLives) {
-            	System.out.println("extra lives");
+            	debug(new Exception(),"extra lives");
                 this.extraLivesCheat = !this.extraLivesCheat;
                 this.game.audio.play(this.extraLivesCheat ? 12 : 17);
             }else{
             	//System.out.println("test for luigibros");
             	boolean luigiBros = this.cheatMatch(codes, new int[] { up, up, dn, dn, lf, rt, lf, rt} );
-            	System.out.println("luigibros = "+luigiBros);
+            	debug(new Exception(),"luigibros = "+luigiBros);
             	if(luigiBros){
             		toggleLuigiBros();
             		this.game.audio.play(Audio.EXTRA_LIFE);
@@ -520,12 +521,12 @@ public class Input implements KeyListener
 	public void toggleLuigiBros(){
     	Game.instance.luigiBros = !Game.instance.luigiBros;
     	if(Game.instance.luigiBros){
-    		System.out.println("luigibros on");
+    		debug(new Exception(),"luigibros on");
     		Game.instance.mario.asLuigi = true;
     		this.leftKey = KeyEvent.VK_RIGHT;
     		this.rightKey = KeyEvent.VK_LEFT;
     	}else{
-    		System.out.println("luigibros off");
+    		debug(new Exception(),"luigibros off");
     		Game.instance.mario.asLuigi = false;
     		this.leftKey = this.defaultLeft;
     		this.rightKey = this.defaultRight;

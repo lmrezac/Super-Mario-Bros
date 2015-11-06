@@ -4,29 +4,25 @@
 
 package supermario.builder.itemPanels;
 
-import java.awt.Component;
-
-import supermario.game.Game;
-import supermario.builder.Item;
-
-import javax.swing.ImageIcon;
-
-import supermario.builder.Button;
-import supermario.builder.BuilderFrame;
-import supermario.builder.Level;
-
 import javax.swing.JPanel;
+
+import supermario.builder.BuilderFrame;
+import supermario.builder.Button;
+import supermario.builder.Item;
+import supermario.builder.Level;
+import supermario.game.Game;
 
 public final class EnemiesPanel extends JPanel implements ItemPanel
 {
-    private BuilderFrame frame;
-    public Button lightGoomba;
+    private static final long serialVersionUID = -1133051327280107367L;
+	private BuilderFrame frame;
+    public Button goomba;
     //public Button darkGoomba;
     //public Button grayGoomba;
-    public Button lightKoopaNormal;
-    public Button lightKoopaBouncing;
-    public Button lightKoopaFlyingV;
-    public Button lightKoopaFlyingH;
+    public Button koopaNormal;
+    public Button koopaBouncing;
+    public Button koopaFlyingV;
+    public Button koopaFlyingH;
     //public Button darkKoopaNormal;
     //public Button darkKoopaBouncing;
     //public Button darkKoopaFlyingV;
@@ -39,10 +35,10 @@ public final class EnemiesPanel extends JPanel implements ItemPanel
     public Button redFish;
     public Button grayFishStraight;
     public Button grayFishZigZag;
-    public Button lightHammerBro;
+    public Button hammerBro;
     //public Button darkHammerBro;
     public Button spiny;
-    public Button lightBeetle;
+    public Button buzzyBeetle;
     //public Button darkBeetle;
     //public Button grayBeetle;
     public Button shortCannon;
@@ -63,13 +59,13 @@ public final class EnemiesPanel extends JPanel implements ItemPanel
     
     @Override
     public void init() {
-        (this.lightGoomba = new Button(this.frame, this.frame.game.textures.lightGoomba1, null, "<html><center>Goomba</center></html>", "Basic enemy. Vulnerable and falls off cliffs")).setItem(new Item(this.frame, '$', "Light Goomba", this.lightGoomba, -1, 2, 0, 0, false, false, 3));
+        (this.goomba = new Button(this.frame, this.frame.game.textures.lightGoomba1, null, "<html><center>Goomba</center></html>", "Basic enemy. Vulnerable and falls off cliffs")).setItem(new Item(this.frame, '$', "Goomba", this.goomba, -1, 2, 0, 0, false, false, 3));
       //  (this.darkGoomba = new Button(this.frame, this.frame.game.textures.darkGoomba1, null, "<html><center>Goomba</center></html>", "Basic enemy. Vulnerable and falls off cliffs.")).setItem(new Item(this.frame, '%', "Dark Goomba", this.darkGoomba, -1, 2, 0, 0, false, false, 3));
       //  (this.grayGoomba = new Button(this.frame, this.frame.game.textures.grayGoomba1, null, "<html><center>Goomba</center></html>", "Basic enemy. Vulnerable and falls off cliffs")).setItem(new Item(this.frame, '\u02e6', "Gray Goomba", this.grayGoomba, -1, 2, 0, 0, false, false, 3));
-        (this.lightKoopaNormal = new Button(this.frame, this.frame.game.textures.lightKoopa1, null, "<html><center>Koopa<br>Troopa</center><html>", "Shelled enemy that falls off cliffs.")).setItem(new Item(this.frame, '^', "Light Koopa Troopa", this.lightKoopaNormal, -1, 2, 0, 0, false, false, 3));
-        (this.lightKoopaBouncing = new Button(this.frame, this.frame.game.textures.lightKoopa4, null, "<html><center>Bouncing</center></html>", "Bounces instead of walks.")).setItem(new Item(this.frame, '&', "Light Koopa Troopa Bouncing", this.lightKoopaBouncing, -1, 2, 0, 0, false, false, 3));
-        (this.lightKoopaFlyingV = new Button(this.frame, this.frame.textures.iconLightKoopaFlyingV, this.frame.textures.displayLightKoopaFlyingV, "<html><center>Flying</center></html>", "Flys up and down repeatedly until smushed.")).setItem(new Item(this.frame, '*', "Light Koopa Troopa Flying Vertically", this.lightKoopaFlyingV, -1, 5, 0, 56, false, false, 13));
-        (this.lightKoopaFlyingH = new Button(this.frame, this.frame.textures.iconLightKoopaFlyingH, this.frame.textures.displayLightKoopaFlyingH, "<html><center>Flying</center></html>", "Flys side to side repeatedly until smushed.")).setItem(new Item(this.frame, '¬', "Light Koopa Troopa Flying Horizontally", this.lightKoopaFlyingH, -1, 6, 48, 0, false, false, 13));
+        (this.koopaNormal = new Button(this.frame, this.frame.game.textures.lightKoopa1, null, "<html><center>Koopa<br>Troopa</center><html>", "Shelled enemy that falls off cliffs.")).setItem(new Item(this.frame, '^', "Koopa Troopa", this.koopaNormal, -1, 2, 0, 0, false, false, 3));
+        (this.koopaBouncing = new Button(this.frame, this.frame.game.textures.lightKoopa4, null, "<html><center>Bouncing</center></html>", "Bounces instead of walks.")).setItem(new Item(this.frame, '&', "Koopa Troopa Bouncing", this.koopaBouncing, -1, 2, 0, 0, false, false, 3));
+        (this.koopaFlyingV = new Button(this.frame, this.frame.textures.iconLightKoopaFlyingV, this.frame.textures.displayLightKoopaFlyingV, "<html><center>Flying</center></html>", "Flys up and down repeatedly until smushed.")).setItem(new Item(this.frame, '*', "Koopa Troopa Flying Vertically", this.koopaFlyingV, -1, 5, 0, 56, false, false, 13));
+        (this.koopaFlyingH = new Button(this.frame, this.frame.textures.iconLightKoopaFlyingH, this.frame.textures.displayLightKoopaFlyingH, "<html><center>Flying</center></html>", "Flys side to side repeatedly until smushed.")).setItem(new Item(this.frame, '¬', "Koopa Troopa Flying Horizontally", this.koopaFlyingH, -1, 6, 48, 0, false, false, 13));
        // (this.darkKoopaNormal = new Button(this.frame, this.frame.game.textures.darkKoopa1, null, "<html><center>Koopa<br>Troopa</center></html>", "Shelled enemy that falls off cliffs.")).setItem(new Item(this.frame, '(', "Dark Koopa Troopa", this.darkKoopaNormal, -1, 2, 0, 0, false, false, 3));
         //(this.darkKoopaBouncing = new Button(this.frame, this.frame.game.textures.darkKoopa4, null, "<html><center>Bouncing</center></html>", "Bounces instead of walks.")).setItem(new Item(this.frame, ')', "Dark Koopa Troopa Bouncing", this.darkKoopaBouncing, -1, 2, 0, 0, false, false, 3));
         //(this.darkKoopaFlyingV = new Button(this.frame, this.frame.textures.iconDarkKoopaFlyingV, this.frame.textures.displayDarkKoopaFlyingV, "<html><center>Flying</center></html>", "Flys up and down repeatedly until smushed.")).setItem(new Item(this.frame, '-', "Dark Koopa Troopa Flying Vertically", this.darkKoopaFlyingV, -1, 5, 0, 56, false, false, 13));
@@ -78,14 +74,14 @@ public final class EnemiesPanel extends JPanel implements ItemPanel
         (this.redKoopaBouncing = new Button(this.frame, this.frame.game.textures.redKoopa4, null, "<html><center>Bouncing</center></html>", "Bounces instead of walks.")).setItem(new Item(this.frame, '=', "Red Koopa Troopa Bouncing", this.redKoopaBouncing, -1, 2, 0, 0, false, false, 3));
         (this.redKoopaFlyingV = new Button(this.frame, this.frame.textures.iconRedKoopaFlyingV, this.frame.textures.displayRedKoopaFlyingV, "<html><center>Flying</center></html>", "Flys up and down repeatedly until smushed.")).setItem(new Item(this.frame, '+', "Red Koopa Troopa Flying Vertically", this.redKoopaFlyingV, -1, 5, 0, 56, false, false, 13));
         (this.redKoopaFlyingH = new Button(this.frame, this.frame.textures.iconRedKoopaFlyingH, this.frame.textures.displayRedKoopaFlyingH, "<html><center>Flying</center></html>", "Flys side to side repeatedly until smushed")).setItem(new Item(this.frame, '®', "Red Koopa Troopa Flying Horizontally", this.redKoopaFlyingH, -1, 6, 48, 0, false, false, 13));
-        (this.squid = new Button(this.frame, this.frame.game.textures.squid1, null, null, "Follows Mario if he is nearby.")).setItem(new Item(this.frame, '[', "Bloober", this.squid, -1, 2, 0, 0, false, false, 1));
+        (this.squid = new Button(this.frame, this.frame.game.textures.squid1, null, null, "Follows Mario if he is nearby.")).setItem(new Item(this.frame, '[', "Blooper", this.squid, -1, 2, 0, 0, false, false, 1));
         (this.redFish = new Button(this.frame, this.frame.game.textures.redFish1, null, "<html><center>Cheep Cheep</center></html>", "Faster than normal fish. Always swims in a straight line.")).setItem(new Item(this.frame, '{', "Red Cheep Cheep", this.redFish, -1, 2, 0, 0, false, false, 3));
         (this.grayFishStraight = new Button(this.frame, this.frame.game.textures.grayFish1, null, null, "Slow swimmer. Swims in a straight line.")).setItem(new Item(this.frame, ']', "Cheep Cheep", this.grayFishStraight, -1, 2, 0, 0, false, false, 3));
         (this.grayFishZigZag = new Button(this.frame, this.frame.textures.displayGrayFishZigZag, null, "<html><center>Zig Zag<br>Cheep Cheep</center></html>", "Zig zags up and down while swimming.")).setItem(new Item(this.frame, '|', "Gray Zig Zag Cheep Cheep", this.grayFishZigZag, -1, 14, 0, 14, false, false, 3));
-        (this.lightHammerBro = new Button(this.frame, this.frame.game.textures.lightHammerBro1, this.frame.textures.displayLightHammerBro, "<html><center>Hammer<br>Bro.</center></html>", "Jumps up and down on platforms within reach while throwing hammers.")).setItem(new Item(this.frame, '}', "Hammer Bro.", this.lightHammerBro, -1, 21, 16, 0, false, false, 1));
+        (this.hammerBro = new Button(this.frame, this.frame.game.textures.lightHammerBro1, this.frame.textures.displayLightHammerBro, "<html><center>Hammer<br>Bro.</center></html>", "Jumps up and down on platforms within reach while throwing hammers.")).setItem(new Item(this.frame, '}', "Hammer Bro.", this.hammerBro, -1, 21, 16, 0, false, false, 1));
         //(this.darkHammerBro = new Button(this.frame, this.frame.game.textures.darkHammerBro1, this.frame.textures.displayDarkHammerBro, "<html><center>Hammer<br>Bro.</center></html>", "Jumps up and down on platforms within reach while throwing hammers.")).setItem(new Item(this.frame, '\u00f6', "Hammer Bro.", this.darkHammerBro, -1, 21, 16, 0, false, false, 1));
         (this.spiny = new Button(this.frame, this.frame.game.textures.spiny2, null, null, "Cannot be smushed.")).setItem(new Item(this.frame, '\\', "Spiny", this.spiny, -1, 2, 0, 0, false, false, 3));
-        (this.lightBeetle = new Button(this.frame, this.frame.game.textures.lightBeetle1, null, "<html><center>Buzzy<br>Beetle</center></html>", "Hard-shelled enemy. Can't be hurt by fireballs.")).setItem(new Item(this.frame, ':', "Light Buzzy Beetle", this.lightBeetle, -1, 2, 0, 0, false, false, 3));
+        (this.buzzyBeetle = new Button(this.frame, this.frame.game.textures.lightBeetle1, null, "<html><center>Buzzy<br>Beetle</center></html>", "Hard-shelled enemy. Can't be hurt by fireballs.")).setItem(new Item(this.frame, ':', "Buzzy Beetle", this.buzzyBeetle, -1, 2, 0, 0, false, false, 3));
         //(this.darkBeetle = new Button(this.frame, this.frame.game.textures.darkBeetle1, null, "<html><center>Buzzy<br>Beetle</center></html>", "Hard-shelled enemy. Can't be hurt by fireballs.")).setItem(new Item(this.frame, '\u00f4', "Dark Buzzy Beetle", this.darkBeetle, -1, 2, 0, 0, false, false, 3));
         //(this.grayBeetle = new Button(this.frame, this.frame.game.textures.grayBeetle1, null, "<html><center>Buzzy<br>Beetle</center></html>", "Hard-shelled enemy. Can't be hurt by fireballs.")).setItem(new Item(this.frame, '\u02e7', "Gray Buzzy Beetle", this.grayBeetle, -1, 2, 0, 0, false, false, 3));
         (this.shortCannon = new Button(this.frame, this.frame.game.textures.lightShortCannon, null, "<html><center>Bill<br>Blaster</center></html>", "Fires Bullet Bills at a random time interval determined randomly with each level.")).setItem(new Item(this.frame, '\"', "Short Bill Blaster", this.shortCannon, -1, 2, 0, 0, false, true, 1));
@@ -110,17 +106,17 @@ public final class EnemiesPanel extends JPanel implements ItemPanel
             this.add(this.cannonBase);
         }
         else {
-            this.add(this.lightGoomba);
+            this.add(this.goomba);
            // this.add(this.darkGoomba);
            // this.add(this.grayGoomba);
-            this.add(this.lightHammerBro);
+            this.add(this.hammerBro);
             this.add(this.spiny);
             this.add(this.squid);
-            this.add(this.lightKoopaNormal);
-            this.add(this.lightKoopaBouncing);
-            this.add(this.lightKoopaFlyingV);
-            this.add(this.lightKoopaFlyingH);
-            this.add(this.lightBeetle);
+            this.add(this.koopaNormal);
+            this.add(this.koopaBouncing);
+            this.add(this.koopaFlyingV);
+            this.add(this.koopaFlyingH);
+            this.add(this.buzzyBeetle);
             //this.add(this.darkBeetle);
             //this.add(this.grayBeetle);
            // this.add(this.darkHammerBro);
@@ -146,15 +142,20 @@ public final class EnemiesPanel extends JPanel implements ItemPanel
     public void refreshIcons() {
     	supermario.game.Textures textures = this.frame.game.textures;
     	int levelType = this.frame.levelPanel.level.levelType;
-    	this.lightKoopaNormal.setImages(textures.getLevelTypeAlt(levelType,textures.lightKoopa1),null);
-    	this.lightKoopaBouncing.setImages(textures.getLevelTypeAlt(levelType, textures.lightKoopa4),null);
+    	this.koopaNormal.setImages(textures.getLevelTypeAlt(levelType,textures.lightKoopa1),null);
+    	this.koopaBouncing.setImages(textures.getLevelTypeAlt(levelType, textures.lightKoopa4),null);
     	if(levelType == Level.LEVEL_TYPE_UNDERGROUND||levelType==Level.LEVEL_TYPE_GHOST_HOUSE){
-    		this.lightKoopaFlyingH.setImages(this.frame.textures.iconDarkKoopaFlyingH, this.frame.textures.displayDarkKoopaFlyingH);
-    		this.lightKoopaFlyingV.setImages(this.frame.textures.iconDarkKoopaFlyingV, this.frame.textures.displayDarkKoopaFlyingV);
+    		this.koopaFlyingH.setImages(this.frame.textures.iconDarkKoopaFlyingH, this.frame.textures.displayDarkKoopaFlyingH);
+    		this.koopaFlyingV.setImages(this.frame.textures.iconDarkKoopaFlyingV, this.frame.textures.displayDarkKoopaFlyingV);
     	}else{
-    		this.lightKoopaFlyingH.setImages(this.frame.textures.iconLightKoopaFlyingH, this.frame.textures.displayLightKoopaFlyingH);
-    		this.lightKoopaFlyingV.setImages(this.frame.textures.iconLightKoopaFlyingV, this.frame.textures.displayLightKoopaFlyingV);
+    		this.koopaFlyingH.setImages(this.frame.textures.iconLightKoopaFlyingH, this.frame.textures.displayLightKoopaFlyingH);
+    		this.koopaFlyingV.setImages(this.frame.textures.iconLightKoopaFlyingV, this.frame.textures.displayLightKoopaFlyingV);
     	}
+    	this.goomba.setImages(textures.getLevelTypeAlt(levelType,textures.lightGoomba1), null);
+    	this.buzzyBeetle.setImages(textures.getLevelTypeAlt(levelType,textures.lightBeetle1),null);
+    	this.hammerBro.setImages(textures.getLevelTypeAlt(levelType,textures.lightHammerBro1),null);
+    	this.setCannonScheme();
+    	this.setFirebarScheme();
     }
     
     public void setFirebarScheme() {
@@ -170,8 +171,8 @@ public final class EnemiesPanel extends JPanel implements ItemPanel
             this.firebarShort.setImages(this.frame.textures.displayFirebarDarkShort, null);
             this.firebarLong.setImages(this.frame.textures.displayFirebarDarkShort, this.frame.textures.displayFirebarDarkLong);
         }
-        this.lightGoomba.setImages(this.frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.lightGoomba1), null);
-        this.lightBeetle.setImages(this.frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.lightBeetle1), null);
+        this.goomba.setImages(this.frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.lightGoomba1), null);
+        this.buzzyBeetle.setImages(this.frame.game.textures.getLevelTypeAlt(this.frame.levelPanel.level.levelType,this.frame.game.textures.lightBeetle1), null);
         
     }
     
@@ -216,7 +217,7 @@ public final class EnemiesPanel extends JPanel implements ItemPanel
     }
     
     public boolean isLandEnemyOnly(final Item i) {
-        return i.button == this.lightGoomba ||/* i.button == this.darkGoomba || i.button == this.grayGoomba ||*/ (i.button == this.lightKoopaNormal || i.button == this.lightKoopaBouncing || i.button == this.lightKoopaFlyingV) || /*(i.button == this.darkKoopaNormal || i.button == this.darkKoopaBouncing || i.button == this.darkKoopaFlyingV) ||*/ (i.button == this.redKoopaNormal || i.button == this.redKoopaBouncing || i.button == this.redKoopaFlyingV) || (i.button == this.lightHammerBro || i.button == this.spiny || i.button == this.lightBeetle || /*i.button == this.darkBeetle || i.button == this.grayBeetle ||*/ i.button == this.lavaBall);
+        return i.button == this.goomba ||/* i.button == this.darkGoomba || i.button == this.grayGoomba ||*/ (i.button == this.koopaNormal || i.button == this.koopaBouncing || i.button == this.koopaFlyingV) || /*(i.button == this.darkKoopaNormal || i.button == this.darkKoopaBouncing || i.button == this.darkKoopaFlyingV) ||*/ (i.button == this.redKoopaNormal || i.button == this.redKoopaBouncing || i.button == this.redKoopaFlyingV) || (i.button == this.hammerBro || i.button == this.spiny || i.button == this.buzzyBeetle || /*i.button == this.darkBeetle || i.button == this.grayBeetle ||*/ i.button == this.lavaBall);
     }
     
     public boolean isWaterAndLandEnemy(final Item i) {

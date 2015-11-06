@@ -32,6 +32,7 @@ import supermario.game.sprites.misc.Checkpoint;
 import javax.swing.ImageIcon;
 import supermario.game.sprites.friends.Coin;
 import java.awt.Point;
+import static supermario.debug.Debugger.*;
 
 public class LevelLoader
 {
@@ -760,7 +761,7 @@ public class LevelLoader
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeBark, false, false);
                 }
                 else if (tile == '\u2660') {
-                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomStemBark, false, false);
+                    this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomStem, false, false);
                 }
                 else if (tile == 'g') {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.lavaTop, false, false);
@@ -837,13 +838,13 @@ public class LevelLoader
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile == 'm') {
-                	System.out.println("loading fake dark tile");
+                	debug(new Exception(),"loading fake dark tile");
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*dark*/lightGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                     chars[i+j] = 'l';
                 }
                 else if (tile == 'n') {
-                	System.out.println("loading fake stone tile");
+                	debug(new Exception(),"loading fake stone tile");
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*stone*/lightGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                     chars[i+j] = 'l';
@@ -912,7 +913,7 @@ public class LevelLoader
                         this.multiTileCollision(line, j, 2, 2);
                     }
                     else if (tile == '\u2193') {
-                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomStemTop, false, false);
+                        this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomStem, false, false);
                     }
                     else if (tile == 'z') {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.coral, false, true);

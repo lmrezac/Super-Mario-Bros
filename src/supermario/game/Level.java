@@ -57,6 +57,7 @@ import supermario.game.sprites.misc.Spring;
 import supermario.game.sprites.throwers.BulletThrower;
 import supermario.game.sprites.throwers.FishThrower;
 import supermario.game.sprites.throwers.FlameThrower;
+import static supermario.debug.Debugger.*;
 
 public final class Level
 {
@@ -1100,7 +1101,24 @@ public final class Level
                     this.transform.translate(j * 8, i * 8);
                     if (this.tiles[i][j].shiftOver && this.tiles[i][j].image != this.game.textures.bowserChain) {
                         this.transform.translate(-this.tiles[i][j].image.getIconWidth() + 8, 0.0);
-                        g2D.drawImage(this.game.textures.getLevelTypeAlt(this.game.level.levelType,this.tiles[i][j].image).getImage(), this.transform, null);
+	                        ImageIcon tileImage = tiles[i][j].image;
+	                        /*Textures textures = this.game.textures;
+                        	if(tileImage == textures.treeBark ){
+	                        	debug(new Exception(),"Tile image == treeBark");
+	                        	//if there is no bark to the left, draw left bark
+	                        	if(j != 0 && !(tiles[i][j-1].image == textures.treeBark)){
+	                        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.treeBarkLeft).getImage(),this.transform,null);
+	                        	//if there is no bark to the right, draw right bark
+	                        	}else if(j+1 < tiles[0].length && !(tiles[i][j+1].image == textures.treeBark)){
+	                        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.treeBarkRight).getImage(),this.transform,null);
+	                        	//else draw it normally
+	                        	}else{
+	                        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.treeBark).getImage(),this.transform,null);
+	                        	}
+	                        }else
+	                        	g2D.drawImage(this.game.textures.getLevelTypeAlt(this.game.level.levelType,this.tiles[i][j].image).getImage(), this.transform, null);
+                   			*/
+	                        this.drawTile(g2D, tileImage, i, j);
                     }
                     else {
                         this.backgroundItemsPending.add(this.tiles[i][j]);
@@ -1121,7 +1139,7 @@ public final class Level
             else if (backgroundTile.image == this.game.textures.lavaTop || backgroundTile.image == this.game.textures.waterTop) {
                 this.checkForColorFill(backgroundTile, g2D, true);
             }
-            g2D.drawImage(this.game.textures.getLevelTypeAlt(this.game.level.levelType,backgroundTile.image).getImage(), this.transform, null);
+            this.drawTile(g2D, backgroundTile.image, backgroundTile.yTile,backgroundTile.xTile);//g2D.drawImage(this.game.textures.getLevelTypeAlt(this.game.level.levelType,backgroundTile.image).getImage(), this.transform, null);
         }
     }
     
@@ -1152,7 +1170,81 @@ public final class Level
             this.transform.translate(0.0, -8.0);
         }
     }
-    
+    private void drawTile(Graphics2D g2D, ImageIcon icon, int i, int j){
+    	Textures textures = this.game.textures;
+    	if(this.game.textures.isGroundTile(icon)){
+        	ImageIcon image;
+        	image = textures.getLevelTypeAlt(levelType,textures.lightGround);
+        	//if there is nothing above this tile
+        	if(i-2 >= 0 && !textures.isGroundTile(tiles[i-2][j].image)){
+        		//debug(new Exception(),"nothing above tile.");
+        		//if there is no tile to the right, draw top right
+        		if(j+2 < tiles[i].length && !textures.isGroundTile(tiles[i][j+2].image)){
+        			g2D.drawImage(textures.getGroundSide(image,"topRight").getImage(),this.transform,null);
+        		//else if there is no tile to the left, draw top left
+        		}else if(j-2 >= 0 && !textures.isGroundTile(tiles[i][j-2].image)){
+        			g2D.drawImage(textures.getGroundSide(image,"topLeft").getImage(),this.transform,null);
+        		//else just draw top
+        		}else
+        			g2D.drawImage(textures.getGroundSide(image,"top").getImage(),this.transform,null);
+        	//else if there is nothing below this tile
+        	}else if(i+2 < tiles.length && !textures.isGroundTile(tiles[i+2][j].image)){
+        		//if there is no tile to the right, draw bottom right
+        		if(j+2 < tiles[i].length && !textures.isGroundTile(tiles[i][j+2].image))   {
+        			g2D.drawImage(textures.getGroundSide(image,"bottomRight").getImage(),this.transform,null);
+        		//else if there is no tile to the left, draw bottom left
+        		}else if(j-2 >= 0 && !textures.isGroundTile(tiles[i][j-2].image)){
+        			g2D.drawImage(textures.getGroundSide(image,"bottomLeft").getImage(),this.transform,null);
+        		//else just draw bottom
+        		}else
+        			g2D.drawImage(textures.getGroundSide(image,"bottom").getImage(),this.transform,null);
+        	//else if there is no tile to the left
+        	}else if(j-2 >= 0 && !textures.isGroundTile(tiles[i][j-2].image)){
+        		g2D.drawImage(textures.getGroundSide(image, "left").getImage(),this.transform,null);
+        	//else if there is no tile to the right
+        	}else if(j+2 <tiles[i].length && !textures.isGroundTile(tiles[i][j+2].image)){
+        		g2D.drawImage(textures.getGroundSide(image,"right").getImage(),this.transform,null);
+        	//else draw it normally
+        	}else
+        		g2D.drawImage(image.getImage(), this.transform, null);
+    	}else if(icon == textures.treeBark ){
+            	//debug(new Exception(),"Tile image == treeBark");
+            	//if there is no bark to the left, draw left bark
+            	if(j != 0 && !(tiles[i][j-1].image == textures.treeBark)){
+            		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.treeBarkLeft).getImage(),this.transform,null);
+            	//if there is no bark to the right, draw right bark
+            	}else if(j+1 < tiles[0].length && !(tiles[i][j+1].image == textures.treeBark)){
+            		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.treeBarkRight).getImage(),this.transform,null);
+            	//else draw it normally
+            	}else
+            		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.treeBark).getImage(),this.transform,null);
+    	}else if(icon == textures.picketFence ){
+        	//debug(new Exception(),"Tile image == treeBark");
+        	//if there is no fence to the left, draw left fence
+        	if(j-2 >= 0 && !(tiles[i][j-2].image == textures.picketFence)){
+        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.picketFenceLeft).getImage(),this.transform,null);
+        	//if there is no fence to the right, draw right fence
+        	}else if(j+2 < tiles[0].length && !(tiles[i][j+2].image == textures.picketFence)){
+        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.picketFenceRight).getImage(),this.transform,null);
+        	//else draw it normally
+        	}else
+        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.picketFence).getImage(),this.transform,null);
+    	}else if(icon == textures.mushroomStem){
+    		//if no stem above it
+    		if(i != 0 && !(tiles[i-1][j].image == textures.mushroomStem)){
+        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.mushroomStemTop).getImage(),this.transform,null);
+    		//else if there is no stem below it
+    		}else if(i + 1 != tiles.length && !(tiles[i+1][j].image == textures.mushroomStem)){
+        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.mushroomStemBottom).getImage(),this.transform,null);
+        	//else draw it normally
+    		}else{
+        		g2D.drawImage(textures.getLevelTypeAlt(levelType, textures.mushroomStem).getImage(),this.transform,null);
+    		}
+        //else draw it normally
+        }else{
+        	g2D.drawImage(this.game.textures.getLevelTypeAlt(this.levelType,this.tiles[i][j].image).getImage(), this.transform, null);
+        }
+    }
     private void drawSolidTiles(final Graphics2D g2D) {
         int firstDrawnTile = 0;
         if (this.leftMostTile - 19 > 0) {
@@ -1167,25 +1259,27 @@ public final class Level
                 if (this.tiles[i][j].image != null && !this.tiles[i][j].isPermeableTile() && this.tiles[i][j].xTile * 8 + this.tiles[i][j].image.getIconWidth() >= this.leftMostX) {
                     this.transform.setToIdentity();
                     this.transform.translate(j * 8, i * 8);
+                    ImageIcon tileImage = this.tiles[i][j].image;
+                	Textures textures = this.game.textures;
+
                     if (this.tiles[i][j].image == this.game.textures.bridge) {
                         this.transform.translate(0.0, -8.0);
                     }
                     //if this tile is a Ground tile
-                    if(this.game.textures.isGroundTile(this.tiles[i][j].image)){
+                    /*if(this.game.textures.isGroundTile(tileImage)){
                     	ImageIcon image;
                     	
-                    	Textures textures = this.game.textures;
                     	
                     	image = textures.getLevelTypeAlt(levelType,textures.lightGround);
                     	//if there is nothing above this tile
-                    	if(i != 0 && tiles[i-1][j].isPermeableTile()){
+                    	if(i != 0 && !textures.isGroundTile(tiles[i-1][j].image)){
                     		
                     		//if there is no tile to the right, draw top right
-                    		if(j+2 < tiles[i].length && tiles[i][j+2].isPermeableTile())   {
+                    		if(j+2 < tiles[i].length && !textures.isGroundTile(tiles[i][j+2].image))   {
                     			
                     			g2D.drawImage(textures.getGroundSide(image,"topRight").getImage(),this.transform,null);
                     		//else if there is no tile to the left, draw top left
-                    		}else if(j != 0 && (tiles[i][j-1].isPermeableTile())){
+                    		}else if(j != 0 && !textures.isGroundTile(tiles[i][j-1].image)){
                     			g2D.drawImage(textures.getGroundSide(image,"topLeft").getImage(),this.transform,null);
                     		//else just draw top
                     		}else{
@@ -1193,34 +1287,36 @@ public final class Level
                     			g2D.drawImage(textures.getGroundSide(image,"top").getImage(),this.transform,null);
                     		}
                     	//else if there is nothing below this tile
-                    	}else if(i+2 < tiles.length && tiles[i+2][j].isPermeableTile()){
+                    	}else if(i+2 < tiles.length && !textures.isGroundTile(tiles[i+2][j].image)){
                     		
                     		//if there is no tile to the right, draw bottom right
-                    		if(j+2 < tiles[i].length && tiles[i][j+2].isPermeableTile())   {
+                    		if(j+2 < tiles[i].length && !textures.isGroundTile(tiles[i][j+2].image))   {
                     			g2D.drawImage(textures.getGroundSide(image,"bottomRight").getImage(),this.transform,null);
                     		//else if there is no tile to the left, draw bottom left
-                    		}else if(j != 0 && (tiles[i][j-1].isPermeableTile())){
+                    		}else if(j != 0 && !textures.isGroundTile(tiles[i][j-1].image)){
                     			g2D.drawImage(textures.getGroundSide(image,"bottomLeft").getImage(),this.transform,null);
                     		//else just draw bottom
                     		}else{
                     			g2D.drawImage(textures.getGroundSide(image,"bottom").getImage(),this.transform,null);
                     		}
                     	//else if there is no tile to the left
-                    	}else if(j != 0 && tiles[i][j-1].isPermeableTile()){
+                    	}else if(j != 0 && !textures.isGroundTile(tiles[i][j-1].image)){
                     		g2D.drawImage(textures.getGroundSide(image, "left").getImage(),this.transform,null);
                     	//else if there is no tile to the right
-                    	}else if(j+2 <tiles[i].length && tiles[i][j+2].isPermeableTile()){
+                    	}else if(j+2 <tiles[i].length && !textures.isGroundTile(tiles[i][j+2].image)){
                     		
                     		g2D.drawImage(textures.getGroundSide(image,"right").getImage(),this.transform,null);
                     	//else draw it normally
                     	}else{
                     		g2D.drawImage(image.getImage(), this.transform, null);
                     	}
-                   
+                    
+         
                     //else draw it normally
                     }else{
                     	g2D.drawImage(this.game.textures.getLevelTypeAlt(this.levelType,this.tiles[i][j].image).getImage(), this.transform, null);
-                    }
+                    }*/
+                    this.drawTile(g2D,tileImage,i,j);
                 }
             }
         }
@@ -1238,6 +1334,8 @@ public final class Level
         for (int i = 0; i < Game.yTiles; ++i) {
             for (int j = firstDrawnTile; j <= lastDrawnTile; ++j) {
                 if (this.tiles[i][j].sprite != null && this.drawAsTile(this.tiles[i][j].sprite)) {
+                	if(tiles[i][j].sprite.getImage()==this.game.textures.treeBark)
+                		debug(new Exception(),"drawing tree bark!");
                 	this.tiles[i][j].sprite.draw(g2D,this.levelType);
                 }
             }
@@ -1423,7 +1521,7 @@ public final class Level
         else{// if (this.levelType == LEVEL_TYPE_UNDERGROUND || this.levelType == LEVEL_TYPE_CASTLE || this.levelType == LEVEL_TYPE_OUTSIDE_NIGHT || this.levelType == LEVEL_TYPE_COIN_ZONE_NIGHT || this.levelType == LEVEL_TYPE_GHOST_HOUSE) {
             this.backgroundColor = this.game.textures.black;
         }
-    	System.out.println("background color "+backgroundColor.toString());
+    	//debug(new Exception(),"background color "+backgroundColor.toString());
 
     }
    

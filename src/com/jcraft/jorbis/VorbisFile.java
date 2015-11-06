@@ -353,7 +353,7 @@ public class VorbisFile
         this.seekable = true;
         fseek(this.datasource, 0L, 2);
         this.offset = ftell(this.datasource);
-        final long offset = this.offset;
+        //final long offset = this.offset;
         final long n3 = this.get_prev_page(page);
         if (page.serialno() != n) {
             if (this.bisect_forward_serialno(0L, 0L, n3 + 1L, n, 0) < 0) {
@@ -749,7 +749,7 @@ public class VorbisFile
             final int n6 = (int)(n - this.pcm_offset);
             final float[][][] array = { null };
             int synthesis_pcmout = this.vd.synthesis_pcmout(array, new int[this.getInfo(-1).channels]);
-            final float[][] array2 = array[0];
+            //final float[][] array2 = array[0];
             if (synthesis_pcmout > n6) {
                 synthesis_pcmout = n6;
             }
@@ -1001,10 +1001,6 @@ public class VorbisFile
     {
         RandomAccessFile raf;
         final String mode = "r";
-        
-        private SeekableInputStream() {
-            this.raf = null;
-        }
         
         SeekableInputStream(final String s) throws IOException {
             this.raf = null;

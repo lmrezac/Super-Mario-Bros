@@ -24,7 +24,8 @@ public class Cannon extends Sprite implements EnemyHolder
         super(game, images);
         this.shadowColor = shadowColor;
         this.tallCannon = tallCannon;
-        if (shadowColor == 0) {
+        this.imageIndex = 0;
+        /*if (shadowColor == 0) {
             this.imageIndex = 0;
         }
         else if (shadowColor == 1) {
@@ -32,7 +33,7 @@ public class Cannon extends Sprite implements EnemyHolder
         }
         else if (shadowColor == 2) {
             this.imageIndex = 2;
-        }
+        }*/
         this.fireDelay = game.rand.nextInt(2501) + 1500;
     }
     

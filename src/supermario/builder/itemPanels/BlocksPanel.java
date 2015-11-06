@@ -4,26 +4,27 @@
 
 package supermario.builder.itemPanels;
 
-import supermario.builder.ImageBuilder;
-import java.awt.Component;
-import supermario.builder.Item;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import java.awt.image.BufferedImage;
-import supermario.builder.Button;
-import supermario.builder.BuilderFrame;
+
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import supermario.builder.BuilderFrame;
+import supermario.builder.Button;
+import supermario.builder.ImageBuilder;
+import supermario.builder.Item;
 
 public final class BlocksPanel extends JPanel implements ItemPanel
 {
-    private BuilderFrame frame;
-    public Button lightBrickNothing;
-    public Button lightBrickCoin;
-    public Button lightBrickCoins;
-    public Button lightBrickGrow;
-    public Button lightBrickLife;
-    public Button lightBrickStar;
-    public Button lightBrickBeanstalk;
+    private static final long serialVersionUID = 1068851568897559615L;
+	private BuilderFrame frame;
+    public Button brickNothing;
+    public Button brickCoin;
+    public Button brickCoins;
+    public Button brickGrow;
+    public Button brickLife;
+    public Button brickStar;
+    public Button brickBeanstalk;
     /*public Button darkBrickNothing;
     public Button darkBrickCoin;
     public Button darkBrickCoins;
@@ -61,13 +62,13 @@ public final class BlocksPanel extends JPanel implements ItemPanel
     public void init() {
         final ImageIcon tall = new ImageIcon(new BufferedImage(16, 32, 5));
         final ImageIcon std = new ImageIcon(new BufferedImage(16, 16, 5));
-        (this.lightBrickNothing = new Button(this.frame, this.frame.game.textures.lightBrick, null, "<html><center>Nothing</center></html>", "Above ground brick that contains nothing. Is breakable.")).setItem(new Item(this.frame, 'A', "Light Brick w/Nothing", this.lightBrickNothing, -1, 2, 0, 0, true, true, 1));
-        (this.lightBrickCoin = new Button(this.frame, std, null, "<html><center>Coin</center></html>", "Above ground brick that contains a single coin. Turns to metal.")).setItem(new Item(this.frame, 'B', "Light Brick w/Coin", this.lightBrickCoin, -1, 2, 0, 0, true, true, 1));
-        (this.lightBrickCoins = new Button(this.frame, std, null, "<html><center>Coins</center></html>", "Above ground brick that contains multiple coins. Turns to metal.")).setItem(new Item(this.frame, 'C', "Light Brick w/Coins", this.lightBrickCoins, -1, 2, 0, 0, true, true, 4));
-        (this.lightBrickGrow = new Button(this.frame, tall, null, "<html><center>Powerup</center></html>", "Above ground brick that contains either a Super Mushroom or Fire Flower. Turns to metal.")).setItem(new Item(this.frame, 'D', "Light Brick w/Powerup", this.lightBrickGrow, -1, 18, 0, 16, true, true, 16));
-        (this.lightBrickLife = new Button(this.frame, tall, null, "<html><center>Life</center></html>", "Above ground brick that contains an extra life. Turns to metal.")).setItem(new Item(this.frame, 'E', "Light Brick w/Life", this.lightBrickLife, -1, 18, 0, 16, true, true, 1));
-        (this.lightBrickStar = new Button(this.frame, tall, null, "<html><center>Starman</center></html>", "Above ground brick that contains a Starman. Turns to metal.")).setItem(new Item(this.frame, 'F', "Light Brick w/Starman", this.lightBrickStar, -1, 18, 0, 16, true, true, 1));
-        (this.lightBrickBeanstalk = new Button(this.frame, std, null, "<html><center>Beanstalk</center></html>", "Above ground brick that contains a beanstalk warp. Turns to metal.")).setItem(new Item(this.frame, 'G', "Light Brick w/Beanstalk", this.lightBrickBeanstalk, -1, 19, 0, 0, true, true, 6));
+        (this.brickNothing = new Button(this.frame, this.frame.game.textures.lightBrick, null, "<html><center>Nothing</center></html>", "Above ground brick that contains nothing. Is breakable.")).setItem(new Item(this.frame, 'A', "Light Brick w/Nothing", this.brickNothing, -1, 2, 0, 0, true, true, 1));
+        (this.brickCoin = new Button(this.frame, std, null, "<html><center>Coin</center></html>", "Above ground brick that contains a single coin. Turns to metal.")).setItem(new Item(this.frame, 'B', "Light Brick w/Coin", this.brickCoin, -1, 2, 0, 0, true, true, 1));
+        (this.brickCoins = new Button(this.frame, std, null, "<html><center>Coins</center></html>", "Above ground brick that contains multiple coins. Turns to metal.")).setItem(new Item(this.frame, 'C', "Light Brick w/Coins", this.brickCoins, -1, 2, 0, 0, true, true, 4));
+        (this.brickGrow = new Button(this.frame, tall, null, "<html><center>Powerup</center></html>", "Above ground brick that contains either a Super Mushroom or Fire Flower. Turns to metal.")).setItem(new Item(this.frame, 'D', "Light Brick w/Powerup", this.brickGrow, -1, 18, 0, 16, true, true, 16));
+        (this.brickLife = new Button(this.frame, tall, null, "<html><center>Life</center></html>", "Above ground brick that contains an extra life. Turns to metal.")).setItem(new Item(this.frame, 'E', "Light Brick w/Life", this.brickLife, -1, 18, 0, 16, true, true, 1));
+        (this.brickStar = new Button(this.frame, tall, null, "<html><center>Starman</center></html>", "Above ground brick that contains a Starman. Turns to metal.")).setItem(new Item(this.frame, 'F', "Light Brick w/Starman", this.brickStar, -1, 18, 0, 16, true, true, 1));
+        (this.brickBeanstalk = new Button(this.frame, std, null, "<html><center>Beanstalk</center></html>", "Above ground brick that contains a beanstalk warp. Turns to metal.")).setItem(new Item(this.frame, 'G', "Light Brick w/Beanstalk", this.brickBeanstalk, -1, 19, 0, 0, true, true, 6));
         /*(this.darkBrickNothing = new Button(this.frame, this.frame.game.textures.darkBrick, null, "<html><center>Nothing</center></html>", "Below ground brick that contains nothing. Is breakable.")).setItem(new Item(this.frame, 'H', "Dark Brick w/Nothing", this.darkBrickNothing, -1, 2, 0, 0, true, true, 1));
         (this.darkBrickCoin = new Button(this.frame, std, null, "<html><center>Coin</center></html>", "Below ground brick that contains a single coin. Turns to metal.")).setItem(new Item(this.frame, 'I', "Dark Brick w/Coin", this.darkBrickCoin, -1, 2, 0, 0, true, true, 1));
         (this.darkBrickCoins = new Button(this.frame, std, null, "<html><center>Coins</center></html>", "Below ground brick that contains multiple coins. Turns to metal.")).setItem(new Item(this.frame, 'J', "Dark Brick w/Coins", this.darkBrickCoins, -1, 2, 0, 0, true, true, 4));
@@ -98,13 +99,13 @@ public final class BlocksPanel extends JPanel implements ItemPanel
     
     @Override
     public void construct() {
-        this.add(this.lightBrickNothing);
-        this.add(this.lightBrickCoin);
-        this.add(this.lightBrickCoins);
-        this.add(this.lightBrickGrow);
-        this.add(this.lightBrickLife);
-        this.add(this.lightBrickStar);
-        this.add(this.lightBrickBeanstalk);
+        this.add(this.brickNothing);
+        this.add(this.brickCoin);
+        this.add(this.brickCoins);
+        this.add(this.brickGrow);
+        this.add(this.brickLife);
+        this.add(this.brickStar);
+        this.add(this.brickBeanstalk);
         /*this.add(this.darkBrickNothing);
         this.add(this.darkBrickCoin);
         this.add(this.darkBrickCoins);
@@ -169,13 +170,13 @@ public final class BlocksPanel extends JPanel implements ItemPanel
             scheme = 2;
         }
         ImageIcon brick = this.frame.game.textures.getLevelTypeAlt(levelType,frame.game.textures.lightBrick);
-        this.lightBrickNothing.setImages(brick,null);
-        this.lightBrickCoin.setImages(ImageBuilder.createBlockImage(0, scheme, 3),brick);
-        this.lightBrickCoins.setImages(ImageBuilder.createBlockImage(0, scheme, 4), brick);
-        this.lightBrickGrow.setImages(ImageBuilder.createBlockImage(0, scheme, 0), brick);
-        this.lightBrickLife.setImages(ImageBuilder.createBlockImage(0, scheme, 1), brick);
-        this.lightBrickStar.setImages(ImageBuilder.createBlockImage(0, scheme, 2), brick);
-        this.lightBrickBeanstalk.setImages(ImageBuilder.createBlockImage(0, scheme, 5), brick);
+        this.brickNothing.setImages(brick,null);
+        this.brickCoin.setImages(ImageBuilder.createBlockImage(0, scheme, 3),brick);
+        this.brickCoins.setImages(ImageBuilder.createBlockImage(0, scheme, 4), brick);
+        this.brickGrow.setImages(ImageBuilder.createBlockImage(0, scheme, 0), brick);
+        this.brickLife.setImages(ImageBuilder.createBlockImage(0, scheme, 1), brick);
+        this.brickStar.setImages(ImageBuilder.createBlockImage(0, scheme, 2), brick);
+        this.brickBeanstalk.setImages(ImageBuilder.createBlockImage(0, scheme, 5), brick);
         /*this.darkBrickNothing.setImages(this.frame.game.textures.darkBrick, null);
         this.darkBrickCoin.setImages(ImageBuilder.createBlockImage(1, scheme, 3), null);
         this.darkBrickCoins.setImages(ImageBuilder.createBlockImage(1, scheme, 4), null);
@@ -204,6 +205,6 @@ public final class BlocksPanel extends JPanel implements ItemPanel
     }
     
     public boolean isLandBlockOnly(final Item i) {
-        return i.button == this.lightBrickNothing /*|| i.button == this.darkBrickNothing || i.button == this.stoneBrickNothing*/;
+        return i.button == this.brickNothing /*|| i.button == this.darkBrickNothing || i.button == this.stoneBrickNothing*/;
     }
 }

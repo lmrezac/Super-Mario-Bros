@@ -6,19 +6,21 @@ package de.hardcode.jxinput;
 
 import java.awt.Component;
 import java.util.Iterator;
+
 import de.hardcode.jxinput.virtual.JXVirtualInputDevice;
 import de.hardcode.jxinput.keyboard.JXKeyboardInputDevice;
 import de.hardcode.jxinput.directinput.DirectInputDevice;
 import de.hardcode.jxinput.event.JXInputEventManager;
+
 import java.util.ArrayList;
 
 public class JXInputManager
 {
     private static long mTimeOfLastUpdate;
-    private static final ArrayList mDevices;
-    private static final ArrayList mDIDevices;
-    private static final ArrayList mVirtualDevices;
-    private static final ArrayList mKBDevices;
+    private static final ArrayList<JXInputDevice> mDevices;
+    private static final ArrayList<DirectInputDevice> mDIDevices;
+    private static final ArrayList<JXVirtualInputDevice> mVirtualDevices;
+    private static final ArrayList<JXKeyboardInputDevice> mKBDevices;
     
     public static int getNumberOfDevices() {
         return JXInputManager.mDevices.size();
@@ -28,7 +30,7 @@ public class JXInputManager
         if (n >= JXInputManager.mDevices.size()) {
             return null;
         }
-        return (JXInputDevice)JXInputManager.mDevices.get(n);
+        return JXInputManager.mDevices.get(n);
     }
     
     public static synchronized void reset() {
@@ -44,7 +46,7 @@ public class JXInputManager
         }
         DirectInputDevice.update();
         for (int size = JXInputManager.mKBDevices.size(), j = 0; j < size; ++j) {
-            ((JXKeyboardInputDevice)JXInputManager.mKBDevices.get(j)).shutdown();
+            JXInputManager.mKBDevices.get(j).shutdown();
         }
         JXInputManager.mKBDevices.clear();
     }
@@ -98,10 +100,10 @@ public class JXInputManager
     }
     
     static {
-        mDevices = new ArrayList();
-        mDIDevices = new ArrayList();
-        mVirtualDevices = new ArrayList();
-        mKBDevices = new ArrayList();
+        mDevices = new ArrayList<JXInputDevice>();
+        mDIDevices = new ArrayList<DirectInputDevice>();
+        mVirtualDevices = new ArrayList<JXVirtualInputDevice>();
+        mKBDevices = new ArrayList<JXKeyboardInputDevice>();
         reset();
     }
 }

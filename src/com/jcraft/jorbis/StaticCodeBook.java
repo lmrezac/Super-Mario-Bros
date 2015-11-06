@@ -313,7 +313,7 @@ class StaticCodeBook
     
     static float float32_unpack(final int n) {
         float n2 = n & 0x1FFFFF;
-        final float n3 = n & Integer.MIN_VALUE;
+        //final float n3 = n & Integer.MIN_VALUE;
         final float n4 = (n & 0x7FE00000) >>> 21;
         if ((n & Integer.MIN_VALUE) != 0x0) {
             n2 = -n2;

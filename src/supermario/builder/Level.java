@@ -1,5 +1,4 @@
 // 
-// Decompiled by Procyon v0.5.29
 // 
 
 package supermario.builder;
@@ -12,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.util.Iterator;
 import supermario.game.Game;
 import java.util.LinkedList;
+import static supermario.debug.Debugger.*;
 
 public class Level
 {
@@ -518,52 +518,52 @@ public class Level
         final int castle = 2;
         final int under = 1;
         if ((c == '$' || c == '\u02e6') && this.levelType == under) {
-            newItem = this.frame.enemiesPanel./*dark*/lightGoomba.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/goomba.item.copy();
         }
         else if ((c == '%' || c == '\u02e6') && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.enemiesPanel.lightGoomba.item.copy();
+            newItem = this.frame.enemiesPanel.goomba.item.copy();
         }
         else if ((c == '$' || c == '%') && this.levelType == castle) {
-            newItem = this.frame.enemiesPanel./*gray*/lightGoomba.item.copy();
+            newItem = this.frame.enemiesPanel./*gray*/goomba.item.copy();
         }
         else if (c == '^' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel./*dark*/lightKoopaNormal.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/koopaNormal.item.copy();
         }
         else if (c == '&' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel./*dark*/lightKoopaBouncing.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/koopaBouncing.item.copy();
         }
         else if (c == '*' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel./*dark*/lightKoopaFlyingV.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/koopaFlyingV.item.copy();
         }
         else if (c == '¬' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel./*dark*/lightKoopaFlyingH.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/koopaFlyingH.item.copy();
         }
         else if (c == '(' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.enemiesPanel./*dark*/lightKoopaNormal.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/koopaNormal.item.copy();
         }
         else if (c == ')' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.enemiesPanel.lightKoopaBouncing.item.copy();
+            newItem = this.frame.enemiesPanel.koopaBouncing.item.copy();
         }
         else if (c == '-' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.enemiesPanel.lightKoopaFlyingV.item.copy();
+            newItem = this.frame.enemiesPanel.koopaFlyingV.item.copy();
         }
         else if (c == '±' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.enemiesPanel.lightKoopaFlyingH.item.copy();
+            newItem = this.frame.enemiesPanel.koopaFlyingH.item.copy();
         }
         else if ((c == ':' || c == '\u02e7') && this.levelType == under) {
-            newItem = this.frame.enemiesPanel./*dark*/lightBeetle.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/buzzyBeetle.item.copy();
         }
         else if ((c == '\u00f4' || c == '\u02e7') && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.enemiesPanel.lightBeetle.item.copy();
+            newItem = this.frame.enemiesPanel.buzzyBeetle.item.copy();
         }
         else if ((c == ':' || c == '\u00f4') && this.levelType == castle) {
-            newItem = this.frame.enemiesPanel./*gray*/lightBeetle.item.copy();
+            newItem = this.frame.enemiesPanel./*gray*/buzzyBeetle.item.copy();
         }
         else if (c == '}' && this.levelType == under) {
-            newItem = this.frame.enemiesPanel./*dark*/lightHammerBro.item.copy();
+            newItem = this.frame.enemiesPanel./*dark*/hammerBro.item.copy();
         }
         else if (c == '\u00f6' && (this.levelType == day || this.levelType == night || this.levelType == castle)) {
-            newItem = this.frame.enemiesPanel.lightHammerBro.item.copy();
+            newItem = this.frame.enemiesPanel.hammerBro.item.copy();
         }
         /*
         else if (c == 'A' && this.levelType == castle) {
@@ -613,7 +613,7 @@ public class Level
         }
         */
         else if (c == 'H' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickNothing.item.copy();
+            newItem = this.frame.blocksPanel.brickNothing.item.copy();
         }
         /*
         else if (c == 'N' && this.levelType == castle) {
@@ -621,7 +621,7 @@ public class Level
         }
         */
         else if (c == 'N' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickBeanstalk.item.copy();
+            newItem = this.frame.blocksPanel.brickBeanstalk.item.copy();
         }
         /*
         else if (c == 'J' && this.levelType == castle) {
@@ -629,7 +629,7 @@ public class Level
         }
         */
         else if (c == 'J' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickCoins.item.copy();
+            newItem = this.frame.blocksPanel.brickCoins.item.copy();
         }
         /*
         else if (c == 'K' && this.levelType == castle) {
@@ -637,7 +637,7 @@ public class Level
         }
         */
         else if (c == 'K' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickGrow.item.copy();
+            newItem = this.frame.blocksPanel.brickGrow.item.copy();
         }
         /*
         else if (c == 'L' && this.levelType == castle) {
@@ -645,7 +645,7 @@ public class Level
         }
         */
         else if (c == 'L' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickLife.item.copy();
+            newItem = this.frame.blocksPanel.brickLife.item.copy();
         }
         /*
         else if (c == 'I' && this.levelType == castle) {
@@ -653,7 +653,7 @@ public class Level
         }
         */
         else if (c == 'I' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickCoins.item.copy();
+            newItem = this.frame.blocksPanel.brickCoins.item.copy();
         }
         /*
         else if (c == 'M' && this.levelType == castle) {
@@ -661,10 +661,10 @@ public class Level
         }
         */
         else if (c == 'M' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickStar.item.copy();
+            newItem = this.frame.blocksPanel.brickStar.item.copy();
         }
         else if (c == '\u2022' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickNothing.item.copy();
+            newItem = this.frame.blocksPanel.brickNothing.item.copy();
         }
         /*
         else if (c == '\u2022' && this.levelType == under) {
@@ -672,7 +672,7 @@ public class Level
         }
         */
         else if (c == '\u25c4' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickBeanstalk.item.copy();
+            newItem = this.frame.blocksPanel.brickBeanstalk.item.copy();
         }
         /*
         else if (c == '\u25c4' && this.levelType == under) {
@@ -680,7 +680,7 @@ public class Level
         }
         */
         else if (c == '\u2640' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickCoins.item.copy();
+            newItem = this.frame.blocksPanel.brickCoins.item.copy();
         }
         /*
         else if (c == '\u2640' && this.levelType == under) {
@@ -688,7 +688,7 @@ public class Level
         }
         */
         else if (c == '\u266b' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickGrow.item.copy();
+            newItem = this.frame.blocksPanel.brickGrow.item.copy();
         }
         /*
         else if (c == '\u266b' && this.levelType == under) {
@@ -696,7 +696,7 @@ public class Level
         }
         */
         else if (c == '\u263c' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickLife.item.copy();
+            newItem = this.frame.blocksPanel.brickLife.item.copy();
         }
         /*
         else if (c == '\u263c' && this.levelType == under) {
@@ -704,14 +704,14 @@ public class Level
         }
         */
         else if (c == '\u25d8' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickCoin.item.copy();
+            newItem = this.frame.blocksPanel.brickCoin.item.copy();
         }
         /*
         else if (c == '\u25d8' && this.levelType == under) {
             newItem = this.frame.blocksPanel.darkBrickCoin.item.copy();
         }*/
         else if (c == '\u25ba' && (this.levelType == day || this.levelType == night)) {
-            newItem = this.frame.blocksPanel.lightBrickStar.item.copy();
+            newItem = this.frame.blocksPanel.brickStar.item.copy();
         }
         /*
         else if (c == '\u25ba' && this.levelType == under) {
@@ -849,7 +849,7 @@ public class Level
         cWriter.write(String.valueOf(this.pipeColor));
         cWriter.write(String.valueOf((int)(this.autoScrolling ? 1 : 0)));
         cWriter.write(String.valueOf(this.texturePack));
-        System.out.println("Saved level with texture "+String.valueOf(this.texturePack));
+       debug(new Exception(),"Saved level with texture "+String.valueOf(this.texturePack));
         return cWriter.toCharArray();
     }
     
@@ -1540,7 +1540,7 @@ public class Level
             return this.frame.solidsPanel.mushroomMiddle.item.copy();
         }
         if (c == '\u2193') {
-            return this.frame.solidsPanel.mushroomStemTop.item.copy();
+            return this.frame.solidsPanel.mushroomStem/*Top*/.item.copy();
         }
         if (c == 'z') {
             return this.frame.solidsPanel.coral.item.copy();
@@ -1552,13 +1552,13 @@ public class Level
             return this.frame.solidsPanel.bowserBridge.item.copy();
         }
         if (c == 'A') {
-            return this.frame.blocksPanel.lightBrickNothing.item.copy();
+            return this.frame.blocksPanel.brickNothing.item.copy();
         }
         if (c == 'B') {
-            return this.frame.blocksPanel.lightBrickCoin.item.copy();
+            return this.frame.blocksPanel.brickCoin.item.copy();
         }
         if (c == 'C') {
-            final Item i = this.frame.blocksPanel.lightBrickCoins.item.copy();
+            final Item i = this.frame.blocksPanel.brickCoins.item.copy();
             if (fc == 'x') {
                 i.coinCount = 5;
             }
@@ -1568,28 +1568,28 @@ public class Level
             return i;
         }
         if (c == 'D') {
-            final Item i = this.frame.blocksPanel.lightBrickGrow.item.copy();
+            final Item i = this.frame.blocksPanel.brickGrow.item.copy();
             i.poison = this.getPoison(fc);
             return i;
         }
         if (c == 'E') {
-            return this.frame.blocksPanel.lightBrickLife.item.copy();
+            return this.frame.blocksPanel.brickLife.item.copy();
         }
         if (c == 'F') {
-            return this.frame.blocksPanel.lightBrickStar.item.copy();
+            return this.frame.blocksPanel.brickStar.item.copy();
         }
         if (c == 'G') {
-            return this.frame.blocksPanel.lightBrickBeanstalk.item.copy();
+            return this.frame.blocksPanel.brickBeanstalk.item.copy();
         }
         //TODO remove this
         if (c == 'H') {
-            return this.frame.blocksPanel.lightBrickNothing.item.copy();
+            return this.frame.blocksPanel.brickNothing.item.copy();
         }
         if (c == 'I') {
-            return this.frame.blocksPanel.lightBrickCoin.item.copy();
+            return this.frame.blocksPanel.brickCoin.item.copy();
         }
         if (c == 'J') {
-            final Item i = this.frame.blocksPanel.lightBrickCoins.item.copy();
+            final Item i = this.frame.blocksPanel.brickCoins.item.copy();
             if (fc == 'x') {
                 i.coinCount = 5;
             }
@@ -1600,27 +1600,27 @@ public class Level
         }
         
         if (c == 'K') {
-            final Item i = this.frame.blocksPanel.lightBrickGrow.item.copy();
+            final Item i = this.frame.blocksPanel.brickGrow.item.copy();
             i.poison = this.getPoison(fc);
             return i;
         }
         if (c == 'L') {
-            return this.frame.blocksPanel.lightBrickLife.item.copy();
+            return this.frame.blocksPanel.brickLife.item.copy();
         }
         if (c == 'M') {
-            return this.frame.blocksPanel.lightBrickStar.item.copy();
+            return this.frame.blocksPanel.brickStar.item.copy();
         }
         if (c == 'N') {
-            return this.frame.blocksPanel.lightBrickBeanstalk.item.copy();
+            return this.frame.blocksPanel.brickBeanstalk.item.copy();
         }
         if (c == '\u2022') {
-            return this.frame.blocksPanel.lightBrickNothing.item.copy();
+            return this.frame.blocksPanel.brickNothing.item.copy();
         }
         if (c == '\u25d8') {
-            return this.frame.blocksPanel.lightBrickCoin.item.copy();
+            return this.frame.blocksPanel.brickCoin.item.copy();
         }
         if (c == '\u2640') {
-            final Item i = this.frame.blocksPanel.lightBrickCoins.item.copy();
+            final Item i = this.frame.blocksPanel.brickCoins.item.copy();
             if (fc == 'x') {
                 i.coinCount = 5;
             }
@@ -1630,18 +1630,18 @@ public class Level
             return i;
         }
         if (c == '\u266b') {
-            final Item i = this.frame.blocksPanel.lightBrickGrow.item.copy();
+            final Item i = this.frame.blocksPanel.brickGrow.item.copy();
             i.poison = this.getPoison(fc);
             return i;
         }
         if (c == '\u263c') {
-            return this.frame.blocksPanel.lightBrickLife.item.copy();
+            return this.frame.blocksPanel.brickLife.item.copy();
         }
         if (c == '\u25ba') {
-            return this.frame.blocksPanel.lightBrickStar.item.copy();
+            return this.frame.blocksPanel.brickStar.item.copy();
         }
         if (c == '\u25c4') {
-            return this.frame.blocksPanel.lightBrickBeanstalk.item.copy();
+            return this.frame.blocksPanel.brickBeanstalk.item.copy();
         }
         //put end of comment HERE
         if (c == 'O') {
@@ -1740,57 +1740,57 @@ public class Level
             return i;
         }
         if (c == '$') {
-            final Item i = this.frame.enemiesPanel.lightGoomba.item.copy();
+            final Item i = this.frame.enemiesPanel.goomba.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '%') {
-            final Item i = this.frame.enemiesPanel./*dark*/lightGoomba.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/goomba.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '\u02e6') {
-            final Item i = this.frame.enemiesPanel./*gray*/lightGoomba.item.copy();
+            final Item i = this.frame.enemiesPanel./*gray*/goomba.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '^') {
-            final Item i = this.frame.enemiesPanel.lightKoopaNormal.item.copy();
+            final Item i = this.frame.enemiesPanel.koopaNormal.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '&') {
-            final Item i = this.frame.enemiesPanel.lightKoopaBouncing.item.copy();
+            final Item i = this.frame.enemiesPanel.koopaBouncing.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '*') {
-            final Item i = this.frame.enemiesPanel.lightKoopaFlyingV.item.copy();
+            final Item i = this.frame.enemiesPanel.koopaFlyingV.item.copy();
             i.oscOffset = this.getOscOffset(fc);
             return i;
         }
         if (c == '¬') {
-            final Item i = this.frame.enemiesPanel.lightKoopaFlyingH.item.copy();
+            final Item i = this.frame.enemiesPanel.koopaFlyingH.item.copy();
             i.oscOffset = this.getOscOffset(fc);
             return i;
         }
         if (c == '(') {
-            final Item i = this.frame.enemiesPanel./*dark*/lightKoopaNormal.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/koopaNormal.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == ')') {
-            final Item i = this.frame.enemiesPanel./*dark*/lightKoopaBouncing.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/koopaBouncing.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '-') {
-            final Item i = this.frame.enemiesPanel./*dark*/lightKoopaFlyingV.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/koopaFlyingV.item.copy();
             i.oscOffset = this.getOscOffset(fc);
             return i;
         }
         if (c == '±') {
-            final Item i = this.frame.enemiesPanel./*dark*/lightKoopaFlyingH.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/koopaFlyingH.item.copy();
             i.oscOffset = this.getOscOffset(fc);
             return i;
         }
@@ -1833,10 +1833,10 @@ public class Level
             return i;
         }
         if (c == '}') {
-            return this.frame.enemiesPanel.lightHammerBro.item.copy();
+            return this.frame.enemiesPanel.hammerBro.item.copy();
         }
         if (c == '\u00f6') {
-            return this.frame.enemiesPanel./*dark*/lightHammerBro.item.copy();
+            return this.frame.enemiesPanel./*dark*/hammerBro.item.copy();
         }
         if (c == '\\') {
             final Item i = this.frame.enemiesPanel.spiny.item.copy();
@@ -1844,17 +1844,17 @@ public class Level
             return i;
         }
         if (c == ':') {
-            final Item i = this.frame.enemiesPanel.lightBeetle.item.copy();
+            final Item i = this.frame.enemiesPanel.buzzyBeetle.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '\u00f4') {
-            final Item i = this.frame.enemiesPanel./*dark*/lightBeetle.item.copy();
+            final Item i = this.frame.enemiesPanel./*dark*/buzzyBeetle.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }
         if (c == '\u02e7') {
-            final Item i = this.frame.enemiesPanel./*gray*/lightBeetle.item.copy();
+            final Item i = this.frame.enemiesPanel./*gray*/buzzyBeetle.item.copy();
             i.flip = this.getFlip(fc);
             return i;
         }

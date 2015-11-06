@@ -14,6 +14,7 @@ import supermario.Utilities;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import static supermario.debug.Debugger.*;
 
 public class TexturePacks
 {
@@ -115,7 +116,7 @@ public class TexturePacks
     }
     
     public boolean setTexturePack(final int newTexturePack) {
-    	System.out.println("setTexturePack (1) "+newTexturePack);
+    	debug(new Exception(),"setTexturePack (1) "+newTexturePack);
         if (newTexturePack == 0) {
             if (this.texturePack != 0) {
                 this.switchToStandardTextures();
@@ -132,7 +133,7 @@ public class TexturePacks
         }
         else if (newTexturePack == 2){
         	if(this.texturePack != 2){
-        		System.out.println("switch to SMB3 textures");
+        		debug(new Exception(),"switch to SMB3 textures");
         		this.switchToSMB3Textures();
         		return true;
         	}
@@ -149,7 +150,7 @@ public class TexturePacks
     
     private void switchToLostLevelsTextures() {
         this.texturePack = 1;
-        System.out.println("switchToLostLevelsTextures (builder)");
+        debug(new Exception(),"switchToLostLevelsTextures (builder)");
         this.bTextures.displayPlatformExtraShortRepUp = this.displayPlatformExtraShortRepUp;
         this.bTextures.displayPlatformShortRepUp = this.displayPlatformShortRepUp;
         this.bTextures.displayPlatformLongRepUp = this.displayPlatformLongRepUp;
@@ -192,7 +193,7 @@ public class TexturePacks
     
     private void switchToSMB3Textures(){
     	this.texturePack = 2;
-    	System.out.println("switchToSMB3Textures (builder)");
+    	debug(new Exception(),"switchToSMB3Textures (builder)");
     }
     
     private void switchToStandardTextures() {
@@ -359,7 +360,7 @@ public class TexturePacks
     	g2.dispose();
     	try{
 			ImageIO.write(bi, "png", new File("lostLevelImages/"+filename));
-			System.out.println("Wrote : "+"lostLevelImages/"+filename);
+			debug(new Exception(),"Wrote : "+"lostLevelImages/"+filename);
 		}catch(IOException e){
 			e.printStackTrace();
 		}

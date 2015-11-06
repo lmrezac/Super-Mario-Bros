@@ -3,7 +3,7 @@
 // 
 
 package com.jcraft.jorbis;
-
+@SuppressWarnings("unused")
 class Mdct
 {
     private static final float cPI3_8 = 0.38268343f;

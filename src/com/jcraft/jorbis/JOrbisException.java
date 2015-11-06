@@ -6,7 +6,9 @@ package com.jcraft.jorbis;
 
 public class JOrbisException extends Exception
 {
-    public JOrbisException() {
+    private static final long serialVersionUID = -8275147793421088919L;
+
+	public JOrbisException() {
     }
     
     public JOrbisException(final String s) {

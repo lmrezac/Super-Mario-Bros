@@ -267,34 +267,34 @@ public final class Menu
     }
     
     static {
-        author = String.valueOf(new char[] { 'B', 'Y', ' ', 'A', 'N', 'D', 'R', 'E', 'W', ' ', 'K', 'E', 'L', 'L', 'O', 'G', 'G' });
-        disclaimer = String.valueOf(new char[] { '©', '1', '9', '8', '5', ' ', 'N', 'I', 'N', 'T', 'E', 'N', 'D', 'O' });
-        play = String.valueOf(new char[] { 'P', 'L', 'A', 'Y', ' ', 'A', ' ', 'G', 'A', 'M', 'E' });
-        play1Game = String.valueOf(new char[] { 'M', 'A', 'R', 'I', 'O', ' ', 'G', 'A', 'M', 'E' });
-        play2Game = String.valueOf(new char[] { 'L', 'U', 'I', 'G', 'I', ' ', 'G', 'A', 'M', 'E' });
-        make = String.valueOf(new char[] { 'M', 'A', 'K', 'E', ' ', 'A', ' ', 'G', 'A', 'M', 'E' });
-        settings = String.valueOf(new char[] { 'S', 'E', 'T', 'T', 'I', 'N', 'G', 'S' });
-        exit = String.valueOf(new char[] { 'E', 'X', 'I', 'T' });
-        back = String.valueOf(new char[] { 'B', 'A', 'C', 'K' });
-        resume = String.valueOf(new char[] { 'R', 'E', 'S', 'U', 'M', 'E', ' ', 'G', 'A', 'M', 'E' });
-        fullScreen = String.valueOf(new char[] { 'G', 'O', ' ', 'F', 'U', 'L', 'L', 'S', 'C', 'R', 'E', 'E', 'N' });
-        windowed = String.valueOf(new char[] { 'G', 'O', ' ', 'W', 'I', 'N', 'D', 'O', 'W', 'E', 'D' });
-        controls = String.valueOf(new char[] { 'S', 'E', 'T', ' ', 'C', 'O', 'N', 'T', 'R', 'O', 'L', 'S' });
-        mute = String.valueOf(new char[] { 'M', 'U', 'T', 'E' });
-        unmute = String.valueOf(new char[] { 'U', 'N', 'M', 'U', 'T', 'E' });
-        noAudio = String.valueOf(new char[] { '(', 'N', 'O', ' ', 'A', 'U', 'D', 'I', 'O', ')' });
-        retryLvl = String.valueOf(new char[] { 'R', 'E', 'T', 'R', 'Y', ' ', 'L', 'V', 'L' });
-        retryCkPt = String.valueOf(new char[] { 'R', 'E', 'T', 'R', 'Y', ' ', 'A', 'T', ' ', 'C', 'H', 'K', ' ', 'P', 'T' });
-        quitTest = String.valueOf(new char[] { 'Q', 'U', 'I', 'T', ' ', 'T', 'E', 'S', 'T' });
-        quitGame = String.valueOf(new char[] { 'Q', 'U', 'I', 'T', ' ', 'G', 'A', 'M', 'E' });
-        pressUp = String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'U', 'P' });
-        pressDown = String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'D', 'O', 'W', 'N' });
-        pressLeft = String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'L', 'E', 'F', 'T' });
-        pressRight = String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'R', 'I', 'G', 'H', 'T' });
-        pressB = String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'B', ' ', '(', 'R', 'U', 'N', ')' });
-        pressA = String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'A', ' ', '(', 'J', 'U', 'M', 'P', ')' });
-        pressStart = String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'S', 'T', 'A', 'R', 'T' });
-        pressCancel = String.valueOf(new char[] { 'E', 'S', 'C', 'A', 'P', 'E', ' ', 'T', 'O', ' ', 'C', 'A', 'N', 'C', 'E', 'L' });
-        vol = String.valueOf(new char[] { 'V', 'O', 'L' });
+        author = "BY ANDREW & RICK ";//String.valueOf(new char[] { 'B', 'Y', ' ', 'A', 'N', 'D', 'R', 'E', 'W', ' ', 'K', 'E', 'L', 'L', 'O', 'G', 'G' });
+        disclaimer = "©1985 NINTENDO";//String.valueOf(new char[] { '©', '1', '9', '8', '5', ' ', 'N', 'I', 'N', 'T', 'E', 'N', 'D', 'O' });
+        play = "PLAY A GAME";//String.valueOf(new char[] { 'P', 'L', 'A', 'Y', ' ', 'A', ' ', 'G', 'A', 'M', 'E' });
+        play1Game = "1 PLAYER";//String.valueOf(new char[] { 'M', 'A', 'R', 'I', 'O', ' ', 'G', 'A', 'M', 'E' });
+        play2Game = "2 PLAYER";//String.valueOf(new char[] { 'L', 'U', 'I', 'G', 'I', ' ', 'G', 'A', 'M', 'E' });
+        make = "MAKE A GAME";//String.valueOf(new char[] { 'M', 'A', 'K', 'E', ' ', 'A', ' ', 'G', 'A', 'M', 'E' });
+        settings = "SETTINGS";//String.valueOf(new char[] { 'S', 'E', 'T', 'T', 'I', 'N', 'G', 'S' });
+        exit = "EXIT";//String.valueOf(new char[] { 'E', 'X', 'I', 'T' });
+        back = "BACK";//String.valueOf(new char[] { 'B', 'A', 'C', 'K' });
+        resume = "RESUME GAME"; //String.valueOf(new char[] { 'R', 'E', 'S', 'U', 'M', 'E', ' ', 'G', 'A', 'M', 'E' });
+        fullScreen = "GO FULLSCREEN"; //String.valueOf(new char[] { 'G', 'O', ' ', 'F', 'U', 'L', 'L', 'S', 'C', 'R', 'E', 'E', 'N' });
+        windowed = "GO WINDOWED"; //String.valueOf(new char[] { 'G', 'O', ' ', 'W', 'I', 'N', 'D', 'O', 'W', 'E', 'D' });
+        controls = "SET CONTROLS"; //String.valueOf(new char[] { 'S', 'E', 'T', ' ', 'C', 'O', 'N', 'T', 'R', 'O', 'L', 'S' });
+        mute = "MUTE"; //String.valueOf(new char[] { 'M', 'U', 'T', 'E' });
+        unmute = "UNMUTE"; //String.valueOf(new char[] { 'U', 'N', 'M', 'U', 'T', 'E' });
+        noAudio = "(NO AUDIO)"; //String.valueOf(new char[] { '(', 'N', 'O', ' ', 'A', 'U', 'D', 'I', 'O', ')' });
+        retryLvl = "RETRY LVL"; //String.valueOf(new char[] { 'R', 'E', 'T', 'R', 'Y', ' ', 'L', 'V', 'L' });
+        retryCkPt = "RETRY AT CHK PT"; //String.valueOf(new char[] { 'R', 'E', 'T', 'R', 'Y', ' ', 'A', 'T', ' ', 'C', 'H', 'K', ' ', 'P', 'T' });
+        quitTest = "QUIT TEST"; //String.valueOf(new char[] { 'Q', 'U', 'I', 'T', ' ', 'T', 'E', 'S', 'T' });
+        quitGame = "QUIT GAME"; //String.valueOf(new char[] { 'Q', 'U', 'I', 'T', ' ', 'G', 'A', 'M', 'E' });
+        pressUp = "PRESS UP"; //String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'U', 'P' });
+        pressDown = "PRESS DOWN"; //String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'D', 'O', 'W', 'N' });
+        pressLeft = "PRESS LEFT"; //String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'L', 'E', 'F', 'T' });
+        pressRight = "PRESS RIGHT"; //String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'R', 'I', 'G', 'H', 'T' });
+        pressB = "PRESS B (RUN)";//String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'B', ' ', '(', 'R', 'U', 'N', ')' });
+        pressA = "PRESS A (JUMP)";//String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'A', ' ', '(', 'J', 'U', 'M', 'P', ')' });
+        pressStart = "PRESS START";//String.valueOf(new char[] { 'P', 'R', 'E', 'S', 'S', ' ', 'S', 'T', 'A', 'R', 'T' });
+        pressCancel = "ESCAPE TO CANCEL"; //String.valueOf(new char[] { 'E', 'S', 'C', 'A', 'P', 'E', ' ', 'T', 'O', ' ', 'C', 'A', 'N', 'C', 'E', 'L' });
+        vol = "VOL";//String.valueOf(new char[] { 'V', 'O', 'L' });
     }
 }

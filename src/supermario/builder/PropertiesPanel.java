@@ -574,6 +574,7 @@ public class PropertiesPanel extends JPanel
     	frame.blocksPanel.refreshIcons();//setBlocksScheme(leveltype);
     	frame.enemiesPanel.refreshIcons();
     	frame.miscPanel.refreshIcons();
+    	frame.pipesPanel.setPipeColor(0);
 	}
 
 	private void populateEndingsComboBox(final int levelType, final JComboBox<String> levelEndComboBox) {

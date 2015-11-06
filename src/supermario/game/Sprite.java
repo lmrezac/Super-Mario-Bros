@@ -199,6 +199,9 @@ public abstract class Sprite
     public int getXCenter() {
         return this.x + this.width / 2;
     }
+    public ImageIcon getImage(){
+    	return this.images[this.imageIndex];
+    }
     
     public void applyGravity(final double deltaDouble, final double magnitude) {
         this.yVel += magnitude * deltaDouble / 1000.0;

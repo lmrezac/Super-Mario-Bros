@@ -10,8 +10,10 @@ import com.jcraft.jogg.Buffer;
 public class Comment
 {
     private static byte[] _vorbis;
-    private static final int OV_EFAULT = -129;
-    private static final int OV_EIMPL = -130;
+    @SuppressWarnings("unused")
+	private static final int OV_EFAULT = -129;
+    @SuppressWarnings("unused")
+	private static final int OV_EIMPL = -130;
     public byte[][] user_comments;
     public int[] comment_lengths;
     public int comments;

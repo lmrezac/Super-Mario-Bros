@@ -90,11 +90,12 @@ public class Utilities
     
     public static void showAbout(final Component component) {
         String about = "<html><b>Super Mario Bros. NES Game & Builder</b></html>";
-        about += "\r\nRelease on 2/19/2015. Version 7.52";
-        about += "\r\n<html>All rights to <b>NintendoÂ®</b></html>";
-        about += "\r\nBy Andrew Kellogg";
+        about += "\r\nUpdated on "+Game.LATEST_DATE+". Version "+Game.VERSION;
+        about += "\r\n<html>All rights to <b>Nintendo®</b></html>";
+        about += "\r\nOriginal game by Andrew Kellogg";
         about += "\r\nemail: AirmanAJK@yahoo.com";
-        about += "\r\n\r\nDedicated to my wife Nicole.";
+        about += "\r\nMod by Lucas Rezac AKA Richard Meyer";
+        about += "\r\nemail: sirrichardmeyer@gmail.com";
         JOptionPane.showMessageDialog(component, about, "About", 0, Utilities.icon);
     }
     
@@ -107,7 +108,7 @@ public class Utilities
         }
     }
     
-    public static byte[] getBytes(final String path, final Class c) throws Exception {
+    public static byte[] getBytes(final String path, final Class<?> c) throws Exception {
         final BufferedInputStream bufStream = new BufferedInputStream(c.getResourceAsStream(path));
         final ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
         int b;
