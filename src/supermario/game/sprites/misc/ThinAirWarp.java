@@ -38,6 +38,11 @@ public class ThinAirWarp extends Sprite implements Warpable
     
     @Override
     public void draw(final Graphics2D g2D) {
+    	
+    }
+    @Override
+    public void draw(Graphics2D g2D, int levelType){
+    	
     }
     
     @Override

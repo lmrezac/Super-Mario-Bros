@@ -8,6 +8,10 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
+
+import supermario.debug.Debugger;
+import supermario.game.AnimatedIcon;
+import supermario.game.MultiIcon;
 @SuppressWarnings("unused")
 public class ImageBuilder {
     public static supermario.game.Textures textures;
@@ -33,10 +37,13 @@ public class ImageBuilder {
         boolean tall = contents == 0 || contents == 1 || contents == 2;
         int height = tall ? 32 : 16;
         int solidStart = tall ? 16 : 0;
+        if(container == 0 && contents == 0)
+        	Debugger.debug(new Exception(),"is item brick tall? = "+tall+" solidStart = "+solidStart);
         BufferedImage image = new BufferedImage(16, height, 6);
         Graphics2D g2D = (Graphics2D)image.getGraphics();
         Image solidPart = ImageBuilder.getSolidPart(container, shadowColor);
         Image contentsPart = ImageBuilder.getContentsPart(container, contents, shadowColor);
+        
         g2D.drawImage(solidPart, 0, solidStart, 16, height, 0, 0, 16, 16, null);
         g2D.drawImage(contentsPart, 0, 0, 16, 16, 0, 0, 16, 16, null);
         return new ImageIcon(image);
@@ -89,7 +96,16 @@ public class ImageBuilder {
 
     private static Image getSolidPart(int container, int shadowColor) {
         if (container == 0||container == 1||container == 2) {
-            return ((supermario.game.MultiIcon)ImageBuilder.textures.lightBrick).getImage(shadowColor);
+            return ImageBuilder.textures.lightBrick.getImage();
+            /*if(img instanceof supermario.game.MultiIcon){
+            	img = ((MultiIcon)img).getType(shadowColor);
+            }
+            if(img instanceof supermario.game.AnimatedIcon){
+            	AnimatedIcon icon = (AnimatedIcon)img;
+            	ImageIcon[] images = icon.getImages();
+            	return images[0].getImage();
+            }else
+            	return img.getImage();*/
         }
         /*if (container == 1) {
             return ImageBuilder.textures.darkBrick.getImage();

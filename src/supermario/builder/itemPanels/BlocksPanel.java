@@ -171,12 +171,12 @@ public final class BlocksPanel extends JPanel implements ItemPanel
         }
         ImageIcon brick = this.frame.game.textures.getLevelTypeAlt(levelType,frame.game.textures.lightBrick);
         this.brickNothing.setImages(brick,null);
-        this.brickCoin.setImages(ImageBuilder.createBlockImage(0, scheme, 3),brick);
-        this.brickCoins.setImages(ImageBuilder.createBlockImage(0, scheme, 4), brick);
-        this.brickGrow.setImages(ImageBuilder.createBlockImage(0, scheme, 0), brick);
-        this.brickLife.setImages(ImageBuilder.createBlockImage(0, scheme, 1), brick);
-        this.brickStar.setImages(ImageBuilder.createBlockImage(0, scheme, 2), brick);
-        this.brickBeanstalk.setImages(ImageBuilder.createBlockImage(0, scheme, 5), brick);
+        this.brickCoin.setImages(ImageBuilder.createBlockImage(0, scheme, 3),null);
+        this.brickCoins.setImages(ImageBuilder.createBlockImage(0, scheme, 4), null);
+        this.brickGrow.setImages(ImageBuilder.createBlockImage(0, scheme, 0), null);
+        this.brickLife.setImages(ImageBuilder.createBlockImage(0, scheme, 1), null);
+        this.brickStar.setImages(ImageBuilder.createBlockImage(0, scheme, 2), null);
+        this.brickBeanstalk.setImages(ImageBuilder.createBlockImage(0, scheme, 5), null);
         /*this.darkBrickNothing.setImages(this.frame.game.textures.darkBrick, null);
         this.darkBrickCoin.setImages(ImageBuilder.createBlockImage(1, scheme, 3), null);
         this.darkBrickCoins.setImages(ImageBuilder.createBlockImage(1, scheme, 4), null);

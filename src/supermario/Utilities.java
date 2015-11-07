@@ -474,6 +474,11 @@ public class Utilities
 			Graphics2D g = bimg.createGraphics();
 			g.drawImage(add.getImage(),base.getIconWidth(),0,null);
 			g.dispose();
+		}else if(direction.equals("overlay")){
+			bimg = (BufferedImage)base.getImage();
+			Graphics2D g = bimg.createGraphics();
+			g.drawImage(add.getImage(),0,0,null);
+			g.dispose();
 		}else{
 			bimg = (BufferedImage) base.getImage();
 		}

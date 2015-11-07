@@ -158,7 +158,7 @@ public final class GameLoader
         }
         
         private boolean isPossibleWarp(final char c) {
-            return LevelLoader.isBowserEnding(c) || (c == '\u2665' || c == '\u21a8') || c == 'k' || LevelLoader.isSideOpeningPipe(c) || (c == '~' || c == ';' || c == '\u0108') || (c == '\u0110') || LevelLoader.isBeanstalkBlock(c) || c == '\u03e4' ;
+            return LevelLoader.isBowserEnding(c) || (c == '\u2665' || c == '\u21a8') || c == 'k' || LevelLoader.isSideOpeningPipe(c) || (c == '~' || c == ';' || c == '\u0108') || (c == '\u0110') || LevelLoader.isBeanstalkBlock(c) || c == '\u03e4' || c == '½';
         }
         
         private void handlePossibleWarp(final int location, final int lineLength) throws Exception {

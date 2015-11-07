@@ -125,13 +125,13 @@ public class LevelLoader
     public static final char LIGHT_METAL = 's';
     public static final char DARK_METAL = 't';
     public static final char STONE_METAL = 'u';
-    public static final char TREE_TOP_LEFT_END = 'v';
-    public static final char TREE_TOP_RIGHT_END = 'w';
-    public static final char TREE_TOP_MIDDLE_SECTION = 'y';
-    public static final char MUSHROOM_TOP_LEFT_END = '\u25cb';
-    public static final char MUSHROOM_TOP_RIGHT_END = '\u25d9';
-    public static final char MUSHROOM_TOP_MIDDLE_SECTION = '\u2642';
-    public static final char MUSHROOM_BARK_TOP = '\u2193';
+    public static final char TREE_LEFT = 'v';
+    public static final char TREE_RIGHT = 'w';
+    public static final char TREE_MIDDLE = 'y';
+    public static final char MUSHROOM_LEFT = '\u25cb';
+    public static final char MUSHROOM_RIGHT = '\u25d9';
+    public static final char MUSHROOM_MIDDLE = '\u2642';
+    public static final char MUSHROOM_STEM = '\u2193';
     public static final char CORAL = 'z';
     public static final char BRIDGE = '\u25b2';
     public static final char BOWSER_BRIDGE = '\u00e6';
@@ -549,11 +549,11 @@ public class LevelLoader
     }
     
     public static boolean isBeanstalkBlock(final char c) {
-        return c == 'G' || c == 'N' || c == '\u25c4' || (c == '\u03d8' || c == '\u03dc');
+        return c == LIGHT_BRICK_BEANSTALK || c == 'N' || c == '\u25c4' || (c == '\u03d8' || c == '\u03dc');
     }
     
     public static boolean isPowerupBlock(final char c) {
-        return c == 'D' || c == 'K' || c == '\u266b' || c == 'X' || c == 'P';
+        return c == LIGHT_BRICK_GROW || c == 'K' || c == '\u266b' || c == 'X' || c == 'P';
     }
     
     public static boolean isWaterEnemyOnly(final char c) {
@@ -565,7 +565,7 @@ public class LevelLoader
     }
     
     public static boolean multiCoinBlock(final char c) {
-        return c == 'C' || c == 'J' || c == '\u2640';
+        return c == LIGHT_BRICK_COINS || c == 'J' || c == '\u2640';
     }
     
     public static boolean isFlippableEnemy(final char c) {
@@ -573,7 +573,7 @@ public class LevelLoader
     }
     
     public static boolean isShiftableBackground(final char c) {
-        return c == '\u00fd' || c == '«' || c == '©' || c == '¦' || c == '¥' || c == '¤' || c == '£' || c == 'b' || c == 'c' || c == 'd' || c == 'e' || c == '\u00f1';
+        return c == BRIDGE_CHAIN || c == SINGLE_CLOUD || c == DOUBLE_CLOUD || c == TRIPLE_CLOUD || c == SINGLE_BUSH || c == DOUBLE_BUSH || c == TRIPLE_BUSH || c == SMALL_HILL || c == BIG_HILL || c == SMALL_CASTLE || c == BIG_CASTLE || c == WARP_ZONE_MESSAGE;
     }
     
     public static boolean isRepeatablePlatform(final char c) {
@@ -585,7 +585,7 @@ public class LevelLoader
     }
     
     public static boolean isMarioPlacementItem(final char c) {
-        return c == 'k' || c == '½' || c == '\u0292' || c == '\u00f7';
+        return c == MARIO_STARTING_POSITION || c == MARIO_THIN_AIR_WARP || c == CHECKPOINT || c == INFINITE_CORRIDOR;
     }
     
     public static boolean isFallingPlatform(final char c) {
@@ -621,7 +621,7 @@ public class LevelLoader
     }
     
     public static boolean isUpwardOpeningPipe(final char c) {
-        return c == '~' || c == ';' || c == '\u0108';
+        return c == '~' || c == ';' || c == PIPE_WARP_ZONE;
     }
     
     public static boolean isDownwardOpeningPipe(final char c) {
@@ -641,7 +641,7 @@ public class LevelLoader
     }
     
     public static boolean isVerticalOpeningPipe(final char c) {
-        return c == '~' || c == ';' || c == '\u0108' || c == '\u0110' || c == '¿';
+        return c == '~' || c == ';' || c == PIPE_WARP_ZONE || c == '\u0110' || c == '¿';
     }
     
     public static boolean isPiranhaPipe(final char c) {
@@ -669,19 +669,19 @@ public class LevelLoader
     }
     
     public static boolean isBlockItem(final char c) {
-        return c == 'l' || c == 'm' || c == 'n' || c == 'o' || c == '§' || c == 'p' || (c == 'q' || c == 'r' || c == '\u045e' || c == 's' || c == 't' || c == 'u') || (c == 'v' || c == 'y' || c == 'w' || c == 'z') || (c == '\u25cb' || c == '\u2642' || c == '\u25d9' || c == '\u00e6');
+        return c == LIGHT_GROUND || c == DARK_GROUND || c == STONE_GROUND || c == SEA_GROUND || c == SEA_STONE || c == CLOUD_GROUND || (c == LIGHT_BLOCK || c == DARK_BLOCK || c == STONE_BLOCK || c == LIGHT_METAL || c == DARK_METAL || c == STONE_METAL) || (c == TREE_LEFT || c == TREE_MIDDLE || c == TREE_RIGHT || c == CORAL) || (c == MUSHROOM_LEFT || c == MUSHROOM_MIDDLE || c == MUSHROOM_RIGHT || c == BOWSER_BRIDGE);
     }
     
     public static boolean isBrickItem(final char c) {
-        return c == 'A' || c == 'B' || c == 'C' || c == 'D' || c == 'E' || c == 'F' || c == 'G' || (c == 'H' || c == 'I' || c == 'J' || c == 'K' || c == 'L' || c == 'M' || c == 'N') || (c == '\u2022' || c == '\u25d8' || c == '\u2640' || c == '\u266b' || c == '\u263c' || c == '\u25ba' || c == '\u25c4');
+        return c == LIGHT_BRICK_NOTHING || c == LIGHT_BRICK_SINGLE_COIN || c == LIGHT_BRICK_COINS || c == LIGHT_BRICK_GROW || c == LIGHT_BRICK_LIFE || c == LIGHT_BRICK_STAR || c == LIGHT_BRICK_BEANSTALK || (c == 'H' || c == 'I' || c == 'J' || c == 'K' || c == 'L' || c == 'M' || c == 'N') || (c == '\u2022' || c == '\u25d8' || c == '\u2640' || c == '\u266b' || c == '\u263c' || c == '\u25ba' || c == '\u25c4');
     }
     
     public static boolean isBoxItem(final char c) {
-        return c == 'O' || c == 'P' || c == 'Q' || c == 'R' || c == '\u03d8' || (c == 'W' || c == 'X' || c == 'Y' || c == 'Z' || c == '\u03dc');
+        return c == 'O' || c == 'P' || c == 'Q' || c == 'R' || c == '\u03d8' || (c == INVISIBLE_BOX_COIN || c == 'X' || c == 'Y' || c == 'Z' || c == '\u03dc');
     }
     
     public static boolean isCoinsBrick(final char c) {
-        return c == 'C' || c == 'J' || c == '\u2640';
+        return c == LIGHT_BRICK_COINS || c == 'J' || c == '\u2640';
     }
     
     private void interpretChars(final char[] chars, final int lineLength) throws Exception {
@@ -711,89 +711,89 @@ public class LevelLoader
                 if (Character.isDigit(tile) || tile == 'x') {
                     this.levelTiles[line][j] = new Tile(this.game, line, j);
                 }
-                else if (tile == '«') {
+                else if (tile == SINGLE_CLOUD) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.singleCloud, this.isShifted(followingChar), false);
                 }
-                else if (tile == '©') {
+                else if (tile == DOUBLE_CLOUD) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.doubleCloud, this.isShifted(followingChar), false);
                 }
-                else if (tile == '¦') {
+                else if (tile == TRIPLE_CLOUD) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.tripleCloud, this.isShifted(followingChar), false);
                 }
-                else if (tile == '¥') {
+                else if (tile == SINGLE_BUSH) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.singleBush, this.isShifted(followingChar), false);
                 }
-                else if (tile == '¤') {
+                else if (tile == DOUBLE_BUSH) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.doubleBush, this.isShifted(followingChar), false);
                 }
-                else if (tile == '£') {
+                else if (tile == TRIPLE_BUSH) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.tripleBush, this.isShifted(followingChar), false);
                 }
-                else if (tile == '¢') {
+                else if (tile == TALL_TRIMMED_BUSH) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.tallTrimmedBush, false, false);
                 }
-                else if (tile == '¡') {
+                else if (tile == SHORT_TRIMMED_BUSH) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.shortTrimmedBush, false, false);
                 }
-                else if (tile == '\u2192') {
+                else if (tile == SHORT_SNOWY_BUSH) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.shortSnowyBush, false, false);
                 }
-                else if (tile == '\u2190') {
+                else if (tile == TALL_SNOWY_BUSH) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.tallSnowyBush, false, false);
                 }
-                else if (tile == 'i') {
+                else if (tile == PICKET_FENCE) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.picketFence, false, false);
                 }
-                else if (tile == 'a') {
+                else if (tile == CASTLE_WALL_SECTION) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.castleWall, false, false);
                 }
-                else if (tile == 'b') {
+                else if (tile == SMALL_HILL) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.smallHill, this.isShifted(followingChar), false);
                 }
-                else if (tile == 'c') {
+                else if (tile == BIG_HILL) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.bigHill, this.isShifted(followingChar), false);
                 }
-                else if (tile == 'd') {
+                else if (tile == SMALL_CASTLE) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.smallCastle, this.isShifted(followingChar), false);
                 }
-                else if (tile == 'e') {
+                else if (tile == BIG_CASTLE) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.largeCastle, this.isShifted(followingChar), false);
                 }
-                else if (tile == 'f') {
+                else if (tile == TREE_BARK) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeBark, false, false);
                 }
-                else if (tile == '\u2660') {
+                else if (tile == MUSHROOM_BARK) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomStem, false, false);
                 }
-                else if (tile == 'g') {
+                else if (tile == LAVA_TOP) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.lavaTop, false, false);
                 }
-                else if (tile == 'µ') {
+                else if (tile == LAVA_BOTTOM) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.lavaBottom, false, false);
                 }
-                else if (tile == '¾') {
+                else if (tile == WATER_TOP) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.waterTop, false, false);
                 }
-                else if (tile == '\u00e5') {
+                else if (tile == WATER_BOTTOM) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.waterBottom, false, false);
                 }
-                else if (tile == '\u00f1') {
+                else if (tile == WARP_ZONE_MESSAGE) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.warpZoneMessage, this.isShifted(followingChar), false);
                 }
-                else if (tile == '\u00fd') {
+                else if (tile == BRIDGE_CHAIN) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.bowserChain, this.isShifted(followingChar), false);
                 }
-                else if (tile == 'h') {
+                else if (tile == COIN) {
                     final Sprite coin = new Coin(this.game, this.textures.getCoinTextures(), shadowColor);
                     this.levelTiles[line][j] = new Tile(this.game, line, j, coin);
                     this.multiTileSprite(line, j, 1, 1, coin);
                 }
-                else if (tile == '\u0292') {
+                else if (tile == CHECKPOINT) {
                     final Sprite checkpoint = new Checkpoint(this.game, new ImageIcon[] { this.game.textures.checkPtFlag }, this.getCheckpointType(followingChar));
                     this.levelTiles[line][j] = new Tile(this.game, line, j, checkpoint);
                     this.multiTileSprite(line, j, 1, 1, checkpoint);
                 }
-                else if (tile == '\u03e4') {
+                else if (tile == BEANSTALK_ARRIVAL) {
                     if (line != Game.yTiles - 11) {
                         throw new RuntimeException("Beanstalk arrivals must be in 11th to last row: line " + line + " column " + j);
                     }
@@ -809,7 +809,7 @@ public class LevelLoader
                     this.multiTileSprite(line, j, 1, 1, arrivalVine);
                     this.multiTileCollision(Game.yTiles - 2, j, 2, 2);
                 }
-                else if (tile == 'j') {
+                else if (tile == SPRING) {
                     final boolean isSuperSpring = this.isSuperSpring(followingChar);
                     final ImageIcon[] springTextures = isSuperSpring ? this.game.textures.getGreenSpringTextures() : this.game.textures.getSpringTextures();
                     final Sprite spring = new Spring(this.game, springTextures, this.levelType, isSuperSpring);
@@ -817,7 +817,7 @@ public class LevelLoader
                     this.multiTileSprite(line, j, 1, 1, spring);
                     this.multiTileCollision(line + 3, j, 1, 2);
                 }
-                else if (tile == 'k') {
+                else if (tile == MARIO_STARTING_POSITION) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j);
                     if (marioSet) {
                         this.errorCode = 1;
@@ -825,123 +825,123 @@ public class LevelLoader
                     }
                     marioSet = true;
                 }
-                else if (tile == '½') {
+                else if (tile == MARIO_THIN_AIR_WARP) {
                     final Sprite thinAir = new ThinAirWarp(this.game, new ImageIcon[] { this.game.textures.marioStand });
                     this.levelTiles[line][j] = new Tile(this.game, line, j, thinAir);
                 }
-                else if (tile == '\u00f7') {
+                else if (tile == INFINITE_CORRIDOR) {
                     final Sprite infiniteCorridor = new InfiniteCorridor(this.game, new ImageIcon[] { this.game.textures.infiniteCorridorSizer });
                     this.levelTiles[line][j] = new Tile(this.game, line, j, infiniteCorridor);
                     this.multiTileSprite(line, j, 1, 1, infiniteCorridor);
                 }
                 //MARK ground 1
-                else if (tile == 'l') {
+                else if (tile == LIGHT_GROUND) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.lightGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == 'm') {
+                else if (tile == DARK_GROUND) {
                 	debug(new Exception(),"loading fake dark tile");
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*dark*/lightGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
-                    chars[i+j] = 'l';
+                    chars[i+j] = LIGHT_GROUND;
                 }
-                else if (tile == 'n') {
+                else if (tile == STONE_GROUND) {
                 	debug(new Exception(),"loading fake stone tile");
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*stone*/lightGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
-                    chars[i+j] = 'l';
+                    chars[i+j] = LIGHT_GROUND;
                 }
-                else if (tile == 'o') {
+                else if (tile == SEA_GROUND) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*sea*/lightGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
-                    chars[i+j] = 'l';
+                    chars[i+j] = LIGHT_GROUND;
                 }
-                else if (tile == 'p') {
+                else if (tile == CLOUD_GROUND) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.cloudGround, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                     //chars[i+j] = 'l';
                 }
-                else if (tile == '§') {
+                else if (tile == SEA_STONE) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*sea*/lightBlock, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == 'q') {
+                else if (tile == LIGHT_BLOCK) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.lightBlock, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == 'r') {
+                else if (tile == DARK_BLOCK) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.darkBlock, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == '\u045e') {
+                else if (tile == STONE_BLOCK) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.stoneBlock, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == 's') {
+                else if (tile == LIGHT_METAL) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.lightMetal, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == 't') {
+                else if (tile == DARK_METAL) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*dark*/lightMetal, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == 'u') {
+                else if (tile == STONE_METAL) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures./*stone*/lightMetal, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == 'v') {
+                else if (tile == TREE_LEFT) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeLeft, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
-                else if (tile == 'w') {
+                else if (tile == TREE_RIGHT) {
                     this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeRight, false, true);
                     this.multiTileCollision(line, j, 2, 2);
                 }
                 else if (tile != 'x') {
-                    if (tile == 'y') {
+                    if (tile == TREE_MIDDLE) {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.treeMiddle, false, true);
                         this.multiTileCollision(line, j, 2, 1);
                     }
-                    else if (tile == '\u25cb') {
+                    else if (tile == MUSHROOM_LEFT) {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomLeft, false, true);
                         this.multiTileCollision(line, j, 2, 2);
                     }
-                    else if (tile == '\u25d9') {
+                    else if (tile == MUSHROOM_RIGHT) {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomRight, false, true);
                         this.multiTileCollision(line, j, 2, 2);
                     }
-                    else if (tile == '\u2642') {
+                    else if (tile == MUSHROOM_MIDDLE) {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomMiddle, false, true);
                         this.multiTileCollision(line, j, 2, 2);
                     }
-                    else if (tile == '\u2193') {
+                    else if (tile == MUSHROOM_STEM) {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.mushroomStem, false, false);
                     }
-                    else if (tile == 'z') {
+                    else if (tile == CORAL) {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.coral, false, true);
                         this.multiTileCollision(line, j, 2, 2);
                     }
-                    else if (tile == '\u25b2') {
+                    else if (tile == BRIDGE) {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.bridge, false, true);
                         this.multiTileCollision(line, j, 1, 1);
                     }
-                    else if (tile == '\u00e6') {
+                    else if (tile == BOWSER_BRIDGE) {
                         this.levelTiles[line][j] = new Tile(this.game, line, j, this.textures.bowserBridgeSection, false, true);
                         this.multiTileCollision(line, j, 2, 1);
                     }
-                    else if (tile == 'A') {
+                    else if (tile == LIGHT_BRICK_NOTHING) {
                         final Sprite brick = new Brick(this.game, bricks, 0, 0);
                         this.levelTiles[line][j] = new Tile(this.game, line, j, brick);
                         this.multiTileCollision(line, j, 2, 2);
                         this.multiTileSprite(line, j, 2, 2, brick);
                     }
-                    else if (tile == 'B') {
+                    else if (tile == LIGHT_BRICK_SINGLE_COIN) {
                         final Sprite brick = new Brick(this.game, bricks, 0, 1);
                         this.levelTiles[line][j] = new Tile(this.game, line, j, brick);
                         this.multiTileCollision(line, j, 2, 2);
                         this.multiTileSprite(line, j, 2, 2, brick);
                     }
-                    else if (tile == 'C') {
+                    else if (tile == LIGHT_BRICK_COINS) {
                         int coinCount = 5;
                         if (followingChar != 'x') {
                             coinCount = Integer.valueOf(String.valueOf(followingChar));
@@ -951,25 +951,25 @@ public class LevelLoader
                         this.multiTileCollision(line, j, 2, 2);
                         this.multiTileSprite(line, j, 2, 2, brick2);
                     }
-                    else if (tile == 'D') {
+                    else if (tile == LIGHT_BRICK_GROW) {
                         final Sprite brick = new Brick(this.game, bricks, 0, this.isPoison(followingChar) ? 7 : 3);
                         this.levelTiles[line][j] = new Tile(this.game, line, j, brick);
                         this.multiTileCollision(line, j, 2, 2);
                         this.multiTileSprite(line, j, 2, 2, brick);
                     }
-                    else if (tile == 'E') {
+                    else if (tile == LIGHT_BRICK_LIFE) {
                         final Sprite brick = new Brick(this.game, bricks, 0, 5);
                         this.levelTiles[line][j] = new Tile(this.game, line, j, brick);
                         this.multiTileCollision(line, j, 2, 2);
                         this.multiTileSprite(line, j, 2, 2, brick);
                     }
-                    else if (tile == 'F') {
+                    else if (tile == LIGHT_BRICK_STAR) {
                         final Sprite brick = new Brick(this.game, bricks, 0, 4);
                         this.levelTiles[line][j] = new Tile(this.game, line, j, brick);
                         this.multiTileCollision(line, j, 2, 2);
                         this.multiTileSprite(line, j, 2, 2, brick);
                     }
-                    else if (tile == 'G') {
+                    else if (tile == LIGHT_BRICK_BEANSTALK) {
                         final Sprite brick = new Brick(this.game, bricks, 0, 6);
                         this.levelTiles[line][j] = new Tile(this.game, line, j, brick);
                         this.multiTileCollision(line, j, 2, 2);
@@ -1097,7 +1097,7 @@ public class LevelLoader
                         this.multiTileCollision(line, j, 2, 2);
                         this.multiTileSprite(line, j, 2, 2, qBox2);
                     }
-                    else if (tile == 'W') {
+                    else if (tile == INVISIBLE_BOX_COIN) {
                         final Sprite qBox = new QuestionBox(this.game, questionBoxes, 0, QuestionBox.CONTENTS_COIN, true);
                         this.levelTiles[line][j] = new Tile(this.game, line, j, qBox);
                         this.multiTileCollision(line, j, 2, 2);
@@ -1212,7 +1212,7 @@ public class LevelLoader
                         this.levelTiles[line][j] = new Tile(this.game, line, j, pipe);
                         this.multiTileCollision(line, j, 4, 4);
                     }
-                    else if (tile == '\u0108') {
+                    else if (tile == PIPE_WARP_ZONE) {
                         char color = chars[i + j + (lineLength + 2)];
                         if (color == 'x') {
                             color = '0';
@@ -1397,7 +1397,7 @@ public class LevelLoader
                         this.multiTileCollision(line, j, 2, 2);
                         this.multiTileSprite(line, j, 1, 1, firebar);
                     }
-                    else if (tile == '.') {
+                    else if (tile == LAVABALL) {
                         int backgroundColor = 0;
                         if (followingChar == String.valueOf(1).toCharArray()[0]) {
                             backgroundColor = 1;
@@ -1636,7 +1636,7 @@ public class LevelLoader
     }
     
     private boolean isSingleRepPlatform(final char positionChar) {
-        if (positionChar == 'r' || positionChar == 'n') {
+        if (positionChar == DARK_BLOCK || positionChar == STONE_GROUND) {
             this.errorCode = 9;
             throw new RuntimeException("Invalid repeating platform character");
         }

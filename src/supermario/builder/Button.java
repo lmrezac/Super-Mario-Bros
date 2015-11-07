@@ -70,15 +70,12 @@ public final class Button extends JButton implements ActionListener
         	}
     		if(placed instanceof AnimatedIcon)
     			placed = ((AnimatedIcon)placed).getImages()[0];
-    	}
+    		this.placedImage = placed;
+    	}else
+    		this.placedImage = icon;
     	this.setIcon(icon);
         this.iconImage = icon;
-        if (placed != null) {
-            this.placedImage = placed;
-        }
-        else {
-            this.placedImage = icon;
-        }
+        
     }
     
     @Override

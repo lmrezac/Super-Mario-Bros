@@ -12,6 +12,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+import supermario.game.Textures.MessageException;
+
 public class Textures
 {
     public boolean validTextures;
@@ -273,12 +275,23 @@ public class Textures
         }
         save(imageName,image);
         return image;/**/
-    	ImageIcon image = new ImageIcon("images/"+imageName);
+    	/*ImageIcon image = new ImageIcon("images/"+imageName);
     	 if (image == null || image.getIconWidth() == -1) {
              this.validTextures = false;
              throw new RuntimeException("Invalid image: " + imageName);
          }
     	 return image;/**/
+    	BufferedImage img = null;
+    	try{
+    		img = ImageIO.read(new File("images/"+imageName));
+    	}catch(IOException e){
+    		
+    			throw new MessageException(e,"error reading images/"+imageName);
+    		
+    	}
+    	//
+    	ImageIcon image = new ImageIcon((BufferedImage)img);
+    	return image;
     }
     public static final String dir = System.getProperty("user.dir");
     public static void save(String filename,ImageIcon image){

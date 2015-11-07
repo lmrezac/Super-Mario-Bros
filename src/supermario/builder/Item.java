@@ -363,7 +363,7 @@ public final class Item
             if (this.shiftable && this.shifted) {
                 xOffset = (int)Math.round((this.button.placedImage.getIconWidth() - 8) * scaleFactor);
             }
-            if (this.character == '\u00fd' && this.shifted) {
+            if (this.character == LevelLoader.BRIDGE_CHAIN && this.shifted) {
                 final int width = (int)Math.round(this.button.placedImage.getIconWidth() * scaleFactor);
                 final int height = (int)Math.round(this.button.placedImage.getIconHeight() * scaleFactor);
                 g2D.drawImage(this.getImage(), Math.round(this.xPixel + width), this.yPixel, this.xPixel, this.yPixel + height, 0, 0, this.button.placedImage.getIconWidth(), this.button.placedImage.getIconHeight(), null);
@@ -597,7 +597,7 @@ public final class Item
             }
             return null;
         }
-        else if (this.character == '.' && this.fireballColor != 2) {
+        else if (this.character == LevelLoader.LAVABALL && this.fireballColor != 2) {
             if (this.fireballColor == 0) {
                 return this.frame.textures.displayLavaballRed.getImage();
             }
@@ -606,7 +606,7 @@ public final class Item
             }
             return null;
         }
-        else if (this.character == '\u0108' && this.warpPipeColor != 0) {
+        else if (this.character == LevelLoader.PIPE_WARP_ZONE && this.warpPipeColor != 0) {
             if (this.warpPipeColor == 1) {
                 return this.frame.game.textures.warpZonePipeGreen.getImage();
             }

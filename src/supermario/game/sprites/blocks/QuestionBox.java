@@ -59,6 +59,8 @@ public class QuestionBox extends Sprite implements Block, Warpable
     @Override
     public void update(final double delta) {
         this.ticks += delta;
+        if(this.exposed)
+        	this.hidden = false;
        // final int pulseIndex = Utilities.getPulsingImageIndex();
         if (!this.hit && !this.hidden) {
         	this.imageIndex = 0;
