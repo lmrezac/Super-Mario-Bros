@@ -91,10 +91,10 @@ public class Utilities
     public static void showAbout(final Component component) {
         String about = "<html><b>Super Mario Bros. NES Game & Builder</b></html>";
         about += "\r\nUpdated on "+Game.LATEST_DATE+". Version "+Game.VERSION;
-        about += "\r\n<html>All rights to <b>Nintendo®</b></html>";
+        about += "\r\n<html>All rights to <b>Nintendo(R)</b></html>";
         about += "\r\nOriginal game by Andrew Kellogg";
         about += "\r\nemail: AirmanAJK@yahoo.com";
-        about += "\r\nMod by Lucas Rezac AKA Richard Meyer";
+        about += "\r\nMod by Rick Meyer";
         about += "\r\nemail: sirrichardmeyer@gmail.com";
         JOptionPane.showMessageDialog(component, about, "About", 0, Utilities.icon);
     }
