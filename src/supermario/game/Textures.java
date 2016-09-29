@@ -23,6 +23,7 @@ import javax.swing.ImageIcon;
 import supermario.TextureMap;
 import supermario.Utilities;
 import supermario.debug.Debugger;
+import supermario.game.sprites.Mario;
 
 public class Textures
 {
@@ -106,6 +107,43 @@ public class Textures
     public ImageIcon luigiSmClimb1;
     public ImageIcon luigiSmClimb2;
     public ImageIcon luigiDead;
+    public ImageIcon spongeStand;
+    public ImageIcon spongeJump;
+    public ImageIcon spongeCrouch;
+    public ImageIcon spongeWalk1;
+    public ImageIcon spongeWalk2;
+    public ImageIcon spongeWalk3;
+    public ImageIcon spongeSkid;
+    public ImageIcon spongeSmStand;
+    public ImageIcon spongeSmJump;
+    public ImageIcon spongeSmWalk1;
+    public ImageIcon spongeSmWalk2;
+    public ImageIcon spongeSmWalk3;
+    public ImageIcon spongeSmSkid;
+    public ImageIcon spongeGrow;
+    public ImageIcon spongeSwim1;
+    public ImageIcon spongeSwim2;
+    public ImageIcon spongeSwim3;
+    public ImageIcon spongeSwim4;
+    public ImageIcon spongeSwim5;
+    public ImageIcon spongeSwim6;
+    public ImageIcon spongeSmSwim1;
+    public ImageIcon spongeSmSwim2;
+    public ImageIcon spongeSmSwim3;
+    public ImageIcon spongeSmSwim4;
+    public ImageIcon spongeSmSwim5;
+    public ImageIcon spongeSmSwim6;
+    public ImageIcon spongeFlowerSwim1;
+    public ImageIcon spongeFlowerSwim2;
+    public ImageIcon spongeFlowerSwim3;
+    public ImageIcon spongeFlowerSwim4;
+    public ImageIcon spongeFlowerSwim5;
+    public ImageIcon spongeFlowerSwim6;
+    public ImageIcon spongeClimb1;
+    public ImageIcon spongeClimb2;
+    public ImageIcon spongeSmClimb1;
+    public ImageIcon spongeSmClimb2;
+    public ImageIcon spongeDead;
     public ImageIcon marioDeadButton;
     public ImageIcon marioShootStandJumpWalk1;
     public ImageIcon marioShootWalk2;
@@ -576,6 +614,11 @@ public class Textures
         return luigiImages;
     }
     
+    public ImageIcon[] getSpongeTextures() {
+        final ImageIcon[] spongeImages = { this.spongeStand, this.spongeJump, this.spongeWalk1, this.spongeWalk2, this.spongeWalk3, this.spongeSwim1, this.spongeSwim2, this.spongeSwim3, this.spongeSwim4, this.spongeSwim5, this.spongeSwim6, this.spongeSkid, this.spongeClimb1, this.spongeClimb2, this.spongeCrouch, this.spongeSmStand, this.spongeSmJump, this.spongeSmWalk1, this.spongeSmWalk2, this.spongeSmWalk3, this.spongeSmSwim1, this.spongeSmSwim2, this.spongeSmSwim3, this.spongeSmSwim4, this.spongeSmSwim5, this.spongeSmSwim6, this.spongeSmSkid, this.spongeSmClimb1, this.spongeSmClimb2, this.spongeGrow, this.spongeDead };
+        return spongeImages;
+    }
+    
     public ImageIcon[] getKoopaTextures() {
         final ImageIcon[] koopaImages = { this.lightKoopa1, this.lightKoopa2, this.lightKoopa3, this.lightKoopa4, this.lightKoopa5, this.lightKoopa6, this.lightKoopa7 ,/* this.darkKoopa1, this.darkKoopa2, this.darkKoopa3, this.darkKoopa4, this.darkKoopa5, this.darkKoopa6, this.darkKoopa7,*/ this.redKoopa1, this.redKoopa2, this.redKoopa3, this.redKoopa4, this.redKoopa5, this.redKoopa6, this.redKoopa7 };
         return koopaImages;
@@ -689,14 +732,12 @@ public class Textures
     private String darkpalette, graypalette;
     public void init(String prefix) {
     	File f = new File(prefix+"tiles/waterBackgroundOverride.png");
-    	//debug(new Exception(),f.getAbsolutePath());
     	if(f.exists()){
     		try{
     		waterBackground = image(prefix,"tiles/waterBackgroundOverride.png");
     		}catch(MessageException e){
         		e.printStackTrace();
     			error(new Exception(),e.getMessage());
-    			//System.exit(0);
         	}
     		debug(new Exception(),"waterBackground exists!");
     	}else{
@@ -705,7 +746,11 @@ public class Textures
     	darkpalette = prefix+"sprites/darkpalette.png";
     	graypalette = prefix+"sprites/graypalette.png";
     	try{
-    		mariomap = new TextureMap(prefix+"sprites/mario/mario.png");
+    		if(Game.instance.mario.character == Mario.asSponge){
+    			mariomap = new TextureMap(prefix+"sprites/sponge/sponge.png");
+    		}else{
+    			mariomap = new TextureMap(prefix+"sprites/mario/mario.png");
+    		}
     	}catch(MessageException e){
     		e.printSelf();
     	}
@@ -1771,7 +1816,7 @@ public class Textures
     			try{
     				img = ImageIO.read(new File("images/"+imageName));
     			}catch(IOException f){
-    				f.printStackTrace();
+    				debug("error reading file images/"+imageName);
     				throw new MessageException(f,"error reading images/"+imageName);
     			
     			}
@@ -1883,7 +1928,8 @@ public class Textures
 	    	switch(leveltype){
 	    	case Level.LEVEL_TYPE_CASTLE:
 	    		return getCastleVariant(icon);
-	    	case Level.LEVEL_TYPE_OUTSIDE:case Level.LEVEL_TYPE_OUTSIDE_NIGHT:
+	    	case Level.LEVEL_TYPE_OUTSIDE:
+	    	case Level.LEVEL_TYPE_OUTSIDE_NIGHT:
 	    		return getLightVariant(icon);
 	    	case Level.LEVEL_TYPE_COIN_ZONE_DAY:case Level.LEVEL_TYPE_COIN_ZONE_NIGHT:
 	    		return getCoinZoneVariant(icon);

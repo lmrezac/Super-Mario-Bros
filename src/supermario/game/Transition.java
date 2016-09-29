@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 
 import supermario.Utilities;
+import supermario.game.sprites.Mario;
 
 public final class Transition
 {
@@ -149,8 +150,10 @@ public final class Transition
             }
             else {
                 Image image = this.textures.marioSmStand.getImage();
-                if (this.game.mario.asLuigi) {
+                if (this.game.mario.character == Mario.asLuigi) {
                     image = this.textures.luigiSmStand.getImage();
+                }else if(this.game.mario.character == Mario.asSponge){
+                	image = this.game.textures.spongeSmStand.getImage();
                 }
                 Utilities.drawAtTile(g2D, image, Game.overlayXOffset + 12, 10);
                 Utilities.drawTextAtPixels(g2D, this.combinedTitle, Game.xTiles * 8 / 2 - this.combinedTitle.length() * 8 / 2, 72);
@@ -161,7 +164,7 @@ public final class Transition
             }
         }
         else if (this.finishedGame) {
-            Utilities.drawTextAtTiles(g2D, "THANK YOU " + (this.game.mario.asLuigi ? "LUIGI" : "MARIO"), Game.overlayXOffset + 8, Game.overlayYOffset + 12);
+            Utilities.drawTextAtTiles(g2D, "THANK YOU " + (this.game.mario.character == Mario.asLuigi ? "LUIGI" : this.game.mario.character == Mario.asSponge ? "SPONGE" : "MARIO"), Game.overlayXOffset + 8, Game.overlayYOffset + 12);
             Utilities.drawAtTile(g2D, this.game.textures.symbols.get('\ufffc').getImage(), Game.overlayXOffset + 23, Game.overlayYOffset + 12);
             Utilities.drawTextAtTiles(g2D, "YOUR QUEST IS OVER.", Game.overlayXOffset + 7, Game.overlayYOffset + 16);
             Image image;
@@ -169,15 +172,19 @@ public final class Transition
                 image = this.game.textures.marioFlowerStand.getImage();
             }
             else if (this.game.mario.isLarge()) {
-                if (this.game.mario.asLuigi) {
+                if (this.game.mario.character == Mario.asLuigi) {
                     image = this.game.textures.luigiStand.getImage();
+                }else if(this.game.mario.character == Mario.asSponge){
+                	image = this.game.textures.spongeStand.getImage();
                 }
                 else {
                     image = this.game.textures.marioStand.getImage();
                 }
             }
-            else if (this.game.mario.asLuigi) {
+            else if (this.game.mario.character == Mario.asLuigi) {
                 image = this.game.textures.luigiSmStand.getImage();
+            }else if(this.game.mario.character == Mario.asSponge){
+            	image = this.game.textures.spongeSmStand.getImage();
             }
             else {
                 image = this.game.textures.marioSmStand.getImage();

@@ -29,7 +29,7 @@ public class TexturePacks
     public static final int STANDARD = 0, LOSTLEVELS = 1, NEWSMB = 2, SPECIAL = 3;
     public boolean setTexturePack(final int newTexturePack) {
     	debug(new Exception(),""+newTexturePack);
-    	if(Game.instance.luigiBros){switchToStandardTextures();return true;}
+    //	if(Game.instance.luigiBros){switchToStandardTextures();return true;}
         if (newTexturePack == STANDARD) {
             if (this.texturePack != STANDARD) {
                 this.switchToStandardTextures();

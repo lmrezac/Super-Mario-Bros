@@ -15,6 +15,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 import supermario.Utilities;
+import supermario.game.sprites.Mario;
 
 public final class Menu
 {
@@ -88,7 +89,7 @@ public final class Menu
             }
             else if (this.game.input.startDown && this.selectorIndex == 1) {
                 if (this.game.isAutoStartBuild()) {
-                    this.game.mario.asLuigi = true;
+                    this.game.mario.character = Mario.asLuigi;
                     this.game.playAGame();
                 }
                 else {
@@ -148,8 +149,10 @@ public final class Menu
             Utilities.drawAtTile(g2D, this.textures.lightGround.getImage(), i * 2, Game.yTiles - 1);
         }
         Image image = (Image)this.textures.marioSmStand.getImage();
-        if (this.game.mario.asLuigi || game.luigiBros) {
+        if (this.game.mario.character == Mario.asLuigi || game.luigiBros) {
             image =  this.textures.luigiSmStand.getImage();
+        }else if(this.game.mario.character == Mario.asSponge){
+        	image = this.textures.spongeSmStand.getImage();
         }
         if(Game.instance.luigiBros){
         	image.getWidth(null);

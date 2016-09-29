@@ -17,6 +17,7 @@ import supermario.game.Sprite;
 import supermario.game.Tile;
 import supermario.game.Warp;
 import supermario.game.interfaces.Warpable;
+import supermario.game.sprites.Mario;
 import supermario.game.sprites.blocks.Brick;
 import supermario.game.sprites.enemies.Bowser;
 import supermario.game.sprites.enemies.LavaBall;
@@ -285,8 +286,10 @@ public class BowserBattle extends Sprite implements Warpable
             this.transform.setToIdentity();
             g2D.setTransform(this.transform);
             String thanks = "THANK YOU MARIO";
-            if (this.game.mario.asLuigi) {
+            if (this.game.mario.character == Mario.asLuigi) {
                 thanks = "THANK YOU LUIGI";
+            }else if(this.game.mario.character == Mario.asSponge){
+            	thanks = "NO THANKS SPONGE";
             }
             Utilities.drawTextAtTiles(g2D, thanks, 8, 9);
             Utilities.drawAtTile(g2D, this.game.textures.symbols.get('\ufffc').getImage(), 23, 9);

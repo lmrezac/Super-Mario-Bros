@@ -242,7 +242,6 @@ public final class Level
     
     public void prepare() {
         if (!this.game.mario.hasStar()) {
-        	
             this.playLevelMusic();
         }
         Utilities.resetSynchronizedSprites();
@@ -1261,7 +1260,7 @@ public final class Level
                     this.transform.translate(j * 8, i * 8);
                     ImageIcon tileImage = this.tiles[i][j].image;
                 	//Textures textures = this.game.textures;
-
+                    	
                     if (this.tiles[i][j].image == this.game.textures.bridge) {
                         this.transform.translate(0.0, -8.0);
                     }

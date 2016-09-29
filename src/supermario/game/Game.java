@@ -173,7 +173,7 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
         }
         Utilities.textures = this.textures;
         this.transition = new Transition(this);
-        this.mario = new Mario(this, this.textures.getMarioTextures(), this.textures.getLuigiTextures());
+        this.mario = new Mario(this, this.textures.getMarioTextures(), this.textures.getLuigiTextures(), this.textures.getSpongeTextures());
         (this.overlayCoin = new OverlayCoin(this, this.textures.getOverlayCoinTextures())).setTileXY(Game.overlayXOffset + 11, 2);
         this.menu = new Menu(this);
         this.gameState = 0;
@@ -871,8 +871,10 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
         final int xLoc = 21;
         final int yLoc = 25;
         Image image = this.textures.marioSmStand.getImage();
-        if (this.mario.asLuigi) {
+        if (this.mario.character == Mario.asLuigi) {
             image = this.textures.luigiSmStand.getImage();
+        }else if(this.mario.character == Mario.asSponge){
+        	image = this.textures.spongeSmStand.getImage();
         }
         g2D.drawImage(image, (xLoc + 1) * 8, (yLoc - 3) * 8 + 4, null);
         Utilities.drawAtTile(g2D, this.textures.symbols.get('\ufffd').getImage(), xLoc + 3, yLoc);
@@ -887,21 +889,17 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
         final AffineTransform transform = g2D.getTransform();
         transform.setToIdentity();
         g2D.setTransform(transform);
-        if (this.mario.asLuigi || luigiBros) {
-            Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { 'L', 'U', 'I', 'G', 'I' }), Game.overlayXOffset + 3, Game.overlayYOffset + 1);
-        }
-        else {
-            Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { 'M', 'A', 'R', 'I', 'O' }), Game.overlayXOffset + 3, Game.overlayYOffset + 1);
-        }
+        String name = (this.mario.character == Mario.asLuigi || luigiBros)? "LUIGI" : this.mario.character == Mario.asSponge? "SPONGE" : "MARIO";
+        Utilities.drawTextAtTiles(g2D, name, Game.overlayXOffset + 3, Game.overlayYOffset + 1);
         if (this.gameState == 0) {
-            Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { 'W', 'O', 'R', 'L', 'D' }), Game.overlayXOffset + 18, 1);
-            Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { '1', '-', '1' }), Game.overlayXOffset + 19, 2);
+            Utilities.drawTextAtTiles(g2D, "WORLD", Game.overlayXOffset + 18, 1);
+            Utilities.drawTextAtTiles(g2D, "1-1", Game.overlayXOffset + 19, 2);
         }
         else {
             Utilities.drawTextAtPixels(g2D, this.mario.levelNamePart1, (Game.overlayXOffset + 20) * 8 - this.mario.levelNamePart1.length() * 8 / 2, 8);
             Utilities.drawTextAtPixels(g2D, this.mario.levelNamePart2, (Game.overlayXOffset + 20) * 8 - this.mario.levelNamePart2.length() * 8 / 2, 16);
         }
-        Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { 'T', 'I', 'M', 'E' }), Game.overlayXOffset + 25, 1);
+        Utilities.drawTextAtTiles(g2D, "TIME", Game.overlayXOffset + 25, 1);
         String timeString;
         if ((this.gameState == 1 || this.gameState == 2) && this.mario.timedLevel) {
             int timeLeft = this.mario.getTimeLeft();
@@ -1204,14 +1202,14 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
     	
         if (option == 0) {
             if (this.isAutoStartBuild()) {
-                this.mario.asLuigi = false;
+                this.mario.character = Mario.asMario;
             }
             this.playAGame();
             this.menu.selectorIndex = 0;
         }
         else if (option == 1) {
             if (this.isAutoStartBuild()) {
-                this.mario.asLuigi = true;
+                this.mario.character = Mario.asLuigi;
                 this.playAGame();
             }
             else {
@@ -1255,7 +1253,7 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
             }
         }
         else if (option == 8 && !this.isAutoStartBuild()) {
-            this.mario.asLuigi = !this.mario.asLuigi;
+            this.mario.character = this.mario.character == Mario.asMario? Mario.asLuigi : Mario.asMario;
         }
         else if (option == 9) {
             Utilities.showAbout(this);

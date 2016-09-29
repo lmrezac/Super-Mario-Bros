@@ -194,17 +194,18 @@ public class Mario extends Sprite
     private int flowerChangeIndex;
     private int strokeState;
     private int killCount;
-    public ImageIcon[] marioImages;
-    public ImageIcon[] luigiImages;
-    public boolean asLuigi;
+    public ImageIcon[] marioImages, luigiImages, spongeImages;
+    public byte character = asMario;
+    public static final byte asMario = 0, asLuigi = 1, asSponge = 2;
     public boolean wallPushing;
     
-    public Mario(final Game game, final ImageIcon[] images, final ImageIcon[] luigiImages) {
+    public Mario(final Game game, final ImageIcon[] images, final ImageIcon[] luigiImages, final ImageIcon[] spongeImages) {
         super(game, images);
         this.MARIO_SMUSH_POWER_BOUNCE = -400.0;
         this.starTranslation = new int[] { 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 30, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68 };
         this.marioImages = images;
         this.luigiImages = luigiImages;
+        this.spongeImages = spongeImages;
         this.setNextBubbleTime();
         this.avoidedCollisionCols = 2;
         this.avoidedCollisionRowsOnTop = 3;
@@ -366,8 +367,10 @@ public class Mario extends Sprite
     
     @Override
     public void draw(final Graphics2D g2D) {
-        if (this.asLuigi && this.imageIndex < this.luigiImages.length) {
+        if (this.character == asLuigi && this.imageIndex < this.luigiImages.length) {
             this.images = this.luigiImages;
+        }else if(this.character == asSponge && this.imageIndex < this.spongeImages.length){
+        	
         }
         else {
             this.images = this.marioImages;

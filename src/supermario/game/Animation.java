@@ -6,7 +6,10 @@ package supermario.game;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
+import supermario.Utilities;
 import supermario.game.sprites.Mario;
 @SuppressWarnings("unused")
 public class Animation
@@ -125,51 +128,60 @@ public class Animation
     }
     
     public void draw(final Graphics2D g2D) {
+    	Rectangle bound = g2D.getDeviceConfiguration().getBounds();
+    	BufferedImage buf = new BufferedImage((int)bound.getWidth(),(int)bound.getHeight(),BufferedImage.TYPE_INT_ARGB);
+    	Graphics2D g2d = buf.createGraphics();
         if (this.blanking) {
-            g2D.setColor(Color.BLACK);
-            g2D.fillRect(0, 0, Game.renderWidth, Game.renderHeight);
+            g2d.setColor(Color.BLACK);
+            g2d.fillRect(0, 0, Game.renderWidth, Game.renderHeight);
             return;
         }
         if (this.blueSky) {
-            g2D.setColor(this.t.skyBlue);
+            g2d.setColor(this.t.skyBlue);
         }
         else {
-            g2D.setColor(Color.BLACK);
+            g2d.setColor(Color.BLACK);
         }
-        g2D.fillRect(0, 0, Game.renderWidth, Game.renderHeight);
+        g2d.fillRect(0, 0, Game.renderWidth, Game.renderHeight);
         for (int i = 0; i < Game.xTiles; i += 2) {
-            g2D.drawImage(this.t.lightGround.getImage(), i * 8, Game.yTiles * 8 - 24, null);
-            g2D.drawImage(this.t.lightGround.getImage(), i * 8, Game.yTiles * 8 - 8, null);
+            g2d.drawImage(this.t.lightGround.getImage(), i * 8, Game.yTiles * 8 - 24, null);
+            g2d.drawImage(this.t.lightGround.getImage(), i * 8, Game.yTiles * 8 - 8, null);
         }
         if (this.bigCastle) {
-            g2D.drawImage(this.t.largeCastle.getImage(), 0, Game.renderHeight - 24 - this.t.largeCastle.getIconHeight(), null);
+            g2d.drawImage(this.t.largeCastle.getImage(), 0, Game.renderHeight - 24 - this.t.largeCastle.getIconHeight(), null);
         }
         else {
-            g2D.drawImage(this.t.smallCastle.getImage(), 0, Game.renderHeight - 24 - this.t.smallCastle.getIconHeight(), null);
-            g2D.drawImage(this.t.doubleCloud.getImage(), 56, 40, null);
+            g2d.drawImage(this.t.smallCastle.getImage(), 0, Game.renderHeight - 24 - this.t.smallCastle.getIconHeight(), null);
+            g2d.drawImage(this.t.doubleCloud.getImage(), 56, 40, null);
         }
-        g2D.drawImage(this.t.singleCloud.getImage(), 152, 104, null);
+        g2d.drawImage(this.t.singleCloud.getImage(), 152, 104, null);
         final int roundedMarioX = (int)Math.round(this.marioX);
         if (roundedMarioX < 160) {
-            this.drawMario(g2D, roundedMarioX);
+            this.drawMario(g2d, roundedMarioX);
         }
         if (this.blueSky) {
-            g2D.drawImage(this.t.greenPipes[0].getImage(), 160, 168, null);
-            g2D.drawImage(this.t.greenPipes[5].getImage(), 184, 168, null);
-            g2D.drawImage(this.t.greenPipes[6].getImage(), 192, 168, null);
-            g2D.drawImage(this.t.greenPipes[2].getImage(), 192, 136, null);
+            g2d.drawImage(this.t.greenPipes[0].getImage(), 160, 168, null);
+            g2d.drawImage(this.t.greenPipes[5].getImage(), 184, 168, null);
+            g2d.drawImage(this.t.greenPipes[6].getImage(), 192, 168, null);
+            g2d.drawImage(this.t.greenPipes[2].getImage(), 192, 136, null);
         }
         else {
-            g2D.drawImage(this.t.whitePipes[0].getImage(), 160, 168, null);
-            g2D.drawImage(this.t.whitePipes[5].getImage(), 184, 168, null);
-            g2D.drawImage(this.t.whitePipes[6].getImage(), 192, 168, null);
-            g2D.drawImage(this.t.whitePipes[2].getImage(), 192, 136, null);
+            g2d.drawImage(this.t.whitePipes[0].getImage(), 160, 168, null);
+            g2d.drawImage(this.t.whitePipes[5].getImage(), 184, 168, null);
+            g2d.drawImage(this.t.whitePipes[6].getImage(), 192, 168, null);
+            g2d.drawImage(this.t.whitePipes[2].getImage(), 192, 136, null);
         }
+        g2d.dispose();
+        if(game.luigiBros)
+        	buf = Utilities.horizontalFlip(buf);
+        g2D.drawImage(buf,0,0,null);
     }
     
     private void drawMario(final Graphics2D g2D, final int xPos) {
-        if (this.game.mario.asLuigi && this.marioIndex < this.game.mario.luigiImages.length) {
+        if (this.game.mario.character == Mario.asLuigi && this.marioIndex < this.game.mario.luigiImages.length) {
             this.game.mario.images = this.game.mario.luigiImages;
+        }else if(this.game.mario.character == Mario.asSponge && this.marioIndex < this.game.mario.spongeImages.length){
+        	this.game.mario.images = this.game.mario.spongeImages;
         }
         g2D.drawImage(this.game.mario.images[this.marioIndex].getImage(), xPos, Game.renderHeight - 24 - this.game.mario.height, null);
         this.game.mario.images = this.game.mario.marioImages;
