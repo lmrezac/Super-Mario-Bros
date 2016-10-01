@@ -115,6 +115,7 @@ public class TexturePacks
     }
     
     public boolean setTexturePack(final int newTexturePack) {
+    	this.texturePack = newTexturePack;
     	debug(new Exception(),"setTexturePack (1) "+newTexturePack);
         if (newTexturePack == 0) {
             if (this.texturePack != 0) {

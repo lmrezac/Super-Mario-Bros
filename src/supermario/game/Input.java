@@ -483,6 +483,11 @@ public class Input implements KeyListener
         			this.game.audio.play(Audio.FRIEND_GROW);
         		else
         			this.game.audio.play(Audio.POWER_DOWN_AND_PIPE);
+        	}else{
+        		boolean sponge = cheatMatch(codes,new int[]{dn,rt,up,lf});
+        		if(sponge){
+        			toggleSponge();
+        		}
         	}
         }
         else if (this.cheatCode.size() == 5) {
@@ -520,6 +525,12 @@ public class Input implements KeyListener
         
     }
     
+	private void toggleSponge(){
+		game.sponge = !game.sponge;
+		
+		
+	}
+
 	public void toggleLuigiBros(){
     	Game.instance.luigiBros = !Game.instance.luigiBros;
     	if(Game.instance.luigiBros){
@@ -764,6 +775,6 @@ public class Input implements KeyListener
                 return i;
             }
         }
-        return -1;
-    }
+		return -1;
+	}
 }

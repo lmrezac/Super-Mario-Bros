@@ -1771,7 +1771,6 @@ public class Textures
     			try{
     				img = ImageIO.read(new File("images/"+imageName));
     			}catch(IOException f){
-    				f.printStackTrace();
     				throw new MessageException(f,"error reading images/"+imageName);
     			
     			}

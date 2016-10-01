@@ -1225,7 +1225,7 @@ public class BuilderFrame extends JFrame implements WindowListener, DropTargetLi
         if (!(texturePack >=0 && texturePack <= supermario.game.TexturePacks.HIGHEST_PACK_VALUE)) {
             throw new IllegalArgumentException("Unknown texture pack style set for mass edit: " + texturePack);
         }
-        String texturePackName = supermario.game.TexturePacks.names[texturePack];
+        String texturePackName = supermario.game.TexturePacks.getNames()[texturePack];
         
         final int answer = JOptionPane.showConfirmDialog(this, "Are you sure you want to change all levels to the " + texturePackName + " texture pack?", "Texture Pack Change", 0);
         if (answer == 0) {

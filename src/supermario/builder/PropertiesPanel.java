@@ -31,6 +31,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import supermario.game.Game;
 import supermario.game.LevelLoader;
 @SuppressWarnings("unused")
 public class PropertiesPanel extends JPanel
@@ -355,7 +356,13 @@ public class PropertiesPanel extends JPanel
         final JComboBox<String> textureTypeComboBox = new JComboBox<String>();
         textureTypeComboBox.setToolTipText("The texture pack to use in this level...");
         textureTypeComboBox.setFont(this.frame.plain);
-        textureTypeComboBox.setModel(new DefaultComboBoxModel<String>(new String[] { " Original", " Lost Levels", "New SMB", "Special" }));
+        String[] textures;
+        if(Game.instance.sponge)
+        	textures = new String[] { " Original", " Lost Levels", "New SMB", "Special", "...sponge?" };
+        else
+        	textures = new String[] { " Original", " Lost Levels", "New SMB", "Special" };
+        
+        textureTypeComboBox.setModel(new DefaultComboBoxModel<String>(textures));
         textureTypeComboBox.setSelectedIndex(this.frame.levelPanel.level.texturePack);
         this.add(textureTypeComboBox, getConstraints(3, row++, 3, 1, 0, 0, 17, 0, 5, 0, 0, 0));
         this.addSeparator(row++, 6);

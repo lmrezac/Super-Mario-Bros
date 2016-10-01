@@ -126,6 +126,7 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
     public boolean takingSnapshot;
     public float snapshotTrans;
     public boolean luigiBros = false;
+    public boolean sponge = false;
     
     public Game(final int scaleFactor) {
     	Game.instance = this;
@@ -888,20 +889,20 @@ public final class Game extends Canvas implements WindowListener, DropTargetList
         transform.setToIdentity();
         g2D.setTransform(transform);
         if (this.mario.asLuigi || luigiBros) {
-            Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { 'L', 'U', 'I', 'G', 'I' }), Game.overlayXOffset + 3, Game.overlayYOffset + 1);
+            Utilities.drawTextAtTiles(g2D, "LUIGI", Game.overlayXOffset + 3, Game.overlayYOffset + 1);
         }
         else {
-            Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { 'M', 'A', 'R', 'I', 'O' }), Game.overlayXOffset + 3, Game.overlayYOffset + 1);
+            Utilities.drawTextAtTiles(g2D, "MARIO", Game.overlayXOffset + 3, Game.overlayYOffset + 1);
         }
         if (this.gameState == 0) {
-            Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { 'W', 'O', 'R', 'L', 'D' }), Game.overlayXOffset + 18, 1);
-            Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { '1', '-', '1' }), Game.overlayXOffset + 19, 2);
+            Utilities.drawTextAtTiles(g2D,"WORLD", Game.overlayXOffset + 18, 1);
+            Utilities.drawTextAtTiles(g2D, "1-1", Game.overlayXOffset + 19, 2);
         }
         else {
             Utilities.drawTextAtPixels(g2D, this.mario.levelNamePart1, (Game.overlayXOffset + 20) * 8 - this.mario.levelNamePart1.length() * 8 / 2, 8);
             Utilities.drawTextAtPixels(g2D, this.mario.levelNamePart2, (Game.overlayXOffset + 20) * 8 - this.mario.levelNamePart2.length() * 8 / 2, 16);
         }
-        Utilities.drawTextAtTiles(g2D, String.valueOf(new char[] { 'T', 'I', 'M', 'E' }), Game.overlayXOffset + 25, 1);
+        Utilities.drawTextAtTiles(g2D, "TIME", Game.overlayXOffset + 25, 1);
         String timeString;
         if ((this.gameState == 1 || this.gameState == 2) && this.mario.timedLevel) {
             int timeLeft = this.mario.getTimeLeft();

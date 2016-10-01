@@ -26,9 +26,13 @@ public class TexturePacks
     public int getTexturePack() {
         return this.texturePack;
     }
-    public static final int STANDARD = 0, LOSTLEVELS = 1, NEWSMB = 2, SPECIAL = 3;
-    public boolean setTexturePack(final int newTexturePack) {
+    public static final int STANDARD = 0, LOSTLEVELS = 1, NEWSMB = 2, SPECIAL = 3, SPONGE = 4;
+    public boolean setTexturePack(int newTexturePack) {
     	debug(new Exception(),""+newTexturePack);
+    	if(Game.instance.sponge){
+    		newTexturePack = SPONGE;
+    		debug(new Exception(),"overriden! "+SPONGE);
+    	}
     	if(Game.instance.luigiBros){switchToStandardTextures();return true;}
         if (newTexturePack == STANDARD) {
             if (this.texturePack != STANDARD) {
@@ -56,6 +60,14 @@ public class TexturePacks
         	if(this.texturePack != SPECIAL){
         		debug(new Exception(),"switch to Special textures");
         		this.switchToSpecialTextures();
+        		return true;
+        	}
+        	return false;
+        }
+        else if(newTexturePack == SPONGE){
+        	if(this.texturePack != SPONGE){
+        		debug(new Exception(),"switch to Sponge textures");
+        		this.switchToSpongeTextures();
         		return true;
         	}
         	return false;
@@ -105,15 +117,19 @@ public class TexturePacks
     	Game.instance.mario.marioImages = textures.getMarioTextures();
     	Game.instance.mario.luigiImages = textures.getLuigiTextures();
     }
-    public static final int HIGHEST_PACK_VALUE = SPECIAL;
-    public static final String[] names = {"Standard","Lost Levels","New SMB","SMB Special"};
-    /*private ImageIcon image(final String imageName) throws Exception {
-        ImageIcon image = new ImageIcon(imageName);
-        if (image.getIconWidth() == -1) {
-            this.validTextures = false;
-            throw new RuntimeException("Invalid image: " + imageName);
-        }
-	   	 return image;/**/
-    //}
-    
+    private void switchToSpongeTextures(){
+    	this.texturePack = SPONGE;
+    	this.textures.init("sponge/");
+    	switched = true;
+    	Game.instance.mario.marioImages = textures.getMarioTextures();
+    	Game.instance.mario.luigiImages = textures.getLuigiTextures();
+    }
+    public static final int HIGHEST_PACK_VALUE = SPONGE;
+    private static final String[] names = {"Standard","Lost Levels","New SMB","SMB Special"};
+    private static final String[] spongeNames = {"Standard","Lost Levels","New SMB","SMB Special","...sponge?"};
+    public static String[] getNames(){
+    	if(Game.instance.sponge)
+    		return spongeNames;
+    	else return names;
+    }
 }

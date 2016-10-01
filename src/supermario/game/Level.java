@@ -1521,6 +1521,8 @@ public final class Level
         else{// if (this.levelType == LEVEL_TYPE_UNDERGROUND || this.levelType == LEVEL_TYPE_CASTLE || this.levelType == LEVEL_TYPE_OUTSIDE_NIGHT || this.levelType == LEVEL_TYPE_COIN_ZONE_NIGHT || this.levelType == LEVEL_TYPE_GHOST_HOUSE) {
             this.backgroundColor = this.game.textures.black;
         }
+        if(Game.instance.sponge)
+        	this.backgroundColor = this.game.textures.black;
     	//debug(new Exception(),"background color "+backgroundColor.toString());
 
     }
