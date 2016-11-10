@@ -14,7 +14,7 @@ import supermario.game.sprites.enemies.Chomper;
 import supermario.game.Warp;
 import supermario.game.interfaces.Warpable;
 import supermario.game.Sprite;
-
+import static supermario.debug.Debugger.debug;
 public class Pipe extends Sprite implements Warpable
 {
     public static final int PIPE_COLOR_ORANGE = 4;
@@ -161,6 +161,7 @@ public class Pipe extends Sprite implements Warpable
     
     @Override
     public void draw(final Graphics2D g2D) {
+   
         if (this.type == 11 && this.idDisplayable && this.warp.sourceWarpID != -1) {
             final String displayID = String.valueOf(this.warp.sourceWarpID);
             int xCenter = this.x + this.width / 2;

@@ -37,7 +37,6 @@ public class MultiIcon extends ImageIcon{
 	}
 	public ImageIcon getType(int i){
 		//System.out.println("getType "+i);
-		
 		switch(i){
 		case Level.LEVEL_TYPE_OUTSIDE:
 		case Level.LEVEL_TYPE_OUTSIDE_NIGHT:

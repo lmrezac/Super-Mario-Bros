@@ -1039,7 +1039,7 @@ public final class Level
     
     private void drawPriorityLevelSprites(final Graphics2D g2D, final LinkedList<Sprite> sprites) {
         final Iterator<Sprite> spritesIter = sprites.iterator();
-        while (spritesIter.hasNext()) {
+        while (spritesIter.hasNext()){
             spritesIter.next().draw(g2D);
         }
     }

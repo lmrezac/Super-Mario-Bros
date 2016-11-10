@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.lang.reflect.Member;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -232,6 +233,7 @@ public class Textures
     public ImageIcon ghostBrick;*/
     //MARK ground here
     public ImageIcon lightGround;
+    public ImageIcon grayGround;
     public ImageIcon lightGroundTop, lightGroundTopLeft, lightGroundTopRight,
     				lightGroundLeft,lightGroundRight, lightGroundBottomLeft,
     				lightGroundBottom, lightGroundBottomRight;
@@ -688,6 +690,7 @@ public class Textures
     }
     private String darkpalette, graypalette;
     public void init(String prefix) {
+    	debug("init called with prefix "+prefix);
     	File f = new File(prefix+"tiles/waterBackgroundOverride.png");
     	//debug(new Exception(),f.getAbsolutePath());
     	if(f.exists()){
@@ -719,10 +722,15 @@ public class Textures
         this.effectsInit(prefix);
         this.marioInit(prefix);
         this.luigiInit(prefix);
+        
+        this.grayGround = TextureMap.applyPalette(lightGround, graypalette);
     }
     private Color getColorFromImage(String prefix,String name){
+
+		File f = new File(prefix+"tiles/"+name+".png");
     	try{
-    		BufferedImage img = ImageIO.read(new File(prefix+"tiles/"+name+".png"));
+    		debug(new Exception(),"reading color from file "+f.getAbsolutePath());
+    		BufferedImage img = ImageIO.read(f);
     		return new Color(img.getRGB(0, 0));
     	}catch(IOException ex){
     		if(prefix.equals("images/")){
@@ -731,10 +739,11 @@ public class Textures
     			return null;
     		}else{
     			try{
+    				debug(new Exception(),"Error reading file "+f.getAbsolutePath());
     				BufferedImage img = ImageIO.read(new File("images/tiles/"+name+".png"));
     				return new Color(img.getRGB(0, 0));
-    			}catch(IOException f){
-    				f.printStackTrace();
+    			}catch(IOException ex2){
+    				ex2.printStackTrace();
     				System.exit(0);
     				return null;
     			}
@@ -756,7 +765,7 @@ public class Textures
         this.superSpringGreen = new Color(13, 147, 0);
         this.offBlack = new Color(20, 20, 20);
         this.lavaColor = getColorFromImage(this.lavaBottom);//new Color(181, 49, 32);
-        this.waterColor =getColorFromImage(this.waterBottom);//new Color(100, 176, 255);
+        this.waterColor = getColorFromImage(this.waterBottom);//new Color(100, 176, 255);
     }
     //public void symbolsInit()  { symbolsInit("images/"); }
     public void symbolsInit(String prefix)  {
@@ -1177,6 +1186,7 @@ public class Textures
         //System.out.println("stoneBrick is bric? "+isBrick(stoneBrick));
         TextureMap ground = new TextureMap(prefix+"tiles/overworld/ground.png");
         this.lightGround = ground.getTile(1, 1);
+        
         this.lightGroundTopLeft = ground.getTile(0, 0);
         this.lightGroundTop = ground.getTile(1, 0);
         this.lightGroundTopRight = ground.getTile(2,0);

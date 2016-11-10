@@ -33,7 +33,7 @@ public class TexturePacks
     		newTexturePack = SPONGE;
     		debug(new Exception(),"overriden! "+SPONGE);
     	}
-    	if(Game.instance.luigiBros){switchToStandardTextures();return true;}
+    	//if(Game.instance.luigiBros){switchToStandardTextures();return true;}
         if (newTexturePack == STANDARD) {
             if (this.texturePack != STANDARD) {
                 this.switchToStandardTextures();
@@ -123,6 +123,7 @@ public class TexturePacks
     	switched = true;
     	Game.instance.mario.marioImages = textures.getMarioTextures();
     	Game.instance.mario.luigiImages = textures.getLuigiTextures();
+    	debug(new Exception(),textures.skyBlue.toString());
     }
     public static final int HIGHEST_PACK_VALUE = SPONGE;
     private static final String[] names = {"Standard","Lost Levels","New SMB","SMB Special"};

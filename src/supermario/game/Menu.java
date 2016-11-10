@@ -15,11 +15,10 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 import supermario.Utilities;
-
+import static supermario.debug.Debugger.debug;
 public final class Menu
 {
     private Game game;
-    private Textures textures;
     public int selectorIndex;
     public int mouseHoveredIndex;
     public static final int NO_OPTION_HOVERED_BY_MOUSE = -1;
@@ -37,7 +36,7 @@ public final class Menu
     public boolean upReleased;
     public boolean downReleased;
     private static final String author;
-    private static final String disclaimer;
+    private static final String copyright;
     private static final String play;
     private static final String play1Game;
     private static final String play2Game;
@@ -68,7 +67,6 @@ public final class Menu
     
     public Menu(final Game game) {
         this.game = game;
-        this.textures = game.textures;
         this.mouseHoveredIndex = -1;
     }
     
@@ -120,9 +118,9 @@ public final class Menu
     }
     
     public void draw(final Graphics2D g2D) {
-        g2D.setColor(this.textures.skyBlue);
+        g2D.setColor(game.textures.skyBlue);
         g2D.fillRect(0, 0, Game.renderWidth, Game.renderHeight);
-        Utilities.drawAtTile(g2D, this.game.luigiBros? this.textures.title2.getImage() : this.textures.title.getImage(), 5, 3);
+        Utilities.drawAtTile(g2D, this.game.luigiBros? game.textures.title2.getImage() : game.textures.title.getImage(), 5, 3);
         if (this.game.inputSelection) {
             String text = "Keyboard:";
             if (this.game.input.controllers.gettingControls) {
@@ -133,23 +131,25 @@ public final class Menu
             if (xStartPos < 0) {
                 xStartPos = 0;
             }
-            Utilities.drawTextAtPixels(g2D, text, xStartPos, 120, this.textures.pink, 1.0f);
+            Utilities.drawTextAtPixels(g2D, text, xStartPos, 120, game.textures.pink, 1.0f);
         }
         else if (this.game.isAutoStartBuild()) {
-            Utilities.drawTextAtTiles(g2D, Menu.disclaimer, 13, 14, this.textures.pink, 1.0f);
+            Utilities.drawTextAtTiles(g2D, Menu.copyright, 13, 14, game.textures.pink, 1.0f);
         }
         else {
-            Utilities.drawTextAtTiles(g2D, Menu.author, 10, 14, this.textures.pink, 1.0f);
+            Utilities.drawTextAtTiles(g2D, Menu.author, 10, 14, game.textures.pink, 1.0f);
         }
-        Utilities.drawAtTile(g2D, this.textures.bigHill.getImage(), 0, Game.yTiles - 8);
-        Utilities.drawAtTile(g2D, this.textures.tripleBush.getImage(), 23, Game.yTiles - 5);
+        Utilities.drawAtTile(g2D, game.textures.bigHill.getImage(), 0, Game.yTiles - 8);
+        Utilities.drawAtTile(g2D, game.textures.tripleBush.getImage(), 23, Game.yTiles - 5);
         for (int i = 0; i < this.game.getWidth() / 8 + 1; ++i) {
-            Utilities.drawAtTile(g2D, this.textures.lightGround.getImage(), i * 2, Game.yTiles - 3);
-            Utilities.drawAtTile(g2D, this.textures.lightGround.getImage(), i * 2, Game.yTiles - 1);
+            Utilities.drawAtTile(g2D, game.textures.lightGround.getImage(), i * 2, Game.yTiles - 3);
+            Utilities.drawAtTile(g2D, game.textures.lightGround.getImage(), i * 2, Game.yTiles - 1);
         }
-        Image image = (Image)this.textures.marioSmStand.getImage();
+        
+        Image image = game.textures.marioSmStand.getImage();
+        
         if (this.game.mario.asLuigi || game.luigiBros) {
-            image =  this.textures.luigiSmStand.getImage();
+            image =  game.textures.luigiSmStand.getImage();
         }
         if(Game.instance.luigiBros){
         	image.getWidth(null);
@@ -162,7 +162,7 @@ public final class Menu
         g2D.drawImage(image, Game.instance.luigiBros? width-40 : 40, 168 + this.game.mario.avoidedCollisionRowsOnBottom, null);
         if (!this.game.settingOptions) {
             final int selectorPos = 17 + 2 * this.selectorIndex;
-            g2D.drawImage(this.textures.selector.getImage(), 72, 8 * selectorPos, null);
+            g2D.drawImage(game.textures.selector.getImage(), 72, 8 * selectorPos, null);
             if (this.game.isAutoStartBuild()) {
                 Utilities.drawTextAtTiles(g2D, Menu.play1Game, 11, 17);
                 Utilities.drawTextAtTiles(g2D, Menu.play2Game, 11, 19);
@@ -267,7 +267,7 @@ public final class Menu
     
     static {
         author = "BY ANDREW & RICK ";//String.valueOf(new char[] { 'B', 'Y', ' ', 'A', 'N', 'D', 'R', 'E', 'W', ' ', 'K', 'E', 'L', 'L', 'O', 'G', 'G' });
-        disclaimer = "©1985 NINTENDO";//String.valueOf(new char[] { '©', '1', '9', '8', '5', ' ', 'N', 'I', 'N', 'T', 'E', 'N', 'D', 'O' });
+        copyright = "©1985 NINTENDO";//String.valueOf(new char[] { '©', '1', '9', '8', '5', ' ', 'N', 'I', 'N', 'T', 'E', 'N', 'D', 'O' });
         play = "PLAY A GAME";//String.valueOf(new char[] { 'P', 'L', 'A', 'Y', ' ', 'A', ' ', 'G', 'A', 'M', 'E' });
         play1Game = "1 PLAYER";//String.valueOf(new char[] { 'M', 'A', 'R', 'I', 'O', ' ', 'G', 'A', 'M', 'E' });
         play2Game = "2 PLAYER";//String.valueOf(new char[] { 'L', 'U', 'I', 'G', 'I', ' ', 'G', 'A', 'M', 'E' });
